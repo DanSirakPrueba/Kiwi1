@@ -33,7 +33,7 @@ public class BBDD {
     	String phraseD = "%^S_CONDICION_SELECT.\"" + condicionSelect + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n" + phraseD + "\n";
         // TODO: Arreglar el número del deliver.
-    	Deliver.deliver(11, phrase);
+    	Deliver.deliver(Deliver.SELECTBD, phrase);
     }
 
     public static void deleteBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
@@ -49,10 +49,10 @@ public class BBDD {
         String phraseC = "%^D_CONDICION_DELETE.\"" + condicionDelete + "\"";
         String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n";
         // TODO: Arreglar el número del deliver.
-        Deliver.deliver(12, phrase);
+        Deliver.deliver(Deliver.DELETEBD, phrase);
     }
 
-    public static void updateDB(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
+    public static void updateBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
     			ArrayList tablaUpdate, ArrayList camposUpdate, String condicionUpdate) {
     	// TODO: en la interfaz debe preguntarse qué partes quiere poner.
     	String phraseA = "";
@@ -74,7 +74,7 @@ public class BBDD {
     	String phraseD = "%^U_CONDICION_UPDATE.\"" + condicionUpdate + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n" + phraseD + "\n";
         // TODO: Arreglar el número del deliver.
-    	Deliver.deliver(13, phrase);
+    	Deliver.deliver(Deliver.UPDATEBD, phrase);
     }
     
     public static void queryBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
@@ -88,7 +88,7 @@ public class BBDD {
     	String phraseB = "%^X_SENTENCIA_QUERY.\"" + sentenciaQuery + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n";
      	// TODO: Arreglar el número del deliver.
-    	Deliver.deliver(14, phrase);
+    	Deliver.deliver(Deliver.QUERYBD, phrase);
     }
 
     public static void insertBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
@@ -111,7 +111,7 @@ public class BBDD {
     	}
     	phraseD += columnasInsert.get(columnasInsert.size() - 1) + "\"";
         String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n" + phraseD + "\n";
-      	Deliver.deliver(15, phrase);
+      	Deliver.deliver(Deliver.INSERTBD, phrase);
 
     }
 }
