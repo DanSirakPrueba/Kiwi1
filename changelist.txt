@@ -1,0 +1,19 @@
+v0.0.1
++ Added code for the Variable class, still TODO to complete.
++ Added some temporal code to Deliver class, have to fix it when the interface is up.
++ Added function createVariableFromText for the Variable class.
++ Added some new content to createVariableFromText, now it makes different stuff if
+the range is absolute or relative.
++ Added some new cases to the createVariableFromText, depending on different situations.
++ Fixed some mistakes on that method.
++ Added functionability to the Input class, now it can read a file and send it through Deliver.
++ Fixed code for the Input class, now it's ready to rock.
++ Created BBDD and Operations, fixing them.
++ Created a code for deliver's numbers:
+    - BBDD:         1*
+    - Input:        2*
+    - Operaciones:  3*
+    - Syntax:       4*
+    - Tablas:       5*
+    - Variables:    6*
++Syntax class implemented
