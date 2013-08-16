@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author Kiwi
  */
 public class BBDD {
-    // esto es un cambio
+    
     public static void selectBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD, 
     			ArrayList resultadoSelect, ArrayList tablaSelect, String condicionSelect) {
     	// TODO: en la interfaz debe preguntarse qué partes quiere poner.
