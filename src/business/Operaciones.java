@@ -13,13 +13,13 @@ import java.util.ArrayList;
 public class Operaciones {
 
     public static void xOperacionSintax(ArrayList order) {
-    	String phrase = "%^X_ORDEN_SINTAX.\""
+    	String phrase = "%^X_ORDEN_SINTAX.\"";
     	for (int i = 0; i < order.size() - 1; i++) {
     		phrase += order.get(i) + ",";
     	}
-    	phrase += order.get(order.size() - 1) +"\""
+    	phrase += order.get(order.size() - 1) +"\"";
     	// TODO: Arreglar el número del deliver.
-    	Deliver.deliver(1, phrase)
+    	Deliver.deliver(1, phrase);
     }
 
     public static void xFormateoOperacion(String opciones) {
