@@ -117,6 +117,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        Save.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fernando\\Documents\\NetBeansProjects\\Kiwi1\\src\\icons\\disk.png")); // NOI18N
         Save.setText("Save");
 
         NVariable.setText("New Variable");
