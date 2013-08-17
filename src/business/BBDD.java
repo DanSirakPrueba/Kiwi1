@@ -10,7 +10,18 @@ import java.util.ArrayList;
  * @author Kiwi
  */
 public class BBDD {
-    // prueba NasK
+    
+    /**
+     * Method that creates a select-type phrase based on the given input.
+     * 
+     * @param conexion: true if there is conexion field, false in other cases.
+     * @param usuarioBD: User of the DB.
+     * @param passwdBD: Passwd of the DB.
+     * @param conexionBD: Conexion field of the DB.
+     * @param resultadoSelect: Results from the select conection.
+     * @param tablaSelect: Table in which the select will be used.
+     * @param condicionSelect: Conndition under the selec
+     */
     public static void selectBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD, 
     			ArrayList resultadoSelect, ArrayList tablaSelect, String condicionSelect) {
     	// TODO: en la interfaz debe preguntarse qué partes quiere poner.
@@ -32,10 +43,19 @@ public class BBDD {
     	phraseC += tablaSelect.get(tablaSelect.size() - 1) + "\"";
     	String phraseD = "%^S_CONDICION_SELECT.\"" + condicionSelect + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n" + phraseD + "\n";
-        // TODO: Arreglar el número del deliver.
     	Deliver.deliver(Deliver.SELECTBD, phrase);
     }
-
+    
+    /**
+     * Method that creates a delete-type phrase based on the given input.
+     * 
+     * @param conexion: true if there is conexion field, false in other cases.
+     * @param usuarioBD: user of the database.
+     * @param passwdBD: password of the database.
+     * @param conexionBD: conexion field of the database.
+     * @param tablaDelete: target table of the operation.
+     * @param condicionDelete 
+     */
     public static void deleteBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
                 String tablaDelete, String condicionDelete) {
         // TODO: en la interfaz debe preguntarse que partes quiere poner.
@@ -48,10 +68,20 @@ public class BBDD {
         String phraseB = "%^D_TABLA_DELETE.\"" + tablaDelete + "\"";
         String phraseC = "%^D_CONDICION_DELETE.\"" + condicionDelete + "\"";
         String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n";
-        // TODO: Arreglar el número del deliver.
         Deliver.deliver(Deliver.DELETEBD, phrase);
     }
 
+    /**
+     * Method that creates a update-type phrase based on the given input.
+     * 
+     * @param conexion: true if there is conexion field, false in other cases.
+     * @param usuarioBD: user of the database.
+     * @param passwdBD: password of the database.
+     * @param conexionBD: conexion field of the database.
+     * @param tablaUpdate: Target of the update operation.
+     * @param camposUpdate: Fields which will we modified with the update.
+     * @param condicionUpdate: Condition under which the update will run.
+     */
     public static void updateBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
     			ArrayList tablaUpdate, ArrayList camposUpdate, String condicionUpdate) {
     	// TODO: en la interfaz debe preguntarse qué partes quiere poner.
@@ -73,10 +103,17 @@ public class BBDD {
     	phraseC += camposUpdate.get(camposUpdate.size() - 1) + "\"";
     	String phraseD = "%^U_CONDICION_UPDATE.\"" + condicionUpdate + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n" + phraseD + "\n";
-        // TODO: Arreglar el número del deliver.
     	Deliver.deliver(Deliver.UPDATEBD, phrase);
     }
     
+    /**
+     * 
+     * @param conexion: true if there is conexion field, false in other cases.
+     * @param usuarioBD: user of the database.
+     * @param passwdBD: password of the database.
+     * @param conexionBD: conexion field of the database.
+     * @param sentenciaQuery: Query sentence.
+     */
     public static void queryBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
     			String sentenciaQuery) {
     	String phraseA = "";
@@ -87,10 +124,19 @@ public class BBDD {
     	}
     	String phraseB = "%^X_SENTENCIA_QUERY.\"" + sentenciaQuery + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n";
-     	// TODO: Arreglar el número del deliver.
     	Deliver.deliver(Deliver.QUERYBD, phrase);
     }
 
+    /**
+     * 
+     * @param conexion: true if there is conexion field, false in other cases.
+     * @param usuarioBD: user of the database.
+     * @param passwdBD: password of the database.
+     * @param conexionBD: conexion field of the database.
+     * @param camposInsert: Desired fields of the insert operation.
+     * @param tablaInsert: Target table of the insert operation.
+     * @param columnasInsert: Target column of the insert operation.
+     */
     public static void insertBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
     			ArrayList camposInsert, String tablaInsert, ArrayList columnasInsert) {
     	String phraseA = "";
