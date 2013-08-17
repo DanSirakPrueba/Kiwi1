@@ -10,7 +10,18 @@ import java.util.ArrayList;
  * @author Kiwi
  */
 public class BBDD {
-    // prueba NasK
+    
+    /**
+     * Method that creates a select-type phrase based on the given input.
+     * 
+     * @param conexion: true if there is conexion field, false in other cases.
+     * @param usuarioBD: User of the DB.
+     * @param passwdBD: Passwd of the DB.
+     * @param conexionBD: Conexion field of the DB.
+     * @param resultadoSelect: Results from the select conection.
+     * @param tablaSelect: Table in which the select will be used.
+     * @param condicionSelect: Conndition under the selec
+     */
     public static void selectBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD, 
     			ArrayList resultadoSelect, ArrayList tablaSelect, String condicionSelect) {
     	// TODO: en la interfaz debe preguntarse qué partes quiere poner.
@@ -32,7 +43,6 @@ public class BBDD {
     	phraseC += tablaSelect.get(tablaSelect.size() - 1) + "\"";
     	String phraseD = "%^S_CONDICION_SELECT.\"" + condicionSelect + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n" + phraseD + "\n";
-        // TODO: Arreglar el número del deliver.
     	Deliver.deliver(Deliver.SELECTBD, phrase);
     }
 
@@ -48,7 +58,6 @@ public class BBDD {
         String phraseB = "%^D_TABLA_DELETE.\"" + tablaDelete + "\"";
         String phraseC = "%^D_CONDICION_DELETE.\"" + condicionDelete + "\"";
         String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n";
-        // TODO: Arreglar el número del deliver.
         Deliver.deliver(Deliver.DELETEBD, phrase);
     }
 
@@ -73,7 +82,6 @@ public class BBDD {
     	phraseC += camposUpdate.get(camposUpdate.size() - 1) + "\"";
     	String phraseD = "%^U_CONDICION_UPDATE.\"" + condicionUpdate + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n" + phraseD + "\n";
-        // TODO: Arreglar el número del deliver.
     	Deliver.deliver(Deliver.UPDATEBD, phrase);
     }
     
@@ -87,7 +95,6 @@ public class BBDD {
     	}
     	String phraseB = "%^X_SENTENCIA_QUERY.\"" + sentenciaQuery + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n";
-     	// TODO: Arreglar el número del deliver.
     	Deliver.deliver(Deliver.QUERYBD, phrase);
     }
 
