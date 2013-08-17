@@ -79,7 +79,7 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
         jSplitPane1.setLeftComponent(jScrollPane1);
 
-        Load.setIcon(new javax.swing.ImageIcon("C:\\Users\\NasK\\Downloads\\fatcow-16x16\\16x16_0680\\page_white_put.png")); // NOI18N
+        Load.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/page_white_put.png"))); // NOI18N
         Load.setToolTipText("Load");
         Load.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,10 +87,10 @@ public class NewJFrame2 extends javax.swing.JFrame {
             }
         });
 
-        Save.setIcon(new javax.swing.ImageIcon("C:\\Users\\NasK\\Downloads\\fatcow-16x16\\16x16_0660\\page_white_get.png")); // NOI18N
+        Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/page_white_get.png"))); // NOI18N
         Save.setToolTipText("Save");
 
-        NVariable.setIcon(new javax.swing.ImageIcon("C:\\Users\\NasK\\Downloads\\fatcow-16x16\\16x16_0880\\tag_blue_add.png")); // NOI18N
+        NVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/tag_blue_add.png"))); // NOI18N
         NVariable.setToolTipText("New Variable");
         NVariable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,16 +98,16 @@ public class NewJFrame2 extends javax.swing.JFrame {
             }
         });
 
-        NOperation.setIcon(new javax.swing.ImageIcon("C:\\Users\\NasK\\Downloads\\fatcow-16x16\\16x16_0240\\cog_add.png")); // NOI18N
+        NOperation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/cog_add.png"))); // NOI18N
         NOperation.setToolTipText("New Operation");
 
-        NDataBase.setIcon(new javax.swing.ImageIcon("C:\\Users\\NasK\\Downloads\\fatcow-16x16\\16x16_0320\\database_add.png")); // NOI18N
+        NDataBase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/database_add.png"))); // NOI18N
         NDataBase.setToolTipText("New DataBase");
 
-        NTable.setIcon(new javax.swing.ImageIcon("C:\\Users\\NasK\\Downloads\\fatcow-16x16\\16x16_0860\\table_add.png")); // NOI18N
+        NTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/table_add.png"))); // NOI18N
         NTable.setToolTipText("New Table");
 
-        deshacer.setIcon(new javax.swing.ImageIcon("C:\\Users\\NasK\\Downloads\\fatcow-16x16\\16x16_0060\\arrow_undo.png")); // NOI18N
+        deshacer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/arrow_undo.png"))); // NOI18N
         deshacer.setToolTipText("Undo");
         deshacer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,17 +115,17 @@ public class NewJFrame2 extends javax.swing.JFrame {
             }
         });
 
-        jToggleButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\NasK\\Downloads\\fatcow-16x16\\16x16_0660\\page_white_edit.png")); // NOI18N
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/page_white_edit.png"))); // NOI18N
         jToggleButton1.setToolTipText("Edit Code");
         jToggleButton1.setRolloverEnabled(false);
-        jToggleButton1.setSelectedIcon(new javax.swing.ImageIcon("C:\\Users\\NasK\\Downloads\\fatcow-16x16\\16x16_0660\\page_white_delete.png")); // NOI18N
+        jToggleButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/page_white_delete.png"))); // NOI18N
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\NasK\\Downloads\\fatcow-16x16\\16x16_0060\\arrow_redo.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/arrow_redo.png"))); // NOI18N
         jButton1.setToolTipText("Redo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
