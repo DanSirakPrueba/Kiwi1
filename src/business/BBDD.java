@@ -45,7 +45,17 @@ public class BBDD {
     	String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n" + phraseD + "\n";
     	Deliver.deliver(Deliver.SELECTBD, phrase);
     }
-
+    
+    /**
+     * Method that creates a delete-type phrase based on the given input.
+     * 
+     * @param conexion: true if there is conexion field, false in other cases.
+     * @param usuarioBD: user of the database.
+     * @param passwdBD: password of the database.
+     * @param conexionBD: conexion field of the database.
+     * @param tablaDelete: target table of the operation.
+     * @param condicionDelete 
+     */
     public static void deleteBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
                 String tablaDelete, String condicionDelete) {
         // TODO: en la interfaz debe preguntarse que partes quiere poner.
@@ -61,6 +71,17 @@ public class BBDD {
         Deliver.deliver(Deliver.DELETEBD, phrase);
     }
 
+    /**
+     * Method that creates a update-type phrase based on the given input.
+     * 
+     * @param conexion: true if there is conexion field, false in other cases.
+     * @param usuarioBD: user of the database.
+     * @param passwdBD: password of the database.
+     * @param conexionBD: conexion field of the database.
+     * @param tablaUpdate: Target of the update operation.
+     * @param camposUpdate: Fields which will we modified with the update.
+     * @param condicionUpdate: Condition under which the update will run.
+     */
     public static void updateBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
     			ArrayList tablaUpdate, ArrayList camposUpdate, String condicionUpdate) {
     	// TODO: en la interfaz debe preguntarse qué partes quiere poner.
@@ -85,6 +106,14 @@ public class BBDD {
     	Deliver.deliver(Deliver.UPDATEBD, phrase);
     }
     
+    /**
+     * 
+     * @param conexion: true if there is conexion field, false in other cases.
+     * @param usuarioBD: user of the database.
+     * @param passwdBD: password of the database.
+     * @param conexionBD: conexion field of the database.
+     * @param sentenciaQuery: Query sentence.
+     */
     public static void queryBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
     			String sentenciaQuery) {
     	String phraseA = "";
@@ -98,6 +127,16 @@ public class BBDD {
     	Deliver.deliver(Deliver.QUERYBD, phrase);
     }
 
+    /**
+     * 
+     * @param conexion: true if there is conexion field, false in other cases.
+     * @param usuarioBD: user of the database.
+     * @param passwdBD: password of the database.
+     * @param conexionBD: conexion field of the database.
+     * @param camposInsert: Desired fields of the insert operation.
+     * @param tablaInsert: Target table of the insert operation.
+     * @param columnasInsert: Target column of the insert operation.
+     */
     public static void insertBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
     			ArrayList camposInsert, String tablaInsert, ArrayList columnasInsert) {
     	String phraseA = "";
