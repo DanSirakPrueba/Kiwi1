@@ -4,11 +4,24 @@
  */
 package interfaz;
 
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileReader;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
+import javax.swing.text.Document;
+import javax.swing.undo.UndoManager;
+import java.lang.Object;
+import javax.swing.AbstractAction;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
+import javax.swing.event.UndoableEditEvent;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.undo.CannotUndoException;
 
 /**
  *
@@ -16,11 +29,30 @@ import javax.swing.JFileChooser;
  */
 public class NewJFrame2 extends javax.swing.JFrame {
 
+    private UndoManager undoManager;
+    private InputMap im;
+    private ActionMap am;
+    // In the constructor
     /**
      * Creates new form NewJFrame
      */
     public NewJFrame2() {
         initComponents();
+        undoManager = new UndoManager();
+        Document doc = jTextArea3.getDocument();
+        doc.addUndoableEditListener(new UndoableEditListener() {
+            @Override
+            public void undoableEditHappened(UndoableEditEvent e) {
+                System.out.println("Add edit");
+                undoManager.addEdit(e.getEdit());
+            }
+        });
+        im = jTextArea3.getInputMap(JComponent.WHEN_FOCUSED);
+        am = jTextArea3.getActionMap();
+        
+        im.put(KeyStroke.getKeyStroke(KeyEvent.VK_Z, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "Undo");
+        im.put(KeyStroke.getKeyStroke(KeyEvent.VK_Y, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "Redo");
+
     }
 
     /**
@@ -128,6 +160,11 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/arrow_redo.png"))); // NOI18N
         jButton1.setToolTipText("Redo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -192,22 +229,22 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
     private void LoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadActionPerformed
         // TODO add your handling code here:
-        // jFileChooser1.showOpenDialog(this);
         JFileChooser fileChooser = new JFileChooser();
         int seleccion = fileChooser.showOpenDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             String storeAllString = "";
             File fichero = fileChooser.getSelectedFile();
             // Aquí debemos abrir y leer el fichero.
-            try{
-                FileReader readTextFile=new FileReader(fichero.toString());
-                Scanner fileReaderScan=new Scanner(readTextFile); 
-                while(fileReaderScan.hasNextLine()){
-                     String temp=fileReaderScan.nextLine()+"\n";
-                     storeAllString=storeAllString+temp;  
+            try {
+                FileReader readTextFile = new FileReader(fichero.toString());
+                Scanner fileReaderScan = new Scanner(readTextFile);
+                while (fileReaderScan.hasNextLine()) {
+                    String temp = fileReaderScan.nextLine() + "\n";
+                    storeAllString = storeAllString + temp;
                 }
-                
-            }catch(Exception e){}
+
+            } catch (Exception e) {
+            }
             jTextArea2.setText(storeAllString);
         }
     }//GEN-LAST:event_LoadActionPerformed
@@ -219,7 +256,18 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
     private void deshacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deshacerActionPerformed
         // TODO add your handling code here:
-        //this.deshacer.setMnemonic(KeyEvent.VK_Z);
+         am.put("Undo", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    if (undoManager.canUndo()) {
+                        undoManager.undo();
+                    }
+                } catch (CannotUndoException exp) {
+                    exp.printStackTrace();
+                }
+            }
+        });
     }//GEN-LAST:event_deshacerActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -232,6 +280,10 @@ public class NewJFrame2 extends javax.swing.JFrame {
             jTextArea2.setEnabled(true);
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
