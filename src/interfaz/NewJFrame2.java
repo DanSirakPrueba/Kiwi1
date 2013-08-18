@@ -70,7 +70,6 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
-        jTextArea2.setToolTipText("");
         jScrollPane2.setViewportView(jTextArea2);
 
         jSplitPane1.setRightComponent(jScrollPane2);
