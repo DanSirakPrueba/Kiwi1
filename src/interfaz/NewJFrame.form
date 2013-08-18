@@ -189,7 +189,7 @@
     <Component class="javax.swing.JButton" name="Load">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Fernando\Desktop\Kiwi\fatcow-16x16\16x16_0020\accept.png"/>
+          <Image iconType="3" name="/icons/folder_explore.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Cargar"/>
       </Properties>

@@ -109,7 +109,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setLeftComponent(jScrollPane1);
 
-        Load.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fernando\\Desktop\\Kiwi\\fatcow-16x16\\16x16_0020\\accept.png")); // NOI18N
+        Load.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/folder_explore.png"))); // NOI18N
         Load.setToolTipText("Cargar");
         Load.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

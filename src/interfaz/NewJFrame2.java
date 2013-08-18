@@ -66,6 +66,8 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
         jSplitPane1.setResizeWeight(0.5);
 
+        jScrollPane2.setToolTipText("");
+
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jTextArea2.setToolTipText("");
@@ -225,7 +227,7 @@ public class NewJFrame2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jTextArea2.isEditable()) {
             jTextArea2.setEditable(false);
-            jTextArea2.setEnabled(false);
+            //jTextArea2.setEnabled(false);
         } else {
             jTextArea2.setEditable(true);
             jTextArea2.setEnabled(true);
