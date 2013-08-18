@@ -140,7 +140,7 @@
     <Component class="javax.swing.JButton" name="Load">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\NasK\Downloads\fatcow-16x16\16x16_0680\page_white_put.png"/>
+          <Image iconType="3" name="/icons2/page_white_put.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Load"/>
       </Properties>
@@ -151,7 +151,7 @@
     <Component class="javax.swing.JButton" name="Save">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\NasK\Downloads\fatcow-16x16\16x16_0660\page_white_get.png"/>
+          <Image iconType="3" name="/icons2/page_white_get.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Save"/>
       </Properties>
@@ -159,7 +159,7 @@
     <Component class="javax.swing.JButton" name="NVariable">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\NasK\Downloads\fatcow-16x16\16x16_0880\tag_blue_add.png"/>
+          <Image iconType="3" name="/icons2/tag_blue_add.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="New Variable"/>
       </Properties>
@@ -170,7 +170,7 @@
     <Component class="javax.swing.JButton" name="NOperation">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\NasK\Downloads\fatcow-16x16\16x16_0240\cog_add.png"/>
+          <Image iconType="3" name="/icons2/cog_add.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="New Operation"/>
       </Properties>
@@ -178,7 +178,7 @@
     <Component class="javax.swing.JButton" name="NDataBase">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\NasK\Downloads\fatcow-16x16\16x16_0320\database_add.png"/>
+          <Image iconType="3" name="/icons2/database_add.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="New DataBase"/>
       </Properties>
@@ -186,7 +186,7 @@
     <Component class="javax.swing.JButton" name="NTable">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\NasK\Downloads\fatcow-16x16\16x16_0860\table_add.png"/>
+          <Image iconType="3" name="/icons2/table_add.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="New Table"/>
       </Properties>
@@ -194,7 +194,7 @@
     <Component class="javax.swing.JButton" name="deshacer">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\NasK\Downloads\fatcow-16x16\16x16_0060\arrow_undo.png"/>
+          <Image iconType="3" name="/icons2/arrow_undo.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Undo"/>
       </Properties>
@@ -208,12 +208,12 @@
     <Component class="javax.swing.JToggleButton" name="jToggleButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\NasK\Downloads\fatcow-16x16\16x16_0660\page_white_edit.png"/>
+          <Image iconType="3" name="/icons2/page_white_edit.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Edit Code"/>
         <Property name="rolloverEnabled" type="boolean" value="false"/>
         <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\NasK\Downloads\fatcow-16x16\16x16_0660\page_white_delete.png"/>
+          <Image iconType="3" name="/icons2/page_white_delete.png"/>
         </Property>
       </Properties>
       <Events>
@@ -223,7 +223,7 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\NasK\Downloads\fatcow-16x16\16x16_0060\arrow_redo.png"/>
+          <Image iconType="3" name="/icons2/arrow_redo.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Redo"/>
       </Properties>
