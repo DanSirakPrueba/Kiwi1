@@ -89,7 +89,7 @@ public class NewJFrame2 extends javax.swing.JFrame {
             }
         });
 
-        Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/page_white_get.png"))); // NOI18N
+        Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/disk.png"))); // NOI18N
         Save.setToolTipText("Save");
 
         NVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/tag_blue_add.png"))); // NOI18N
