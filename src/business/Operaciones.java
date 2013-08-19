@@ -12,35 +12,35 @@ import java.util.ArrayList;
  */
 public class Operaciones {
 
-    public static void xOperacionSintax(ArrayList orders) {
+    public static void orderFormat(ArrayList orders) {
     	String phrase = "%^X_ORDEN_SINTAX.\"";
         
         if (orders != null) {
             for (int i = 0; i < orders.size() - 1; i++) {
-                    phrase += orders.get(i) + ",";
+                    phrase += orders.get(i) + ", ";
             }
             phrase += orders.get(orders.size() - 1);
         }
-    	
-        phrase += "\"";
-    	Deliver.deliver(31, phrase);
+        
+        phrase += "\"\n";
+        Deliver.deliver(Deliver.orderFormat, phrase);
     }
 
-    public static void xFormateoOperacion(String opciones) {
+    public static void commandFormatExe(String opciones) {
     	// TODO: En la interfaz hay que poner un ejemplo de esto, para recordar las posibles operaciones.
-    	String phrase = "%^C_EJECUTA_COMANDO.\"" + opciones + "\"";
-
-    	Deliver.deliver(32, phrase);
+    	String phrase = "%^C_EJECUTA_COMANDO.\"" + opciones + "\"\n";
+        
+        Deliver.deliver(Deliver.commandFormatExe, phrase);
     }
 
-    public static void cSintaxisComando(String sintaxis) {
+    public static void commandFormatSintax(String sintaxis) {
         // TODO: En la interfaz hay que poner un ejemplo de esto, para recordar las posibles operaciones.
-    	String phrase = "%^C_SINTAXIS_COMANDO.\"" + sintaxis + "\"";
+    	String phrase = "%^C_SINTAXIS_COMANDO.\"" + sintaxis + "\"\n";
     	
-    	Deliver.deliver(33, phrase);
+    	Deliver.deliver(Deliver.commandFormatSintax, phrase);
     }
 
-    public void formatFailureManager(ArrayList variables) {
+    public void failureManagerFormat(ArrayList variables) {
         // Ej: variables = S:NUM_EQU|X:REMOTA|Campo5|E:SOC
         String phrase = "%^CAMPOS_GF.\"";
         
@@ -51,11 +51,11 @@ public class Operaciones {
             phrase += variables.get(variables.size() - 1);
         }
         
-        phrase += "\"";
-    	Deliver.deliver(34, phrase);
+        phrase += "\"\n";
+    	Deliver.deliver(Deliver.failureManagerFormat, phrase);
     }
     
-    public static void xOperationSintaxConcat(ArrayList Variables) {
+    public static void concatOperationSintax(ArrayList Variables) {
         // Ej: Variables0 = Input1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         // Ej: Variables1 = Input2 = [X:|S:|C:|E:][N:|H:]NAME_op2
         // Ej: Variables2 = Output = [X:|S:|C:|E:][N:|H:]NAME_res
@@ -66,11 +66,11 @@ public class Operaciones {
             phrase += Variables.get(0) + " + " + Variables.get(1) +
                     " = " + Variables.get(2);
         }
-        phrase += "\"";
-        Deliver.deliver(35, phrase);
+        phrase += "\"\n";
+        Deliver.deliver(Deliver.concatOperationSintax, phrase);
     }
     
-    public static void xOperationSintaxCompAsig(ArrayList Fields) {
+    public static void compAsigOperationSintax(ArrayList Fields) {
         //Field0 = VariableComp1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         //Field1 = operation = ‘==’, ‘!=’, ‘>=’, ‘<=’, ‘>’ , ‘<’ , ‘$’ y ‘!!’
         //Field2 = VariableComp2 = [X:|S:|C:|E:][N:|H:]NAME_op2
@@ -86,11 +86,11 @@ public class Operaciones {
             }
         }
         
-        String phrase = "%^X_OPERACION_SINTAX.\"" + body + "\"";
-        Deliver.deliver(36, phrase);
+        String phrase = "%^X_OPERACION_SINTAX.\"" + body + "\"\n";
+        Deliver.deliver(Deliver.compAsigOperationSintax, phrase);
     }
     
-    public static void formatProcessingBasic(ArrayList Fields) {
+    public static void basicProcessingFormat(ArrayList Fields) {
         //  %^_TRATAR_.” | %^I_TRATAR_INSERT.”
         //Field(s%3=0) = VariableComp1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         //Field(s%3=1) = operation = ',' ',,'
@@ -105,11 +105,11 @@ public class Operaciones {
             phrase += Fields.get(Fields.size() - 3) + " " + Fields.get(Fields.size() - 2) + " " + Fields.get(Fields.size() - 1);
         }
         
-        phrase += "\"";
-        Deliver.deliver(37, phrase);
+        phrase += "\"\n";
+        Deliver.deliver(Deliver.basicProcessingFormat, phrase);
     }
     
-    public static void formatProcessingNew(ArrayList Fields) {
+    public static void newProcessingFormat(ArrayList Fields) {
         //Field(s%4=0) = VariableComp1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         //Field(s%4=1) = operation = '==' '!=' '<' '>' '>=' '<='
         //Field(s%4=2) = VariableComp2 = [X:|S:|C:|E:][N:|H:]NAME_op2
@@ -126,11 +126,11 @@ public class Operaciones {
                 + Fields.get(Fields.size() - 3) + " = " + Fields.get(Fields.size() - 2) + " # " + Fields.get(Fields.size() - 1);
         }
         
-        phrase += "\"";
-        Deliver.deliver(37, phrase);
+        phrase += "\"\n";
+        Deliver.deliver(Deliver.newProcessingFormat, phrase);
     }
     
-    public static void formatAssociation(ArrayList ReplaceVars, ArrayList NewVars) {
+    public static void AssociationFormat(ArrayList ReplaceVars, ArrayList NewVars) {
         // ReplaceVars = variables que se van a sustituir
         // NewVars = Variables nuevas que cogen el contenido de las ReplaceVars
         
@@ -146,12 +146,12 @@ public class Operaciones {
             }
             phrase += NewVars.get(NewVars.size() - 1);
         }
-        phrase += "\"";
-        Deliver.deliver(38, phrase);
+        phrase += "\"\n";
+        Deliver.deliver(Deliver.AssociationFormat, phrase);
     }
     
-    public static void formatEventSpecial() {
+    public static void specialEventFormat() {
         String phrase = "MI NO ENTENDER";
-        Deliver.deliver(39, phrase);
+        Deliver.deliver(Deliver.specialEventFormat, phrase);
     }
 }

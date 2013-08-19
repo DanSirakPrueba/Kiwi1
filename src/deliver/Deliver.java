@@ -18,6 +18,17 @@ public class Deliver {
     public static final int QUERYBD = 14;
     public static final int INSERTBD = 15;
     
+    public static final int orderFormat = 31;
+    public static final int commandFormatExe = 32;
+    public static final int commandFormatSintax = 33;
+    public static final int failureManagerFormat = 34;
+    public static final int concatOperationSintax = 35;
+    public static final int compAsigOperationSintax = 36;
+    public static final int basicProcessingFormat = 37;
+    public static final int newProcessingFormat = 38;
+    public static final int AssociationFormat = 39;
+    public static final int specialEventFormat = 310;
+    
     public static void deliver(int where, String what) {
         System.out.println(what);
     }
