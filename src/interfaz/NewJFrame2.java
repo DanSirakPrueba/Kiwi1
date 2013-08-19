@@ -360,7 +360,7 @@ class RedoAction extends AbstractAction
     private void deshacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deshacerActionPerformed
         try {
           undoManager.undo();
-        } catch (CannotRedoException cre) {
+        } catch (CannotUndoException cre) {
           System.out.println("Can't undo more");
         }
         
