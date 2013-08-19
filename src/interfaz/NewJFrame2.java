@@ -4,6 +4,7 @@
  */
 package interfaz;
 
+import java.awt.Event;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -12,12 +13,15 @@ import java.io.FileReader;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.text.Document;
-import javax.swing.undo.UndoManager;
+import javax.swing.undo.*;
 import java.lang.Object;
 import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
@@ -29,32 +33,131 @@ import javax.swing.undo.CannotUndoException;
  */
 public class NewJFrame2 extends javax.swing.JFrame {
 
-    private UndoManager undoManager;
-    private InputMap im;
-    private ActionMap am;
+   
+    // undo and redo
+    private Document editorPaneDocument;
+    protected UndoHandler undoHandler = new UndoHandler();  
+    protected UndoManager undoManager = new UndoManager();
+    private UndoAction undoAction = null;
+    private RedoAction redoAction = null;
     // In the constructor
     /**
      * Creates new form NewJFrame
      */
     public NewJFrame2() {
         initComponents();
-        undoManager = new UndoManager();
-        Document doc = jTextArea3.getDocument();
-        doc.addUndoableEditListener(new UndoableEditListener() {
-            @Override
-            public void undoableEditHappened(UndoableEditEvent e) {
-                System.out.println("Add edit");
-                undoManager.addEdit(e.getEdit());
-            }
-        });
-        im = jTextArea3.getInputMap(JComponent.WHEN_FOCUSED);
-        am = jTextArea3.getActionMap();
+        editorPaneDocument = syntaxArea.getDocument();
+        editorPaneDocument.addUndoableEditListener(undoHandler);
         
-        im.put(KeyStroke.getKeyStroke(KeyEvent.VK_Z, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "Undo");
-        im.put(KeyStroke.getKeyStroke(KeyEvent.VK_Y, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "Redo");
+        KeyStroke undoKeystroke = KeyStroke.getKeyStroke("control Z");
+        KeyStroke redoKeystroke = KeyStroke.getKeyStroke("control Y");
 
+        undoAction = new UndoAction();
+        syntaxArea.getInputMap().put(undoKeystroke, "undoKeystroke");
+        syntaxArea.getActionMap().put("undoKeystroke", undoAction);
+
+        redoAction = new RedoAction();
+        syntaxArea.getInputMap().put(redoKeystroke, "redoKeystroke");
+        syntaxArea.getActionMap().put("redoKeystroke", redoAction);
+        
+        // Edit menu
+        JMenu editMenu = new JMenu("Edit");
+        JMenuItem undoMenuItem = new JMenuItem(undoAction);
+        JMenuItem redoMenuItem = new JMenuItem(redoAction);
+        editMenu.add(undoMenuItem);
+        editMenu.add(redoMenuItem);
+        
+        
     }
+class UndoHandler implements UndoableEditListener
+{
 
+  /**
+   * Messaged when the Document has created an edit, the edit is added to
+   * <code>undoManager</code>, an instance of UndoManager.
+   */
+  @Override
+  public void undoableEditHappened(UndoableEditEvent e)
+  {
+    undoManager.addEdit(e.getEdit());
+    undoAction.update();
+    redoAction.update();
+  }
+}
+class UndoAction extends AbstractAction
+{
+  public UndoAction()
+  {
+    super("Undo");
+    setEnabled(false);
+  }
+
+  public void actionPerformed(ActionEvent e)
+  {
+    try
+    {
+      undoManager.undo();
+    }
+    catch (CannotUndoException ex)
+    {
+      // TODO deal with this
+      //ex.printStackTrace();
+    }
+    update();
+    redoAction.update();
+  }
+
+  protected void update()
+  {
+    if (undoManager.canUndo())
+    {
+      setEnabled(true);
+      putValue(Action.NAME, undoManager.getUndoPresentationName());
+    }
+    else
+    {
+      setEnabled(false);
+      putValue(Action.NAME, "Undo");
+    }
+  }
+}
+class RedoAction extends AbstractAction
+{
+  public RedoAction()
+  {
+    super("Redo");
+    setEnabled(false);
+  }
+
+  public void actionPerformed(ActionEvent e)
+  {
+    try
+    {
+      undoManager.redo();
+    }
+    catch (CannotRedoException ex)
+    {
+      // TODO deal with this
+      ex.printStackTrace();
+    }
+    update();
+    undoAction.update();
+  }
+
+  protected void update()
+  {
+    if (undoManager.canRedo())
+    {
+      setEnabled(true);
+      putValue(Action.NAME, undoManager.getRedoPresentationName());
+    }
+    else
+    {
+      setEnabled(false);
+      putValue(Action.NAME, "Redo");
+    }
+  }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,9 +171,9 @@ public class NewJFrame2 extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         jSplitPane1 = new javax.swing.JSplitPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        syntaxArea = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        eventArea = new javax.swing.JTextArea();
         Load = new javax.swing.JButton();
         Save = new javax.swing.JButton();
         NVariable = new javax.swing.JButton();
@@ -100,15 +203,15 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
         jScrollPane2.setToolTipText("");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        syntaxArea.setColumns(20);
+        syntaxArea.setRows(5);
+        jScrollPane2.setViewportView(syntaxArea);
 
         jSplitPane1.setRightComponent(jScrollPane2);
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane1.setViewportView(jTextArea3);
+        eventArea.setColumns(20);
+        eventArea.setRows(5);
+        jScrollPane1.setViewportView(eventArea);
 
         jSplitPane1.setLeftComponent(jScrollPane1);
 
@@ -162,7 +265,7 @@ public class NewJFrame2 extends javax.swing.JFrame {
         jButton1.setToolTipText("Redo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                redoActionPerformed(evt);
             }
         });
 
@@ -245,7 +348,7 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
             } catch (Exception e) {
             }
-            jTextArea2.setText(storeAllString);
+            syntaxArea.setText(storeAllString);
         }
     }//GEN-LAST:event_LoadActionPerformed
 
@@ -255,35 +358,32 @@ public class NewJFrame2 extends javax.swing.JFrame {
     }//GEN-LAST:event_NVariableActionPerformed
 
     private void deshacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deshacerActionPerformed
-        // TODO add your handling code here:
-         am.put("Undo", new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    if (undoManager.canUndo()) {
-                        undoManager.undo();
-                    }
-                } catch (CannotUndoException exp) {
-                    exp.printStackTrace();
-                }
-            }
-        });
+        try {
+          undoManager.undo();
+        } catch (CannotRedoException cre) {
+          System.out.println("Can't undo more");
+        }
+        
     }//GEN-LAST:event_deshacerActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        if (jTextArea2.isEditable()) {
-            jTextArea2.setEditable(false);
+        if (syntaxArea.isEditable()) {
+            syntaxArea.setEditable(false);
             //jTextArea2.setEnabled(false);
         } else {
-            jTextArea2.setEditable(true);
-            jTextArea2.setEnabled(true);
+            syntaxArea.setEditable(true);
+            syntaxArea.setEnabled(true);
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void redoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoActionPerformed
+           try {
+          undoManager.redo();
+        } catch (CannotRedoException cre) {
+          System.out.println("Can't redo more");
+        }
+    }//GEN-LAST:event_redoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,6 +427,7 @@ public class NewJFrame2 extends javax.swing.JFrame {
     private javax.swing.JButton NVariable;
     private javax.swing.JButton Save;
     private javax.swing.JButton deshacer;
+    private javax.swing.JTextArea eventArea;
     private javax.swing.JButton jButton1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFrame jFrame1;
@@ -334,8 +435,7 @@ public class NewJFrame2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextArea syntaxArea;
     // End of variables declaration//GEN-END:variables
 }
