@@ -211,8 +211,9 @@ class RedoAction extends AbstractAction
         syntaxArea = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         eventArea = new javax.swing.JTextArea();
-        Load = new javax.swing.JButton();
-        Save = new javax.swing.JButton();
+        LoadEvent = new javax.swing.JButton();
+        LoadSyntax = new javax.swing.JButton();
+        SaveSyntax = new javax.swing.JButton();
         NVariable = new javax.swing.JButton();
         NOperation = new javax.swing.JButton();
         NDataBase = new javax.swing.JButton();
@@ -495,16 +496,26 @@ class RedoAction extends AbstractAction
 
         jSplitPane1.setLeftComponent(jScrollPane1);
 
-        Load.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/page_white_put.png"))); // NOI18N
-        Load.setToolTipText("Load");
-        Load.addActionListener(new java.awt.event.ActionListener() {
+        LoadEvent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/page_white_lightning.png"))); // NOI18N
+        LoadEvent.setToolTipText("Load Event");
+        LoadEvent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoadActionPerformed(evt);
+                LoadEventActionPerformed(evt);
             }
         });
 
-        Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/disk.png"))); // NOI18N
-        Save.setToolTipText("Save");
+        LoadSyntax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/page_white_put.png"))); // NOI18N
+        LoadSyntax.setToolTipText("Load Syntax");
+        LoadSyntax.setActionCommand("");
+        LoadSyntax.setLabel("");
+        LoadSyntax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoadSyntaxActionPerformed(evt);
+            }
+        });
+
+        SaveSyntax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/disk.png"))); // NOI18N
+        SaveSyntax.setToolTipText("Save");
 
         NVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/tag_blue_add.png"))); // NOI18N
         NVariable.setToolTipText("New Variable");
@@ -570,9 +581,11 @@ class RedoAction extends AbstractAction
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(Load, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LoadEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Save, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LoadSyntax, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SaveSyntax, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -595,15 +608,16 @@ class RedoAction extends AbstractAction
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Load)
-                    .addComponent(Save)
+                    .addComponent(LoadEvent)
+                    .addComponent(SaveSyntax)
                     .addComponent(NVariable)
                     .addComponent(NOperation)
                     .addComponent(NDataBase)
                     .addComponent(NTable)
                     .addComponent(jToggleButton1)
                     .addComponent(deshacer)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jButton1)
+                    .addComponent(LoadSyntax))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -615,7 +629,7 @@ class RedoAction extends AbstractAction
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadActionPerformed
+    private void LoadEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadEventActionPerformed
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
         int seleccion = fileChooser.showOpenDialog(this);
@@ -635,7 +649,7 @@ class RedoAction extends AbstractAction
             }
             eventArea.setText(storeAllString);
         }
-    }//GEN-LAST:event_LoadActionPerformed
+    }//GEN-LAST:event_LoadEventActionPerformed
 
     private void NVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NVariableActionPerformed
         // TODO add your handling code here:
@@ -681,7 +695,8 @@ class RedoAction extends AbstractAction
     private void orderFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderFormatActionPerformed
         // TODO add your handling code here:
         if (!orderFormat.getText().equalsIgnoreCase("")) {    
-            syntaxArea.append("ESPERANDO AL DELIVER...\n");
+            syntaxArea.insert("ESPERANDO AL DELIVER...\n", 
+                    syntaxArea.getCaretPosition());
             orderFormat.setText("");
             orderFormatInsert.requestFocus();
         }
@@ -706,11 +721,34 @@ class RedoAction extends AbstractAction
     private void orderFormatInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderFormatInsertActionPerformed
         // TODO add your handling code here:
         if (!orderFormat.getText().equalsIgnoreCase("X_ORDEN_SINTAX")) {
-            syntaxArea.append("ESPERANDO AL DELIVER...\n");
+            syntaxArea.insert("ESPERANDO AL DELIVER...\n", 
+                    syntaxArea.getCaretPosition());
             orderFormat.setForeground(Gray);
             orderFormat.setText("X_ORDEN_SINTAX");
         }
     }//GEN-LAST:event_orderFormatInsertActionPerformed
+
+    private void LoadSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadSyntaxActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        int seleccion = fileChooser.showOpenDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            String storeAllString = "";
+            File fichero = fileChooser.getSelectedFile();
+            // Aquí debemos abrir y leer el fichero.
+            try {
+                FileReader readTextFile = new FileReader(fichero.toString());
+                Scanner fileReaderScan = new Scanner(readTextFile);
+                while (fileReaderScan.hasNextLine()) {
+                    String temp = fileReaderScan.nextLine() + "\n";
+                    storeAllString = storeAllString + temp;
+                }
+
+            } catch (Exception e) {
+            }
+            syntaxArea.setText(storeAllString);
+        }
+    }//GEN-LAST:event_LoadSyntaxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -749,13 +787,14 @@ class RedoAction extends AbstractAction
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AssociationFormat;
     private javax.swing.JButton AssociationFormatInsert;
-    private javax.swing.JButton Load;
+    private javax.swing.JButton LoadEvent;
+    private javax.swing.JButton LoadSyntax;
     private javax.swing.JButton NDataBase;
     private javax.swing.JButton NOperation;
     private javax.swing.JButton NTable;
     private javax.swing.JButton NVariable;
     private javax.swing.JFrame NewOperation;
-    private javax.swing.JButton Save;
+    private javax.swing.JButton SaveSyntax;
     private javax.swing.JTextField basicProcessingFormat;
     private javax.swing.JButton basicProcessingFormatInsert;
     private javax.swing.JTextField commandFormatExe;
