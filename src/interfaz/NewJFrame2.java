@@ -440,7 +440,7 @@ class RedoAction extends AbstractAction
 
             } catch (Exception e) {
             }
-            syntaxArea.setText(storeAllString);
+            eventArea.setText(storeAllString);
         }
     }//GEN-LAST:event_LoadActionPerformed
 
