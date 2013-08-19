@@ -4,6 +4,7 @@
  */
 package interfaz;
 
+import java.awt.Color;
 import java.awt.Event;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -33,6 +34,9 @@ import javax.swing.undo.CannotUndoException;
  */
 public class NewJFrame2 extends javax.swing.JFrame {
 
+    //Colores para letras
+    public static final Color Gray = new Color(109,109,109);
+    public static final Color Black = new Color(0,0,0);
    
     // undo and redo
     private Document editorPaneDocument;
@@ -169,6 +173,12 @@ class RedoAction extends AbstractAction
 
         jFileChooser1 = new javax.swing.JFileChooser();
         jFrame1 = new javax.swing.JFrame();
+        NewOperation = new javax.swing.JFrame();
+        jSplitPane2 = new javax.swing.JSplitPane();
+        jPanel2 = new javax.swing.JPanel();
+        orderFormat = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         jSplitPane1 = new javax.swing.JSplitPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         syntaxArea = new javax.swing.JTextArea();
@@ -196,8 +206,85 @@ class RedoAction extends AbstractAction
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        NewOperation.setTitle("New Operation");
+        NewOperation.setBounds(new java.awt.Rectangle(0, 0, 547, 260));
+        NewOperation.setLocationByPlatform(true);
+        NewOperation.setResizable(false);
+
+        jSplitPane2.setDividerLocation(270);
+        jSplitPane2.setEnabled(false);
+        jSplitPane2.setMinimumSize(new java.awt.Dimension(7, 3));
+        jSplitPane2.setPreferredSize(new java.awt.Dimension(547, 47));
+
+        jPanel2.setMaximumSize(new java.awt.Dimension(270, 45));
+        jPanel2.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanel2.setPreferredSize(new java.awt.Dimension(270, 45));
+
+        orderFormat.setText("X_ORDEN_SINTAX");
+        orderFormat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderFormatActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Insert");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(orderFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(orderFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addContainerGap(221, Short.MAX_VALUE))
+        );
+
+        jSplitPane2.setLeftComponent(jPanel2);
+
+        jPanel3.setMaximumSize(new java.awt.Dimension(270, 45));
+        jPanel3.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanel3.setPreferredSize(new java.awt.Dimension(270, 45));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 271, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 255, Short.MAX_VALUE)
+        );
+
+        jSplitPane2.setRightComponent(jPanel3);
+
+        javax.swing.GroupLayout NewOperationLayout = new javax.swing.GroupLayout(NewOperation.getContentPane());
+        NewOperation.getContentPane().setLayout(NewOperationLayout);
+        NewOperationLayout.setHorizontalGroup(
+            NewOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NewOperationLayout.createSequentialGroup()
+                .addComponent(jSplitPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        NewOperationLayout.setVerticalGroup(
+            NewOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("KiwiSyntaxManager");
+        setLocationByPlatform(true);
 
         jSplitPane1.setResizeWeight(0.5);
 
@@ -236,6 +323,11 @@ class RedoAction extends AbstractAction
 
         NOperation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/cog_add.png"))); // NOI18N
         NOperation.setToolTipText("New Operation");
+        NOperation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NOperationActionPerformed(evt);
+            }
+        });
 
         NDataBase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/database_add.png"))); // NOI18N
         NDataBase.setToolTipText("New DataBase");
@@ -385,6 +477,20 @@ class RedoAction extends AbstractAction
         }
     }//GEN-LAST:event_redoActionPerformed
 
+    private void NOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOperationActionPerformed
+        // TODO add your handling code here:
+        NewOperation.setVisible(true);
+        //jTextField1.setForeground(Gray);
+        //jTextField1.setText("X_ORDEN_SINTAX");
+        //jTextField2.setForeground(Gray);
+        //jTextField2.setText("C_EJECUTA_COMANDO");
+        //jButton2.requestFocus()
+    }//GEN-LAST:event_NOperationActionPerformed
+
+    private void orderFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderFormatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderFormatActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -425,17 +531,23 @@ class RedoAction extends AbstractAction
     private javax.swing.JButton NOperation;
     private javax.swing.JButton NTable;
     private javax.swing.JButton NVariable;
+    private javax.swing.JFrame NewOperation;
     private javax.swing.JButton Save;
     private javax.swing.JButton deshacer;
     private javax.swing.JTextArea eventArea;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField orderFormat;
     private javax.swing.JTextArea syntaxArea;
     // End of variables declaration//GEN-END:variables
 }
