@@ -12,16 +12,14 @@ import java.util.ArrayList;
  */
 public class Operaciones {
 
-    //before ArrayList
     public static void orderFormat(String orders) {
-    	String phrase = "%^X_ORDEN_SINTAX.\"" + orders;
-        
-        /*if (orders != null) {
-            for (int i = 0; i < orders.size() - 1; i++) {
-                    phrase += orders.get(i) + ", ";
-            }
-            phrase += orders.get(orders.size() - 1);
-        }*/
+    	String phrase = "%^X_ORDEN_SINTAX.\"";
+
+        String[] splitOrders = orders.split(" ");   
+        for (int i = 0; i < splitOrders.length - 1; i++) {
+            phrase += splitOrders[i] + ", ";
+        }
+        phrase += splitOrders[splitOrders.length- 1];
         
         phrase += "\"";
         Deliver.deliver(Deliver.orderFormat, phrase);
@@ -30,28 +28,24 @@ public class Operaciones {
     public static void commandFormatExe(String opciones) {
     	// TODO: En la interfaz hay que poner un ejemplo de esto, para recordar las posibles operaciones.
     	String phrase = "%^C_EJECUTA_COMANDO.\"" + opciones + "\"";
-        
         Deliver.deliver(Deliver.commandFormatExe, phrase);
     }
 
     public static void commandFormatSintax(String sintaxis) {
         // TODO: En la interfaz hay que poner un ejemplo de esto, para recordar las posibles operaciones.
     	String phrase = "%^C_SINTAXIS_COMANDO.\"" + sintaxis + "\"";
-    	
     	Deliver.deliver(Deliver.commandFormatSintax, phrase);
     }
 
-    //before ArrayList
     public void failureManagerFormat(String variables) {
         // Ej: variables = S:NUM_EQU|X:REMOTA|Campo5|E:SOC
-        String phrase = "%^CAMPOS_GF.\"" + variables;
+        String phrase = "%^CAMPOS_GF.\"";
         
-        /*if (variables != null) {
-            for (int i = 0; i < variables.size() - 1; i++) {
-            	phrase += variables.get(i) + ",";
-            }
-            phrase += variables.get(variables.size() - 1);
-        }*/
+        String[] splitOrders = variables.split(" ");   
+        for (int i = 0; i < splitOrders.length - 1; i++) {
+            phrase += splitOrders[i] + ",";
+        }
+        phrase += splitOrders[splitOrders.length- 1];
         
         phrase += "\"";
     	Deliver.deliver(Deliver.failureManagerFormat, phrase);
