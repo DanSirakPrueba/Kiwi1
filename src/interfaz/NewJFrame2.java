@@ -187,6 +187,7 @@ class RedoAction extends AbstractAction
 
         jFileChooser1 = new javax.swing.JFileChooser();
         jFrame1 = new javax.swing.JFrame();
+        jLabel1 = new javax.swing.JLabel();
         NewOperation = new javax.swing.JFrame();
         jSplitPane2 = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
@@ -237,15 +238,25 @@ class RedoAction extends AbstractAction
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
+        jFrame1.setBounds(new java.awt.Rectangle(0, 0, 225, 206));
+        jFrame1.setLocationByPlatform(true);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("<html><img src=\"http://farm4.staticflickr.com/3227/3115937621_650616f2b0.jpg\" width=210 height=180></html>");
+
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
         jFrame1Layout.setHorizontalGroup(
             jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 15, Short.MAX_VALUE))
         );
         jFrame1Layout.setVerticalGroup(
             jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         NewOperation.setTitle("New Operation");
@@ -1366,8 +1377,8 @@ class RedoAction extends AbstractAction
                 jb.requestFocus();
             } else {
                 msgError.setVisible(true);
-                String msg = "<html><b>Error</b>: no se ha podido insertar la "
-                        + "Operacion<br><i>Cause</i>: Edit Code Locked</html>";
+                String msg = "<html><b>Error</b>: failed insert operation"
+                        + "<br><i>Cause</i>: Edit Code Locked</html>";
                 msgErrorLabel.setText(msg);
             }
         }
@@ -1481,6 +1492,7 @@ class RedoAction extends AbstractAction
     private javax.swing.JButton jButton1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
