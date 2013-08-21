@@ -43,17 +43,17 @@ import javax.swing.undo.CannotUndoException;
 public class NewJFrame2 extends javax.swing.JFrame {
 
     //Colores para letras
-    public static final Color Red = new Color(255,0,0);
-    public static final Color Black = new Color(0,0,0);
-    public static final Color Gray = new Color(109,109,109);
-   
+    public static final Color Red = new Color(255, 0, 0);
+    public static final Color Black = new Color(0, 0, 0);
+    public static final Color Gray = new Color(109, 109, 109);
     // undo and redo
     private Document editorPaneDocument;
-    protected UndoHandler undoHandler = new UndoHandler();  
+    protected UndoHandler undoHandler = new UndoHandler();
     protected UndoManager undoManager = new UndoManager();
     private UndoAction undoAction = null;
     private RedoAction redoAction = null;
     // In the constructor
+
     /**
      * Creates new form NewJFrame
      */
@@ -61,7 +61,7 @@ public class NewJFrame2 extends javax.swing.JFrame {
         initComponents();
         editorPaneDocument = syntaxArea.getDocument();
         editorPaneDocument.addUndoableEditListener(undoHandler);
-        
+
         KeyStroke undoKeystroke = KeyStroke.getKeyStroke("control Z");
         KeyStroke redoKeystroke = KeyStroke.getKeyStroke("control Y");
 
@@ -72,7 +72,7 @@ public class NewJFrame2 extends javax.swing.JFrame {
         redoAction = new RedoAction();
         syntaxArea.getInputMap().put(redoKeystroke, "redoKeystroke");
         syntaxArea.getActionMap().put("redoKeystroke", redoAction);
-        
+
         // Edit menu
         JMenu editMenu = new JMenu("Edit");
         JMenuItem undoMenuItem = new JMenuItem(undoAction);
@@ -80,102 +80,87 @@ public class NewJFrame2 extends javax.swing.JFrame {
         editMenu.add(undoMenuItem);
         editMenu.add(redoMenuItem);
         Deliver.setWindow(this);
-        
-        
+
+
     }
+
     public void setSyntaxText(String text) {
         //syntaxArea.append(text);
         insertText(syntaxArea, text);
     }
-class UndoHandler implements UndoableEditListener
-{
 
-  /**
-   * Messaged when the Document has created an edit, the edit is added to
-   * <code>undoManager</code>, an instance of UndoManager.
-   */
-  @Override
-  public void undoableEditHappened(UndoableEditEvent e)
-  {
-    undoManager.addEdit(e.getEdit());
-    undoAction.update();
-    redoAction.update();
-  }
-}
-class UndoAction extends AbstractAction
-{
-  public UndoAction()
-  {
-    super("Undo");
-    setEnabled(false);
-  }
+    class UndoHandler implements UndoableEditListener {
 
-  public void actionPerformed(ActionEvent e)
-  {
-    try
-    {
-      undoManager.undo();
+        /**
+         * Messaged when the Document has created an edit, the edit is added to
+         * <code>undoManager</code>, an instance of UndoManager.
+         */
+        @Override
+        public void undoableEditHappened(UndoableEditEvent e) {
+            undoManager.addEdit(e.getEdit());
+            undoAction.update();
+            redoAction.update();
+        }
     }
-    catch (CannotUndoException ex)
-    {
-      // TODO deal with this
-      //ex.printStackTrace();
-    }
-    update();
-    redoAction.update();
-  }
 
-  protected void update()
-  {
-    if (undoManager.canUndo())
-    {
-      setEnabled(true);
-      putValue(Action.NAME, undoManager.getUndoPresentationName());
-    }
-    else
-    {
-      setEnabled(false);
-      putValue(Action.NAME, "Undo");
-    }
-  }
-}
-class RedoAction extends AbstractAction
-{
-  public RedoAction()
-  {
-    super("Redo");
-    setEnabled(false);
-  }
+    class UndoAction extends AbstractAction {
 
-  public void actionPerformed(ActionEvent e)
-  {
-    try
-    {
-      undoManager.redo();
-    }
-    catch (CannotRedoException ex)
-    {
-      // TODO deal with this
-      ex.printStackTrace();
-    }
-    update();
-    undoAction.update();
-  }
+        public UndoAction() {
+            super("Undo");
+            setEnabled(false);
+        }
 
-  protected void update()
-  {
-    if (undoManager.canRedo())
-    {
-      setEnabled(true);
-      putValue(Action.NAME, undoManager.getRedoPresentationName());
+        public void actionPerformed(ActionEvent e) {
+            try {
+                undoManager.undo();
+            } catch (CannotUndoException ex) {
+                // TODO deal with this
+                //ex.printStackTrace();
+            }
+            update();
+            redoAction.update();
+        }
+
+        protected void update() {
+            if (undoManager.canUndo()) {
+                setEnabled(true);
+                putValue(Action.NAME, undoManager.getUndoPresentationName());
+            } else {
+                setEnabled(false);
+                putValue(Action.NAME, "Undo");
+            }
+        }
     }
-    else
-    {
-      setEnabled(false);
-      putValue(Action.NAME, "Redo");
+
+    class RedoAction extends AbstractAction {
+
+        public RedoAction() {
+            super("Redo");
+            setEnabled(false);
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            try {
+                undoManager.redo();
+            } catch (CannotRedoException ex) {
+                // TODO deal with this
+                ex.printStackTrace();
+            }
+            update();
+            undoAction.update();
+        }
+
+        protected void update() {
+            if (undoManager.canRedo()) {
+                setEnabled(true);
+                putValue(Action.NAME, undoManager.getRedoPresentationName());
+            } else {
+                setEnabled(false);
+                putValue(Action.NAME, "Redo");
+            }
+        }
     }
-  }
-}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -853,113 +838,8 @@ class RedoAction extends AbstractAction
             eventArea.setCaretPosition(0);
         }
     }//GEN-LAST:event_LoadEventActionPerformed
-
-    private void NVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NVariableActionPerformed
-        // TODO add your handling code here:
-        jFrame1.setVisible(true);
-    }//GEN-LAST:event_NVariableActionPerformed
-
-    private void deshacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deshacerActionPerformed
-        try {
-          undoManager.undo();
-        } catch (CannotUndoException cre) {
-          System.out.println("Can't undo more");
-        }
-        
-    }//GEN-LAST:event_deshacerActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-        if (syntaxArea.isEditable()) {
-            syntaxArea.setEditable(false);
-            syntaxArea.setForeground(Gray);
-        } else {
-            syntaxArea.setEditable(true);
-            syntaxArea.setForeground(Black);
-        }
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
-    private void redoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoActionPerformed
-           try {
-          undoManager.redo();
-        } catch (CannotRedoException cre) {
-          System.out.println("Can't redo more");
-        }
-    }//GEN-LAST:event_redoActionPerformed
-
-    private void NOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOperationActionPerformed
-        // TODO add your handling code here:
-        NewOperation.setVisible(true);
-        
-        orderFormat.setForeground(Gray);
-        commandFormatExe.setForeground(Gray);
-        commandFormatSintax.setForeground(Gray);
-        failureManagerFormat.setForeground(Gray);
-        concatOperationSintax.setForeground(Gray);
-        compAsigOperationSintax.setForeground(Gray);
-        basicProcessingFormat.setForeground(Gray);
-        newProcessingFormat.setForeground(Gray);
-        associationFormat.setForeground(Gray);
-        specialEventFormat.setForeground(Gray);
-        
-        orderFormat.setText("X_ORDEN_SINTAX");
-        commandFormatExe.setText("C_EJECUTA_COMANDO");
-        commandFormatSintax.setText("C_SINTAXIS_COMANDO");
-        failureManagerFormat.setText("CAMPOS_GF");
-        concatOperationSintax.setText("X_OPERACION_SINTAX");
-        compAsigOperationSintax.setText("X_OPERACION_SINTAX");
-        basicProcessingFormat.setText("_TRATAR_BASICO");
-        newProcessingFormat.setText("_TRATAR_NUEVO");
-        associationFormat.setText("X_ASOCIAR_SINTAX");
-        specialEventFormat.setText("_SPECIAL_");
-        
-        
-        orderFormatInsert.requestFocus();
-    }//GEN-LAST:event_NOperationActionPerformed
-
-    private void orderFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderFormatActionPerformed
-        // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.orderFormat;
-        JTextField jtf = orderFormat;
-        JButton jb = orderFormatInsert;
-        String preText = "";
-        
-        opActions(d, Index, jtf, jb, preText);
-    }//GEN-LAST:event_orderFormatActionPerformed
-
-    private void orderFormatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_orderFormatFocusGained
-        // TODO add your handling code here:
-        JTextField jtf = orderFormat;
-        String preText = "X_ORDEN_SINTAX";
-        Color c = Black;
-        String postText = "";
-        
-        opFocus(jtf, preText, c, postText);
-    }//GEN-LAST:event_orderFormatFocusGained
-
-    private void orderFormatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_orderFormatFocusLost
-        // TODO add your handling code here:
-        JTextField jtf = orderFormat;
-        String preText = "";
-        Color c = Gray;
-        String postText = "X_ORDEN_SINTAX";
-        
-        opFocus(jtf, preText, c, postText);
-    }//GEN-LAST:event_orderFormatFocusLost
-
-    private void orderFormatInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderFormatInsertActionPerformed
-        // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.orderFormat;
-        JTextField jtf = orderFormat;
-        JButton jb = orderFormatInsert;
-        String preText = "X_ORDEN_SINTAX";
-        
-        opActions(d, Index, jtf, jb, preText);
-    }//GEN-LAST:event_orderFormatInsertActionPerformed
-
-    private void LoadSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadSyntaxActionPerformed
+	
+	private void LoadSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadSyntaxActionPerformed
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
         int seleccion = fileChooser.showOpenDialog(this);
@@ -982,11 +862,116 @@ class RedoAction extends AbstractAction
         }
     }//GEN-LAST:event_LoadSyntaxActionPerformed
 
-    private void msgErrorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msgErrorButtonActionPerformed
+    private void NVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NVariableActionPerformed
+        // TODO add your handling code here:
+        jFrame1.setVisible(true);
+    }//GEN-LAST:event_NVariableActionPerformed
+
+    private void deshacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deshacerActionPerformed
+        try {
+            undoManager.undo();
+        } catch (CannotUndoException cre) {
+            System.out.println("Can't undo more");
+        }
+
+    }//GEN-LAST:event_deshacerActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        if (syntaxArea.isEditable()) {
+            syntaxArea.setEditable(false);
+            syntaxArea.setForeground(Gray);
+        } else {
+            syntaxArea.setEditable(true);
+            syntaxArea.setForeground(Black);
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void redoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoActionPerformed
+        try {
+            undoManager.redo();
+        } catch (CannotRedoException cre) {
+            System.out.println("Can't redo more");
+        }
+    }//GEN-LAST:event_redoActionPerformed
+
+    private void NOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOperationActionPerformed
+        // TODO add your handling code here:
+        NewOperation.setVisible(true);
+
+        orderFormat.setForeground(Gray);
+        commandFormatExe.setForeground(Gray);
+        commandFormatSintax.setForeground(Gray);
+        failureManagerFormat.setForeground(Gray);
+        concatOperationSintax.setForeground(Gray);
+        compAsigOperationSintax.setForeground(Gray);
+        basicProcessingFormat.setForeground(Gray);
+        newProcessingFormat.setForeground(Gray);
+        associationFormat.setForeground(Gray);
+        specialEventFormat.setForeground(Gray);
+
+        orderFormat.setText("X_ORDEN_SINTAX");
+        commandFormatExe.setText("C_EJECUTA_COMANDO");
+        commandFormatSintax.setText("C_SINTAXIS_COMANDO");
+        failureManagerFormat.setText("CAMPOS_GF");
+        concatOperationSintax.setText("X_OPERACION_SINTAX");
+        compAsigOperationSintax.setText("X_OPERACION_SINTAX");
+        basicProcessingFormat.setText("_TRATAR_BASICO");
+        newProcessingFormat.setText("_TRATAR_NUEVO");
+        associationFormat.setText("X_ASOCIAR_SINTAX");
+        specialEventFormat.setText("_SPECIAL_");
+
+        orderFormatInsert.requestFocus();
+    }//GEN-LAST:event_NOperationActionPerformed
+
+	private void msgErrorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msgErrorButtonActionPerformed
         // TODO add your handling code here:
         msgError.setVisible(false);
     }//GEN-LAST:event_msgErrorButtonActionPerformed
+	
+    //<editor-fold defaultstate="collapsed" desc=" JtextField's y JButton's de Operaciones ">
+    private void orderFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderFormatActionPerformed
+        // TODO add your handling code here:
+        Deliver d = new Deliver();
+        int Index = d.orderFormat;
+        JTextField jtf = orderFormat;
+        JButton jb = orderFormatInsert;
+        String preText = "";
 
+        opActions(d, Index, jtf, jb, preText);
+    }//GEN-LAST:event_orderFormatActionPerformed
+
+    private void orderFormatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_orderFormatFocusGained
+        // TODO add your handling code here:
+        JTextField jtf = orderFormat;
+        String preText = "X_ORDEN_SINTAX";
+        Color c = Black;
+        String postText = "";
+
+        opFocus(jtf, preText, c, postText);
+    }//GEN-LAST:event_orderFormatFocusGained
+
+    private void orderFormatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_orderFormatFocusLost
+        // TODO add your handling code here:
+        JTextField jtf = orderFormat;
+        String preText = "";
+        Color c = Gray;
+        String postText = "X_ORDEN_SINTAX";
+
+        opFocus(jtf, preText, c, postText);
+    }//GEN-LAST:event_orderFormatFocusLost
+
+    private void orderFormatInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderFormatInsertActionPerformed
+        // TODO add your handling code here:
+        Deliver d = new Deliver();
+        int Index = d.orderFormat;
+        JTextField jtf = orderFormat;
+        JButton jb = orderFormatInsert;
+        String preText = "X_ORDEN_SINTAX";
+
+        opActions(d, Index, jtf, jb, preText);
+    }//GEN-LAST:event_orderFormatInsertActionPerformed
+	
     private void commandFormatExeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_commandFormatExeActionPerformed
         // TODO add your handling code here:
         Deliver d = new Deliver();
@@ -994,7 +979,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = commandFormatExe;
         JButton jb = commandFormatExeInsert;
         String preText = "";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_commandFormatExeActionPerformed
 
@@ -1005,7 +990,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = commandFormatExe;
         JButton jb = commandFormatExeInsert;
         String preText = "C_EJECUTA_COMANDO";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_commandFormatExeInsertActionPerformed
 
@@ -1015,7 +1000,7 @@ class RedoAction extends AbstractAction
         String preText = "C_EJECUTA_COMANDO";
         Color c = Black;
         String postText = "";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_commandFormatExeFocusGained
 
@@ -1025,7 +1010,7 @@ class RedoAction extends AbstractAction
         String preText = "";
         Color c = Gray;
         String postText = "C_EJECUTA_COMANDO";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_commandFormatExeFocusLost
 
@@ -1036,7 +1021,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = commandFormatSintax;
         JButton jb = commandFormatSintaxInsert;
         String preText = "";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_commandFormatSintaxActionPerformed
 
@@ -1047,7 +1032,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = commandFormatSintax;
         JButton jb = commandFormatSintaxInsert;
         String preText = "C_SINTAXIS_COMANDO";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_commandFormatSintaxInsertActionPerformed
 
@@ -1057,7 +1042,7 @@ class RedoAction extends AbstractAction
         String preText = "C_SINTAXIS_COMANDO";
         Color c = Black;
         String postText = "";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_commandFormatSintaxFocusGained
 
@@ -1067,7 +1052,7 @@ class RedoAction extends AbstractAction
         String preText = "";
         Color c = Gray;
         String postText = "C_SINTAXIS_COMANDO";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_commandFormatSintaxFocusLost
 
@@ -1078,7 +1063,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = failureManagerFormat;
         JButton jb = failureManagerFormatInsert;
         String preText = "";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_failureManagerFormatActionPerformed
 
@@ -1089,7 +1074,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = failureManagerFormat;
         JButton jb = failureManagerFormatInsert;
         String preText = "CAMPOS_GF";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_failureManagerFormatInsertActionPerformed
 
@@ -1099,7 +1084,7 @@ class RedoAction extends AbstractAction
         String preText = "CAMPOS_GF";
         Color c = Black;
         String postText = "";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_failureManagerFormatFocusGained
 
@@ -1109,7 +1094,7 @@ class RedoAction extends AbstractAction
         String preText = "";
         Color c = Gray;
         String postText = "CAMPOS_GF";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_failureManagerFormatFocusLost
 
@@ -1120,7 +1105,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = concatOperationSintax;
         JButton jb = concatOperationSintaxInsert;
         String preText = "";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_concatOperationSintaxActionPerformed
 
@@ -1131,7 +1116,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = concatOperationSintax;
         JButton jb = concatOperationSintaxInsert;
         String preText = "X_OPERACION_SINTAX";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_concatOperationSintaxInsertActionPerformed
 
@@ -1141,7 +1126,7 @@ class RedoAction extends AbstractAction
         String preText = "X_OPERACION_SINTAX";
         Color c = Black;
         String postText = "";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_concatOperationSintaxFocusGained
 
@@ -1151,7 +1136,7 @@ class RedoAction extends AbstractAction
         String preText = "";
         Color c = Gray;
         String postText = "X_OPERACION_SINTAX";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_concatOperationSintaxFocusLost
 
@@ -1162,7 +1147,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = compAsigOperationSintax;
         JButton jb = compAsigOperationSintaxInsert;
         String preText = "";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_compAsigOperationSintaxActionPerformed
 
@@ -1173,7 +1158,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = compAsigOperationSintax;
         JButton jb = compAsigOperationSintaxInsert;
         String preText = "X_OPERACION_SINTAX";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_compAsigOperationSintaxInsertActionPerformed
 
@@ -1183,7 +1168,7 @@ class RedoAction extends AbstractAction
         String preText = "X_OPERACION_SINTAX";
         Color c = Black;
         String postText = "";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_compAsigOperationSintaxFocusGained
 
@@ -1193,7 +1178,7 @@ class RedoAction extends AbstractAction
         String preText = "";
         Color c = Gray;
         String postText = "X_OPERACION_SINTAX";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_compAsigOperationSintaxFocusLost
 
@@ -1204,7 +1189,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = basicProcessingFormat;
         JButton jb = basicProcessingFormatInsert;
         String preText = "";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_basicProcessingFormatActionPerformed
 
@@ -1215,7 +1200,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = basicProcessingFormat;
         JButton jb = basicProcessingFormatInsert;
         String preText = "_TRATAR_BASICO";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_basicProcessingFormatInsertActionPerformed
 
@@ -1225,7 +1210,7 @@ class RedoAction extends AbstractAction
         String preText = "_TRATAR_BASICO";
         Color c = Black;
         String postText = "";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_basicProcessingFormatFocusGained
 
@@ -1235,7 +1220,7 @@ class RedoAction extends AbstractAction
         String preText = "";
         Color c = Gray;
         String postText = "_TRATAR_BASICO";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_basicProcessingFormatFocusLost
 
@@ -1246,7 +1231,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = newProcessingFormat;
         JButton jb = newProcessingFormatInsert;
         String preText = "";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_newProcessingFormatActionPerformed
 
@@ -1257,7 +1242,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = newProcessingFormat;
         JButton jb = newProcessingFormatInsert;
         String preText = "_TRATAR_NUEVO";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_newProcessingFormatInsertActionPerformed
 
@@ -1267,7 +1252,7 @@ class RedoAction extends AbstractAction
         String preText = "_TRATAR_NUEVO";
         Color c = Black;
         String postText = "";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_newProcessingFormatFocusGained
 
@@ -1277,7 +1262,7 @@ class RedoAction extends AbstractAction
         String preText = "";
         Color c = Gray;
         String postText = "_TRATAR_NUEVO";
-            
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_newProcessingFormatFocusLost
 
@@ -1288,7 +1273,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = associationFormat;
         JButton jb = associationFormatInsert;
         String preText = "";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_associationFormatActionPerformed
 
@@ -1299,7 +1284,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = associationFormat;
         JButton jb = associationFormatInsert;
         String preText = "X_ASOCIAR_SINTAX";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_associationFormatInsertActionPerformed
 
@@ -1309,7 +1294,7 @@ class RedoAction extends AbstractAction
         String preText = "X_ASOCIAR_SINTAX";
         Color c = Black;
         String postText = "";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_associationFormatFocusGained
 
@@ -1319,7 +1304,7 @@ class RedoAction extends AbstractAction
         String preText = "";
         Color c = Gray;
         String postText = "X_ASOCIAR_SINTAX";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_associationFormatFocusLost
 
@@ -1330,7 +1315,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = specialEventFormat;
         JButton jb = specialEventFormatInsert;
         String preText = "";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_specialEventFormatActionPerformed
 
@@ -1341,7 +1326,7 @@ class RedoAction extends AbstractAction
         JTextField jtf = specialEventFormat;
         JButton jb = specialEventFormatInsert;
         String preText = "_SPECIAL_";
-        
+
         opActions(d, Index, jtf, jb, preText);
     }//GEN-LAST:event_specialEventFormatInsertActionPerformed
 
@@ -1351,7 +1336,7 @@ class RedoAction extends AbstractAction
         String preText = "_SPECIAL_";
         Color c = Black;
         String postText = "";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_specialEventFormatFocusGained
 
@@ -1361,18 +1346,23 @@ class RedoAction extends AbstractAction
         String preText = "";
         Color c = Gray;
         String postText = "_SPECIAL_";
-        
+
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_specialEventFormatFocusLost
+    //</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc=" Acciones de la Interfaz de Operaciones ">
     private void opActions(Deliver d, int Index, JTextField jtf, JButton jb, String preText) {
-        if (!orderFormat.getText().equalsIgnoreCase(preText)) {
+        if (!jtf.getText().equalsIgnoreCase(preText)) {
             Controller c = new Controller();
             d.setWindow(this);
             if (syntaxArea.isEditable()) {
                 c.controller(Index, jtf.getText());
-                if(preText.equalsIgnoreCase("")) {jtf.setForeground(Black);
-                } else {jtf.setForeground(Gray);}
+                if (preText.equalsIgnoreCase("")) {
+                    jtf.setForeground(Black);
+                } else {
+                    jtf.setForeground(Gray);
+                }
                 jtf.setText(preText);
                 jb.requestFocus();
             } else {
@@ -1383,53 +1373,64 @@ class RedoAction extends AbstractAction
             }
         }
     }
-    
-    private void opFocus(JTextField jtf, String preText, Color c, String postText){
+
+    private void opFocus(JTextField jtf, String preText, Color c, String postText) {
         if (jtf.getText().equalsIgnoreCase(preText)) {
             jtf.setForeground(c);
             jtf.setText(postText);
         }
     }
-    
-    private void preMakeRoom(javax.swing.JTextArea Area) {
+    //</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc=" Make's Room ">
+    private String preMakeRoom(javax.swing.JTextArea Area) {
+        String bs = "";
         int act = Area.getCaretPosition();
-        try {        
-            String sig = Area.getText(act-1, 1);
+        try {
+            String sig = Area.getText(act - 1, 1);
             if (!sig.equalsIgnoreCase("\n")) {
-                Area.insert("\n", Area.getCaretPosition());
+                //Area.insert("\n", Area.getCaretPosition());
+                bs = "\n";
             }
-        } catch (BadLocationException ex) {}    
+        } catch (BadLocationException ex) {
+        }
+        return bs;
     }
-    
-    private void postMakeRoom(javax.swing.JTextArea Area) {
+
+    private String postMakeRoom(javax.swing.JTextArea Area) {
+        String bs = "";
         int act = Area.getCaretPosition();
         Area.setCaretPosition(Area.getDocument().getLength());
         int fin = Area.getCaretPosition();
         Area.setCaretPosition(act);
-        try {        
+        try {
             String sig = Area.getText(act, 1);
             if (act != fin && sig.equalsIgnoreCase("\n")) {
-                Area.setCaretPosition(Area.getCaretPosition()+1);
-            } else {        
-                Area.insert("\n", Area.getCaretPosition());
-            }        
-        } catch (BadLocationException ex) {        
-            Area.insert("\n", Area.getCaretPosition());    
-        }    
+                Area.setCaretPosition(Area.getCaretPosition() + 1);
+            } else {
+                //Area.insert("\n", Area.getCaretPosition());
+                bs = "\n";
+            }
+        } catch (BadLocationException ex) {
+            //Area.insert("\n", Area.getCaretPosition());
+            bs = "\n";
+        }
+        return bs;
     }
-    
+
     /**
-     * Inserta el parametro String en el parametor JTextArea
-     * haciendo un "hueco" en el texto, si fuera necesario
+     * Inserta el parametro String en el parametor JTextArea haciendo un "hueco"
+     * en el texto, si fuera necesario
+     *
      * @param Area JTextArea
      * @param str String
      */
     private void insertText(javax.swing.JTextArea Area, String str) {
-        preMakeRoom(Area);    
-        Area.insert(str, Area.getCaretPosition());
-        postMakeRoom(Area);
+        Area.insert(preMakeRoom(Area) + str
+                + postMakeRoom(Area), Area.getCaretPosition());
     }
-    
+    //</editor-fold>
+
     /**
      * @param args the command line arguments
      */
