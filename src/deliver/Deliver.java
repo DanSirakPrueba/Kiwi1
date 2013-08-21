@@ -4,6 +4,9 @@
  */
 package deliver;
 
+import interfaz.NewJFrame2;
+import javax.swing.JFrame;
+
 /**
  * @author Kiwi
  */
@@ -12,6 +15,8 @@ public class Deliver {
     /* TODO: esto solo es un método deliver temporal, para poder hacer la lógica
      * del negocio.
      */
+    public static NewJFrame2 GUI;
+    
     public static final int SELECTBD = 11;
     public static final int DELETEBD = 12;
     public static final int UPDATEBD = 13;
@@ -29,8 +34,12 @@ public class Deliver {
     public static final int AssociationFormat = 39;
     public static final int specialEventFormat = 310;
     
+    public static void setWindow(NewJFrame2 target) {
+        GUI = target;
+    }
+    
     public static void deliver(int where, String what) {
-        System.out.println(what);
+        GUI.setSyntaxText(what);
     }
 
     

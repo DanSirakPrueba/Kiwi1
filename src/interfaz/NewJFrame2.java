@@ -19,6 +19,7 @@ import javax.swing.undo.*;
 import java.lang.Object;
 import java.util.ArrayList;
 import business.Operaciones;
+import deliver.Deliver;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ActionMap;
@@ -73,8 +74,12 @@ public class NewJFrame2 extends javax.swing.JFrame {
         JMenuItem redoMenuItem = new JMenuItem(redoAction);
         editMenu.add(undoMenuItem);
         editMenu.add(redoMenuItem);
+        Deliver.setWindow(this);
         
         
+    }
+    public void setSyntaxText(String text) {
+        syntaxArea.setText(text);
     }
 class UndoHandler implements UndoableEditListener
 {
