@@ -634,6 +634,7 @@ class RedoAction extends AbstractAction
             .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
         );
 
+        msgError.setTitle("WARNING");
         msgError.setBounds(new java.awt.Rectangle(0, 0, 307, 120));
         msgError.setLocationByPlatform(true);
 
@@ -1365,7 +1366,9 @@ class RedoAction extends AbstractAction
                 jb.requestFocus();
             } else {
                 msgError.setVisible(true);
-                msgErrorLabel.setText("Error: no se ha podido insertar la Operacion");
+                String msg = "<html><b>Error</b>: no se ha podido insertar la "
+                        + "Operacion<br><i>Cause</i>: Edit Code Locked</html>";
+                msgErrorLabel.setText(msg);
             }
         }
     }
