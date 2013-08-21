@@ -31,7 +31,7 @@ public class Deliver {
     public static final int compAsigOperationSintax = 36;
     public static final int basicProcessingFormat = 37;
     public static final int newProcessingFormat = 38;
-    public static final int AssociationFormat = 39;
+    public static final int associationFormat = 39;
     public static final int specialEventFormat = 310;
     
     public static void setWindow(NewJFrame2 target) {

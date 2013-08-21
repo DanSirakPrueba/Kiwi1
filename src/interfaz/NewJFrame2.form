@@ -181,40 +181,58 @@
                 <Component class="javax.swing.JTextField" name="commandFormatExe">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="C_EJECUTA_COMANDO"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="commandFormatExeActionPerformed"/>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="commandFormatExeFocusGained"/>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="commandFormatExeFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="commandFormatExeInsert">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Insert"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="commandFormatExeInsertActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="commandFormatSintax">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="C_SINTAXIS_COMANDO"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="commandFormatSintaxActionPerformed"/>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="commandFormatSintaxFocusGained"/>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="commandFormatSintaxFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="commandFormatSintaxInsert">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Insert"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="commandFormatSintaxInsertActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator2">
                 </Component>
                 <Component class="javax.swing.JTextField" name="failureManagerFormat">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="CAMPOS_GF"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="failureManagerFormatActionPerformed"/>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="failureManagerFormatFocusGained"/>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="failureManagerFormatFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="failureManagerFormatInsert">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Insert"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="failureManagerFormatInsertActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator3">
                 </Component>
@@ -222,14 +240,20 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="X_OPERACION_SINTAX"/>
                     <Property name="toolTipText" type="java.lang.String" value="SUMA-CONCATENACION"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="concatOperationSintaxActionPerformed"/>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="concatOperationSintaxFocusGained"/>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="concatOperationSintaxFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="concatOperationSintaxInsert">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Insert"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="concatOperationSintaxInsertActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -275,9 +299,9 @@
                               </Group>
                               <Component id="jSeparator5" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="AssociationFormat" min="-2" pref="183" max="-2" attributes="0"/>
+                                  <Component id="associationFormat" min="-2" pref="183" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="AssociationFormatInsert" min="-2" max="-2" attributes="0"/>
+                                  <Component id="associationFormatInsert" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jSeparator6" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
@@ -314,8 +338,8 @@
                           <Component id="jSeparator5" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="AssociationFormat" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="AssociationFormatInsert" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="associationFormat" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="associationFormatInsert" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jSeparator6" min="-2" pref="10" max="-2" attributes="0"/>
@@ -334,73 +358,154 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="X_OPERACION_SINTAX"/>
                     <Property name="toolTipText" type="java.lang.String" value="COMPARACION-ASIGNACION"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="compAsigOperationSintaxActionPerformed"/>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="compAsigOperationSintaxFocusGained"/>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="compAsigOperationSintaxFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="compAsigOperationSintaxInsert">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Insert"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="compAsigOperationSintaxInsertActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator4">
                 </Component>
                 <Component class="javax.swing.JTextField" name="basicProcessingFormat">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="_TRATAR_BASICO"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="basicProcessingFormatActionPerformed"/>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="basicProcessingFormatFocusGained"/>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="basicProcessingFormatFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="basicProcessingFormatInsert">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Insert"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="basicProcessingFormatInsertActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="newProcessingFormat">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="_TRATAR_NUEVO"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newProcessingFormatActionPerformed"/>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="newProcessingFormatFocusGained"/>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="newProcessingFormatFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="newProcessingFormatInsert">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Insert"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newProcessingFormatInsertActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator5">
                 </Component>
-                <Component class="javax.swing.JTextField" name="AssociationFormat">
+                <Component class="javax.swing.JTextField" name="associationFormat">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="X_ASOCIAR_SINTAX"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="associationFormatActionPerformed"/>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="associationFormatFocusGained"/>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="associationFormatFocusLost"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="AssociationFormatInsert">
+                <Component class="javax.swing.JButton" name="associationFormatInsert">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Insert"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="associationFormatInsertActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator6">
                 </Component>
                 <Component class="javax.swing.JTextField" name="specialEventFormat">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="_SPECIAL_"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="specialEventFormatActionPerformed"/>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="specialEventFormatFocusGained"/>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="specialEventFormatFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="specialEventFormatInsert">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Insert"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="specialEventFormatInsertActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
           </SubComponents>
         </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="msgError">
+      <Properties>
+        <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
+          <Rectangle value="[0, 0, 307, 120]"/>
+        </Property>
+        <Property name="locationByPlatform" type="boolean" value="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="msgErrorLabel" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="130" max="32767" attributes="0"/>
+                  <Component id="msgErrorButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="msgErrorLabel" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="msgErrorButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="47" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="msgErrorLabel">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/icons2/bullet_error.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Prueba de Texto"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="msgErrorButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="OK"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="msgErrorButtonActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </NonVisualComponents>
