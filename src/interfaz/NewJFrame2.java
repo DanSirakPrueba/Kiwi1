@@ -19,6 +19,7 @@ import javax.swing.undo.*;
 import java.lang.Object;
 import java.util.ArrayList;
 import business.Operaciones;
+import controller.Controller;
 import deliver.Deliver;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -30,6 +31,7 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
+import javax.swing.text.BadLocationException;
 import javax.swing.undo.CannotUndoException;
 
 /**
@@ -79,7 +81,8 @@ public class NewJFrame2 extends javax.swing.JFrame {
         
     }
     public void setSyntaxText(String text) {
-        syntaxArea.setText(text);
+        //syntaxArea.append(text);
+        insertText(syntaxArea, text);
     }
 class UndoHandler implements UndoableEditListener
 {
@@ -700,8 +703,13 @@ class RedoAction extends AbstractAction
     private void orderFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderFormatActionPerformed
         // TODO add your handling code here:
         if (!orderFormat.getText().equalsIgnoreCase("")) {    
-            syntaxArea.insert("ESPERANDO AL DELIVER...\n", 
-                    syntaxArea.getCaretPosition());
+            // TODO Cambiar cuando el Deliver este terminado
+            Deliver d = new Deliver();
+            Controller c = new Controller();
+            
+            d.setWindow(this);
+            c.controller(d.orderFormat, orderFormat.getText());
+            
             orderFormat.setText("");
             orderFormatInsert.requestFocus();
         }
@@ -755,6 +763,45 @@ class RedoAction extends AbstractAction
         }
     }//GEN-LAST:event_LoadSyntaxActionPerformed
 
+    private void preMakeRoom(javax.swing.JTextArea Area) {
+        int act = Area.getCaretPosition();
+        try {        
+            String sig = Area.getText(act-1, 1);
+            if (!sig.equalsIgnoreCase("\n")) {
+                Area.insert("\n", Area.getCaretPosition());
+            }
+        } catch (BadLocationException ex) {}    
+    }
+    
+    private void postMakeRoom(javax.swing.JTextArea Area) {
+        int act = Area.getCaretPosition();
+        Area.setCaretPosition(Area.getDocument().getLength());
+        int fin = Area.getCaretPosition();
+        Area.setCaretPosition(act);
+        try {        
+            String sig = Area.getText(act, 1);
+            if (act != fin && sig.equalsIgnoreCase("\n")) {
+                Area.setCaretPosition(Area.getCaretPosition()+1);
+            } else {        
+                Area.insert("\n", Area.getCaretPosition());
+            }        
+        } catch (BadLocationException ex) {        
+            Area.insert("\n", Area.getCaretPosition());    
+        }    
+    }
+    
+    /**
+     * Inserta el parametro String en el parametor JTextArea
+     * haciendo un "hueco" en el texto, si fuera necesario
+     * @param Area JTextArea
+     * @param str String
+     */
+    private void insertText(javax.swing.JTextArea Area, String str) {
+        preMakeRoom(Area);    
+        Area.insert(str, Area.getCaretPosition());
+        postMakeRoom(Area);
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -12,15 +12,16 @@ import java.util.ArrayList;
  */
 public class Operaciones {
 
-    public static void orderFormat(ArrayList orders) {
-    	String phrase = "%^X_ORDEN_SINTAX.\"";
+    // ArrayList
+    public void orderFormat(String orders) {
+    	String phrase = "%^X_ORDEN_SINTAX.\"" + orders;
         
-        if (orders != null) {
+        /*if (orders != null) {
             for (int i = 0; i < orders.size() - 1; i++) {
                     phrase += orders.get(i) + ", ";
             }
             phrase += orders.get(orders.size() - 1);
-        }
+        }*/
         
         phrase += "\"\n";
         Deliver.deliver(Deliver.orderFormat, phrase);
