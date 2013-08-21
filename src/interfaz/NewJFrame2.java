@@ -656,6 +656,7 @@ class RedoAction extends AbstractAction
             } catch (Exception e) {
             }
             eventArea.setText(storeAllString);
+            eventArea.setCaretPosition(0);
         }
     }//GEN-LAST:event_LoadEventActionPerformed
 
@@ -760,6 +761,7 @@ class RedoAction extends AbstractAction
             } catch (Exception e) {
             }
             syntaxArea.setText(storeAllString);
+            syntaxArea.setCaretPosition(0);
         }
     }//GEN-LAST:event_LoadSyntaxActionPerformed
 
