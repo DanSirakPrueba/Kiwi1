@@ -34,7 +34,15 @@ public class Controller {
     public static final int associationFormat = 39;
     public static final int specialEventFormat = 310;
     //</editor-fold>
-    
+    //<editor-fold defaultstate="collapsed" desc=" Final int de Output ">
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc=" Final int de Tablas ">
+    public static final int createTable = 51;
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc=" Final int de Variables ">
+    public static final int createNewVariable = 61;
+    public static final int createVariableFromText = 62;
+    //</editor-fold>
     
     public static void controller(int where, String what) {
         //TODO Temporal
