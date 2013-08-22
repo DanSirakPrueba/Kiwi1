@@ -1,4 +1,5 @@
 package business;
+import controller.Controller;
 import deliver.Deliver;
 /*
  * This class parses the given input and output an operation type-based syntax
@@ -21,22 +22,22 @@ public class Operaciones {
         phrase += splitOrders[splitOrders.length- 1];
         
         phrase += "\"";
-        Deliver.deliver(Deliver.orderFormat, phrase);
+        Deliver.deliver(Controller.orderFormat, phrase);
     }
 
     public static void commandFormatExe(String opciones) {
     	// TODO: En la interfaz hay que poner un ejemplo de esto, para recordar las posibles operaciones.
     	String phrase = "%^C_EJECUTA_COMANDO.\"" + opciones + "\"";
-        Deliver.deliver(Deliver.commandFormatExe, phrase);
+        Deliver.deliver(Controller.commandFormatExe, phrase);
     }
 
     public static void commandFormatSintax(String sintaxis) {
         // TODO: En la interfaz hay que poner un ejemplo de esto, para recordar las posibles operaciones.
     	String phrase = "%^C_SINTAXIS_COMANDO.\"" + sintaxis + "\"";
-    	Deliver.deliver(Deliver.commandFormatSintax, phrase);
+    	Deliver.deliver(Controller.commandFormatSintax, phrase);
     }
 
-    public void failureManagerFormat(String variables) {
+    public static void failureManagerFormat(String variables) {
         // Ej: variables = S:NUM_EQU|X:REMOTA|Campo5|E:SOC
         String phrase = "%^CAMPOS_GF.\"";
         
@@ -47,7 +48,7 @@ public class Operaciones {
         phrase += splitvars[splitvars.length- 1];
         
         phrase += "\"";
-    	Deliver.deliver(Deliver.failureManagerFormat, phrase);
+    	Deliver.deliver(Controller.failureManagerFormat, phrase);
     }
     
     public static void concatOperationSintax(String variables) {
@@ -63,7 +64,7 @@ public class Operaciones {
                 " = " + splitvars[2];
         
         phrase += "\"";
-        Deliver.deliver(Deliver.concatOperationSintax, phrase);
+        Deliver.deliver(Controller.concatOperationSintax, phrase);
     }
     
     public static void compAsigOperationSintax(String Fields) {
@@ -84,7 +85,7 @@ public class Operaciones {
         }
         
         phrase += "\"";
-        Deliver.deliver(Deliver.compAsigOperationSintax, phrase);
+        Deliver.deliver(Controller.compAsigOperationSintax, phrase);
     }
     
     public static void basicProcessingFormat(String Fields) {
@@ -106,7 +107,7 @@ public class Operaciones {
                 + splitfields[splitfields.length - 1];
         
         phrase += "\"";
-        Deliver.deliver(Deliver.basicProcessingFormat, phrase);
+        Deliver.deliver(Controller.basicProcessingFormat, phrase);
     }
     
     public static void newProcessingFormat(String Fields) {
@@ -131,7 +132,7 @@ public class Operaciones {
                 + splitfields[splitfields.length - 1];
         
         phrase += "\"";
-        Deliver.deliver(Deliver.newProcessingFormat, phrase);
+        Deliver.deliver(Controller.newProcessingFormat, phrase);
     }
     
     //before 2 ArrayList (ArrayList ReplaceVars, ArrayList NewVars)
@@ -156,11 +157,11 @@ public class Operaciones {
         phrase += NewVars[NewVars.length - 1];
 
         phrase += "\"";
-        Deliver.deliver(Deliver.associationFormat, phrase);
+        Deliver.deliver(Controller.associationFormat, phrase);
     }
     
     public static void specialEventFormat(String template) {
         String phrase = "_SPECIAL_.\"" + template +"??\"";
-        Deliver.deliver(Deliver.specialEventFormat, phrase);
+        Deliver.deliver(Controller.specialEventFormat, phrase);
     }
 }

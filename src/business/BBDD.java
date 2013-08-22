@@ -3,6 +3,7 @@
  */
 package business;
 import deliver.Deliver;
+import controller.Controller;
 import java.util.ArrayList;
 
 /**
@@ -43,7 +44,7 @@ public class BBDD {
     	phraseC += tablaSelect.get(tablaSelect.size() - 1) + "\"";
     	String phraseD = "%^S_CONDICION_SELECT.\"" + condicionSelect + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n" + phraseD + "\n";
-    	Deliver.deliver(Deliver.SELECTBD, phrase);
+    	Deliver.deliver(Controller.SELECTBD, phrase);
     }
     
     /**
@@ -68,7 +69,7 @@ public class BBDD {
         String phraseB = "%^D_TABLA_DELETE.\"" + tablaDelete + "\"";
         String phraseC = "%^D_CONDICION_DELETE.\"" + condicionDelete + "\"";
         String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n";
-        Deliver.deliver(Deliver.DELETEBD, phrase);
+        Deliver.deliver(Controller.DELETEBD, phrase);
     }
 
     /**
@@ -103,7 +104,7 @@ public class BBDD {
     	phraseC += camposUpdate.get(camposUpdate.size() - 1) + "\"";
     	String phraseD = "%^U_CONDICION_UPDATE.\"" + condicionUpdate + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n" + phraseD + "\n";
-    	Deliver.deliver(Deliver.UPDATEBD, phrase);
+    	Deliver.deliver(Controller.UPDATEBD, phrase);
     }
     
     /**
@@ -124,7 +125,7 @@ public class BBDD {
     	}
     	String phraseB = "%^X_SENTENCIA_QUERY.\"" + sentenciaQuery + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n";
-    	Deliver.deliver(Deliver.QUERYBD, phrase);
+    	Deliver.deliver(Controller.QUERYBD, phrase);
     }
 
     /**
@@ -157,7 +158,7 @@ public class BBDD {
     	}
     	phraseD += columnasInsert.get(columnasInsert.size() - 1) + "\"";
         String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n" + phraseD + "\n";
-      	Deliver.deliver(Deliver.INSERTBD, phrase);
+      	Deliver.deliver(Controller.INSERTBD, phrase);
 
     }
 }

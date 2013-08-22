@@ -929,13 +929,12 @@ public class NewJFrame2 extends javax.swing.JFrame {
     //<editor-fold defaultstate="collapsed" desc=" JtextField's y JButton's de Operaciones ">
     private void orderFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderFormatActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.orderFormat;
+        int Index = Controller.orderFormat;
         JTextField jtf = orderFormat;
         JButton jb = orderFormatInsert;
         String preText = "";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_orderFormatActionPerformed
 
     private void orderFormatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_orderFormatFocusGained
@@ -960,35 +959,32 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
     private void orderFormatInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderFormatInsertActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.orderFormat;
+        int Index = Controller.orderFormat;
         JTextField jtf = orderFormat;
         JButton jb = orderFormatInsert;
         String preText = "X_ORDEN_SINTAX";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_orderFormatInsertActionPerformed
 	
     private void commandFormatExeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_commandFormatExeActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.commandFormatExe;
+        int Index = Controller.commandFormatExe;
         JTextField jtf = commandFormatExe;
         JButton jb = commandFormatExeInsert;
         String preText = "";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_commandFormatExeActionPerformed
 
     private void commandFormatExeInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_commandFormatExeInsertActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.commandFormatExe;
+        int Index = Controller.commandFormatExe;
         JTextField jtf = commandFormatExe;
         JButton jb = commandFormatExeInsert;
         String preText = "C_EJECUTA_COMANDO";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_commandFormatExeInsertActionPerformed
 
     private void commandFormatExeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_commandFormatExeFocusGained
@@ -1013,24 +1009,22 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
     private void commandFormatSintaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_commandFormatSintaxActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.commandFormatSintax;
+        int Index = Controller.commandFormatSintax;
         JTextField jtf = commandFormatSintax;
         JButton jb = commandFormatSintaxInsert;
         String preText = "";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_commandFormatSintaxActionPerformed
 
     private void commandFormatSintaxInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_commandFormatSintaxInsertActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.commandFormatSintax;
+        int Index = Controller.commandFormatSintax;
         JTextField jtf = commandFormatSintax;
         JButton jb = commandFormatSintaxInsert;
         String preText = "C_SINTAXIS_COMANDO";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_commandFormatSintaxInsertActionPerformed
 
     private void commandFormatSintaxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_commandFormatSintaxFocusGained
@@ -1055,24 +1049,22 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
     private void failureManagerFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_failureManagerFormatActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.failureManagerFormat;
+        int Index = Controller.failureManagerFormat;
         JTextField jtf = failureManagerFormat;
         JButton jb = failureManagerFormatInsert;
         String preText = "";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_failureManagerFormatActionPerformed
 
     private void failureManagerFormatInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_failureManagerFormatInsertActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.failureManagerFormat;
+        int Index = Controller.failureManagerFormat;
         JTextField jtf = failureManagerFormat;
         JButton jb = failureManagerFormatInsert;
         String preText = "CAMPOS_GF";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_failureManagerFormatInsertActionPerformed
 
     private void failureManagerFormatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_failureManagerFormatFocusGained
@@ -1097,24 +1089,22 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
     private void concatOperationSintaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concatOperationSintaxActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.concatOperationSintax;
+        int Index = Controller.concatOperationSintax;
         JTextField jtf = concatOperationSintax;
         JButton jb = concatOperationSintaxInsert;
         String preText = "";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_concatOperationSintaxActionPerformed
 
     private void concatOperationSintaxInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concatOperationSintaxInsertActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.concatOperationSintax;
+        int Index = Controller.concatOperationSintax;
         JTextField jtf = concatOperationSintax;
         JButton jb = concatOperationSintaxInsert;
         String preText = "X_OPERACION_SINTAX";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_concatOperationSintaxInsertActionPerformed
 
     private void concatOperationSintaxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_concatOperationSintaxFocusGained
@@ -1139,24 +1129,22 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
     private void compAsigOperationSintaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compAsigOperationSintaxActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.compAsigOperationSintax;
+        int Index = Controller.compAsigOperationSintax;
         JTextField jtf = compAsigOperationSintax;
         JButton jb = compAsigOperationSintaxInsert;
         String preText = "";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_compAsigOperationSintaxActionPerformed
 
     private void compAsigOperationSintaxInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compAsigOperationSintaxInsertActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.compAsigOperationSintax;
+        int Index = Controller.compAsigOperationSintax;
         JTextField jtf = compAsigOperationSintax;
         JButton jb = compAsigOperationSintaxInsert;
         String preText = "X_OPERACION_SINTAX";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_compAsigOperationSintaxInsertActionPerformed
 
     private void compAsigOperationSintaxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_compAsigOperationSintaxFocusGained
@@ -1181,24 +1169,22 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
     private void basicProcessingFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basicProcessingFormatActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.basicProcessingFormat;
+        int Index = Controller.basicProcessingFormat;
         JTextField jtf = basicProcessingFormat;
         JButton jb = basicProcessingFormatInsert;
         String preText = "";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_basicProcessingFormatActionPerformed
 
     private void basicProcessingFormatInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basicProcessingFormatInsertActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.basicProcessingFormat;
+        int Index = Controller.basicProcessingFormat;
         JTextField jtf = basicProcessingFormat;
         JButton jb = basicProcessingFormatInsert;
         String preText = "_TRATAR_BASICO";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_basicProcessingFormatInsertActionPerformed
 
     private void basicProcessingFormatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_basicProcessingFormatFocusGained
@@ -1223,24 +1209,22 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
     private void newProcessingFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newProcessingFormatActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.newProcessingFormat;
+        int Index = Controller.newProcessingFormat;
         JTextField jtf = newProcessingFormat;
         JButton jb = newProcessingFormatInsert;
         String preText = "";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_newProcessingFormatActionPerformed
 
     private void newProcessingFormatInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newProcessingFormatInsertActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.newProcessingFormat;
+        int Index = Controller.newProcessingFormat;
         JTextField jtf = newProcessingFormat;
         JButton jb = newProcessingFormatInsert;
         String preText = "_TRATAR_NUEVO";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_newProcessingFormatInsertActionPerformed
 
     private void newProcessingFormatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newProcessingFormatFocusGained
@@ -1265,24 +1249,22 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
     private void associationFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_associationFormatActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.associationFormat;
+        int Index = Controller.associationFormat;
         JTextField jtf = associationFormat;
         JButton jb = associationFormatInsert;
         String preText = "";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_associationFormatActionPerformed
 
     private void associationFormatInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_associationFormatInsertActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.associationFormat;
+        int Index = Controller.associationFormat;
         JTextField jtf = associationFormat;
         JButton jb = associationFormatInsert;
         String preText = "X_ASOCIAR_SINTAX";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_associationFormatInsertActionPerformed
 
     private void associationFormatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_associationFormatFocusGained
@@ -1307,24 +1289,22 @@ public class NewJFrame2 extends javax.swing.JFrame {
 
     private void specialEventFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialEventFormatActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.specialEventFormat;
+        int Index = Controller.specialEventFormat;
         JTextField jtf = specialEventFormat;
         JButton jb = specialEventFormatInsert;
         String preText = "";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_specialEventFormatActionPerformed
 
     private void specialEventFormatInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialEventFormatInsertActionPerformed
         // TODO add your handling code here:
-        Deliver d = new Deliver();
-        int Index = d.specialEventFormat;
+        int Index = Controller.specialEventFormat;
         JTextField jtf = specialEventFormat;
         JButton jb = specialEventFormatInsert;
         String preText = "_SPECIAL_";
 
-        opActions(d, Index, jtf, jb, preText);
+        opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_specialEventFormatInsertActionPerformed
 
     private void specialEventFormatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_specialEventFormatFocusGained
@@ -1349,8 +1329,9 @@ public class NewJFrame2 extends javax.swing.JFrame {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc=" Acciones de la Interfaz de Operaciones ">
-    private void opActions(Deliver d, int Index, JTextField jtf, JButton jb, String preText) {
+    private void opActions(int Index, JTextField jtf, JButton jb, String preText) {
         if (!jtf.getText().equalsIgnoreCase(preText)) {
+            Deliver d = new Deliver();
             Controller c = new Controller();
             d.setDestination(this);
             if (syntaxArea.isEditable()) {
