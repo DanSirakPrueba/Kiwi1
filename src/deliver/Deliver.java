@@ -29,7 +29,6 @@ public class Deliver {
                 case SYNTAX_AREA: ((MainWindow) GUI).setSyntaxText(what); break;
                 default: System.err.println("¡¡¡Opción desconocida!!!");
             }
-            ((MainWindow) GUI).setSyntaxText(what);
         } else {
             System.err.println("Instancia desconocida");
         }
