@@ -37,7 +37,7 @@ public class Input {
                fr.close();     
             } 
             // TODO: corregir el número.
-            Deliver.deliver(1, text);
+            Deliver.deliver(Deliver.EVENT_AREA, text);
          }catch (Exception e2){ 
             e2.printStackTrace();
          }

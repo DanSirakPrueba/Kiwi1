@@ -4,7 +4,7 @@
  */
 package deliver;
 
-import interfaz.NewJFrame2;
+import GUI.MainWindow;
 
 /**
  * @author Kiwi
@@ -15,14 +15,21 @@ public class Deliver {
      * del negocio.
      */
     public static Object GUI;
+    public static final int EVENT_AREA = 1;
+    public static final int SYNTAX_AREA = 2;
     
     public static void setDestination(Object target) {
         GUI = target;
     }
     
     public static void deliver(int where, String what) {
-        if(GUI instanceof NewJFrame2) {
-            ((NewJFrame2) GUI).setSyntaxText(what);
+        if(GUI instanceof MainWindow) {
+            switch (where) {
+                case EVENT_AREA: ((MainWindow) GUI).setEventText(what); break;
+                case SYNTAX_AREA: ((MainWindow) GUI).setSyntaxText(what); break;
+                default: System.err.println("¡¡¡Opción desconocida!!!");
+            }
+            ((MainWindow) GUI).setSyntaxText(what);
         } else {
             System.err.println("Instancia desconocida");
         }

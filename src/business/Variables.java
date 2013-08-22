@@ -20,7 +20,7 @@ public class Variables {
         // TODO: corregir el número.
         String phrase;
         phrase = "%^" + name + ".\"" + value + "\"";
-        Deliver.deliver(0, phrase);
+        Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
     }
 
 	/**
@@ -55,6 +55,6 @@ public class Variables {
 				phrase = "%" + column_start + "+" + column_end + name + "." + type;
 			}
 		}
-		Deliver.deliver(1, phrase);
+		Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
     }
 }
