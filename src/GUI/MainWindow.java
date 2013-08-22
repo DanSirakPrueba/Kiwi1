@@ -826,16 +826,9 @@ public class MainWindow extends javax.swing.JFrame {
             File fichero = fileChooser.getSelectedFile();
             // Aquí debemos abrir y leer el fichero.
             try {
-                FileReader readTextFile = new FileReader(fichero.toString());
-                Scanner fileReaderScan = new Scanner(readTextFile);
-                while (fileReaderScan.hasNextLine()) {
-                    String temp = fileReaderScan.nextLine() + "\n";
-                    storeAllString = storeAllString + temp;
-                }
-
+                Controller.controller(Controller.readInput, fichero.toString());
             } catch (Exception e) {
             }
-            eventArea.setText(storeAllString);
             eventArea.setCaretPosition(0);
         }
     }//GEN-LAST:event_LoadEventActionPerformed
@@ -855,7 +848,6 @@ public class MainWindow extends javax.swing.JFrame {
                     String temp = fileReaderScan.nextLine() + "\n";
                     storeAllString = storeAllString + temp;
                 }
-
             } catch (Exception e) {
             }
             syntaxArea.setText(storeAllString);
