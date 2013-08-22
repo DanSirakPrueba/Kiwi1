@@ -12,14 +12,17 @@ import business.Operaciones;
  */
 public class Controller {
     
+    //<editor-fold defaultstate="collapsed" desc=" Final int de BBDD ">
     public static final int SELECTBD = 11;
     public static final int DELETEBD = 12;
     public static final int UPDATEBD = 13;
     public static final int QUERYBD = 14;
     public static final int INSERTBD = 15;
-    
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc=" Final int de Input ">
     public static final int readInput = 21;
-    
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc=" Final int de Operaciones ">
     public static final int orderFormat = 31;
     public static final int commandFormatExe = 32;
     public static final int commandFormatSintax = 33;
@@ -30,6 +33,8 @@ public class Controller {
     public static final int newProcessingFormat = 38;
     public static final int associationFormat = 39;
     public static final int specialEventFormat = 310;
+    //</editor-fold>
+    
     
     public static void controller(int where, String what) {
         //TODO Temporal
