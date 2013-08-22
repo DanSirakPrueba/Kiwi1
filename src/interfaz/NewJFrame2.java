@@ -4,7 +4,6 @@
  */
 package interfaz;
 
-import business.Operaciones;
 import java.awt.Color;
 import java.awt.Event;
 import java.awt.Toolkit;
@@ -17,8 +16,6 @@ import javax.swing.JFileChooser;
 import javax.swing.text.Document;
 import javax.swing.undo.*;
 import java.lang.Object;
-import java.util.ArrayList;
-import business.Operaciones;
 import controller.Controller;
 import deliver.Deliver;
 import javax.swing.AbstractAction;
@@ -79,7 +76,7 @@ public class NewJFrame2 extends javax.swing.JFrame {
         JMenuItem redoMenuItem = new JMenuItem(redoAction);
         editMenu.add(undoMenuItem);
         editMenu.add(redoMenuItem);
-        Deliver.setWindow(this);
+        Deliver.setDestination(this);
 
 
     }
@@ -1355,7 +1352,7 @@ public class NewJFrame2 extends javax.swing.JFrame {
     private void opActions(Deliver d, int Index, JTextField jtf, JButton jb, String preText) {
         if (!jtf.getText().equalsIgnoreCase(preText)) {
             Controller c = new Controller();
-            d.setWindow(this);
+            d.setDestination(this);
             if (syntaxArea.isEditable()) {
                 c.controller(Index, jtf.getText());
                 if (preText.equalsIgnoreCase("")) {

@@ -1,6 +1,5 @@
 package business;
 import deliver.Deliver;
-import java.util.ArrayList;
 /*
  * This class parses the given input and output an operation type-based syntax
  * form.
@@ -41,33 +40,32 @@ public class Operaciones {
         // Ej: variables = S:NUM_EQU|X:REMOTA|Campo5|E:SOC
         String phrase = "%^CAMPOS_GF.\"";
         
-        String[] splitOrders = variables.split(" ");   
-        for (int i = 0; i < splitOrders.length - 1; i++) {
-            phrase += splitOrders[i] + ",";
+        String[] splitvars = variables.split(" ");   
+        for (int i = 0; i < splitvars.length - 1; i++) {
+            phrase += splitvars[i] + ",";
         }
-        phrase += splitOrders[splitOrders.length- 1];
+        phrase += splitvars[splitvars.length- 1];
         
         phrase += "\"";
     	Deliver.deliver(Deliver.failureManagerFormat, phrase);
     }
     
-    //before ArrayList
-    public static void concatOperationSintax(String Variables) {
+    public static void concatOperationSintax(String variables) {
         // Ej: Variables0 = Input1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         // Ej: Variables1 = Input2 = [X:|S:|C:|E:][N:|H:]NAME_op2
         // Ej: Variables2 = Output = [X:|S:|C:|E:][N:|H:]NAME_res
         
-        String phrase = "%^X_OPERACION_SINTAX.\"" + Variables;
+        String phrase = "%^X_OPERACION_SINTAX.\"";
         
-        /*if (Variables != null) {
-            phrase += Variables.get(0) + " + " + Variables.get(1) +
-                    " = " + Variables.get(2);
-        }*/
+        String[] splitvars = variables.split(" "); 
+        
+        phrase += splitvars[0] + " + " + splitvars[1] + 
+                " = " + splitvars[2];
+        
         phrase += "\"";
         Deliver.deliver(Deliver.concatOperationSintax, phrase);
     }
     
-    //before ArrayList
     public static void compAsigOperationSintax(String Fields) {
         //Field0 = VariableComp1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         //Field1 = operation = ‘==’, ‘!=’, ‘>=’, ‘<=’, ‘>’ , ‘<’ , ‘$’ y ‘!!’
@@ -76,39 +74,41 @@ public class Operaciones {
         //Field4 = VariableMiss = [X:|S:|C:|E:][N:|H:]NAME_Miss
         //Field5 = VariableAsig =[X:|S:|C:|E:][N:|H:]NAME_Asig
         
-        String body = "" + Fields;
-        /*if (Fields != null) {
-            body = Fields.get(0) + " " + Fields.get(1) + " " + Fields.get(2);        
-            for (int i = 0; i < 2; i++) {
-                body += " # " + Fields.get(3+i) + " = " + Fields.get(5);
-            }
-        }*/
+        String phrase = "%^X_OPERACION_SINTAX.\"";
         
-        String phrase = "%^X_OPERACION_SINTAX.\"" + body + "\"";
+        String[] splitfields = Fields.split(" "); 
+        
+        phrase += splitfields[0] + " " + splitfields[1] + " " + splitfields[2];        
+        for (int i = 0; i < 2; i++) {
+            phrase += " # " + splitfields[3+i] + " = " + splitfields[5];
+        }
+        
+        phrase += "\"";
         Deliver.deliver(Deliver.compAsigOperationSintax, phrase);
     }
     
-    //before ArrayList
     public static void basicProcessingFormat(String Fields) {
         //  %^_TRATAR_.” | %^I_TRATAR_INSERT.”
         //Field(s%3=0) = VariableComp1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         //Field(s%3=1) = operation = ',' ',,'
         //Field(s%3=2) = VariableComp2 = [X:|S:|C:|E:][N:|H:]NAME_op2
         
-        String phrase = "%^_TRATAR_.\"" + Fields;
+        String phrase = "%^_TRATAR_.\"";
         
-        /* if (Fields != null) {
-            for (int i = 0; i < Fields.size() - 3; i += 3) {
-                phrase += Fields.get(i) + " " + Fields.get(i+1) + " " + Fields.get(i+2) + " # ";
-            }
-            phrase += Fields.get(Fields.size() - 3) + " " + Fields.get(Fields.size() - 2) + " " + Fields.get(Fields.size() - 1);
-        }*/
+        String[] splitfields = Fields.split(" "); 
+        
+        for (int i = 0; i < splitfields.length - 3; i += 3) {
+            phrase += splitfields[i] + " " + splitfields[i+1] + " " 
+                    + splitfields[i+2] + " # ";
+        }
+        phrase += splitfields[splitfields.length - 3] + " " 
+                + splitfields[splitfields.length - 2] + " " 
+                + splitfields[splitfields.length - 1];
         
         phrase += "\"";
         Deliver.deliver(Deliver.basicProcessingFormat, phrase);
     }
     
-    //before ArrayList
     public static void newProcessingFormat(String Fields) {
         //Field(s%4=0) = VariableComp1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         //Field(s%4=1) = operation = '==' '!=' '<' '>' '>=' '<='
@@ -116,15 +116,19 @@ public class Operaciones {
         //Field(s%4=3) = VariableAsig = [A|B|C|...]
         //Field(s-1) = VariableForm = Ej: !(A|B)^C
         
-        String phrase = "%^_TRATAR_.\"" + Fields;
+        String phrase = "%^_TRATAR_.\"";
         
-        /*if (Fields != null) {
-            for (int i = 0; i < Fields.size() - 5; i += 4) {
-                phrase += Fields.get(i) + " " + Fields.get(i+1) + " " + Fields.get(i+2) + " = " + Fields.get(i+3) + " ; ";
-            }
-            phrase += Fields.get(Fields.size() - 5) + " " + Fields.get(Fields.size() - 4) + " "
-                + Fields.get(Fields.size() - 3) + " = " + Fields.get(Fields.size() - 2) + " # " + Fields.get(Fields.size() - 1);
-        }*/
+        String[] splitfields = Fields.split(" "); 
+
+        for (int i = 0; i < splitfields.length - 5; i += 4) {
+            phrase += splitfields[i] + " " + splitfields[i+1] + " " 
+                    + splitfields[i+2] + " = " + splitfields[i+3] + " ; ";
+        }
+        phrase += splitfields[splitfields.length - 5] + " " 
+                + splitfields[splitfields.length - 4] + " " 
+                + splitfields[splitfields.length - 3] + " = " 
+                + splitfields[splitfields.length - 2] + " # " 
+                + splitfields[splitfields.length - 1];
         
         phrase += "\"";
         Deliver.deliver(Deliver.newProcessingFormat, phrase);
@@ -135,18 +139,22 @@ public class Operaciones {
         // ReplaceVars = variables que se van a sustituir
         // NewVars = Variables nuevas que cogen el contenido de las ReplaceVars
         
-        String phrase = "%^X_ASOCIAR_SINTAX.\"" + vars;
-        /*if (ReplaceVars != null && NewVars != null) {
-            for(int i = 0; i < ReplaceVars.size() - 1; i++) {
-                phrase += ReplaceVars.get(i) + ", ";
-            }
-            phrase += ReplaceVars.get(ReplaceVars.size() - 1) + " # ";
+        String phrase = "%^X_ASOCIAR_SINTAX.\"";
+        
+        String[] parts = vars.split(" ; "); 
+        String[] ReplaceVars = parts[0].split(" ");
+        String[] NewVars = parts[1].split(" "); 
+        
+        for(int i = 0; i < ReplaceVars.length - 1; i++) {
+            phrase += ReplaceVars[i] + ", ";
+        }
+        phrase += ReplaceVars[ReplaceVars.length - 1] + " # ";
 
-            for(int i = 0; i < NewVars.size() - 1; i++) {
-                phrase += NewVars.get(i) + ", ";
-            }
-            phrase += NewVars.get(NewVars.size() - 1);
-        }*/
+        for(int i = 0; i < NewVars.length - 1; i++) {
+            phrase += NewVars[i] + ", ";
+        }
+        phrase += NewVars[NewVars.length - 1];
+
         phrase += "\"";
         Deliver.deliver(Deliver.associationFormat, phrase);
     }
