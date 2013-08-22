@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  * @author Kiwi
  */
-public class Syntax {
+public class Output {
     
 	private static Stack<String> syntaxStack = new Stack<String>();
 	private static Stack<String> auxStack = new Stack<String>();
@@ -30,7 +30,7 @@ public class Syntax {
             try {
                 w = new FileWriter(f);
             } catch (IOException ex) {
-                Logger.getLogger(Syntax.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Output.class.getName()).log(Level.SEVERE, null, ex);
             }
 		BufferedWriter bw = new BufferedWriter(w);
 		PrintWriter wr = new PrintWriter(bw);  
