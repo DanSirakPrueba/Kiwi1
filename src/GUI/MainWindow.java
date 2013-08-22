@@ -43,13 +43,14 @@ public class MainWindow extends javax.swing.JFrame {
     public static final Color Red = new Color(255, 0, 0);
     public static final Color Black = new Color(0, 0, 0);
     public static final Color Gray = new Color(109, 109, 109);
-    // undo and redo
+    
+    //<editor-fold defaultstate="collapsed" desc=" Undo & Redo part1 ">
     private Document editorPaneDocument;
     protected UndoHandler undoHandler = new UndoHandler();
     protected UndoManager undoManager = new UndoManager();
     private UndoAction undoAction = null;
     private RedoAction redoAction = null;
-    // In the constructor
+    //</editor-fold>
 
     /**
      * Creates new form NewJFrame
@@ -90,6 +91,7 @@ public class MainWindow extends javax.swing.JFrame {
         insertText(eventArea, text);
     }
 
+    //<editor-fold defaultstate="collapsed" desc=" Undo & Redo part2">
     class UndoHandler implements UndoableEditListener {
 
         /**
@@ -161,6 +163,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         }
     }
+    //</editor-fold>
 
     /**
      * This method is called from within the constructor to initialize the form.
