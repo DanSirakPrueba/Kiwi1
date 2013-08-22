@@ -3,6 +3,7 @@
  * into the business.
  */
 package controller;
+import business.Input;
 import business.Operaciones;
 
 /**
@@ -16,6 +17,8 @@ public class Controller {
     public static final int UPDATEBD = 13;
     public static final int QUERYBD = 14;
     public static final int INSERTBD = 15;
+    
+    public static final int readInput = 21;
     
     public static final int orderFormat = 31;
     public static final int commandFormatExe = 32;
@@ -61,6 +64,8 @@ public class Controller {
             case specialEventFormat: 
                 Operaciones.specialEventFormat(what); 
             break;
+            case readInput:
+                Input.readInput(what);
             // TODO los multitud de cases
             default: break;
         }
