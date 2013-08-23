@@ -27,6 +27,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
@@ -734,7 +735,7 @@ public class MainWindow extends javax.swing.JFrame {
         deshacer.setToolTipText("Undo");
         deshacer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deshacerActionPerformed(evt);
+                undoActionPerformed(evt);
             }
         });
 
@@ -863,14 +864,17 @@ public class MainWindow extends javax.swing.JFrame {
         jFrame1.setVisible(true);
     }//GEN-LAST:event_NVariableActionPerformed
 
-    private void deshacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deshacerActionPerformed
+    private void undoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoActionPerformed
         try {
             undoManager.undo();
         } catch (CannotUndoException cre) {
-            System.out.println("Can't undo more");
+            
+            JOptionPane op = new JOptionPane();
+            op.showMessageDialog(this, "Can't undo more", "ERROR MESSAGE", JOptionPane.ERROR_MESSAGE);
+            
         }
 
-    }//GEN-LAST:event_deshacerActionPerformed
+    }//GEN-LAST:event_undoActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
@@ -887,7 +891,10 @@ public class MainWindow extends javax.swing.JFrame {
         try {
             undoManager.redo();
         } catch (CannotRedoException cre) {
-            System.out.println("Can't redo more");
+            
+            JOptionPane op = new JOptionPane();
+            op.showMessageDialog(this, "Can't redo more", "ERROR MESSAGE", JOptionPane.ERROR_MESSAGE);
+            
         }
     }//GEN-LAST:event_redoActionPerformed
 
