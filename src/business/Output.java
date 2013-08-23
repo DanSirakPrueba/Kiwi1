@@ -20,7 +20,7 @@ public class Output {
 	public static void publishOutput(String text, String title) {
                 if(title.equals("")) //Generación de título por defecto
                     title="Syntax";
-                File f = new File(title+".txt");
+                File f = new File(title+".stx");
 		
 		FileWriter w = null;
                 try {
