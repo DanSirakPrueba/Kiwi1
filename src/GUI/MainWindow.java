@@ -1382,7 +1382,6 @@ public class MainWindow extends javax.swing.JFrame {
     
     private JTextField tf;
     private JFrame f;
-    
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc=" Acciones de la Interfaz de Operaciones ">
