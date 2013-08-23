@@ -18,6 +18,7 @@ import javax.swing.undo.*;
 import java.lang.Object;
 import controller.Controller;
 import deliver.Deliver;
+import java.awt.BorderLayout;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ActionMap;
@@ -27,6 +28,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.event.UndoableEditEvent;
@@ -708,6 +710,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         SaveSyntax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/disk.png"))); // NOI18N
         SaveSyntax.setToolTipText("Save");
+        SaveSyntax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveSyntaxActionPerformed(evt);
+            }
+        });
 
         NVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/tag_blue_add.png"))); // NOI18N
         NVariable.setToolTipText("New Variable");
@@ -1332,6 +1339,25 @@ public class MainWindow extends javax.swing.JFrame {
 
         opFocus(jtf, preText, c, postText);
     }//GEN-LAST:event_specialEventFormatFocusLost
+
+    private void SaveSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveSyntaxActionPerformed
+        
+        JFrame f = new JFrame("Write a file name");
+        f.setLayout(new BorderLayout());
+        JTextField tf = new JTextField("syntax");
+        f.add(tf, BorderLayout.NORTH);
+        
+        f.setVisible(true);
+        
+        JButton confirmButton = new JButton("Ok");
+        JButton defaultButton = new JButton("Default: syntax");
+        f.add(confirmButton, BorderLayout.WEST);
+        f.add(defaultButton, BorderLayout.CENTER);
+        
+        f.pack();
+        f.setLocation(this.getLocation().x + this.getWidth()/2 - f.getWidth()/2, this.getLocation().y + this.getHeight()/2 - f.getHeight()/2);
+        
+    }//GEN-LAST:event_SaveSyntaxActionPerformed
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc=" Acciones de la Interfaz de Operaciones ">
