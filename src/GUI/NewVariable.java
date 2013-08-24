@@ -5,6 +5,7 @@
 package GUI;
 
 import java.awt.Color;
+import javax.swing.JTextField;
 
 /**
  *
@@ -58,7 +59,7 @@ public class NewVariable extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTabbedPane1.setName("Hola"); // NOI18N
 
@@ -142,7 +143,16 @@ public class NewVariable extends javax.swing.JFrame {
         grupoBotones2.add(jRadioButton8);
         jRadioButton8.setText("...");
 
-        jTextField6.setText("... Text");
+        jTextField6.setForeground(Color.GRAY);
+        jTextField6.setText("...");
+        jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField6FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField6FocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -180,13 +190,10 @@ public class NewVariable extends javax.swing.JFrame {
                                     .addComponent(jRadioButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(15, 15, 15))
                             .addComponent(jRadioButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jRadioButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(166, 166, 166))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -229,6 +236,11 @@ public class NewVariable extends javax.swing.JFrame {
         Add.setLabel("Add");
 
         jButton1.setText("Delete");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancel");
 
@@ -261,7 +273,6 @@ public class NewVariable extends javax.swing.JFrame {
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("New Variable");
-        Add.getAccessibleContext().setAccessibleName("Add");
         Add.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -279,10 +290,7 @@ public class NewVariable extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
-        if (jTextField1.getText().compareTo("") == 0) {
-            jTextField1.setText("New Variable. (Result: %^NAME.---)");
-            jTextField1.setBackground(Color.GRAY);
-        }
+        
     }//GEN-LAST:event_jTextField1FocusLost
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -292,7 +300,40 @@ public class NewVariable extends javax.swing.JFrame {
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
-    
+
+    private void jTextField6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusGained
+        String preText = "...";
+        Color c = Color.GRAY;
+        String postText = "";
+        opFocus(jTextField6, preText, c, postText);
+    }//GEN-LAST:event_jTextField6FocusGained
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        //Cuando la pestaña de Nueva Variable desde cero está seleccionada:
+        if (jTabbedPane1.getSelectedIndex() == 0) {
+            System.out.println("Pestaña de Variable nueva!");
+        }
+        //Cuando la pestaña de Nueva Variable desde texto está seleccionada:
+        else if (jTabbedPane1.getSelectedIndex() == 1){
+            System.out.println("Pestaña de variable from text!");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusLost
+        // TODO add your handling code here:
+        String preText = "";
+        Color c = Color.BLACK;
+        String postText = "...";
+        opFocus(jTextField6, preText, c, postText);
+    }//GEN-LAST:event_jTextField6FocusLost
+    private void opFocus(JTextField jtf, String preText, Color c, String postText) {
+        if (jtf.getText().equalsIgnoreCase(preText)) {
+            jtf.setForeground(c);
+            jtf.setText(postText);
+        }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton Add;

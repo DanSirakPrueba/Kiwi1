@@ -871,6 +871,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void NVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NVariableActionPerformed
         // TODO add your handling code here:
+        jFrame1 = new NewVariable();
         jFrame1.setVisible(true);
     }//GEN-LAST:event_NVariableActionPerformed
 
