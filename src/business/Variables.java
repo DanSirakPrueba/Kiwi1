@@ -13,11 +13,16 @@ public class Variables {
 
     /**
      * This method creates a new variable in syntax.
-     * @param name: The given name of the variable. 
-     * @param value: The given value of the variable.
+     * @param orders: Divided to:
+     *      @param name: The given name of the variable. 
+     *      @param value: The given value of the variable.
      */
-    public static void createNewVariable(String name, String value) {
+    public static void createNewVariable(String orders) {
+        // String name, String value
         // TODO: corregir el número.
+        String[] splitOrders = orders.split(" ");
+        String name = splitOrders[0];
+        String value = splitOrders[1];
         String phrase;
         phrase = "%^" + name + ".\"" + value + "\"";
         Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
@@ -31,9 +36,17 @@ public class Variables {
 	 * @param type: Type of the variable, it can be w(word), s(string), d(number) or "..." which stands for any given text chain.
 	 * @param absolute: This boolean is set as true if the positioning is absolute and false if it is relative.
 	 */
-    public static void createVariableFromText(int column_start, int column_end, String name, String type, boolean absolute) {
+    public static void createVariableFromText(String orders) {
         String phrase;
+        //int column_start, int column_end, String name, String type, boolean absolute
         // TODO: La variable type --> w, s, d... (posible modificacion)
+        String[] splitOrders = orders.split(" ");
+        int column_start = Integer.parseInt(splitOrders[0]);
+        int column_end = Integer.parseInt(splitOrders[1]);
+        String name = splitOrders[2];
+        String type = splitOrders[3];
+        Boolean absolute;
+        absolute = (splitOrders[4].equalsIgnoreCase("1"))?true:false;
 		if (column_start == 0 && column_end == 255) {
 			if (absolute) {
 				phrase = "%-" + name + "." + type;

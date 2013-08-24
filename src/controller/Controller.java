@@ -5,6 +5,7 @@
 package controller;
 import business.Input;
 import business.Operaciones;
+import business.Variables;
 
 /**
  *
@@ -80,6 +81,10 @@ public class Controller {
             case readInput:
                 Input.readInput(what);
             // TODO los multitud de cases
+            case createNewVariable:
+                Variables.createNewVariable(what); break;
+            case createVariableFromText: 
+                Variables.createVariableFromText(what); break;
             default: break;
         }
     }
