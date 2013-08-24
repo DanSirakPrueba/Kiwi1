@@ -1353,10 +1353,12 @@ public class MainWindow extends javax.swing.JFrame {
         this.tf = new JTextField("syntax");
         JButton confirmButton = new JButton("Ok");
         JButton defaultButton = new JButton("Default: syntax");
+        JButton cancelButton = new JButton("Cancel");
         
         f.add(tf, BorderLayout.NORTH);
         f.add(confirmButton, BorderLayout.WEST);
         f.add(defaultButton, BorderLayout.CENTER);
+        f.add(cancelButton, BorderLayout.SOUTH);
         
         f.pack();
         f.setLocation(this.getLocation().x + this.getWidth()/2 - f.getWidth()/2, this.getLocation().y + this.getHeight()/2 - f.getHeight()/2);
@@ -1374,6 +1376,13 @@ public class MainWindow extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 business.Output.publishOutput(syntaxArea.getText(), "");
+                f.dispose();
+            }
+        });
+        
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 f.dispose();
             }
         });
