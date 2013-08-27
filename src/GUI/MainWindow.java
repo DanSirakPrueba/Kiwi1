@@ -21,6 +21,7 @@ import controller.Controller;
 import deliver.Deliver;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ActionMap;
@@ -32,6 +33,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 import javax.swing.event.UndoableEditEvent;
@@ -740,6 +743,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         NTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/table_add.png"))); // NOI18N
         NTable.setToolTipText("New Table");
+        NTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NTableActionPerformed(evt);
+            }
+        });
 
         deshacer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/arrow_undo.png"))); // NOI18N
         deshacer.setToolTipText("Undo");
@@ -1389,7 +1397,58 @@ public class MainWindow extends javax.swing.JFrame {
         });
         
     }//GEN-LAST:event_SaveSyntaxActionPerformed
-    
+
+    private void NTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NTableActionPerformed
+        
+        f = new JFrame("New table");
+        JPanel jp = new JPanel();
+        f.setLayout(new BorderLayout());
+        jp.setLayout(new BorderLayout());
+        
+        f.setVisible(true);
+        
+        JTextField tableName = new JTextField("Table name");
+        this.oldColName = new JTextField("Old column name");
+        this.newColName = new JTextField("New column name");
+        JTextField type = new JTextField("Column type");
+        JButton addButton = new JButton("Add");
+        JTable jTable = new JTable();
+        
+        jp.add(this.oldColName, BorderLayout.NORTH);
+        jp.add(this.newColName, BorderLayout.SOUTH);
+        
+        f.add(tableName, BorderLayout.NORTH);
+        f.add(jp, BorderLayout.WEST);
+        f.add(jTable, BorderLayout.CENTER);
+        f.add(type, BorderLayout.EAST);
+        f.add(addButton, BorderLayout.SOUTH);
+        
+        jTable.addRow();
+        
+        f.pack();
+        f.setLocation(this.getLocation().x + this.getWidth()/2 - f.getWidth()/2, this.getLocation().y + this.getHeight()/2 - f.getHeight()/2);
+        
+        
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!oldColName.getText().equals("Old column name") && !newColName.getText().equals("New column name")){
+                    
+                    
+                    
+                }else{
+                    // ERROR.
+                }
+                f.dispose();
+            }
+        });
+        
+        //business.Tables.createTable("tableName", new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>());
+        //createTable(String tableName, ArrayList<String> matches, ArrayList<String> names, ArrayList<String> types);
+        
+    }//GEN-LAST:event_NTableActionPerformed
+    private JTextField oldColName;
+    private JTextField newColName;
     private JTextField tf;
     private JFrame f;
     //</editor-fold>
