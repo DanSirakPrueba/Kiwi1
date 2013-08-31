@@ -12,7 +12,7 @@ import javax.swing.JTextField;
  *
  * @author daniel
  */
-public class NewVariable extends javax.swing.JFrame {
+public class NewVariable extends javax.swing.JDialog {
 
     /**
      * Creates new form NewVariable
@@ -60,7 +60,7 @@ public class NewVariable extends javax.swing.JFrame {
         delete = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         jTabbedPane1.setName("Hola"); // NOI18N
 
