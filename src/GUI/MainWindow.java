@@ -1423,8 +1423,7 @@ public class MainWindow extends javax.swing.JFrame {
         f.add(type, BorderLayout.EAST);
         f.add(addButton, BorderLayout.SOUTH);
         
-        jTable.addRow();
-        
+
         f.pack();
         f.setLocation(this.getLocation().x + this.getWidth()/2 - f.getWidth()/2, this.getLocation().y + this.getHeight()/2 - f.getHeight()/2);
         
