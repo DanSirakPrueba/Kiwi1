@@ -880,10 +880,11 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void NVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NVariableActionPerformed
         // TODO add your handling code here:
-        jFrame1 = new NewVariable();
-        jFrame1.setLocationByPlatform(true);
-        jFrame1.setLocationRelativeTo(this);
-        jFrame1.setVisible(true);
+        JDialog jd = new NewVariable();
+        jd.setLocationByPlatform(true);
+        jd.setModal(true);
+        jd.setLocationRelativeTo(this);
+        jd.setVisible(true);
     }//GEN-LAST:event_NVariableActionPerformed
 
     private void undoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoActionPerformed
