@@ -880,6 +880,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void NVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NVariableActionPerformed
         // TODO add your handling code here:
         jFrame1 = new NewVariable();
+        jFrame1.setLocationByPlatform(true);
+        jFrame1.setLocationRelativeTo(this);
         jFrame1.setVisible(true);
     }//GEN-LAST:event_NVariableActionPerformed
 
@@ -919,8 +921,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void NOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOperationActionPerformed
         // TODO add your handling code here:
-        NewOperation.setVisible(true);
-
+        jFrame1 = NewOperation;
+        jFrame1.setLocationByPlatform(true);
+        jFrame1.setLocationRelativeTo(this);
+        jFrame1.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        jFrame1.setVisible(true);
+        
         orderFormat.setForeground(Gray);
         commandFormatExe.setForeground(Gray);
         commandFormatSintax.setForeground(Gray);
@@ -1399,51 +1405,11 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveSyntaxActionPerformed
 
     private void NTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NTableActionPerformed
-        
-        f = new JFrame("New table");
-        JPanel jp = new JPanel();
-        f.setLayout(new BorderLayout());
-        jp.setLayout(new BorderLayout());
-        
-        f.setVisible(true);
-        
-        JTextField tableName = new JTextField("Table name");
-        this.oldColName = new JTextField("Old column name");
-        this.newColName = new JTextField("New column name");
-        JTextField type = new JTextField("Column type");
-        JButton addButton = new JButton("Add");
-        JTable jTable = new JTable();
-        
-        jp.add(this.oldColName, BorderLayout.NORTH);
-        jp.add(this.newColName, BorderLayout.SOUTH);
-        
-        f.add(tableName, BorderLayout.NORTH);
-        f.add(jp, BorderLayout.WEST);
-        f.add(jTable, BorderLayout.CENTER);
-        f.add(type, BorderLayout.EAST);
-        f.add(addButton, BorderLayout.SOUTH);
-        
-
-        f.pack();
-        f.setLocation(this.getLocation().x + this.getWidth()/2 - f.getWidth()/2, this.getLocation().y + this.getHeight()/2 - f.getHeight()/2);
-        
-        
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(!oldColName.getText().equals("Old column name") && !newColName.getText().equals("New column name")){
-                    
-                    
-                    
-                }else{
-                    // ERROR.
-                }
-                f.dispose();
-            }
-        });
-        
-        //business.Tables.createTable("tableName", new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>());
-        //createTable(String tableName, ArrayList<String> matches, ArrayList<String> names, ArrayList<String> types);
+        jFrame1 = new NewTable();
+        jFrame1.setLocationByPlatform(true);
+        jFrame1.setLocationRelativeTo(this);
+        jFrame1.setVisible(true);
+        jFrame1.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
     }//GEN-LAST:event_NTableActionPerformed
     private JTextField oldColName;

@@ -83,7 +83,7 @@ public class NewVariable extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
-                        .addGap(0, 228, Short.MAX_VALUE))
+                        .addGap(0, 258, Short.MAX_VALUE))
                     .addComponent(value))
                 .addContainerGap())
         );
@@ -97,7 +97,7 @@ public class NewVariable extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("New variable", jPanel2);
@@ -168,7 +168,7 @@ public class NewVariable extends javax.swing.JFrame {
                             .addComponent(relative)
                             .addComponent(absolute))
                         .addGap(18, 18, 18)
-                        .addComponent(jSeparator1)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
