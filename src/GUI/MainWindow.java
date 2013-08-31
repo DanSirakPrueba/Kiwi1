@@ -31,6 +31,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -1405,11 +1406,12 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveSyntaxActionPerformed
 
     private void NTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NTableActionPerformed
-        jFrame1 = new NewTable();
-        jFrame1.setLocationByPlatform(true);
-        jFrame1.setLocationRelativeTo(this);
-        jFrame1.setVisible(true);
-        jFrame1.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        JDialog jd = new NewTable();
+        jd.setLocationByPlatform(true);
+        jd.setLocationRelativeTo(this);
+        jd.setModal(true);
+        jd.setVisible(true);
+        
         
     }//GEN-LAST:event_NTableActionPerformed
     private JTextField oldColName;
