@@ -46,8 +46,6 @@ public class NewTable extends javax.swing.JDialog {
         addToTableButton = new javax.swing.JButton();
         deleteRowButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
         TableName.setToolTipText("Name of the table");
 
         jLabel1.setText("Table name:");
@@ -91,6 +89,11 @@ public class NewTable extends javax.swing.JDialog {
         acceptButton.setText("Accept");
 
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         addToTableButton.setText("Add to table");
         addToTableButton.addActionListener(new java.awt.event.ActionListener() {
@@ -208,6 +211,10 @@ public class NewTable extends javax.swing.JDialog {
         if (addedTable.getSelectedRow() != -1)
             model.removeRow(addedTable.getSelectedRow());
     }//GEN-LAST:event_deleteRowButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
