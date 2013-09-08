@@ -36,6 +36,8 @@ public class NewOperations extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ErrorWindow = new javax.swing.JDialog();
+        ErrorLabel = new javax.swing.JLabel();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         orderFormat = new javax.swing.JTextField();
@@ -65,6 +67,27 @@ public class NewOperations extends javax.swing.JDialog {
         jSeparator6 = new javax.swing.JSeparator();
         specialEventFormat = new javax.swing.JTextField();
         specialEventFormatInsert = new javax.swing.JButton();
+
+        ErrorWindow.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        ErrorWindow.setTitle("[ERROR] Formato de entrada invalido");
+        ErrorWindow.setLocationByPlatform(true);
+        ErrorWindow.setMinimumSize(new java.awt.Dimension(312, 142));
+        ErrorWindow.setModal(true);
+        ErrorWindow.setResizable(false);
+
+        ErrorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ErrorLabel.setText("jLabel1");
+
+        javax.swing.GroupLayout ErrorWindowLayout = new javax.swing.GroupLayout(ErrorWindow.getContentPane());
+        ErrorWindow.getContentPane().setLayout(ErrorWindowLayout);
+        ErrorWindowLayout.setHorizontalGroup(
+            ErrorWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+        );
+        ErrorWindowLayout.setVerticalGroup(
+            ErrorWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -452,6 +475,8 @@ public class NewOperations extends javax.swing.JDialog {
         this.setTitle("New Operations");
         this.setModal(true);
         this.setLocationRelativeTo(frame);
+        
+        Deliver.setOrigin(this);
         Deliver.setDestination(frame);
         
         orderFormat.setForeground(Gray);
@@ -877,7 +902,22 @@ public class NewOperations extends javax.swing.JDialog {
     
     //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc=" FailureManager ">
+    public void showError(String error) {
+        String[] es = error.split("@");
+        ErrorWindow.setLocationRelativeTo(this);
+        String Text = "<html><b>Ejemplo Entrada:</b><br>"
+                + "<i>" + es[0] + "</i><br><br>"
+                + "<b>Ejemplo Salida:</b><br>"
+                + "<i>" + es[1] + "</i></html>";
+        ErrorLabel.setText(Text);
+        ErrorWindow.setVisible(true);
+    }
+    //</editor-fold>
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ErrorLabel;
+    private javax.swing.JDialog ErrorWindow;
     private javax.swing.JTextField associationFormat;
     private javax.swing.JButton associationFormatInsert;
     private javax.swing.JTextField basicProcessingFormat;

@@ -55,16 +55,23 @@ public class Operaciones {
         // Ej: Variables0 = Input1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         // Ej: Variables1 = Input2 = [X:|S:|C:|E:][N:|H:]NAME_op2
         // Ej: Variables2 = Output = [X:|S:|C:|E:][N:|H:]NAME_res
+        String phrase = "";
+        int where = 0;
         
-        String phrase = "%^X_OPERACION_SINTAX.\"";
+        try {
+            where = Deliver.SYNTAX_AREA;
+            phrase = "%^X_OPERACION_SINTAX.\"";
+            String[] splitvars = variables.split(" "); 
+            phrase += splitvars[0] + " + " + splitvars[1] + 
+                    " = " + splitvars[2];
+            phrase += "\"";
+        } catch (Exception e) {
+            where = Deliver.ERROR;
+            phrase = "var1 var2 var3@%^X_OPERACION_SINTAX"
+                    + ".\"var1 + var2 = var3\"";
+        }
         
-        String[] splitvars = variables.split(" "); 
-        
-        phrase += splitvars[0] + " + " + splitvars[1] + 
-                " = " + splitvars[2];
-        
-        phrase += "\"";
-        Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
+        Deliver.deliver(where, phrase);
     }
     
     public static void compAsigOperationSintax(String Fields) {
@@ -75,17 +82,24 @@ public class Operaciones {
         //Field4 = VariableMiss = [X:|S:|C:|E:][N:|H:]NAME_Miss
         //Field5 = VariableAsig =[X:|S:|C:|E:][N:|H:]NAME_Asig
         
-        String phrase = "%^X_OPERACION_SINTAX.\"";
-        
-        String[] splitfields = Fields.split(" "); 
-        
-        phrase += splitfields[0] + " " + splitfields[1] + " " + splitfields[2];        
-        for (int i = 0; i < 2; i++) {
-            phrase += " # " + splitfields[3+i] + " = " + splitfields[5];
+        String phrase = "";
+        int where = 0;
+        try {
+            where = Deliver.SYNTAX_AREA;
+            phrase = "%^X_OPERACION_SINTAX.\"";
+            String[] splitfields = Fields.split(" "); 
+            phrase += splitfields[0] + " " + splitfields[1] + " " + splitfields[2];        
+            for (int i = 0; i < 2; i++) {
+                phrase += " # " + splitfields[3+i] + " = " + splitfields[5];
+            }
+            phrase += "\"";
+        } catch (Exception e) {
+            where = Deliver.ERROR;
+            phrase = "var1 var2 var3 var4 var5 var6@%^X_OPERACION_SINTAX"
+                    + ".\"var1 var2 var3 # var4 = var6 # var5 = var6\"";
         }
         
-        phrase += "\"";
-        Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
+        Deliver.deliver(where, phrase);
     }
     
     public static void basicProcessingFormat(String Fields) {
