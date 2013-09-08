@@ -108,20 +108,28 @@ public class Operaciones {
         //Field(s%3=1) = operation = ',' ',,'
         //Field(s%3=2) = VariableComp2 = [X:|S:|C:|E:][N:|H:]NAME_op2
         
-        String phrase = "%^_TRATAR_.\"";
+        String phrase = "";
+        int where = 0;
         
-        String[] splitfields = Fields.split(" "); 
-        
-        for (int i = 0; i < splitfields.length - 3; i += 3) {
-            phrase += splitfields[i] + " " + splitfields[i+1] + " " 
-                    + splitfields[i+2] + " # ";
+        try {
+            where = Deliver.SYNTAX_AREA;
+            phrase = "%^_TRATAR_.\"";
+            String[] splitfields = Fields.split(" "); 
+            for (int i = 0; i < splitfields.length - 3; i += 3) {
+                phrase += splitfields[i] + " " + splitfields[i+1] + " " 
+                        + splitfields[i+2] + " # ";
+            }
+            phrase += splitfields[splitfields.length - 3] + " " 
+                    + splitfields[splitfields.length - 2] + " " 
+                    + splitfields[splitfields.length - 1];
+            phrase += "\"";
+        } catch (Exception e) {
+            where = Deliver.ERROR;
+            phrase = "var1 var2 var3 var4 var5 var6@"
+                    + "%^_TRATAR_.\"var1 var2 var3 # var4 var5 var6\"";
         }
-        phrase += splitfields[splitfields.length - 3] + " " 
-                + splitfields[splitfields.length - 2] + " " 
-                + splitfields[splitfields.length - 1];
         
-        phrase += "\"";
-        Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
+        Deliver.deliver(where, phrase);
     }
     
     public static void newProcessingFormat(String Fields) {
@@ -131,22 +139,30 @@ public class Operaciones {
         //Field(s%4=3) = VariableAsig = [A|B|C|...]
         //Field(s-1) = VariableForm = Ej: !(A|B)^C
         
-        String phrase = "%^_TRATAR_.\"";
+        String phrase = "";
+        int where = 0;
         
-        String[] splitfields = Fields.split(" "); 
-
-        for (int i = 0; i < splitfields.length - 5; i += 4) {
-            phrase += splitfields[i] + " " + splitfields[i+1] + " " 
-                    + splitfields[i+2] + " = " + splitfields[i+3] + " ; ";
+        try {
+            where = Deliver.SYNTAX_AREA;
+            phrase = "%^_TRATAR_.\"";
+            String[] splitfields = Fields.split(" "); 
+            for (int i = 0; i < splitfields.length - 5; i += 4) {
+                phrase += splitfields[i] + " " + splitfields[i+1] + " " 
+                        + splitfields[i+2] + " = " + splitfields[i+3] + " ; ";
+            }
+            phrase += splitfields[splitfields.length - 5] + " " 
+                    + splitfields[splitfields.length - 4] + " " 
+                    + splitfields[splitfields.length - 3] + " = " 
+                    + splitfields[splitfields.length - 2] + " # " 
+                    + splitfields[splitfields.length - 1];
+            phrase += "\"";
+        } catch (Exception e) {
+            where = Deliver.ERROR;
+            phrase = "var1 var2 var3 var4 var5@"
+                    + "%^_TRATAR_.\"var1 var2 var3 = var4 # var5\"";
         }
-        phrase += splitfields[splitfields.length - 5] + " " 
-                + splitfields[splitfields.length - 4] + " " 
-                + splitfields[splitfields.length - 3] + " = " 
-                + splitfields[splitfields.length - 2] + " # " 
-                + splitfields[splitfields.length - 1];
         
-        phrase += "\"";
-        Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
+        Deliver.deliver(where, phrase);
     }
     
     //before 2 ArrayList (ArrayList ReplaceVars, ArrayList NewVars)
@@ -154,24 +170,30 @@ public class Operaciones {
         // ReplaceVars = variables que se van a sustituir
         // NewVars = Variables nuevas que cogen el contenido de las ReplaceVars
         
-        String phrase = "%^X_ASOCIAR_SINTAX.\"";
-        
-        String[] parts = vars.split(" ; "); 
-        String[] ReplaceVars = parts[0].split(" ");
-        String[] NewVars = parts[1].split(" "); 
-        
-        for(int i = 0; i < ReplaceVars.length - 1; i++) {
-            phrase += ReplaceVars[i] + ", ";
+        String phrase = "";
+        int where = 0;
+        try{
+            where = Deliver.SYNTAX_AREA;
+            phrase = "%^X_ASOCIAR_SINTAX.\"";
+            String[] parts = vars.split(" ; "); 
+            String[] ReplaceVars = parts[0].split(" ");
+            String[] NewVars = parts[1].split(" "); 
+            for(int i = 0; i < ReplaceVars.length - 1; i++) {
+                phrase += ReplaceVars[i] + ", ";
+            }
+            phrase += ReplaceVars[ReplaceVars.length - 1] + " # ";
+            for(int i = 0; i < NewVars.length - 1; i++) {
+                phrase += NewVars[i] + ", ";
+            }
+            phrase += NewVars[NewVars.length - 1];
+            phrase += "\"";
+        } catch (Exception e) {
+            where = Deliver.ERROR;
+            phrase = "var1 var2 ; var3 var4@"
+                    + "%^X_ASOCIAR_SINTAX.\"var1, var2 # var3, var4\"";
         }
-        phrase += ReplaceVars[ReplaceVars.length - 1] + " # ";
-
-        for(int i = 0; i < NewVars.length - 1; i++) {
-            phrase += NewVars[i] + ", ";
-        }
-        phrase += NewVars[NewVars.length - 1];
-
-        phrase += "\"";
-        Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
+        
+        Deliver.deliver(where, phrase);
     }
     
     public static void specialEventFormat(String template) {
