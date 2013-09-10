@@ -70,6 +70,7 @@ public static void selectBD(Object[] what) {
     public static void deleteBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
                 String tablaDelete, String condicionDelete) {
         // TODO: en la interfaz debe preguntarse que partes quiere poner.
+        // Object[] what;
         String phraseA = "";
         if (conexion) {
             phraseA += "%^D_CONEXION_DELETE.\"" + usuarioBD + "," + passwdBD;
