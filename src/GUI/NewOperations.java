@@ -67,6 +67,7 @@ public class NewOperations extends javax.swing.JDialog {
         jSeparator6 = new javax.swing.JSeparator();
         specialEventFormat = new javax.swing.JTextField();
         specialEventFormatInsert = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
 
         ErrorWindow.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ErrorWindow.setTitle("[ERROR] Formato de entrada invalido");
@@ -220,7 +221,7 @@ public class NewOperations extends javax.swing.JDialog {
                     .addComponent(jSeparator1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(orderFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                         .addComponent(orderFormatInsert))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(commandFormatExe, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,7 +270,7 @@ public class NewOperations extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(concatOperationSintax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(concatOperationSintaxInsert))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -387,6 +388,8 @@ public class NewOperations extends javax.swing.JDialog {
             }
         });
 
+        closeButton.setText("Close");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -415,11 +418,13 @@ public class NewOperations extends javax.swing.JDialog {
                                 .addComponent(associationFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(associationFormatInsert))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(specialEventFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(specialEventFormatInsert)))
-                        .addGap(0, 1, Short.MAX_VALUE)))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(closeButton)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(specialEventFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(specialEventFormatInsert))))
+                        .addGap(0, 25, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -451,7 +456,9 @@ public class NewOperations extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(specialEventFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(specialEventFormatInsert))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(closeButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -460,11 +467,11 @@ public class NewOperations extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
         );
 
         pack();
@@ -508,7 +515,7 @@ public class NewOperations extends javax.swing.JDialog {
     //<editor-fold defaultstate="collapsed" desc=" Acciones Comunes ">
     private void opActions(int Index, JTextField jtf, JButton jb, String preText) {
         if (!jtf.getText().equalsIgnoreCase(preText)) {
-            Controller.controller(Index, jtf.getText());
+            //Controller.controller(Index, jtf.getText());
             if (preText.equalsIgnoreCase("")) {
                 jtf.setForeground(Black);
             } else {
@@ -922,6 +929,7 @@ public class NewOperations extends javax.swing.JDialog {
     private javax.swing.JButton associationFormatInsert;
     private javax.swing.JTextField basicProcessingFormat;
     private javax.swing.JButton basicProcessingFormatInsert;
+    private javax.swing.JButton closeButton;
     private javax.swing.JTextField commandFormatExe;
     private javax.swing.JButton commandFormatExeInsert;
     private javax.swing.JTextField commandFormatSintax;

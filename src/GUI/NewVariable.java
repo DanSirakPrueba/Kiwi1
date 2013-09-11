@@ -324,15 +324,19 @@ public class NewVariable extends javax.swing.JDialog {
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
         //Cuando la pestaña de nueva Variable está seleccionada.
+        Object[] what;
         if (jTabbedPane1.getSelectedIndex() == 0) {
             //Empaquetamos los datos:
-            String what = name1.getText() + " " + value.getText();
+            what = new Object[2]; 
+            what[0] = name1.getText(); 
+            what[1] = value.getText();
             Controller.controller(Controller.createNewVariable, what);
             name1.setText(""); value.setText("");
         }
         //Cuando la pestaña de Nueva Variable desde texto está seleccionada:
         else if (jTabbedPane1.getSelectedIndex() == 1){
             //int column_start, int column_end, String name, String type, boolean absolute
+            what = new Object[5]; 
             String type = "w";
             if (wToggle.isSelected()) {
                 type = "w";
@@ -343,13 +347,15 @@ public class NewVariable extends javax.swing.JDialog {
             } else if (otherText.isSelected()) {
                 type = "\"" + otherText + "\"";
             }
-            String absoluteString = "1";
-            if (absolute.isSelected() && !relative.isSelected()) {
-                absoluteString = "1";
-            } else if (!absolute.isSelected() && relative.isSelected()) {
-                absoluteString = "0";
+            try {
+                what[0] = Integer.parseInt(init.getText()); 
+                what[1] = Integer.parseInt(end.getText());
+            } catch (NumberFormatException e) {
+                System.err.println("Cadenas no numéricas");
             }
-            String what = init.getText() + " " + end.getText() + " " + name2.getText() + " " + type + " " + absoluteString;
+            what[2] = name2.getText();
+            what[3] = type;
+            what[4] = (absolute.isSelected())?true:false;
             Controller.controller(Controller.createVariableFromText, what);
         }
         add.setSelected(false);

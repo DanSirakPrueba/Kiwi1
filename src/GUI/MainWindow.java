@@ -394,8 +394,11 @@ public class MainWindow extends javax.swing.JFrame {
             String storeAllString = "";
             File fichero = fileChooser.getSelectedFile();
             // Aquí debemos abrir y leer el fichero.
+            Object[] what;
+            what = new Object[1];
+            what[0] = fichero.toString();
             try {
-                Controller.controller(Controller.readInput, fichero.toString());
+                Controller.controller(Controller.readInput, what);
             } catch (Exception e) {
             }
             eventArea.setCaretPosition(0);
