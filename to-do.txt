@@ -10,7 +10,7 @@ Terminar ventanas:
 	+ Corregir las ya hechas.
 		- Operaciones
 		- Guardado de syntax
-		- Variables
+		- Variables (Corregido el Object, funcional)
 		- Tablas
 	+ Crear las que faltan.
 
@@ -18,4 +18,4 @@ Modificar el Deliver
 Completar el controller
 
 	A este punto el proyecto es incompilable, hace falta hacer 
-muchas cosas a vista de los nuevos cambios.
+muchas cosas a vista de los nuevos cambios (solucionado).
