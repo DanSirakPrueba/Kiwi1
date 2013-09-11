@@ -23,9 +23,19 @@ public class BBDD {
      * @param tablaSelect: Table in which the select will be used.
      * @param condicionSelect: Conndition under the selec
      */
-    public static void selectBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD, 
-    			ArrayList resultadoSelect, ArrayList tablaSelect, String condicionSelect) {
+  
+public static void selectBD(Object[] what) {
     	// TODO: en la interfaz debe preguntarse qué partes quiere poner.
+	
+	//Object[] what;
+	boolean conexion = (boolean) what[0];
+	String usuarioBD = (String) what[1];
+	String passwdBD = (String) what[2];
+	String conexionBD = (String) what[3];
+	ArrayList resultadoSelect = (ArrayList) what[4];
+	ArrayList tablaSelect = (ArrayList) what[5];
+	String condicionSelect = (String) what[6];
+	
     	String phraseA = "";
     	if(conexion) {
     		phraseA += "%^S_CONEXION_SELECT.\"" + usuarioBD + "," + passwdBD;
