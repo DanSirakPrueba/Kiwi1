@@ -67,10 +67,15 @@ public static void selectBD(Object[] what) {
      * @param tablaDelete: target table of the operation.
      * @param condicionDelete 
      */
-    public static void deleteBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
-                String tablaDelete, String condicionDelete) {
+    public static void deleteBD(Object[] what) {
         // TODO: en la interfaz debe preguntarse que partes quiere poner.
         // Object[] what;
+	boolean conexion = what[0];
+	String usuarioBD = what[1];
+	String passwdBD = what[2];
+	String conexionBD = what[3];
+	String tablaDelete = what[4];
+	String condicionDelete = what[5];
         String phraseA = "";
         if (conexion) {
             phraseA += "%^D_CONEXION_DELETE.\"" + usuarioBD + "," + passwdBD;
