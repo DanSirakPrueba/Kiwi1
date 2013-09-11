@@ -80,7 +80,9 @@ public class Controller {
             break;
             case readInput:
                 //Input.readInput(what);
-            // TODO los multitud de cases
+            break;
+            case createTable:
+				
             case createNewVariable:
                 Variables.createNewVariable(what); break;
             case createVariableFromText: 
