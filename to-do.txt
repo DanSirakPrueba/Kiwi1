@@ -1,0 +1,21 @@
+Modificar bussiness:
+	+ BBDD.java (hecho)
+	+ Operaciones.java
+	+ Tablas.java
+	+ Input.java
+	+ Output.java
+	+ Variables.java (hecho)
+
+Terminar ventanas:
+	+ Corregir las ya hechas.
+		- Operaciones
+		- Guardado de syntax
+		- Variables
+		- Tablas
+	+ Crear las que faltan.
+
+Modificar el Deliver
+Completar el controller
+
+	A este punto el proyecto es incompilable, hace falta hacer 
+muchas cosas a vista de los nuevos cambios.
