@@ -70,12 +70,12 @@ public static void selectBD(Object[] what) {
     public static void deleteBD(Object[] what) {
         // TODO: en la interfaz debe preguntarse que partes quiere poner.
         // Object[] what;
-	boolean conexion = what[0];
-	String usuarioBD = what[1];
-	String passwdBD = what[2];
-	String conexionBD = what[3];
-	String tablaDelete = what[4];
-	String condicionDelete = what[5];
+	boolean conexion = (boolean) what[0];
+	String usuarioBD = (String) what[1];
+	String passwdBD = (String) what[2];
+	String conexionBD = (String) what[3];
+	String tablaDelete = (String) what[4];
+	String condicionDelete = (String) what[5];
         String phraseA = "";
         if (conexion) {
             phraseA += "%^D_CONEXION_DELETE.\"" + usuarioBD + "," + passwdBD;
@@ -99,10 +99,17 @@ public static void selectBD(Object[] what) {
      * @param camposUpdate: Fields which will we modified with the update.
      * @param condicionUpdate: Condition under which the update will run.
      */
-    public static void updateBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
-    			ArrayList tablaUpdate, ArrayList camposUpdate, String condicionUpdate) {
+    public static void updateBD(Object[] what) {
     	// TODO: en la interfaz debe preguntarse qué partes quiere poner.
-    	String phraseA = "";
+    	//Object[] what;
+	boolean conexion = (boolean) what[0];
+	String usuarioBD = (String) what[1];
+	String passwdBD = (String) what[2];
+	String conexionBD = (String) what[3];
+	ArrayList tablaUpdate = (ArrayList) what[4];
+	ArrayList camposUpdate = (ArrayList) what[5];
+	String condicionUpdate = (String) what[6];
+	String phraseA = "";
     	if(conexion) {
     		phraseA += "%^U_CONEXION_UPDATE.\"" + usuarioBD + "," + passwdBD;
     		if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
@@ -131,9 +138,14 @@ public static void selectBD(Object[] what) {
      * @param conexionBD: conexion field of the database.
      * @param sentenciaQuery: Query sentence.
      */
-    public static void queryBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
-    			String sentenciaQuery) {
-    	String phraseA = "";
+    public static void queryBD(Object[] what) {
+    	//Object[] what;
+	boolean conexion = (boolean) what[0];
+	String usuarioBD = (String) what[1];
+	String passwdBD = (String) what[2];
+	String conexionBD = (String) what[3];
+	String sentenciaQuery = (String) what[4];
+	String phraseA = "";
     	if(conexion) {
     		phraseA += "%^X_CONEXION_QUERY.\"" + usuarioBD + "," + passwdBD;
     		if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
@@ -154,9 +166,16 @@ public static void selectBD(Object[] what) {
      * @param tablaInsert: Target table of the insert operation.
      * @param columnasInsert: Target column of the insert operation.
      */
-    public static void insertBD(boolean conexion, String usuarioBD, String passwdBD, String conexionBD,
-    			ArrayList camposInsert, String tablaInsert, ArrayList columnasInsert) {
-    	String phraseA = "";
+    public static void insertBD(Object[] what) {
+    	//Object[] what;
+	boolean conexion = (boolean) what[0];
+	String usuarioBD = (String) what[1];
+	String passwdBD = (String) what[2];
+	String conexionBD = (String) what[3];
+	ArrayList camposInsert = (ArrayList) what[4];
+	String tablaInsert = (String) what[5];
+	ArrayList columnasInsert = (ArrayList) what[6];
+	String phraseA = "";
     	if(conexion) {
     		phraseA += "%^I_CONEXION_UPDATE.\"" + usuarioBD + "," + passwdBD;
     		if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
