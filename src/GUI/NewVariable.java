@@ -348,6 +348,8 @@ public class NewVariable extends javax.swing.JDialog {
                 type = "\"" + otherText + "\"";
             }
             try {
+                if (init.getText().equalsIgnoreCase("")) init.setText("0");
+                if (end.getText().equalsIgnoreCase("")) end.setText("255");
                 what[0] = Integer.parseInt(init.getText()); 
                 what[1] = Integer.parseInt(end.getText());
             } catch (NumberFormatException e) {
@@ -356,6 +358,8 @@ public class NewVariable extends javax.swing.JDialog {
             what[2] = name2.getText();
             what[3] = type;
             what[4] = (absolute.isSelected())?true:false;
+            init.setText("");
+            end.setText("");
             Controller.controller(Controller.createVariableFromText, what);
         }
         add.setSelected(false);
