@@ -48,6 +48,21 @@ public class Controller {
     public static void controller(int where, Object[] what) {
         //TODO Temporal
         switch(where){
+            case SELECTBD:
+                selectBD(what);
+            break;
+            case DELETEBD:
+                deleteBD(what);
+            break;
+            case UPDATEBD:
+                updateBD(what);
+            break;
+            case QUERYBD:
+                queryBD(what);
+            break;
+            case INSERTBD:
+                insertBD(what);
+            break;
             case orderFormat: 
                 //Operaciones.orderFormat(what); 
             break;
