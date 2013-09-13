@@ -3,6 +3,7 @@
  * into the business.
  */
 package controller;
+import business.BBDD;
 import business.Input;
 import business.Operaciones;
 import business.Variables;
@@ -49,19 +50,19 @@ public class Controller {
         //TODO Temporal
         switch(where){
             case SELECTBD:
-                selectBD(what);
+                BBDD.selectBD(what);
             break;
             case DELETEBD:
-                deleteBD(what);
+                BBDD.deleteBD(what);
             break;
             case UPDATEBD:
-                updateBD(what);
+                BBDD.updateBD(what);
             break;
             case QUERYBD:
-                queryBD(what);
+                BBDD.queryBD(what);
             break;
             case INSERTBD:
-                insertBD(what);
+                BBDD.insertBD(what);
             break;
             case orderFormat: 
                 //Operaciones.orderFormat(what); 
