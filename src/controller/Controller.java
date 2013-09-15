@@ -65,34 +65,34 @@ public class Controller {
                 BBDD.insertBD(what);
             break;
             case orderFormat: 
-                //Operaciones.orderFormat(what); 
+                Operaciones.orderFormat(what); 
             break;
             case commandFormatExe: 
-                //Operaciones.commandFormatExe(what); 
+                Operaciones.commandFormatExe(what); 
             break;
             case commandFormatSintax: 
-                //Operaciones.commandFormatSintax(what); 
+                Operaciones.commandFormatSintax(what); 
             break;
             case failureManagerFormat: 
-                //Operaciones.failureManagerFormat(what); 
+                Operaciones.failureManagerFormat(what); 
             break;
             case concatOperationSintax: 
-                //Operaciones.concatOperationSintax(what); 
+                Operaciones.concatOperationSintax(what); 
             break;
             case compAsigOperationSintax: 
-                //Operaciones.compAsigOperationSintax(what); 
+                Operaciones.compAsigOperationSintax(what); 
             break;
             case basicProcessingFormat: 
-                //Operaciones.basicProcessingFormat(what); 
+                Operaciones.basicProcessingFormat(what); 
             break;
             case newProcessingFormat: 
-                //Operaciones.newProcessingFormat(what); 
+                Operaciones.newProcessingFormat(what); 
             break;
             case associationFormat: 
-                //Operaciones.associationFormat(what); 
+                Operaciones.associationFormat(what); 
             break;
             case specialEventFormat: 
-                //Operaciones.specialEventFormat(what); 
+                Operaciones.specialEventFormat(what); 
             break;
             case readInput:
                 //Input.readInput(what);

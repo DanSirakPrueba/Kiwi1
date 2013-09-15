@@ -12,9 +12,11 @@ import deliver.Deliver;
  */
 public class Operaciones {
 
-    public static void orderFormat(String orders) {
+    public static void orderFormat(Object[] ordersin) {
     	String phrase = "%^X_ORDEN_SINTAX.\"";
-
+        
+        String orders = (String) ordersin[0];
+        
         String[] splitOrders = orders.split(" ");   
         for (int i = 0; i < splitOrders.length - 1; i++) {
             phrase += splitOrders[i] + ", ";
@@ -25,20 +27,24 @@ public class Operaciones {
         Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
     }
 
-    public static void commandFormatExe(String opciones) {
+    public static void commandFormatExe(Object[] opcionesin) {
     	// TODO: En la interfaz hay que poner un ejemplo de esto, para recordar las posibles operaciones.
-    	String phrase = "%^C_EJECUTA_COMANDO.\"" + opciones + "\"";
+    	String opciones = (String) opcionesin[0];
+        String phrase = "%^C_EJECUTA_COMANDO.\"" + opciones + "\"";
         Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
     }
 
-    public static void commandFormatSintax(String sintaxis) {
+    public static void commandFormatSintax(Object[] sintaxisin) {
         // TODO: En la interfaz hay que poner un ejemplo de esto, para recordar las posibles operaciones.
-    	String phrase = "%^C_SINTAXIS_COMANDO.\"" + sintaxis + "\"";
+    	String sintaxis = (String) sintaxisin[0];
+        String phrase = "%^C_SINTAXIS_COMANDO.\"" + sintaxis + "\"";
     	Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
     }
 
-    public static void failureManagerFormat(String variables) {
+    public static void failureManagerFormat(Object[] variablesin) {
         // Ej: variables = S:NUM_EQU|X:REMOTA|Campo5|E:SOC
+        String variables = (String) variablesin[0];
+        
         String phrase = "%^CAMPOS_GF.\"";
         
         String[] splitvars = variables.split(" ");   
@@ -51,10 +57,12 @@ public class Operaciones {
     	Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
     }
     
-    public static void concatOperationSintax(String variables) {
+    public static void concatOperationSintax(Object[] variablesin) {
         // Ej: Variables0 = Input1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         // Ej: Variables1 = Input2 = [X:|S:|C:|E:][N:|H:]NAME_op2
         // Ej: Variables2 = Output = [X:|S:|C:|E:][N:|H:]NAME_res
+        String variables = (String) variablesin[0];
+        
         String phrase = "";
         int where = 0;
         
@@ -74,13 +82,14 @@ public class Operaciones {
         Deliver.deliver(where, phrase);
     }
     
-    public static void compAsigOperationSintax(String Fields) {
+    public static void compAsigOperationSintax(Object[] Fieldsin) {
         //Field0 = VariableComp1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         //Field1 = operation = ‘==’, ‘!=’, ‘>=’, ‘<=’, ‘>’ , ‘<’ , ‘$’ y ‘!!’
         //Field2 = VariableComp2 = [X:|S:|C:|E:][N:|H:]NAME_op2
         //Field3 = VariableHit = [X:|S:|C:|E:][N:|H:]NAME_Hit
         //Field4 = VariableMiss = [X:|S:|C:|E:][N:|H:]NAME_Miss
         //Field5 = VariableAsig =[X:|S:|C:|E:][N:|H:]NAME_Asig
+        String Fields = (String) Fieldsin[0];
         
         String phrase = "";
         int where = 0;
@@ -102,11 +111,12 @@ public class Operaciones {
         Deliver.deliver(where, phrase);
     }
     
-    public static void basicProcessingFormat(String Fields) {
+    public static void basicProcessingFormat(Object[] Fieldsin) {
         //  %^_TRATAR_.” | %^I_TRATAR_INSERT.”
         //Field(s%3=0) = VariableComp1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         //Field(s%3=1) = operation = ',' ',,'
         //Field(s%3=2) = VariableComp2 = [X:|S:|C:|E:][N:|H:]NAME_op2
+        String Fields = (String) Fieldsin[0];
         
         String phrase = "";
         int where = 0;
@@ -132,12 +142,13 @@ public class Operaciones {
         Deliver.deliver(where, phrase);
     }
     
-    public static void newProcessingFormat(String Fields) {
+    public static void newProcessingFormat(Object[] Fieldsin) {
         //Field(s%4=0) = VariableComp1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         //Field(s%4=1) = operation = '==' '!=' '<' '>' '>=' '<='
         //Field(s%4=2) = VariableComp2 = [X:|S:|C:|E:][N:|H:]NAME_op2
         //Field(s%4=3) = VariableAsig = [A|B|C|...]
         //Field(s-1) = VariableForm = Ej: !(A|B)^C
+        String Fields = (String) Fieldsin[0];
         
         String phrase = "";
         int where = 0;
@@ -166,9 +177,10 @@ public class Operaciones {
     }
     
     //before 2 ArrayList (ArrayList ReplaceVars, ArrayList NewVars)
-    public static void associationFormat(String vars) {
+    public static void associationFormat(Object[] varsin) {
         // ReplaceVars = variables que se van a sustituir
         // NewVars = Variables nuevas que cogen el contenido de las ReplaceVars
+        String vars = (String) varsin[0];
         
         String phrase = "";
         int where = 0;
@@ -196,7 +208,8 @@ public class Operaciones {
         Deliver.deliver(where, phrase);
     }
     
-    public static void specialEventFormat(String template) {
+    public static void specialEventFormat(Object[] templatein) {
+        String template = (String) templatein[0];
         String phrase = "_SPECIAL_.\"" + template +"??\"";
         Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
     }

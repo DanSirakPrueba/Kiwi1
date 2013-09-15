@@ -515,7 +515,9 @@ public class NewOperations extends javax.swing.JDialog {
     //<editor-fold defaultstate="collapsed" desc=" Acciones Comunes ">
     private void opActions(int Index, JTextField jtf, JButton jb, String preText) {
         if (!jtf.getText().equalsIgnoreCase(preText)) {
-            //Controller.controller(Index, jtf.getText());
+            Object[] what = new Object[1];
+            what[0] = jtf.getText();
+            Controller.controller(Index, what);
             if (preText.equalsIgnoreCase("")) {
                 jtf.setForeground(Black);
             } else {
