@@ -9,8 +9,11 @@ import static GUI.MainWindow.Gray;
 import controller.Controller;
 import deliver.Deliver;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -18,11 +21,13 @@ import javax.swing.JTextField;
  * @author NasK
  */
 public class NewOperations extends javax.swing.JDialog {
-
+    
+    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/cog.png"));
     /**
      * Creates new form NewOperations
      */
     public NewOperations(JFrame frame) {
+        setIconImage(icon);
         initComponents();
         MyinitComponents(frame);
     }
@@ -36,8 +41,6 @@ public class NewOperations extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ErrorWindow = new javax.swing.JDialog();
-        ErrorLabel = new javax.swing.JLabel();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         orderFormat = new javax.swing.JTextField();
@@ -68,27 +71,6 @@ public class NewOperations extends javax.swing.JDialog {
         specialEventFormat = new javax.swing.JTextField();
         specialEventFormatInsert = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
-
-        ErrorWindow.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        ErrorWindow.setTitle("[ERROR] Formato de entrada invalido");
-        ErrorWindow.setLocationByPlatform(true);
-        ErrorWindow.setMinimumSize(new java.awt.Dimension(312, 142));
-        ErrorWindow.setModal(true);
-        ErrorWindow.setResizable(false);
-
-        ErrorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ErrorLabel.setText("jLabel1");
-
-        javax.swing.GroupLayout ErrorWindowLayout = new javax.swing.GroupLayout(ErrorWindow.getContentPane());
-        ErrorWindow.getContentPane().setLayout(ErrorWindowLayout);
-        ErrorWindowLayout.setHorizontalGroup(
-            ErrorWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
-        );
-        ErrorWindowLayout.setVerticalGroup(
-            ErrorWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -221,7 +203,7 @@ public class NewOperations extends javax.swing.JDialog {
                     .addComponent(jSeparator1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(orderFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(orderFormatInsert))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(commandFormatExe, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,7 +252,7 @@ public class NewOperations extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(concatOperationSintax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(concatOperationSintaxInsert))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -389,6 +371,11 @@ public class NewOperations extends javax.swing.JDialog {
         });
 
         closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -418,13 +405,13 @@ public class NewOperations extends javax.swing.JDialog {
                                 .addComponent(associationFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(associationFormatInsert))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(closeButton)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(specialEventFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(specialEventFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(specialEventFormatInsert))))
-                        .addGap(0, 25, Short.MAX_VALUE)))
+                        .addGap(0, 28, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -458,7 +445,7 @@ public class NewOperations extends javax.swing.JDialog {
                     .addComponent(specialEventFormatInsert))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(closeButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -471,7 +458,7 @@ public class NewOperations extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
         );
 
         pack();
@@ -907,26 +894,28 @@ public class NewOperations extends javax.swing.JDialog {
 
         opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_specialEventFormatInsertActionPerformed
-    //</editor-fold>
+//</editor-fold>
     
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc=" FailureManager ">
     public void showError(String error) {
+        JOptionPane op = new JOptionPane();
         String[] es = error.split("@");
-        ErrorWindow.setLocationRelativeTo(this);
-        String Text = "<html><b>Ejemplo Entrada:</b><br>"
+        String Text = "<html><b>Input example:</b><br>"
                 + "<i>" + es[0] + "</i><br><br>"
-                + "<b>Ejemplo Salida:</b><br>"
+                + "<b>Output example:</b><br>"
                 + "<i>" + es[1] + "</i></html>";
-        ErrorLabel.setText(Text);
-        ErrorWindow.setVisible(true);
+        int messagetype = JOptionPane.ERROR_MESSAGE; //JOptionPane.INFORMATION_MESSAGE
+        op.showMessageDialog(this, Text, "[ERROR] Invalid Input format", messagetype);
     }
     //</editor-fold>
     
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_closeButtonActionPerformed
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ErrorLabel;
-    private javax.swing.JDialog ErrorWindow;
     private javax.swing.JTextField associationFormat;
     private javax.swing.JButton associationFormatInsert;
     private javax.swing.JTextField basicProcessingFormat;

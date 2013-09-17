@@ -20,6 +20,7 @@ import java.lang.Object;
 import controller.Controller;
 import deliver.Deliver;
 import java.awt.BorderLayout;
+import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.AbstractAction;
@@ -53,7 +54,9 @@ public class MainWindow extends javax.swing.JFrame {
     public static final Color Red = new Color(255, 0, 0);
     public static final Color Black = new Color(0, 0, 0);
     public static final Color Gray = new Color(109, 109, 109);
-    
+
+    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/icon-kiwi.png"));
+
     //<editor-fold defaultstate="collapsed" desc=" Undo & Redo part1 ">
     private Document editorPaneDocument;
     protected UndoHandler undoHandler = new UndoHandler();
@@ -67,6 +70,7 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
+        setIconImage(icon);
         editorPaneDocument = syntaxArea.getDocument();
         editorPaneDocument.addUndoableEditListener(undoHandler);
 
