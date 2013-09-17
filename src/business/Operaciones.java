@@ -1,5 +1,5 @@
 package business;
-import controller.Controller;
+//import controller.Controller;
 import deliver.Deliver;
 /*
  * This class parses the given input and output an operation type-based syntax
@@ -63,8 +63,8 @@ public class Operaciones {
         // Ej: Variables2 = Output = [X:|S:|C:|E:][N:|H:]NAME_res
         String variables = (String) variablesin[0];
         
-        String phrase = "";
-        int where = 0;
+        String phrase;
+        int where;
         
         try {
             where = Deliver.SYNTAX_AREA;
@@ -91,8 +91,8 @@ public class Operaciones {
         //Field5 = VariableAsig =[X:|S:|C:|E:][N:|H:]NAME_Asig
         String Fields = (String) Fieldsin[0];
         
-        String phrase = "";
-        int where = 0;
+        String phrase;
+        int where;
         try {
             where = Deliver.SYNTAX_AREA;
             phrase = "%^X_OPERACION_SINTAX.\"";
@@ -118,8 +118,8 @@ public class Operaciones {
         //Field(s%3=2) = VariableComp2 = [X:|S:|C:|E:][N:|H:]NAME_op2
         String Fields = (String) Fieldsin[0];
         
-        String phrase = "";
-        int where = 0;
+        String phrase;
+        int where;
         
         try {
             where = Deliver.SYNTAX_AREA;
@@ -150,8 +150,8 @@ public class Operaciones {
         //Field(s-1) = VariableForm = Ej: !(A|B)^C
         String Fields = (String) Fieldsin[0];
         
-        String phrase = "";
-        int where = 0;
+        String phrase;
+        int where;
         
         try {
             where = Deliver.SYNTAX_AREA;
@@ -182,8 +182,8 @@ public class Operaciones {
         // NewVars = Variables nuevas que cogen el contenido de las ReplaceVars
         String vars = (String) varsin[0];
         
-        String phrase = "";
-        int where = 0;
+        String phrase;
+        int where;
         try{
             where = Deliver.SYNTAX_AREA;
             phrase = "%^X_ASOCIAR_SINTAX.\"";
