@@ -22,7 +22,11 @@ import deliver.Deliver;
 import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ActionMap;
@@ -481,6 +485,28 @@ public class MainWindow extends javax.swing.JFrame {
     
     private void SaveSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveSyntaxActionPerformed
         
+        JFileChooser jfc = new JFileChooser();
+        
+        jfc.setVisible(true);
+        
+        if(JFileChooser.APPROVE_OPTION == jfc.showSaveDialog(this)){
+            
+            File file = jfc.getSelectedFile();
+            FileWriter fw = null;
+                    
+            try{
+                
+            fw = new FileWriter(file);
+            fw.write(syntaxArea.getText());
+            fw.close();
+            
+            }catch(Exception e){
+                try {fw.close();}catch(IOException ex){}
+            }
+            
+        }
+        
+        /*
         f = new JFrame("Write a file name");
         f.setLayout(new BorderLayout());
         
@@ -522,7 +548,7 @@ public class MainWindow extends javax.swing.JFrame {
                 f.dispose();
             }
         });
-        
+        */
     }//GEN-LAST:event_SaveSyntaxActionPerformed
 
     private void NTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NTableActionPerformed
