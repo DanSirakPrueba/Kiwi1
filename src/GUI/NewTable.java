@@ -30,7 +30,7 @@ public class NewTable extends javax.swing.JDialog {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        TableName = new javax.swing.JTextField();
+        tableName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         originalField = new javax.swing.JTextField();
@@ -46,7 +46,7 @@ public class NewTable extends javax.swing.JDialog {
         addToTableButton = new javax.swing.JButton();
         deleteRowButton = new javax.swing.JButton();
 
-        TableName.setToolTipText("Name of the table");
+        tableName.setToolTipText("Name of the table");
 
         jLabel1.setText("Table name:");
 
@@ -87,6 +87,11 @@ public class NewTable extends javax.swing.JDialog {
         jScrollPane2.setViewportView(addedTable);
 
         acceptButton.setText("Accept");
+        acceptButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +133,7 @@ public class NewTable extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TableName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tableName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(originalField, javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,7 +157,7 @@ public class NewTable extends javax.swing.JDialog {
                 .addGap(6, 6, 6)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TableName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tableName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -216,6 +221,14 @@ public class NewTable extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
+    private void acceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonActionPerformed
+        // TODO add your handling code here:
+        Object[] what;
+        what = new Object[4];
+        what[0] = tableName;
+        
+    }//GEN-LAST:event_acceptButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -251,7 +264,6 @@ public class NewTable extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TableName;
     private javax.swing.JButton acceptButton;
     private javax.swing.JButton addToTableButton;
     private javax.swing.JTable addedTable;
@@ -267,6 +279,7 @@ public class NewTable extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField newField;
     private javax.swing.JTextField originalField;
+    private javax.swing.JTextField tableName;
     private javax.swing.JRadioButton wType;
     // End of variables declaration//GEN-END:variables
 }

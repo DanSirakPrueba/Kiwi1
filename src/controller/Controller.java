@@ -95,7 +95,7 @@ public class Controller {
                 Operaciones.specialEventFormat(what); 
             break;
             case readInput:
-                //Input.readInput(what);
+                Input.readInput(what);
             break;
             case createTable:
 				

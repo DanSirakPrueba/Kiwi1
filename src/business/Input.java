@@ -15,7 +15,8 @@ public class Input {
      * This method read a file from the path and outputs it through the Deliver.
      * @param path: Absolute path of the input file.
      */
-    public static void readInput(String path) {
+    public static void readInput(Object[] stringPath) {
+      String path = (String)stringPath[0];
       File file = null;
       FileReader fr = null;
       BufferedReader br = null;
