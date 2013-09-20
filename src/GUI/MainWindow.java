@@ -296,6 +296,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         NDataBase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/database_add.png"))); // NOI18N
         NDataBase.setToolTipText("New DataBase");
+        NDataBase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NDataBaseActionPerformed(evt);
+            }
+        });
 
         NTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/table_add.png"))); // NOI18N
         NTable.setToolTipText("New Table");
@@ -315,7 +320,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/page_white_edit.png"))); // NOI18N
         jToggleButton1.setToolTipText("Edit Code");
-        jToggleButton1.setRolloverEnabled(false);
         jToggleButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/page_white_delete.png"))); // NOI18N
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -556,6 +560,13 @@ public class MainWindow extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_NTableActionPerformed
+
+    private void NDataBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NDataBaseActionPerformed
+        JDialog jd = new NewBBDD(this, true);
+        jd.setLocationByPlatform(true);
+        jd.setLocationRelativeTo(this);
+        jd.setVisible(true);
+    }//GEN-LAST:event_NDataBaseActionPerformed
     private JTextField oldColName;
     private JTextField newColName;
     private JTextField tf;
