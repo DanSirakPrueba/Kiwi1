@@ -45,6 +45,7 @@ import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.BadLocationException;
 import javax.swing.undo.CannotUndoException;
 
@@ -397,6 +398,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void LoadEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadEventActionPerformed
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt format", "txt");
+        fileChooser.setFileFilter(filter);
         int seleccion = fileChooser.showOpenDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             String storeAllString = "";
@@ -416,6 +419,8 @@ public class MainWindow extends javax.swing.JFrame {
 	private void LoadSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadSyntaxActionPerformed
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt and .stx format", "txt", "stx");
+        fileChooser.setFileFilter(filter);
         int seleccion = fileChooser.showOpenDialog(this);
         fileChooser.setMultiSelectionEnabled(false);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
