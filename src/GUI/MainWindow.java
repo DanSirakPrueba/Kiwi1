@@ -399,6 +399,7 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt format", "txt");
+        fileChooser.setAcceptAllFileFilterUsed(false);
         fileChooser.setFileFilter(filter);
         int seleccion = fileChooser.showOpenDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
@@ -420,6 +421,7 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt and .stx format", "txt", "stx");
+        fileChooser.setAcceptAllFileFilterUsed(false);
         fileChooser.setFileFilter(filter);
         int seleccion = fileChooser.showOpenDialog(this);
         fileChooser.setMultiSelectionEnabled(false);
