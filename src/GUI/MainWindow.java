@@ -417,6 +417,7 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
         int seleccion = fileChooser.showOpenDialog(this);
+        fileChooser.setMultiSelectionEnabled(false);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             String storeAllString = "";
             File fichero = fileChooser.getSelectedFile();
@@ -486,24 +487,14 @@ public class MainWindow extends javax.swing.JFrame {
     private void SaveSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveSyntaxActionPerformed
         
         JFileChooser jfc = new JFileChooser();
-        
+        jfc.setMultiSelectionEnabled(false);
         jfc.setVisible(true);
         
         if(JFileChooser.APPROVE_OPTION == jfc.showSaveDialog(this)){
-            
-            File file = jfc.getSelectedFile();
-            FileWriter fw = null;
-                    
-            try{
-                
-            fw = new FileWriter(file);
-            fw.write(syntaxArea.getText());
-            fw.close();
-            
-            }catch(Exception e){
-                try {fw.close();}catch(IOException ex){}
-            }
-            
+           Object[] what = new Object[2];
+           what[0] = syntaxArea.getText();
+           what[1] = jfc.getSelectedFile();
+           Controller.controller(Controller.writeOutput, what);
         }
         
         /*

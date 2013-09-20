@@ -6,6 +6,7 @@ package controller;
 import business.BBDD;
 import business.Input;
 import business.Operaciones;
+import business.Output;
 import business.Variables;
 
 /**
@@ -37,6 +38,7 @@ public class Controller {
     public static final int specialEventFormat = 310;
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Final int de Output ">
+    public static final int writeOutput = 41;
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Final int de Tablas ">
     public static final int createTable = 51;
@@ -93,6 +95,9 @@ public class Controller {
             break;
             case specialEventFormat: 
                 Operaciones.specialEventFormat(what); 
+            break;
+            case writeOutput:
+                Output.publishOutput(what);
             break;
             case readInput:
                 Input.readInput(what);
