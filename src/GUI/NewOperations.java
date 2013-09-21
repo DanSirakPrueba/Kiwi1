@@ -22,21 +22,21 @@ import javax.swing.JTextField;
  */
 public class NewOperations extends javax.swing.JDialog {
     
-    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/cog.png"));
+    private Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/cog.png"));
     
     //<editor-fold defaultstate="collapsed" desc=" Nombres del los jTextFields ">
-    String SINTAX_ORDER = "SINTAX_ORDER";
-    String EXEC_COMMAND = "EXEC_COMMAND";
-    String SINTAX_COMMAND = "SINTAX_COMMAND";
-    String SINTAX_OPERATION_1 = "SINTAX_OPERATION";
-    String SINTAX_OPERATION_2 = "SINTAX_OPERATION";
-    String BASIC_PROCESS = "BASIC_PROCESS";
-    String NEW_PROCESS = "NEW_PROCESS";
-    String SINTAX_ASSOC = "SINTAX_ASSOC";
+    private String SINTAX_ORDER = "SINTAX_ORDER";
+    private String EXEC_COMMAND = "EXEC_COMMAND";
+    private String SINTAX_COMMAND = "SINTAX_COMMAND";
+    private String SINTAX_OPERATION_1 = "SINTAX_OPERATION";
+    private String SINTAX_OPERATION_2 = "SINTAX_OPERATION";
+    private String BASIC_PROCESS = "BASIC_PROCESS";
+    private String NEW_PROCESS = "NEW_PROCESS";
+    private String SINTAX_ASSOC = "SINTAX_ASSOC";
     //</editor-fold>
     
-    JOptionPane Err = new JOptionPane();
-    JOptionPane Info = new JOptionPane();
+    private JOptionPane Err = new JOptionPane();
+    private JOptionPane Info = new JOptionPane();
             
     /**
      * Creates new form NewOperations

@@ -8,6 +8,7 @@ import controller.Controller;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 import javax.swing.JTextField;
 
 /**
@@ -16,7 +17,9 @@ import javax.swing.JTextField;
  */
 public class NewVariable extends javax.swing.JDialog {
 
-    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/tag_blue.png"));
+    private Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/tag_blue.png"));
+    
+    public ArrayList<String> Vars;
     
     /**
      * Creates new form NewVariable
@@ -334,7 +337,8 @@ public class NewVariable extends javax.swing.JDialog {
         if (jTabbedPane1.getSelectedIndex() == 0) {
             //Empaquetamos los datos:
             what = new Object[2]; 
-            what[0] = name1.getText(); 
+            what[0] = name1.getText();
+            Vars.add(name1.getText());
             what[1] = value.getText();
             Controller.controller(Controller.createNewVariable, what);
             name1.setText(""); value.setText("");
@@ -362,6 +366,7 @@ public class NewVariable extends javax.swing.JDialog {
                 System.err.println("Cadenas no numéricas");
             }
             what[2] = name2.getText();
+            Vars.add(name2.getText());
             what[3] = type;
             what[4] = (absolute.isSelected())?true:false;
             init.setText("");

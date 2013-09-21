@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class NewBBDD extends javax.swing.JDialog {
 
-    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/database.png"));
+    private Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/database.png"));
     
     /**
      * Creates new form NewBBDD

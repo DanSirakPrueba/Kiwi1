@@ -215,7 +215,7 @@ public class MainWindow extends javax.swing.JFrame {
         editar = new javax.swing.JToggleButton();
         rehacer = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        FailureManager = new javax.swing.JButton();
 
         jFrame1.setBounds(new java.awt.Rectangle(0, 0, 225, 206));
         jFrame1.setLocationByPlatform(true);
@@ -351,11 +351,11 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/bug_edit.png"))); // NOI18N
-        jButton1.setToolTipText("Failure manager");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        FailureManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/bug_edit.png"))); // NOI18N
+        FailureManager.setToolTipText("Failure manager");
+        FailureManager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                FailureManagerActionPerformed(evt);
             }
         });
 
@@ -380,7 +380,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(FailureManager, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(deshacer, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -403,7 +403,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(deshacer)
                     .addComponent(rehacer)
                     .addComponent(LoadSyntax)
-                    .addComponent(jButton1))
+                    .addComponent(FailureManager))
                 .addGap(1, 1, 1)
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -586,9 +586,13 @@ public class MainWindow extends javax.swing.JFrame {
         jd.setVisible(true);
     }//GEN-LAST:event_NDataBaseActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void FailureManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FailureManagerActionPerformed
+        JDialog jd = new FailureManager(this, true);
+        jd.setLocationByPlatform(true);
+        jd.setLocationRelativeTo(this);
+        jd.setVisible(true);
+    }//GEN-LAST:event_FailureManagerActionPerformed
+    
     private JTextField oldColName;
     private JTextField newColName;
     private JTextField tf;
@@ -678,6 +682,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton FailureManager;
     private javax.swing.JButton LoadEvent;
     private javax.swing.JButton LoadSyntax;
     private javax.swing.JButton NDataBase;
@@ -688,7 +693,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton deshacer;
     private javax.swing.JToggleButton editar;
     private javax.swing.JTextArea eventArea;
-    private javax.swing.JButton jButton1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;

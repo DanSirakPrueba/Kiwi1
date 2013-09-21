@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class NewTable extends javax.swing.JDialog {
 
-    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/table.png"));
+    private Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/table.png"));
     
     /**
      * Creates new form NewTable
