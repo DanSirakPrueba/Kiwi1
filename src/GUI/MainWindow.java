@@ -75,6 +75,7 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setIconImage(icon);
         editorPaneDocument = syntaxArea.getDocument();
         editorPaneDocument.addUndoableEditListener(undoHandler);
@@ -236,6 +237,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("KiwiSyntaxManager");
+        setFocusCycleRoot(false);
         setLocationByPlatform(true);
 
         jSplitPane1.setResizeWeight(0.5);
@@ -649,10 +651,10 @@ public class MainWindow extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new MainWindow().setVisible(true);
             }
         });

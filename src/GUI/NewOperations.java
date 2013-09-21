@@ -97,6 +97,7 @@ public class NewOperations extends javax.swing.JDialog {
         jPanel1.setPreferredSize(new java.awt.Dimension(270, 45));
 
         orderFormat.setText("X_ORDEN_SINTAX");
+        orderFormat.setToolTipText("");
         orderFormat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderFormatActionPerformed(evt);
@@ -429,15 +430,14 @@ public class NewOperations extends javax.swing.JDialog {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(specialEventFormatInsert)))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(basicProcessingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(basicProcessingFormatInsert))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(newProcessingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(newProcessingFormatInsert))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(basicProcessingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(basicProcessingFormatInsert))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(newProcessingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(newProcessingFormatInsert)))
                         .addGap(0, 54, Short.MAX_VALUE)))
                 .addContainerGap())
         );
