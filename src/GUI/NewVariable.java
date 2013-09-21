@@ -295,6 +295,10 @@ public class NewVariable extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public ArrayList getVars() {
+        return Vars;
+    }
+    
     private void otherFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherFieldFocusGained
         String preText = "...";
         Color c = Color.GRAY;
