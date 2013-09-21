@@ -4,6 +4,10 @@
  */
 package GUI;
 
+import controller.Controller;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author daniel
@@ -33,7 +37,6 @@ public class NewBBDD extends javax.swing.JDialog {
         tabsSelect = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         resultLabel = new javax.swing.JLabel();
-        clearTableSelectResult = new javax.swing.JButton();
         deleteRowSelectResult = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaSelectResult = new javax.swing.JTable();
@@ -42,7 +45,6 @@ public class NewBBDD extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         tableLabel = new javax.swing.JLabel();
         tableFieldSelect = new javax.swing.JTextField();
-        clearTableSelectTable = new javax.swing.JButton();
         deleteRowSelectTable = new javax.swing.JButton();
         addSelectTable = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -166,9 +168,12 @@ public class NewBBDD extends javax.swing.JDialog {
 
         resultLabel.setText("Result:");
 
-        clearTableSelectResult.setText("Clear Table");
-
         deleteRowSelectResult.setText("Delete Row");
+        deleteRowSelectResult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteRowSelectResultActionPerformed(evt);
+            }
+        });
 
         tablaSelectResult.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -181,6 +186,11 @@ public class NewBBDD extends javax.swing.JDialog {
         jScrollPane1.setViewportView(tablaSelectResult);
 
         addSelectResult.setText("Add to Table");
+        addSelectResult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addSelectResultActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -190,16 +200,15 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(clearTableSelectResult)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(deleteRowSelectResult)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(addSelectResult))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(resultLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(resultSelectField))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -211,7 +220,6 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addComponent(resultSelectField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clearTableSelectResult)
                     .addComponent(deleteRowSelectResult)
                     .addComponent(addSelectResult))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -223,8 +231,6 @@ public class NewBBDD extends javax.swing.JDialog {
 
         tableLabel.setText("Table:");
 
-        clearTableSelectTable.setText("Clear table");
-
         deleteRowSelectTable.setText("Delete row");
         deleteRowSelectTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,6 +239,11 @@ public class NewBBDD extends javax.swing.JDialog {
         });
 
         addSelectTable.setText("Add to table");
+        addSelectTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addSelectTableActionPerformed(evt);
+            }
+        });
 
         tablaSelectTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -258,10 +269,9 @@ public class NewBBDD extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tableFieldSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(clearTableSelectTable, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(118, 118, 118)
                                 .addComponent(deleteRowSelectTable)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(addSelectTable)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -276,7 +286,6 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addComponent(tableFieldSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clearTableSelectTable)
                     .addComponent(deleteRowSelectTable)
                     .addComponent(addSelectTable))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -328,6 +337,11 @@ public class NewBBDD extends javax.swing.JDialog {
         conectionBoolean.setText("Enabled");
 
         aceptSelect.setText("Accept");
+        aceptSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptSelectActionPerformed(evt);
+            }
+        });
 
         cancelSelect.setText("Cancel");
 
@@ -554,18 +568,15 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tableUpdateData, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(clearTableUpdateTable)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(deleteRowUpdateTable)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addUpdateTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tableUpdateData, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(clearTableUpdateTable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteRowUpdateTable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addUpdateTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -1116,6 +1127,64 @@ public class NewBBDD extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteRowInsertColumnsActionPerformed
 
+    private void addSelectResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSelectResultActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tablaSelectResult.getModel();
+        String type = "";
+        String result = resultSelectField.getText();
+        resultSelectField.setText("");
+        model.addRow(new Object[]{result});
+    }//GEN-LAST:event_addSelectResultActionPerformed
+
+    private void addSelectTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSelectTableActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tablaSelectTable.getModel();
+        String type = "";
+        String table = tableFieldSelect.getText();
+        tableFieldSelect.setText("");
+        model.addRow(new Object[]{table});
+    }//GEN-LAST:event_addSelectTableActionPerformed
+
+    private void aceptSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptSelectActionPerformed
+        // TODO add your handling code here:
+        /*
+        boolean conexion = (boolean) what[0];
+        String usuarioBD = (String) what[1];
+	String passwdBD = (String) what[2];
+	String conexionBD = (String) what[3];
+	ArrayList resultadoSelect = (ArrayList) what[4];
+	ArrayList tablaSelect = (ArrayList) what[5];
+	String condicionSelect = (String) what[6]; 
+        */
+        Object[] what = new Object[7];
+        what[0] = conectionBoolean.isSelected();
+        what[1] = userSelectData.getText();
+        what[2] = passSelectData.getText();
+        what[3] = conectionEnabledSelectData.getText();
+        ArrayList resultadoSelect = new ArrayList();
+        ArrayList tablaSelect = new ArrayList();
+        int filas = tablaSelectResult.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            resultadoSelect.add((String)tablaSelectResult.getValueAt(i, 0));
+        }
+        what[4] = resultadoSelect;
+        filas = tablaSelectTable.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            tablaSelect.add((String)tablaSelectTable.getValueAt(i, 0));
+        }
+        what[5] = tablaSelect;
+        what[6] = conditionSelectConditionText.getText();
+        
+        Controller.controller(Controller.SELECTBD, what);
+        this.dispose();
+    }//GEN-LAST:event_aceptSelectActionPerformed
+
+    private void deleteRowSelectResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteRowSelectResultActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tablaSelectResult.getModel();
+        if (tablaSelectResult.getSelectedRow() != -1)
+            model.removeRow(tablaSelectResult.getSelectedRow());
+    }//GEN-LAST:event_deleteRowSelectResultActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1138,8 +1207,6 @@ public class NewBBDD extends javax.swing.JDialog {
     private javax.swing.JButton cancelSelect;
     private javax.swing.JButton clearTableInsertColumns;
     private javax.swing.JButton clearTableInsertFields;
-    private javax.swing.JButton clearTableSelectResult;
-    private javax.swing.JButton clearTableSelectTable;
     private javax.swing.JButton clearTableUpdateFields;
     private javax.swing.JButton clearTableUpdateTable;
     private javax.swing.JTextField columnDataInsert;

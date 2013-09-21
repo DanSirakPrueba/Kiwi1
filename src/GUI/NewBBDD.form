@@ -152,10 +152,9 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="clearTableSelectResult" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="deleteRowSelectResult" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="7" max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="addSelectResult" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -163,7 +162,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="resultSelectField" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" pref="365" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -179,7 +178,6 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="clearTableSelectResult" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="deleteRowSelectResult" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="addSelectResult" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -196,15 +194,13 @@
                         <Property name="text" type="java.lang.String" value="Result:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="clearTableSelectResult">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Clear Table"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JButton" name="deleteRowSelectResult">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Delete Row"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteRowSelectResultActionPerformed"/>
+                      </Events>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
                       <AuxValues>
@@ -240,6 +236,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Add to Table"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addSelectResultActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="resultSelectField">
                     </Component>
@@ -268,10 +267,9 @@
                                               <Component id="tableFieldSelect" min="-2" pref="301" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="clearTableSelectTable" min="-2" pref="118" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                                               <Component id="deleteRowSelectTable" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="addSelectTable" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -293,7 +291,6 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="clearTableSelectTable" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="deleteRowSelectTable" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="addSelectTable" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -312,11 +309,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="tableFieldSelect">
                     </Component>
-                    <Component class="javax.swing.JButton" name="clearTableSelectTable">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Clear table"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JButton" name="deleteRowSelectTable">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Delete row"/>
@@ -329,6 +321,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Add to table"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addSelectTableActionPerformed"/>
+                      </Events>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
                       <AuxValues>
@@ -459,6 +454,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Accept"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aceptSelectActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="cancelSelect">
               <Properties>
@@ -814,21 +812,16 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane5" pref="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="tableUpdateData" min="-2" pref="311" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="clearTableUpdateTable" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="deleteRowUpdateTable" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="addUpdateTable" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="tableUpdateData" min="-2" pref="311" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="clearTableUpdateTable" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="deleteRowUpdateTable" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="addUpdateTable" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
