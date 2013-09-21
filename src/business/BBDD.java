@@ -3,7 +3,7 @@
  */
 package business;
 import deliver.Deliver;
-import controller.Controller;
+//import controller.Controller;
 import java.util.ArrayList;
 
 /**
@@ -40,20 +40,20 @@ public static void selectBD(Object[] what) {
     	if(conexion) {
     		phraseA += "%^S_CONEXION_SELECT.\"" + usuarioBD + "," + passwdBD;
     		if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
-    		phraseA += "\"";
+    		phraseA += "\"\n";
     	}
     	String phraseB = "%^S_RESULTADO_SELECT.\"";
     	for (int i = 0; i < resultadoSelect.size() - 1; i++) {
     		phraseB += resultadoSelect.get(i) + " , ";
     	}
-    	phraseB += resultadoSelect.get(resultadoSelect.size() - 1) + "\"";
+    	phraseB += resultadoSelect.get(resultadoSelect.size() - 1) + "\"\n";
     	String phraseC = "%^S_TABLA_SELECT.\"";
     	for (int i = 0; i < tablaSelect.size() - 1; i++) {
     		phraseC += tablaSelect.get(i) + " , ";
     	}
-    	phraseC += tablaSelect.get(tablaSelect.size() - 1) + "\"";
+    	phraseC += tablaSelect.get(tablaSelect.size() - 1) + "\"\n";
     	String phraseD = "%^S_CONDICION_SELECT.\"" + condicionSelect + "\"";
-    	String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n" + phraseD + "\n";
+    	String phrase = phraseA + phraseB + phraseC + phraseD;
     	Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
     }
     
