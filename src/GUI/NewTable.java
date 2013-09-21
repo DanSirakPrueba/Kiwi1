@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import controller.Controller;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -224,45 +226,36 @@ public class NewTable extends javax.swing.JDialog {
     private void acceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonActionPerformed
         // TODO add your handling code here:
         Object[] what;
-        what = new Object[4];
-        what[0] = tableName;
-        
+        what = new Object[5];
+        what[0] = tableName.getText();
+        int column = 0;
+        int filas = addedTable.getRowCount();
+        ArrayList matches = new ArrayList();
+        ArrayList names = new ArrayList();
+        ArrayList types = new ArrayList();
+        ArrayList optional = new ArrayList();
+        for (int i = 0; i < filas; i++) {
+            matches.add((String)addedTable.getValueAt(i, column));
+            column = (column + 1) % 4;
+            names.add((String)addedTable.getValueAt(i, column));
+            column = (column + 1) % 4;
+            types.add((String)addedTable.getValueAt(i, column));
+            column = (column + 1) % 4;
+            if (addedTable.getValueAt(i, column) == null)
+                optional.add(false);
+            else
+                optional.add(true);
+            column = (column + 1) % 4;
+        }
+        what[1] = matches;
+        what[2] = names;
+        what[3] = types;
+        what[4] = optional;
+        Controller.controller(Controller.createTable, what);
+        tableName.setText("");
+        this.dispose();
     }//GEN-LAST:event_acceptButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewTable().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceptButton;
     private javax.swing.JButton addToTableButton;

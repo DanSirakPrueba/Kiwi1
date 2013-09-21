@@ -7,6 +7,7 @@ import business.BBDD;
 import business.Input;
 import business.Operaciones;
 import business.Output;
+import business.Tablas;
 import business.Variables;
 
 /**
@@ -103,7 +104,7 @@ public class Controller {
                 Input.readInput(what);
             break;
             case createTable:
-				
+                Tablas.createTable(what); break;
             case createNewVariable:
                 Variables.createNewVariable(what); break;
             case createVariableFromText: 
