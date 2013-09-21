@@ -187,7 +187,8 @@ public class Operaciones {
             phrase += "\"";
         } catch (Exception e) {
             where = Deliver.ERROR;
-            phrase = "insert (EH:ORIGEN == ‘MI_CENTRAL’ A)<sup>N</sup> !(C | B) & A@"
+            phrase = "insert EH:ORIGEN == ‘MI_CENTRAL’ A XN:NUMERO >= EN:SECUENCIA "
+                    + "B XN:NUM > 100 C ; !(C | B) & A@"
                     + "%^I_TRATAR_INSERT.”EH:ORIGEN == ‘MI_CENTRAL’ = A ;"
                     + " XN:NUMERO >= EN:SECUENCIA = B ; XN:NUM > 100 = C #"
                     + " !(C | B) & A”";

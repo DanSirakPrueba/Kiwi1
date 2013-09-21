@@ -6,6 +6,7 @@ package GUI;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 import javax.swing.JTable;
 
 /**
@@ -29,6 +30,7 @@ public class FailureManager extends javax.swing.JDialog {
         this.setTitle("Failure Manager");
         setIconImage(icon);
         String[] columnNames = {"NAME", "SELECCION"};
+        //ArrayList<String> Vars = NewVariable.getVars();
         //String[] filas = NewVariable.Vars;
         //jTable1 = new JTable(NewVariable.Vars, columnNames);
     }
