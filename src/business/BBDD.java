@@ -37,11 +37,9 @@ public static void selectBD(Object[] what) {
 	String condicionSelect = (String) what[6];
 	
     	String phraseA = "";
-    	if(conexion) {
-    		phraseA += "%^S_CONEXION_SELECT.\"" + usuarioBD + "," + passwdBD;
-    		if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
-    		phraseA += "\"\n";
-    	}
+    	phraseA += "%^S_CONEXION_SELECT.\"" + usuarioBD + "," + passwdBD;
+        if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
+    	phraseA += "\"\n";
     	String phraseB = "%^S_RESULTADO_SELECT.\"";
     	for (int i = 0; i < resultadoSelect.size() - 1; i++) {
     		phraseB += resultadoSelect.get(i) + " , ";
@@ -77,11 +75,9 @@ public static void selectBD(Object[] what) {
 	String tablaDelete = (String) what[4];
 	String condicionDelete = (String) what[5];
         String phraseA = "";
-        if (conexion) {
-            phraseA += "%^D_CONEXION_DELETE.\"" + usuarioBD + "," + passwdBD;
-            if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
-            phraseA += "\"";
-        }
+        phraseA += "%^D_CONEXION_DELETE.\"" + usuarioBD + "," + passwdBD;
+        if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
+        phraseA += "\"";
         String phraseB = "%^D_TABLA_DELETE.\"" + tablaDelete + "\"";
         String phraseC = "%^D_CONDICION_DELETE.\"" + condicionDelete + "\"";
         String phrase = phraseA + "\n" + phraseB + "\n" + phraseC + "\n";
@@ -110,11 +106,9 @@ public static void selectBD(Object[] what) {
 	ArrayList camposUpdate = (ArrayList) what[5];
 	String condicionUpdate = (String) what[6];
 	String phraseA = "";
-    	if(conexion) {
-    		phraseA += "%^U_CONEXION_UPDATE.\"" + usuarioBD + "," + passwdBD;
-    		if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
-    		phraseA += "\"";
-    	}
+    	phraseA += "%^U_CONEXION_UPDATE.\"" + usuarioBD + "," + passwdBD;
+    	if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
+    	phraseA += "\"";
     	String phraseB = "%^U_TABLA_UPDATE.\"";
     	for (int i = 0; i < tablaUpdate.size() - 1; i++) {
     		phraseB += tablaUpdate.get(i) + " , ";
@@ -146,11 +140,10 @@ public static void selectBD(Object[] what) {
 	String conexionBD = (String) what[3];
 	String sentenciaQuery = (String) what[4];
 	String phraseA = "";
-    	if(conexion) {
-    		phraseA += "%^X_CONEXION_QUERY.\"" + usuarioBD + "," + passwdBD;
-    		if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
-    		phraseA += "\"";
-    	}
+    	phraseA += "%^X_CONEXION_QUERY.\"" + usuarioBD + "," + passwdBD;
+    	if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
+    	phraseA += "\"";
+    	
     	String phraseB = "%^X_SENTENCIA_QUERY.\"" + sentenciaQuery + "\"";
     	String phrase = phraseA + "\n" + phraseB + "\n";
     	Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
@@ -176,11 +169,11 @@ public static void selectBD(Object[] what) {
 	String tablaInsert = (String) what[5];
 	ArrayList columnasInsert = (ArrayList) what[6];
 	String phraseA = "";
-    	if(conexion) {
-    		phraseA += "%^I_CONEXION_UPDATE.\"" + usuarioBD + "," + passwdBD;
-    		if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
-    		phraseA += "\"";
-    	}
+    	
+    	phraseA += "%^I_CONEXION_UPDATE.\"" + usuarioBD + "," + passwdBD;
+    	if (conexionBD.compareTo("") != 0) phraseA += "," + conexionBD;
+    	phraseA += "\"";
+    	
         String phraseB = "%^I_CAMPOS_INSERT.\"";
     	for (int i = 0; i < camposInsert.size() - 1; i++) {
     		phraseB += camposInsert.get(i) + " , ";
