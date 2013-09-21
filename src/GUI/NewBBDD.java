@@ -91,13 +91,11 @@ public class NewBBDD extends javax.swing.JDialog {
         tableUpdateData = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
         tableUpdateTable = new javax.swing.JTable();
-        clearTableUpdateTable = new javax.swing.JButton();
         deleteRowUpdateTable = new javax.swing.JButton();
         addUpdateTable = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         fieldsDataUpdate = new javax.swing.JTextField();
-        clearTableUpdateFields = new javax.swing.JButton();
         deleteRowUpdateFields = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -137,7 +135,6 @@ public class NewBBDD extends javax.swing.JDialog {
         jPanel15 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         fieldsDataInsert = new javax.swing.JTextField();
-        clearTableInsertFields = new javax.swing.JButton();
         deleteRowInsertFields = new javax.swing.JButton();
         addInsertFields = new javax.swing.JButton();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -560,11 +557,19 @@ public class NewBBDD extends javax.swing.JDialog {
         ));
         jScrollPane5.setViewportView(tableUpdateTable);
 
-        clearTableUpdateTable.setText("Clear Table");
-
         deleteRowUpdateTable.setText("Delete Row");
+        deleteRowUpdateTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteRowUpdateTableActionPerformed(evt);
+            }
+        });
 
         addUpdateTable.setText("Add to Table");
+        addUpdateTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addUpdateTableActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -579,10 +584,9 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tableUpdateData, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(clearTableUpdateTable)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(108, 108, 108)
                         .addComponent(deleteRowUpdateTable)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(addUpdateTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -595,7 +599,6 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addComponent(tableUpdateData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clearTableUpdateTable)
                     .addComponent(deleteRowUpdateTable)
                     .addComponent(addUpdateTable))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -607,11 +610,19 @@ public class NewBBDD extends javax.swing.JDialog {
 
         jLabel8.setText("Fields:");
 
-        clearTableUpdateFields.setText("Clear Table");
-
         deleteRowUpdateFields.setText("Delete Row");
+        deleteRowUpdateFields.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteRowUpdateFieldsActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Add to Table");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         tableFieldsUpdateFields.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -636,10 +647,9 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(fieldsDataUpdate))
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(clearTableUpdateFields)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(108, 108, 108)
                         .addComponent(deleteRowUpdateFields)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton1)
                         .addGap(0, 1, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -653,7 +663,6 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clearTableUpdateFields)
                     .addComponent(deleteRowUpdateFields)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -705,6 +714,11 @@ public class NewBBDD extends javax.swing.JDialog {
         enabledConectionUpdate.setText("Enabled");
 
         acceptButtonUpdate.setText("Accept");
+        acceptButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptButtonUpdateActionPerformed(evt);
+            }
+        });
 
         cancelButtonUpdate.setText("Cancel");
 
@@ -879,8 +893,6 @@ public class NewBBDD extends javax.swing.JDialog {
 
         jLabel19.setText("Fields:");
 
-        clearTableInsertFields.setText("Clear Table");
-
         deleteRowInsertFields.setText("Delete Row");
 
         addInsertFields.setText("Add to Table");
@@ -908,10 +920,9 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(fieldsDataInsert))
                     .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(clearTableInsertFields)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(108, 108, 108)
                         .addComponent(deleteRowInsertFields)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(addInsertFields)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -925,7 +936,6 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addComponent(fieldsDataInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clearTableInsertFields)
                     .addComponent(deleteRowInsertFields)
                     .addComponent(addInsertFields))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1208,6 +1218,77 @@ public class NewBBDD extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_cancelSelectActionPerformed
 
+    private void acceptButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonUpdateActionPerformed
+        boolean error = false;
+        String errorString = "";
+        Object[] what = new Object[7];
+        what[0] = enabledConectionUpdate.isSelected();
+        what[1] = userUpdateData.getText();
+        what[2] = passUpdateData.getText();
+        what[3] = conectionUpdateData.getText();
+        ArrayList tablaUpdate = new ArrayList();
+        ArrayList fieldsUpdate = new ArrayList();
+        int filas = tableUpdateTable.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            tablaUpdate.add((String)tableUpdateTable.getValueAt(i, 0));
+        }
+        if (filas == 0) {
+            error = true;
+            errorString += "Table field is not filled.\n";
+        }
+        what[4] = tablaUpdate;
+        filas = tableFieldsUpdateFields.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            fieldsUpdate.add((String)tableFieldsUpdateFields.getValueAt(i, 0));
+        }
+        if (filas == 0) {
+            error = true;
+            errorString += "Field field is not filled.\n";
+        }
+        what[5] = fieldsUpdate;
+        what[6] = conditionTextAreaUpdateCondition.getText();
+        if (conditionTextAreaUpdateCondition.getText().equalsIgnoreCase("")) {
+            error = true;
+            errorString += "Condition field is not filled.\n";
+        }
+        if (!error) {
+        Controller.controller(Controller.UPDATEBD, what);
+        this.dispose();
+        } else {
+            JOptionPane op = new JOptionPane();
+            int messagetype = JOptionPane.ERROR_MESSAGE; //JOptionPane.INFORMATION_MESSAGE
+            op.showMessageDialog(this, errorString, "[ERROR] Some fields are not filled", messagetype);
+        }
+    }//GEN-LAST:event_acceptButtonUpdateActionPerformed
+
+    private void deleteRowUpdateTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteRowUpdateTableActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tableUpdateTable.getModel();
+        if (tableUpdateTable.getSelectedRow() != -1)
+            model.removeRow(tableUpdateTable.getSelectedRow());
+    }//GEN-LAST:event_deleteRowUpdateTableActionPerformed
+
+    private void deleteRowUpdateFieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteRowUpdateFieldsActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tableFieldsUpdateFields.getModel();
+        if (tableFieldsUpdateFields.getSelectedRow() != -1)
+            model.removeRow(tableFieldsUpdateFields.getSelectedRow());
+    }//GEN-LAST:event_deleteRowUpdateFieldsActionPerformed
+
+    private void addUpdateTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUpdateTableActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tableUpdateTable.getModel();
+        String type = "";
+        String table = tableUpdateData.getText();
+        tableUpdateData.setText("");
+        model.addRow(new Object[]{table});
+    }//GEN-LAST:event_addUpdateTableActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tableFieldsUpdateFields.getModel();
+        String type = "";
+        String table = fieldsDataUpdate.getText();
+        fieldsDataUpdate.setText("");
+        model.addRow(new Object[]{table});
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1229,9 +1310,6 @@ public class NewBBDD extends javax.swing.JDialog {
     private javax.swing.JButton cancelQuery;
     private javax.swing.JButton cancelSelect;
     private javax.swing.JButton clearTableInsertColumns;
-    private javax.swing.JButton clearTableInsertFields;
-    private javax.swing.JButton clearTableUpdateFields;
-    private javax.swing.JButton clearTableUpdateTable;
     private javax.swing.JTextField columnDataInsert;
     private javax.swing.JLabel conditionSelectCondicion;
     private javax.swing.JTextArea conditionSelectConditionText;

@@ -820,10 +820,9 @@
                                       <Component id="tableUpdateData" min="-2" pref="311" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="clearTableUpdateTable" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
                                       <Component id="deleteRowUpdateTable" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="addUpdateTable" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -841,7 +840,6 @@
                               </Group>
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="clearTableUpdateTable" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="deleteRowUpdateTable" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="addUpdateTable" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -890,20 +888,21 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JButton" name="clearTableUpdateTable">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Clear Table"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JButton" name="deleteRowUpdateTable">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Delete Row"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteRowUpdateTableActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="addUpdateTable">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Add to Table"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addUpdateTableActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -929,10 +928,9 @@
                                       <Component id="fieldsDataUpdate" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="clearTableUpdateFields" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
                                       <Component id="deleteRowUpdateFields" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
                                   </Group>
@@ -951,7 +949,6 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="clearTableUpdateFields" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="deleteRowUpdateFields" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -970,20 +967,21 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="fieldsDataUpdate">
                     </Component>
-                    <Component class="javax.swing.JButton" name="clearTableUpdateFields">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Clear Table"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JButton" name="deleteRowUpdateFields">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Delete Row"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteRowUpdateFieldsActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton1">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Add to Table"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                      </Events>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane6">
                       <AuxValues>
@@ -1114,6 +1112,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Accept"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="acceptButtonUpdateActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="cancelButtonUpdate">
               <Properties>
@@ -1427,10 +1428,9 @@
                                       <Component id="fieldsDataInsert" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="clearTableInsertFields" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
                                       <Component id="deleteRowInsertFields" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="addInsertFields" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
@@ -1449,7 +1449,6 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="clearTableInsertFields" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="deleteRowInsertFields" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="addInsertFields" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -1467,11 +1466,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="fieldsDataInsert">
-                    </Component>
-                    <Component class="javax.swing.JButton" name="clearTableInsertFields">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Clear Table"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="deleteRowInsertFields">
                       <Properties>
