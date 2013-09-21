@@ -182,7 +182,7 @@
                                   <Component id="addSelectResult" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" pref="183" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" pref="182" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -273,7 +273,7 @@
                                               <Component id="addSelectTable" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane2" alignment="1" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -295,7 +295,7 @@
                                   <Component id="addSelectTable" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" pref="187" max="32767" attributes="0"/>
+                              <Component id="jScrollPane2" pref="185" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -372,7 +372,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane3" pref="369" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane3" pref="365" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="conditionSelectCondicion" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -388,7 +388,7 @@
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Component id="conditionSelectCondicion" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" pref="223" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" pref="222" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -579,7 +579,7 @@
                                   <Component id="tableTextDelete" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="tablaLAbelDelete" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="339" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="321" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -627,7 +627,7 @@
                                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jScrollPane4" pref="369" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane4" pref="365" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -639,7 +639,7 @@
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane4" pref="223" max="32767" attributes="0"/>
+                              <Component id="jScrollPane4" pref="222" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -827,7 +827,7 @@
                                       <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
                                       <Component id="deleteRowUpdateTable" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="addUpdateTable" pref="156" max="32767" attributes="0"/>
+                                      <Component id="addUpdateTable" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -848,8 +848,8 @@
                                   <Component id="addUpdateTable" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane5" min="-2" pref="188" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jScrollPane5" pref="181" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -936,7 +936,7 @@
                                       <Component id="deleteRowUpdateFields" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="63" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -957,7 +957,7 @@
                                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane6" pref="182" max="32767" attributes="0"/>
+                              <Component id="jScrollPane6" pref="181" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1034,7 +1034,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane7" alignment="0" pref="369" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane7" alignment="0" pref="365" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1109,6 +1109,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Enabled"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enabledConectionUpdateActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="conectionUpdateData">
             </Component>
@@ -1124,6 +1127,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancel"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelButtonUpdateActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1231,7 +1237,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane8" pref="369" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane8" pref="365" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1247,7 +1253,7 @@
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane8" pref="225" max="32767" attributes="0"/>
+                              <Component id="jScrollPane8" pref="224" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1436,7 +1442,7 @@
                                       <Component id="deleteRowInsertFields" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="addInsertFields" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1457,7 +1463,7 @@
                                   <Component id="addInsertFields" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane9" pref="179" max="32767" attributes="0"/>
+                              <Component id="jScrollPane9" pref="178" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1530,7 +1536,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="329" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="311" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="tableDataInsert" max="32767" attributes="0"/>
                               </Group>
@@ -1578,7 +1584,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jScrollPane10" pref="359" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane10" pref="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1611,7 +1617,7 @@
                                   <Component id="addInsertColumns" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane10" pref="178" max="32767" attributes="0"/>
+                              <Component id="jScrollPane10" pref="177" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
