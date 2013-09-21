@@ -447,6 +447,10 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Enabled"/>
               </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="conectionBooleanStateChanged"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="conectionBooleanActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="conectionEnabledSelectData">
             </Component>

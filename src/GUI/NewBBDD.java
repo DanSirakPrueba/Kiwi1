@@ -22,6 +22,7 @@ public class NewBBDD extends javax.swing.JDialog {
     public NewBBDD(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        conectionEnabledSelectData.setEditable(false);
     }
 
     /**
@@ -334,6 +335,16 @@ public class NewBBDD extends javax.swing.JDialog {
         conectionCheckSelect.setText("Connection:");
 
         conectionBoolean.setText("Enabled");
+        conectionBoolean.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                conectionBooleanStateChanged(evt);
+            }
+        });
+        conectionBoolean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conectionBooleanActionPerformed(evt);
+            }
+        });
 
         aceptSelect.setText("Accept");
         aceptSelect.addActionListener(new java.awt.event.ActionListener() {
@@ -1288,6 +1299,18 @@ public class NewBBDD extends javax.swing.JDialog {
         fieldsDataUpdate.setText("");
         model.addRow(new Object[]{table});
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void conectionBooleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectionBooleanActionPerformed
+        if (conectionBoolean.isEnabled()) 
+            conectionEnabledSelectData.setEditable(true);
+        else if (!conectionBoolean.isEnabled())           
+            conectionEnabledSelectData.setEditable(false);
+
+    }//GEN-LAST:event_conectionBooleanActionPerformed
+
+    private void conectionBooleanStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_conectionBooleanStateChanged
+      
+    }//GEN-LAST:event_conectionBooleanStateChanged
 
     /**
      * @param args the command line arguments
