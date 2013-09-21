@@ -5,6 +5,8 @@
 package GUI;
 
 import controller.Controller;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,11 +16,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class NewTable extends javax.swing.JDialog {
 
+    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/table.png"));
+    
     /**
      * Creates new form NewTable
      */
     public NewTable() {
         initComponents();
+        this.setTitle("New Table");
+        setIconImage(icon);
     }
 
     /**
