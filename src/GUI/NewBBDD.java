@@ -6,6 +6,8 @@ package GUI;
 
 import controller.Controller;
 import java.util.ArrayList;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -344,6 +346,11 @@ public class NewBBDD extends javax.swing.JDialog {
         });
 
         cancelSelect.setText("Cancel");
+        cancelSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelSelectActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1116,7 +1123,9 @@ public class NewBBDD extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteRowSelectTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteRowSelectTableActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tablaSelectTable.getModel();
+        if (tablaSelectTable.getSelectedRow() != -1)
+            model.removeRow(tablaSelectTable.getSelectedRow());
     }//GEN-LAST:event_deleteRowSelectTableActionPerformed
 
     private void tableDataInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableDataInsertActionPerformed
@@ -1128,7 +1137,7 @@ public class NewBBDD extends javax.swing.JDialog {
     }//GEN-LAST:event_deleteRowInsertColumnsActionPerformed
 
     private void addSelectResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSelectResultActionPerformed
-        // TODO add your handling code here:
+        
         DefaultTableModel model = (DefaultTableModel) tablaSelectResult.getModel();
         String type = "";
         String result = resultSelectField.getText();
@@ -1137,7 +1146,7 @@ public class NewBBDD extends javax.swing.JDialog {
     }//GEN-LAST:event_addSelectResultActionPerformed
 
     private void addSelectTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSelectTableActionPerformed
-        // TODO add your handling code here:
+       
         DefaultTableModel model = (DefaultTableModel) tablaSelectTable.getModel();
         String type = "";
         String table = tableFieldSelect.getText();
@@ -1146,16 +1155,9 @@ public class NewBBDD extends javax.swing.JDialog {
     }//GEN-LAST:event_addSelectTableActionPerformed
 
     private void aceptSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptSelectActionPerformed
-        // TODO add your handling code here:
-        /*
-        boolean conexion = (boolean) what[0];
-        String usuarioBD = (String) what[1];
-	String passwdBD = (String) what[2];
-	String conexionBD = (String) what[3];
-	ArrayList resultadoSelect = (ArrayList) what[4];
-	ArrayList tablaSelect = (ArrayList) what[5];
-	String condicionSelect = (String) what[6]; 
-        */
+
+        boolean error = false;
+        String errorString = "";
         Object[] what = new Object[7];
         what[0] = conectionBoolean.isSelected();
         what[1] = userSelectData.getText();
@@ -1167,16 +1169,33 @@ public class NewBBDD extends javax.swing.JDialog {
         for (int i = 0; i < filas; i++) {
             resultadoSelect.add((String)tablaSelectResult.getValueAt(i, 0));
         }
+        if (filas == 0) {
+            error = true;
+            errorString += "Result field is not filled.\n";
+        }
         what[4] = resultadoSelect;
         filas = tablaSelectTable.getRowCount();
         for (int i = 0; i < filas; i++) {
             tablaSelect.add((String)tablaSelectTable.getValueAt(i, 0));
         }
+        if (filas == 0) {
+            error = true;
+            errorString += "Table field is not filled.\n";
+        }
         what[5] = tablaSelect;
         what[6] = conditionSelectConditionText.getText();
-        
+        if (conditionSelectConditionText.getText().equalsIgnoreCase("")) {
+            error = true;
+            errorString += "Condition field is not filled.\n";
+        }
+        if (!error) {
         Controller.controller(Controller.SELECTBD, what);
         this.dispose();
+        } else {
+            JOptionPane op = new JOptionPane();
+            int messagetype = JOptionPane.ERROR_MESSAGE; //JOptionPane.INFORMATION_MESSAGE
+            op.showMessageDialog(this, errorString, "[ERROR] Some fields are not filled", messagetype);
+        }
     }//GEN-LAST:event_aceptSelectActionPerformed
 
     private void deleteRowSelectResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteRowSelectResultActionPerformed
@@ -1184,6 +1203,10 @@ public class NewBBDD extends javax.swing.JDialog {
         if (tablaSelectResult.getSelectedRow() != -1)
             model.removeRow(tablaSelectResult.getSelectedRow());
     }//GEN-LAST:event_deleteRowSelectResultActionPerformed
+
+    private void cancelSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelSelectActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelSelectActionPerformed
 
     /**
      * @param args the command line arguments
