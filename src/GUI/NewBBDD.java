@@ -108,7 +108,7 @@ public class NewBBDD extends javax.swing.JDialog {
         jPanel7 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        conditionDelete = new javax.swing.JTextArea();
         conectionLabelDelete = new javax.swing.JLabel();
         userLabelDelete = new javax.swing.JLabel();
         userDeleteData = new javax.swing.JTextField();
@@ -360,6 +360,12 @@ public class NewBBDD extends javax.swing.JDialog {
 
         userSelect.setText("User:");
 
+        userSelectData.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                userSelectDataKeyPressed(evt);
+            }
+        });
+
         passSelect.setText("Pass:");
 
         conectionCheckSelect.setText("Connection:");
@@ -487,9 +493,9 @@ public class NewBBDD extends javax.swing.JDialog {
 
         jLabel2.setText("Condition:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane4.setViewportView(jTextArea1);
+        conditionDelete.setColumns(20);
+        conditionDelete.setRows(5);
+        jScrollPane4.setViewportView(conditionDelete);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -538,6 +544,11 @@ public class NewBBDD extends javax.swing.JDialog {
         });
 
         acceptButtonDelete.setText("Accept");
+        acceptButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptButtonDeleteActionPerformed(evt);
+            }
+        });
 
         cancelButtonDelete.setText("Cancel");
 
@@ -1467,6 +1478,38 @@ public class NewBBDD extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_enabledConnectionInsertActionPerformed
 
+    private void userSelectDataKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userSelectDataKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userSelectDataKeyPressed
+
+    private void acceptButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonDeleteActionPerformed
+        boolean error = false;
+        String errorString = "";
+        Object[] what = new Object[6];
+        what[0] = enabledConnectionDelete.isSelected();
+        what[1] = userDeleteData.getText();
+        what[2] = passDeleteData.getText();
+        what[3] = conectionFieldDelete.getText();
+        what[4] = tableTextDelete.getText();
+        if (tableTextDelete.getText().equalsIgnoreCase("")) {
+            error = true;
+            errorString += "Table field is not filled.\n";
+        }
+        what[5] = conditionDelete.getText();
+        if (conditionDelete.getText().equalsIgnoreCase("")) {
+            error = true;
+            errorString += "Condition field is not filled.\n";
+        }
+        if (!error) {
+        Controller.controller(Controller.DELETEBD, what);
+        this.dispose();
+        } else {
+            JOptionPane op = new JOptionPane();
+            int messagetype = JOptionPane.ERROR_MESSAGE; //JOptionPane.INFORMATION_MESSAGE
+            op.showMessageDialog(this, errorString, "[ERROR] Some fields are not filled", messagetype);
+        }
+    }//GEN-LAST:event_acceptButtonDeleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1489,6 +1532,7 @@ public class NewBBDD extends javax.swing.JDialog {
     private javax.swing.JButton cancelSelect;
     private javax.swing.JButton clearTableInsertColumns;
     private javax.swing.JTextField columnDataInsert;
+    private javax.swing.JTextArea conditionDelete;
     private javax.swing.JLabel conditionSelectCondicion;
     private javax.swing.JTextArea conditionSelectConditionText;
     private javax.swing.JTextArea conditionTextAreaUpdateCondition;
@@ -1566,7 +1610,6 @@ public class NewBBDD extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField passDataInsert;
     private javax.swing.JTextField passDataQuery;
     private javax.swing.JTextField passDeleteData;
