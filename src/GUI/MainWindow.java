@@ -352,6 +352,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/bug_edit.png"))); // NOI18N
+        jButton1.setToolTipText("Failure manager");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
