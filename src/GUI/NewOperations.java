@@ -28,13 +28,11 @@ public class NewOperations extends javax.swing.JDialog {
     String SINTAX_ORDER = "SINTAX_ORDER";
     String EXEC_COMMAND = "EXEC_COMMAND";
     String SINTAX_COMMAND = "SINTAX_COMMAND";
-    String GF_FIELDS = "SACAR FUERA...";
     String SINTAX_OPERATION_1 = "SINTAX_OPERATION";
     String SINTAX_OPERATION_2 = "SINTAX_OPERATION";
     String BASIC_PROCESS = "BASIC_PROCESS";
     String NEW_PROCESS = "NEW_PROCESS";
     String SINTAX_ASSOC = "SINTAX_ASSOC";
-    String SPECIAL = "developing...";
     //</editor-fold>
     
     JOptionPane Err = new JOptionPane();
@@ -190,7 +188,7 @@ public class NewOperations extends javax.swing.JDialog {
         });
 
         concatOperationSintax.setText("X_OPERACION_SINTAX");
-        concatOperationSintax.setToolTipText("SUMA-CONCATENACION");
+        concatOperationSintax.setToolTipText("ADDITION-CONCATENATION");
         concatOperationSintax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 concatOperationSintaxActionPerformed(evt);
@@ -255,7 +253,7 @@ public class NewOperations extends javax.swing.JDialog {
                                 .addComponent(concatOperationSintaxInsert)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(concatOperationSintaxInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 2, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -298,7 +296,7 @@ public class NewOperations extends javax.swing.JDialog {
         jPanel2.setPreferredSize(new java.awt.Dimension(270, 45));
 
         compAsigOperationSintax.setText("X_OPERACION_SINTAX");
-        compAsigOperationSintax.setToolTipText("COMPARACION-ASIGNACION");
+        compAsigOperationSintax.setToolTipText("COMPARISON-ASSIGNMENT");
         compAsigOperationSintax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 compAsigOperationSintaxActionPerformed(evt);
@@ -328,6 +326,7 @@ public class NewOperations extends javax.swing.JDialog {
         });
 
         basicProcessingFormat.setText("_TRATAR_BASICO");
+        basicProcessingFormat.setToolTipText("LOGIC AND");
         basicProcessingFormat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 basicProcessingFormatActionPerformed(evt);
@@ -357,6 +356,7 @@ public class NewOperations extends javax.swing.JDialog {
         });
 
         newProcessingFormat.setText("_TRATAR_NUEVO");
+        newProcessingFormat.setToolTipText("LOGIC OPERATION");
         newProcessingFormat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newProcessingFormatActionPerformed(evt);
@@ -869,7 +869,7 @@ public class NewOperations extends javax.swing.JDialog {
 
         opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_associationFormatInsertActionPerformed
-//</editor-fold>
+    //</editor-fold>
     
     //</editor-fold>
     
@@ -884,10 +884,6 @@ public class NewOperations extends javax.swing.JDialog {
     }
     //</editor-fold>
     
-    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_closeButtonActionPerformed
-
     //<editor-fold defaultstate="collapsed" desc=" Info Buttons ">
     public void showInfo(String info) {
         Info.showMessageDialog(this, info, "Format info", JOptionPane.INFORMATION_MESSAGE);
@@ -968,6 +964,10 @@ public class NewOperations extends javax.swing.JDialog {
         showInfo(Text);
     }//GEN-LAST:event_associationFormatInfoActionPerformed
     //</editor-fold>
+    
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_closeButtonActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField associationFormat;

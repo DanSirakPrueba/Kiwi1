@@ -175,13 +175,13 @@ public class Operaciones {
 
             for (int i = 1; i < splitfields1.length - 4; i += 4) {
                 phrase += splitfields1[i] + " " + splitfields1[i+1] + " " 
-                        + splitfields1[i+2] + " = " + splitfields1[i+3] + " ; ";
+                        + splitfields1[i+2] + " = " + splitfields1[i+3].toUpperCase() + " ; ";
             }
             
             phrase += splitfields1[splitfields1.length-4] 
                     + " " + splitfields1[splitfields1.length-3] 
                     + " " + splitfields1[splitfields1.length-2]
-                    + " = " + splitfields1[splitfields1.length-1];
+                    + " = " + splitfields1[splitfields1.length-1].toUpperCase();
             
             phrase += " # " + splitfields[1];
             phrase += "\"";
