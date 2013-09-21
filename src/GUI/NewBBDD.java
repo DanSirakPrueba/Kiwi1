@@ -33,56 +33,30 @@ public class NewBBDD extends javax.swing.JDialog {
         conectionEnabledSelectData.setEditable(false);
         conectionEnabledSelectData.setBackground(Color.LIGHT_GRAY);
         conectionEnabledSelectData.setText("");
-        userSelectData.setEditable(false);
-        userSelectData.setBackground(Color.LIGHT_GRAY);
-        userSelectData.setText("");
-        passSelectData.setEditable(false);
-        passSelectData.setBackground(Color.LIGHT_GRAY);
-        passSelectData.setText("");
         
         //Delete
         conectionFieldDelete.setEditable(false);
         conectionFieldDelete.setBackground(Color.LIGHT_GRAY);
         conectionFieldDelete.setText("");
-        userDeleteData.setEditable(false);
-        userDeleteData.setBackground(Color.LIGHT_GRAY);
-        userDeleteData.setText("");
-        passDeleteData.setEditable(false);
-        passDeleteData.setBackground(Color.LIGHT_GRAY);
-        passDeleteData.setText("");
+
         
         //Update
         conectionUpdateData.setEditable(false);
         conectionUpdateData.setBackground(Color.LIGHT_GRAY);
         conectionUpdateData.setText("");
-        userUpdateData.setEditable(false);
-        userUpdateData.setBackground(Color.LIGHT_GRAY);
-        userUpdateData.setText("");
-        passUpdateData.setEditable(false);
-        passUpdateData.setBackground(Color.LIGHT_GRAY);
-        passUpdateData.setText("");
+
         
         //Query
         conectionDataQuery.setEditable(false);
         conectionDataQuery.setBackground(Color.LIGHT_GRAY);
         conectionDataQuery.setText("");
-        userDataQuery.setEditable(false);
-        userDataQuery.setBackground(Color.LIGHT_GRAY);
-        userDataQuery.setText("");
-        passDataQuery.setEditable(false);
-        passDataQuery.setBackground(Color.LIGHT_GRAY);
-        passDataQuery.setText("");
+
         
         //Insert
         connectionDataInsert.setEditable(false);
         connectionDataInsert.setBackground(Color.LIGHT_GRAY);
         connectionDataInsert.setText("");
-        userDataInsert.setEditable(false);
-        userDataInsert.setBackground(Color.LIGHT_GRAY);
-        userDataInsert.setText("");
-        passDataInsert.setEditable(false);
-        passDataInsert.setBackground(Color.LIGHT_GRAY);
-        passDataInsert.setText("");
+
     }
 
     /**
@@ -323,7 +297,6 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(deleteRowSelectTable)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addSelectTable))
@@ -444,10 +417,10 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addComponent(userSelectData))
                     .addComponent(conectionEnabledSelectData)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(conectionCheckSelect)
+                        .addComponent(conectionSelect)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(conectionSelect)
+                        .addComponent(conectionCheckSelect)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(conectionBoolean)))
                 .addGap(18, 18, 18)
@@ -460,10 +433,8 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(conectionSelect)
-                            .addComponent(conectionBoolean))
-                        .addGap(31, 31, 31)
+                        .addComponent(conectionSelect)
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(userSelect)
                             .addComponent(userSelectData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -472,14 +443,16 @@ public class NewBBDD extends javax.swing.JDialog {
                             .addComponent(passSelect)
                             .addComponent(passSelectData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(conectionCheckSelect)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(conectionCheckSelect)
+                            .addComponent(conectionBoolean))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(conectionEnabledSelectData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(aceptSelect)
                             .addComponent(cancelSelect)))
-                    .addComponent(tabsSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE))
+                    .addComponent(tabsSelect))
                 .addContainerGap())
         );
 
@@ -589,10 +562,10 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addComponent(userDeleteData))
                     .addComponent(conectionFieldDelete)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(conectionLabelEnabledDelete)
+                        .addComponent(conectionLabelDelete)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(conectionLabelDelete)
+                        .addComponent(conectionLabelEnabledDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(enabledConnectionDelete)))
                 .addGap(18, 18, 18)
@@ -605,10 +578,8 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(conectionLabelDelete)
-                            .addComponent(enabledConnectionDelete))
-                        .addGap(31, 31, 31)
+                        .addComponent(conectionLabelDelete)
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(userLabelDelete)
                             .addComponent(userDeleteData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -617,7 +588,9 @@ public class NewBBDD extends javax.swing.JDialog {
                             .addComponent(passLabelDelete)
                             .addComponent(passDeleteData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(conectionLabelEnabledDelete)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(conectionLabelEnabledDelete)
+                            .addComponent(enabledConnectionDelete))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(conectionFieldDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -665,7 +638,6 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(deleteRowUpdateTable)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addUpdateTable))
@@ -838,10 +810,10 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addComponent(userUpdateData))
                     .addComponent(conectionUpdateData)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                        .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(enabledConectionUpdate)))
                 .addGap(18, 18, 18)
@@ -854,10 +826,8 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(enabledConectionUpdate))
-                        .addGap(31, 31, 31)
+                        .addComponent(jLabel3)
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(userUpdateData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -866,7 +836,9 @@ public class NewBBDD extends javax.swing.JDialog {
                             .addComponent(jLabel5)
                             .addComponent(passUpdateData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(enabledConectionUpdate))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(conectionUpdateData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -956,10 +928,10 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addComponent(userDataQuery))
                     .addComponent(conectionDataQuery)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
+                        .addComponent(jLabel10)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
+                        .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(enableConectionquery)))
                 .addGap(18, 18, 18)
@@ -972,10 +944,8 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(enableConectionquery))
-                        .addGap(31, 31, 31)
+                        .addComponent(jLabel10)
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(userDataQuery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -984,7 +954,9 @@ public class NewBBDD extends javax.swing.JDialog {
                             .addComponent(jLabel12)
                             .addComponent(passDataQuery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel13)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(enableConectionquery))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(conectionDataQuery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1022,14 +994,15 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(deleteRowInsertFields)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addInsertFields))
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(fieldsDataInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addComponent(deleteRowInsertFields)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addInsertFields))
+                            .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fieldsDataInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1193,10 +1166,10 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(userDataInsert))
                     .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addComponent(jLabel18)
+                        .addComponent(jLabel15)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
+                        .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(enabledConnectionInsert)))
                 .addGap(18, 18, 18)
@@ -1209,10 +1182,8 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(enabledConnectionInsert))
-                        .addGap(31, 31, 31)
+                        .addComponent(jLabel15)
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
                             .addComponent(userDataInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1221,7 +1192,9 @@ public class NewBBDD extends javax.swing.JDialog {
                             .addComponent(jLabel17)
                             .addComponent(passDataInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel18)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(enabledConnectionInsert))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(connectionDataInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1412,19 +1385,11 @@ public class NewBBDD extends javax.swing.JDialog {
             conectionEnabledSelectData.setEditable(false);
             conectionEnabledSelectData.setBackground(Color.LIGHT_GRAY);
             conectionEnabledSelectData.setText("");
-            userSelectData.setEditable(false);
-            userSelectData.setBackground(Color.LIGHT_GRAY);
-            userSelectData.setText("");
-            passSelectData.setEditable(false);
-            passSelectData.setBackground(Color.LIGHT_GRAY);
-            passSelectData.setText("");
+
         } else {
             conectionEnabledSelectData.setEditable(true);
             conectionEnabledSelectData.setBackground(Color.WHITE);
-            userSelectData.setEditable(true);
-            userSelectData.setBackground(Color.WHITE);
-            passSelectData.setEditable(true);
-            passSelectData.setBackground(Color.WHITE);
+
         }
     }//GEN-LAST:event_conectionBooleanActionPerformed
 
@@ -1441,19 +1406,11 @@ public class NewBBDD extends javax.swing.JDialog {
             conectionUpdateData.setEditable(false);
             conectionUpdateData.setBackground(Color.LIGHT_GRAY);
             conectionUpdateData.setText("");
-            userUpdateData.setEditable(false);
-            userUpdateData.setBackground(Color.LIGHT_GRAY);
-            userUpdateData.setText("");
-            passUpdateData.setEditable(false);
-            passUpdateData.setBackground(Color.LIGHT_GRAY);
-            passUpdateData.setText("");
+
         } else {
             conectionUpdateData.setEditable(true);
             conectionUpdateData.setBackground(Color.WHITE);
-            userUpdateData.setEditable(true);
-            userUpdateData.setBackground(Color.WHITE);
-            passUpdateData.setEditable(true);
-            passUpdateData.setBackground(Color.WHITE);
+
         }
     }//GEN-LAST:event_enabledConectionUpdateActionPerformed
 
@@ -1478,19 +1435,11 @@ public class NewBBDD extends javax.swing.JDialog {
             conectionFieldDelete.setEditable(false);
             conectionFieldDelete.setBackground(Color.LIGHT_GRAY);
             conectionFieldDelete.setText("");
-            userDeleteData.setEditable(false);
-            userDeleteData.setBackground(Color.LIGHT_GRAY);
-            userDeleteData.setText("");
-            passDeleteData.setEditable(false);
-            passDeleteData.setBackground(Color.LIGHT_GRAY);
-            passDeleteData.setText("");
+
         } else {
             conectionFieldDelete.setEditable(true);
             conectionFieldDelete.setBackground(Color.WHITE);
-            userDeleteData.setEditable(true);
-            userDeleteData.setBackground(Color.WHITE);
-            passDeleteData.setEditable(true);
-            passDeleteData.setBackground(Color.WHITE);
+
         }
     }//GEN-LAST:event_enabledConnectionDeleteActionPerformed
 
@@ -1499,19 +1448,11 @@ public class NewBBDD extends javax.swing.JDialog {
             conectionDataQuery.setEditable(false);
             conectionDataQuery.setBackground(Color.LIGHT_GRAY);
             conectionDataQuery.setText("");
-            userDataQuery.setEditable(false);
-            userDataQuery.setBackground(Color.LIGHT_GRAY);
-            userDataQuery.setText("");
-            passDataQuery.setEditable(false);
-            passDataQuery.setBackground(Color.LIGHT_GRAY);
-            passDataQuery.setText("");
+
         } else {
             conectionDataQuery.setEditable(true);
             conectionDataQuery.setBackground(Color.WHITE);
-            userDataQuery.setEditable(true);
-            userDataQuery.setBackground(Color.WHITE);
-            passDataQuery.setEditable(true);
-            passDataQuery.setBackground(Color.WHITE);
+
         }
     }//GEN-LAST:event_enableConectionqueryActionPerformed
 
@@ -1520,19 +1461,9 @@ public class NewBBDD extends javax.swing.JDialog {
             connectionDataInsert.setEditable(false);
             connectionDataInsert.setBackground(Color.LIGHT_GRAY);
             connectionDataInsert.setText("");
-            userDataInsert.setEditable(false);
-            userDataInsert.setBackground(Color.LIGHT_GRAY);
-            userDataInsert.setText("");
-            passDataInsert.setEditable(false);
-            passDataInsert.setBackground(Color.LIGHT_GRAY);
-            passDataInsert.setText("");
         } else {
             connectionDataInsert.setEditable(true);
             connectionDataInsert.setBackground(Color.WHITE);
-            userDataInsert.setEditable(true);
-            userDataInsert.setBackground(Color.WHITE);
-            passDataInsert.setEditable(true);
-            passDataInsert.setBackground(Color.WHITE);
         }
     }//GEN-LAST:event_enabledConnectionInsertActionPerformed
 
