@@ -7,7 +7,9 @@ package GUI;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
-import javax.swing.JTable;
+import GUI.NewVariable;
+import business.Operaciones;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,7 +17,8 @@ import javax.swing.JTable;
  */
 public class FailureManager extends javax.swing.JDialog {
 
-    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/bug.png"));
+    private Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/bug.png"));
+    public ArrayList<String> Vars = new ArrayList<String>();
     
     /**
      * Creates new form FailureManager
@@ -29,10 +32,11 @@ public class FailureManager extends javax.swing.JDialog {
     private void MyinitComponents() {
         this.setTitle("Failure Manager");
         setIconImage(icon);
-        String[] columnNames = {"NAME", "SELECCION"};
-        //ArrayList<String> Vars = NewVariable.getVars();
-        //String[] filas = NewVariable.Vars;
-        //jTable1 = new JTable(NewVariable.Vars, columnNames);
+        initTable();
+    }
+    
+    private void initTable() {
+        // inicializar TABLA con valores de Variables
     }
 
     /**
@@ -70,15 +74,24 @@ public class FailureManager extends javax.swing.JDialog {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.Boolean.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, true
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jTable1.setColumnSelectionAllowed(true);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        jTable1.getColumnModel().getColumn(0).setResizable(false);
+        jTable1.getColumnModel().getColumn(1).setResizable(false);
 
         jButton4.setText("Cancel");
 

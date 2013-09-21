@@ -1,6 +1,6 @@
 package business;
-//import controller.Controller;
 import deliver.Deliver;
+import java.util.ArrayList;
 /*
  * This class parses the given input and output an operation type-based syntax
  * form.
@@ -11,6 +11,12 @@ import deliver.Deliver;
  * @author Kiwi
  */
 public class Operaciones {
+    
+    public ArrayList<String> vars = new ArrayList<String>();
+    
+    public void addVars(String vars) {
+        this.vars.add(vars);
+    }
 
     public static void orderFormat(Object[] ordersin) {
     	String phrase = "%^X_ORDEN_SINTAX.\"";

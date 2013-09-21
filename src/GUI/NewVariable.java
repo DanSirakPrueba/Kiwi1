@@ -8,8 +8,8 @@ import controller.Controller;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.util.ArrayList;
 import javax.swing.JTextField;
+import business.Operaciones;
 
 /**
  *
@@ -18,8 +18,6 @@ import javax.swing.JTextField;
 public class NewVariable extends javax.swing.JDialog {
 
     private Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/tag_blue.png"));
-    
-    public ArrayList<String> Vars;
     
     /**
      * Creates new form NewVariable
@@ -294,10 +292,6 @@ public class NewVariable extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public ArrayList getVars() {
-        return Vars;
-    }
     
     private void otherFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherFieldFocusGained
         String preText = "...";
@@ -338,11 +332,12 @@ public class NewVariable extends javax.swing.JDialog {
         // TODO add your handling code here:
         //Cuando la pestaña de nueva Variable está seleccionada.
         Object[] what;
+        Operaciones op = new Operaciones();
         if (jTabbedPane1.getSelectedIndex() == 0) {
             //Empaquetamos los datos:
             what = new Object[2]; 
             what[0] = name1.getText();
-            Vars.add(name1.getText());
+            op.addVars(name1.getText());
             what[1] = value.getText();
             Controller.controller(Controller.createNewVariable, what);
             name1.setText(""); value.setText("");
@@ -370,7 +365,7 @@ public class NewVariable extends javax.swing.JDialog {
                 System.err.println("Cadenas no numéricas");
             }
             what[2] = name2.getText();
-            Vars.add(name2.getText());
+            op.addVars(name2.getText());
             what[3] = type;
             what[4] = (absolute.isSelected())?true:false;
             init.setText("");
