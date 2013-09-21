@@ -6,6 +6,8 @@ package GUI;
 
 import controller.Controller;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JTextField;
 
 /**
@@ -14,11 +16,15 @@ import javax.swing.JTextField;
  */
 public class NewVariable extends javax.swing.JDialog {
 
+    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/tag_blue.png"));
+    
     /**
      * Creates new form NewVariable
      */
     public NewVariable() {
         initComponents();
+        this.setTitle("New Variable");
+        setIconImage(icon);
     }
 
     /**
