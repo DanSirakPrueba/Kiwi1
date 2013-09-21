@@ -100,7 +100,6 @@ public class NewOperations extends javax.swing.JDialog {
         jPanel1.setPreferredSize(new java.awt.Dimension(270, 45));
 
         orderFormat.setText("X_ORDEN_SINTAX");
-        orderFormat.setToolTipText("");
         orderFormat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderFormatActionPerformed(evt);
@@ -947,8 +946,8 @@ public class NewOperations extends javax.swing.JDialog {
 
     private void newProcessingFormatInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newProcessingFormatInfoActionPerformed
         String Text = "<html><b>Input example:</b><br>"
-                + "<i> insert (EH:ORIGEN == ‘MI_CENTRAL’ A)<sup>N</sup> !(C | B) "
-                + "& A </i><br><br>"
+                + "<i> insert EH:ORIGEN == ‘MI_CENTRAL’ A XN:NUMERO >= EN:SECUENCIA B "
+                + "XN:NUM > 100 C ; !(C | B) & A </i><br><br>"
                 + "<b>Output example:</b><br>"
                 + "<i> %^I_TRATAR_INSERT.”EH:ORIGEN == ‘MI_CENTRAL’ = A ; "
                 + "XN:NUMERO >= EN:SECUENCIA = B ; XN:NUM > 100 = C # !(C | B) "
