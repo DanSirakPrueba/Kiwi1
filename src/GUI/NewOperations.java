@@ -28,15 +28,18 @@ public class NewOperations extends javax.swing.JDialog {
     String SINTAX_ORDER = "SINTAX_ORDER";
     String EXEC_COMMAND = "EXEC_COMMAND";
     String SINTAX_COMMAND = "SINTAX_COMMAND";
-    String GF_FIELDS = "GF_FIELDS";
+    String GF_FIELDS = "SACAR FUERA...";
     String SINTAX_OPERATION_1 = "SINTAX_OPERATION";
     String SINTAX_OPERATION_2 = "SINTAX_OPERATION";
-    String BASIC_PROCESS = "_BASIC_PROCESS";
-    String NEW_PROCESS = "_NEW_PROCESS";
+    String BASIC_PROCESS = "BASIC_PROCESS";
+    String NEW_PROCESS = "NEW_PROCESS";
     String SINTAX_ASSOC = "SINTAX_ASSOC";
     String SPECIAL = "developing...";
     //</editor-fold>
     
+    JOptionPane Err = new JOptionPane();
+    JOptionPane Info = new JOptionPane();
+            
     /**
      * Creates new form NewOperations
      */
@@ -68,27 +71,26 @@ public class NewOperations extends javax.swing.JDialog {
         commandFormatSintaxInsert = new javax.swing.JButton();
         commandFormatSintaxInfo = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
-        failureManagerFormat = new javax.swing.JTextField();
-        failureManagerFormatInsert = new javax.swing.JButton();
-        failureManagerFormatInfo = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JSeparator();
         concatOperationSintax = new javax.swing.JTextField();
         concatOperationSintaxInsert = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        concatOperationSintaxInfo = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         compAsigOperationSintax = new javax.swing.JTextField();
         compAsigOperationSintaxInsert = new javax.swing.JButton();
+        compAsigOperationSintaxInfo = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
         basicProcessingFormat = new javax.swing.JTextField();
         basicProcessingFormatInsert = new javax.swing.JButton();
+        basicProcessingFormatInfo = new javax.swing.JButton();
         newProcessingFormat = new javax.swing.JTextField();
         newProcessingFormatInsert = new javax.swing.JButton();
+        newProcessingFormatInfo = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
         associationFormat = new javax.swing.JTextField();
         associationFormatInsert = new javax.swing.JButton();
+        associationFormatInfo = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
-        specialEventFormat = new javax.swing.JTextField();
-        specialEventFormatInsert = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -181,30 +183,11 @@ public class NewOperations extends javax.swing.JDialog {
         });
 
         commandFormatSintaxInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/information.png"))); // NOI18N
-
-        failureManagerFormat.setText("CAMPOS_GF");
-        failureManagerFormat.addActionListener(new java.awt.event.ActionListener() {
+        commandFormatSintaxInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                failureManagerFormatActionPerformed(evt);
+                commandFormatSintaxInfoActionPerformed(evt);
             }
         });
-        failureManagerFormat.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                failureManagerFormatFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                failureManagerFormatFocusLost(evt);
-            }
-        });
-
-        failureManagerFormatInsert.setText("Insert");
-        failureManagerFormatInsert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                failureManagerFormatInsertActionPerformed(evt);
-            }
-        });
-
-        failureManagerFormatInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/information.png"))); // NOI18N
 
         concatOperationSintax.setText("X_OPERACION_SINTAX");
         concatOperationSintax.setToolTipText("SUMA-CONCATENACION");
@@ -229,7 +212,12 @@ public class NewOperations extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/information.png"))); // NOI18N
+        concatOperationSintaxInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/information.png"))); // NOI18N
+        concatOperationSintaxInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                concatOperationSintaxInfoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -243,12 +231,6 @@ public class NewOperations extends javax.swing.JDialog {
                     .addComponent(jSeparator1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(failureManagerFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(failureManagerFormatInsert)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(failureManagerFormatInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(commandFormatSintax, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -272,8 +254,8 @@ public class NewOperations extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(concatOperationSintaxInsert)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 2, Short.MAX_VALUE)))
+                                .addComponent(concatOperationSintaxInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -303,19 +285,12 @@ public class NewOperations extends javax.swing.JDialog {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(failureManagerFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(failureManagerFormatInsert))
-                    .addComponent(failureManagerFormatInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(concatOperationSintax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(concatOperationSintaxInsert)
+                    .addComponent(concatOperationSintaxInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(concatOperationSintax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(concatOperationSintaxInsert))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -345,6 +320,13 @@ public class NewOperations extends javax.swing.JDialog {
             }
         });
 
+        compAsigOperationSintaxInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/information.png"))); // NOI18N
+        compAsigOperationSintaxInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compAsigOperationSintaxInfoActionPerformed(evt);
+            }
+        });
+
         basicProcessingFormat.setText("_TRATAR_BASICO");
         basicProcessingFormat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,6 +346,13 @@ public class NewOperations extends javax.swing.JDialog {
         basicProcessingFormatInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 basicProcessingFormatInsertActionPerformed(evt);
+            }
+        });
+
+        basicProcessingFormatInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/information.png"))); // NOI18N
+        basicProcessingFormatInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                basicProcessingFormatInfoActionPerformed(evt);
             }
         });
 
@@ -389,6 +378,13 @@ public class NewOperations extends javax.swing.JDialog {
             }
         });
 
+        newProcessingFormatInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/information.png"))); // NOI18N
+        newProcessingFormatInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newProcessingFormatInfoActionPerformed(evt);
+            }
+        });
+
         associationFormat.setText("X_ASOCIAR_SINTAX");
         associationFormat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -411,27 +407,10 @@ public class NewOperations extends javax.swing.JDialog {
             }
         });
 
-        specialEventFormat.setEditable(false);
-        specialEventFormat.setText("_SPECIAL_");
-        specialEventFormat.addActionListener(new java.awt.event.ActionListener() {
+        associationFormatInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/information.png"))); // NOI18N
+        associationFormatInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                specialEventFormatActionPerformed(evt);
-            }
-        });
-        specialEventFormat.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                specialEventFormatFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                specialEventFormatFocusLost(evt);
-            }
-        });
-
-        specialEventFormatInsert.setText("Insert");
-        specialEventFormatInsert.setEnabled(false);
-        specialEventFormatInsert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                specialEventFormatInsertActionPerformed(evt);
+                associationFormatInfoActionPerformed(evt);
             }
         });
 
@@ -449,68 +428,77 @@ public class NewOperations extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator6)
+                    .addComponent(jSeparator4)
                     .addComponent(jSeparator5)
+                    .addComponent(jSeparator6)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(compAsigOperationSintax, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(compAsigOperationSintaxInsert))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(associationFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(compAsigOperationSintaxInsert)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(associationFormatInsert))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(specialEventFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(specialEventFormatInsert)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(basicProcessingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(basicProcessingFormatInsert))
+                                .addComponent(compAsigOperationSintaxInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(newProcessingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(newProcessingFormatInsert)))
-                        .addGap(0, 19, Short.MAX_VALUE)))
+                                .addComponent(newProcessingFormatInsert)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(newProcessingFormatInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(basicProcessingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(basicProcessingFormatInsert)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(basicProcessingFormatInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(associationFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(closeButton)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(associationFormatInsert)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(associationFormatInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(compAsigOperationSintax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(compAsigOperationSintaxInsert))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(compAsigOperationSintax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(compAsigOperationSintaxInsert))
+                    .addComponent(compAsigOperationSintaxInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(basicProcessingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(basicProcessingFormatInsert))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(basicProcessingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(basicProcessingFormatInsert))
+                    .addComponent(basicProcessingFormatInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(newProcessingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newProcessingFormatInsert))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(newProcessingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(newProcessingFormatInsert))
+                    .addComponent(newProcessingFormatInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(associationFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(associationFormatInsert))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(associationFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(associationFormatInsert))
+                    .addComponent(associationFormatInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(specialEventFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(specialEventFormatInsert))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(closeButton)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -519,11 +507,11 @@ public class NewOperations extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
         );
 
         pack();
@@ -541,24 +529,20 @@ public class NewOperations extends javax.swing.JDialog {
         orderFormat.setForeground(Gray);
         commandFormatExe.setForeground(Gray);
         commandFormatSintax.setForeground(Gray);
-        failureManagerFormat.setForeground(Gray);
         concatOperationSintax.setForeground(Gray);
         compAsigOperationSintax.setForeground(Gray);
         basicProcessingFormat.setForeground(Gray);
         newProcessingFormat.setForeground(Gray);
         associationFormat.setForeground(Gray);
-        specialEventFormat.setForeground(Gray);
 
         orderFormat.setText(SINTAX_ORDER);
         commandFormatExe.setText(EXEC_COMMAND);
         commandFormatSintax.setText(SINTAX_COMMAND);
-        failureManagerFormat.setText(GF_FIELDS);
         concatOperationSintax.setText(SINTAX_OPERATION_1);
         compAsigOperationSintax.setText(SINTAX_OPERATION_2);
         basicProcessingFormat.setText(BASIC_PROCESS);
         newProcessingFormat.setText(NEW_PROCESS);
         associationFormat.setText(SINTAX_ASSOC);
-        specialEventFormat.setText(SPECIAL);
         
         orderFormatInsert.requestFocus();
     }
@@ -701,44 +685,7 @@ public class NewOperations extends javax.swing.JDialog {
         opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_commandFormatSintaxInsertActionPerformed
     //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc=" 4.failureManagerFormat ">
-    private void failureManagerFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_failureManagerFormatActionPerformed
-        int Index = Controller.failureManagerFormat;
-        JTextField jtf = failureManagerFormat;
-        JButton jb = failureManagerFormatInsert;
-        String preText = "";
-
-        opActions(Index, jtf, jb, preText);
-    }//GEN-LAST:event_failureManagerFormatActionPerformed
-
-    private void failureManagerFormatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_failureManagerFormatFocusGained
-        JTextField jtf = failureManagerFormat;
-        String preText = GF_FIELDS;
-        Color c = Black;
-        String postText = "";
-
-        opFocus(jtf, preText, c, postText);
-    }//GEN-LAST:event_failureManagerFormatFocusGained
-
-    private void failureManagerFormatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_failureManagerFormatFocusLost
-        JTextField jtf = failureManagerFormat;
-        String preText = "";
-        Color c = Gray;
-        String postText = GF_FIELDS;
-
-        opFocus(jtf, preText, c, postText);
-    }//GEN-LAST:event_failureManagerFormatFocusLost
-
-    private void failureManagerFormatInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_failureManagerFormatInsertActionPerformed
-        int Index = Controller.failureManagerFormat;
-        JTextField jtf = failureManagerFormat;
-        JButton jb = failureManagerFormatInsert;
-        String preText = GF_FIELDS;
-
-        opActions(Index, jtf, jb, preText);
-    }//GEN-LAST:event_failureManagerFormatInsertActionPerformed
-    //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc=" 5.concatOperationSintax ">
+    //<editor-fold defaultstate="collapsed" desc=" 4.concatOperationSintax ">
     private void concatOperationSintaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concatOperationSintaxActionPerformed
         int Index = Controller.concatOperationSintax;
         JTextField jtf = concatOperationSintax;
@@ -775,7 +722,7 @@ public class NewOperations extends javax.swing.JDialog {
         opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_concatOperationSintaxInsertActionPerformed
     //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc=" 6.compAsigOperationSintax ">
+    //<editor-fold defaultstate="collapsed" desc=" 5.compAsigOperationSintax ">
     private void compAsigOperationSintaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compAsigOperationSintaxActionPerformed
         int Index = Controller.compAsigOperationSintax;
         JTextField jtf = compAsigOperationSintax;
@@ -812,7 +759,7 @@ public class NewOperations extends javax.swing.JDialog {
         opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_compAsigOperationSintaxInsertActionPerformed
     //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc=" 7.basicProcessingFormat ">
+    //<editor-fold defaultstate="collapsed" desc=" 6.basicProcessingFormat ">
     private void basicProcessingFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basicProcessingFormatActionPerformed
         int Index = Controller.basicProcessingFormat;
         JTextField jtf = basicProcessingFormat;
@@ -849,7 +796,7 @@ public class NewOperations extends javax.swing.JDialog {
         opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_basicProcessingFormatInsertActionPerformed
     //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc=" 8.newProcessingFormat ">
+    //<editor-fold defaultstate="collapsed" desc=" 7.newProcessingFormat ">
     private void newProcessingFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newProcessingFormatActionPerformed
         int Index = Controller.newProcessingFormat;
         JTextField jtf = newProcessingFormat;
@@ -886,7 +833,7 @@ public class NewOperations extends javax.swing.JDialog {
         opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_newProcessingFormatInsertActionPerformed
     //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc=" 9.associationFormat ">
+    //<editor-fold defaultstate="collapsed" desc=" 8.associationFormat ">
     private void associationFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_associationFormatActionPerformed
         int Index = Controller.associationFormat;
         JTextField jtf = associationFormat;
@@ -922,57 +869,18 @@ public class NewOperations extends javax.swing.JDialog {
 
         opActions(Index, jtf, jb, preText);
     }//GEN-LAST:event_associationFormatInsertActionPerformed
-    //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc=" 10.specialEventFormat ">
-    private void specialEventFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialEventFormatActionPerformed
-        int Index = Controller.specialEventFormat;
-        JTextField jtf = specialEventFormat;
-        JButton jb = specialEventFormatInsert;
-        String preText = "";
-
-        opActions(Index, jtf, jb, preText);
-    }//GEN-LAST:event_specialEventFormatActionPerformed
-
-    private void specialEventFormatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_specialEventFormatFocusGained
-        JTextField jtf = specialEventFormat;
-        String preText = SPECIAL;
-        Color c = Black;
-        String postText = "";
-
-        opFocus(jtf, preText, c, postText);
-    }//GEN-LAST:event_specialEventFormatFocusGained
-
-    private void specialEventFormatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_specialEventFormatFocusLost
-        JTextField jtf = specialEventFormat;
-        String preText = "";
-        Color c = Gray;
-        String postText = SPECIAL;
-
-        opFocus(jtf, preText, c, postText);
-    }//GEN-LAST:event_specialEventFormatFocusLost
-
-    private void specialEventFormatInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialEventFormatInsertActionPerformed
-        int Index = Controller.specialEventFormat;
-        JTextField jtf = specialEventFormat;
-        JButton jb = specialEventFormatInsert;
-        String preText = SPECIAL;
-
-        opActions(Index, jtf, jb, preText);
-    }//GEN-LAST:event_specialEventFormatInsertActionPerformed
 //</editor-fold>
     
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc=" FailureManager ">
     public void showError(String error) {
-        JOptionPane op = new JOptionPane();
         String[] es = error.split("@");
         String Text = "<html><b>Input example:</b><br>"
                 + "<i>" + es[0] + "</i><br><br>"
                 + "<b>Output example:</b><br>"
                 + "<i>" + es[1] + "</i></html>";
-        int messagetype = JOptionPane.ERROR_MESSAGE; //JOptionPane.INFORMATION_MESSAGE
-        op.showMessageDialog(this, Text, "[ERROR] Invalid Input format", messagetype);
+        Err.showMessageDialog(this, Text, "Invalid Input format", JOptionPane.ERROR_MESSAGE);
     }
     //</editor-fold>
     
@@ -981,60 +889,92 @@ public class NewOperations extends javax.swing.JDialog {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     //<editor-fold defaultstate="collapsed" desc=" Info Buttons ">
-	private void orderFormatInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderFormatInfoActionPerformed
-        JOptionPane op = new JOptionPane();
-        String Text = "<html>Se compone de una solo tupla: <br>" +
-            "Indica el orden de evaluar los formateos <br>" +
-            "- X_ORDEN_SINTAX su contenido se forma de las iniciales de los formateos a <br>" +
-            "realizar (C = COMANDO, S = SELECT, I = INSERT, D = DELETE, U = UPDATE, <br>" +
-            "Q = QUERY), y su posición indica el orden en el análisis de los formateos. Los <br>" +
-            "formateos que no estén especificados seguirán el orden por defecto. <br>" +
-            " %^X_ORDEN_SINTAX.”[C],[S],[I],[D],[U],[Q]” <br>" +
-            " Ejemplo de orden: <br>" +
-            " %^X_ORDEN_SINTAX.”S,C” <br>" +
-            "* Se realiza primero los select, posteriormente los comando (luego los insert, delete, <br>" +
-            "update y query si los hubiera).</html>";
-        op.showMessageDialog(this, Text, "[Info] Format Info", JOptionPane.INFORMATION_MESSAGE);
+    public void showInfo(String info) {
+        Info.showMessageDialog(this, info, "Format info", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private void orderFormatInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderFormatInfoActionPerformed
+        String Text = "<html><b>Input example:</b><br>"
+                + "<i> [C],[S],[I],[D],[U],[Q] </i><br><br>"
+                + "<b>Output example:</b><br>"
+                + "<i> %^X_ORDEN_SINTAX.”[C],[S],[I],[D],[U],[Q]” </i></html>";
+        showInfo(Text);
     }//GEN-LAST:event_orderFormatInfoActionPerformed
 	
     private void commandFormatExeInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_commandFormatExeInfoActionPerformed
-        JOptionPane op = new JOptionPane();
-        String Text = "Cada comando está formado por dos tuplas: \n" +
-            "- C_EJECUTA_COMANDO determina el comando a ejecutar con los parámetros \n" +
-            "necesarios indicados en la librería de servicios de la UFEXT. Para que se realice la \n" +
-            "ejecución del comando deben estar configurados adecuadamente todos los \n" +
-            "componentes que intervienen en la ejecución. El parámetro de la central y del sistema \n" +
-            "no es necesario indicarlo, puesto que se asigna implícitamente el que llega del evento. \n" +
-            "Es posible utilizar variables extraídas del Gestor de Eventos para poner valores a los \n" +
-            "parámetros (no hace falta indicar H ni N puesto todo se trata como texto). Los \n" +
-            "parámetros necesarios son: \n" +
-            "-c CENTRAL indica la central en la que realiza el comando. Por defecto el comando \n" +
-            "se realiza (sino se indica este parámetro) en la central que envió el evento. \n" +
-            "-u USUARIO_EOC indica el usuario bajo el que se realiza el comando. Es un \n" +
-            "parámetro obligatorio. \n" +
-            "-x SERVICIO indica el servicio a ejecutar en la central del evento. \n" +
-            "-e COMANDO indica el comando a ejecutar en la central del evento. Es un parámetro \n" +
-            "obligatorio. \n" +
-            "-t TEMPORIZACION indica el tiempo máximo de espera a la recepción de respuesta \n" +
-            "al comando (en segundos). Por defecto es 600. \n" +
-            "-s TAMAÑO indica el tamaño de respuesta deseado (caracteres) para dar terminada la \n" +
-            "ejecución. Valor por defecto 0, se entenderá que no importa el tamaño de respuesta. \n" +
-            "-p PATRONES indica el patrón de finalización. Es una lista (separados por comas) de \n" +
-            "literales. Ejemplo: “END”,”FAULT CODE” \n" +
-            "-m MAQUINA indica el sistema donde se ejecuta primero el comando sistema \n" +
-            "principal o respaldo CI|RC. \n" +
-            "-r RESPALDO indica si se debe hacer respaldo o no SI|NO. \n" +
-            "%^C_EJECUTA_COMANDO.”[-c CENTRAL] -u USUARIO_EOC [–x SERVICIO] \n" +
-            "–e COMANDO [-t TEMPORIZACION] [-s TAMANO] [-p PATRONES] [-m \n" +
-            "MAQUINA] [-r RESPALDO]”";
-        op.showMessageDialog(this, Text, "[Info] Format Info", JOptionPane.INFORMATION_MESSAGE);
+        String Text = "<html><b>Input example:</b><br>"
+                + "<i> [-c CENTRAL] -u USUARIO_EOC [–x SERVICIO] –e COMANDO "
+                + "[-t TEMPORIZACION] [-s TAMANO] [-p PATRONES] [-m MAQUINA] "
+                + "[-r RESPALDO] </i><br><br>"
+                + "<b>Output example:</b><br>"
+                + "<i> %^C_EJECUTA_COMANDO.”[-c CENTRAL] -u USUARIO_EOC [–x SERVICIO]"
+                + " –e COMANDO [-t TEMPORIZACION] [-s TAMANO] [-p PATRONES] "
+                + "[-m MAQUINA] [-r RESPALDO]” </i></html>";
+        showInfo(Text);
     }//GEN-LAST:event_commandFormatExeInfoActionPerformed
+
+    private void commandFormatSintaxInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_commandFormatSintaxInfoActionPerformed
+        String Text = "<html><b>Input example:</b><br>"
+                + "<i> -u OMEGAAXE –t X: MY_TIEMPO –e SASTP –r NO </i><br><br>"
+                + "<b>Output example:</b><br>"
+                + "<i> %^C_EJECUTA_COMANDO.”-u OMEGAAXE –t X: MY_TIEMPO –e SASTP "
+                + "–r NO” </i></html>";
+        showInfo(Text);
+    }//GEN-LAST:event_commandFormatSintaxInfoActionPerformed
+
+    private void concatOperationSintaxInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concatOperationSintaxInfoActionPerformed
+        String Text = "<html><b>Input example:</b><br>"
+                + "<i> XH:VAR_DATE SH:FECHA XH:CASI_FECHA </i><br><br>"
+                + "<b>Output example:</b><br>"
+                + "<i> %^X_OPERACION_SINTAX.”XH:VAR_DATE + SH:FECHA = "
+                + "XH:CASI_FECHA” </i></html>";
+        showInfo(Text);
+    }//GEN-LAST:event_concatOperationSintaxInfoActionPerformed
+
+    private void compAsigOperationSintaxInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compAsigOperationSintaxInfoActionPerformed
+        String Text = "<html><b>Input example:</b><br>"
+                + "<i> XH:VAR_UNO != EH:ORIGEN XH:VAR_TRES XH:VAR_DOS XH:ESLOGAN </i><br><br>"
+                + "<b>Output example:</b><br>"
+                + "<i> %^X_OPERACION_SINTAX.”XH:VAR_UNO != EH:ORIGEN # XH:VAR_TRES"
+                    + " = XH:ESLOGAN # XH:VAR_DOS = XH:ESLOGAN” </i></html>";
+        showInfo(Text);
+    }//GEN-LAST:event_compAsigOperationSintaxInfoActionPerformed
+
+    private void basicProcessingFormatInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basicProcessingFormatInfoActionPerformed
+        String Text = "<html><b>Input example:</b><br>"
+                + "<i> insert XH:VAR_VACIA , EH:ORIGEN XH:CONDI , FALSE </i><br><br>"
+                + "<b>Output example:</b><br>"
+                + "<i> %^I_TRATAR_INSERT.”XH:VAR_VACIA , EH:ORIGEN # XH:CONDI , "
+                + "FALSE” </i></html>";
+        showInfo(Text);
+    }//GEN-LAST:event_basicProcessingFormatInfoActionPerformed
+
+    private void newProcessingFormatInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newProcessingFormatInfoActionPerformed
+        String Text = "<html><b>Input example:</b><br>"
+                + "<i> insert (EH:ORIGEN == ‘MI_CENTRAL’ A)<sup>N</sup> !(C | B) "
+                + "& A </i><br><br>"
+                + "<b>Output example:</b><br>"
+                + "<i> %^I_TRATAR_INSERT.”EH:ORIGEN == ‘MI_CENTRAL’ = A ; "
+                + "XN:NUMERO >= EN:SECUENCIA = B ; XN:NUM > 100 = C # !(C | B) "
+                + "& A” </i></html>";
+        showInfo(Text);
+    }//GEN-LAST:event_newProcessingFormatInfoActionPerformed
+
+    private void associationFormatInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_associationFormatInfoActionPerformed
+        String Text = "<html><b>Input example:</b><br>"
+                + "<i> REGIS_A ; CAUSA_A </i><br><br>"
+                + "<b>Output example:</b><br>"
+                + "<i> %^X_ASOCIAR_SINTAX.\"REGIS_A # CAUSA_A\" </i></html>";
+        showInfo(Text);
+    }//GEN-LAST:event_associationFormatInfoActionPerformed
     //</editor-fold>
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField associationFormat;
+    private javax.swing.JButton associationFormatInfo;
     private javax.swing.JButton associationFormatInsert;
     private javax.swing.JTextField basicProcessingFormat;
+    private javax.swing.JButton basicProcessingFormatInfo;
     private javax.swing.JButton basicProcessingFormatInsert;
     private javax.swing.JButton closeButton;
     private javax.swing.JTextField commandFormatExe;
@@ -1044,13 +984,11 @@ public class NewOperations extends javax.swing.JDialog {
     private javax.swing.JButton commandFormatSintaxInfo;
     private javax.swing.JButton commandFormatSintaxInsert;
     private javax.swing.JTextField compAsigOperationSintax;
+    private javax.swing.JButton compAsigOperationSintaxInfo;
     private javax.swing.JButton compAsigOperationSintaxInsert;
     private javax.swing.JTextField concatOperationSintax;
+    private javax.swing.JButton concatOperationSintaxInfo;
     private javax.swing.JButton concatOperationSintaxInsert;
-    private javax.swing.JTextField failureManagerFormat;
-    private javax.swing.JButton failureManagerFormatInfo;
-    private javax.swing.JButton failureManagerFormatInsert;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
@@ -1061,11 +999,10 @@ public class NewOperations extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTextField newProcessingFormat;
+    private javax.swing.JButton newProcessingFormatInfo;
     private javax.swing.JButton newProcessingFormatInsert;
     private javax.swing.JTextField orderFormat;
     private javax.swing.JButton orderFormatInfo;
     private javax.swing.JButton orderFormatInsert;
-    private javax.swing.JTextField specialEventFormat;
-    private javax.swing.JButton specialEventFormatInsert;
     // End of variables declaration//GEN-END:variables
 }

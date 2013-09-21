@@ -28,14 +28,12 @@ public class Operaciones {
     }
 
     public static void commandFormatExe(Object[] opcionesin) {
-    	// TODO: En la interfaz hay que poner un ejemplo de esto, para recordar las posibles operaciones.
     	String opciones = (String) opcionesin[0];
         String phrase = "%^C_EJECUTA_COMANDO.\"" + opciones + "\"";
         Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
     }
 
     public static void commandFormatSintax(Object[] sintaxisin) {
-        // TODO: En la interfaz hay que poner un ejemplo de esto, para recordar las posibles operaciones.
     	String sintaxis = (String) sintaxisin[0];
         String phrase = "%^C_SINTAXIS_COMANDO.\"" + sintaxis + "\"";
     	Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
@@ -75,8 +73,9 @@ public class Operaciones {
             phrase += "\"";
         } catch (Exception e) {
             where = Deliver.ERROR;
-            phrase = "var1 var2 var3@%^X_OPERACION_SINTAX"
-                    + ".\"var1 + var2 = var3\"";
+            phrase = "XH:VAR_DATE SH:FECHA XH:CASI_FECHA"
+                    + "@%^X_OPERACION_SINTAX.”XH:VAR_DATE "
+                    + "+ SH:FECHA = XH:CASI_FECHA”";
         }
         
         Deliver.deliver(where, phrase);
@@ -104,15 +103,17 @@ public class Operaciones {
             phrase += "\"";
         } catch (Exception e) {
             where = Deliver.ERROR;
-            phrase = "var1 var2 var3 var4 var5 var6@%^X_OPERACION_SINTAX"
-                    + ".\"var1 var2 var3 # var4 = var6 # var5 = var6\"";
+            phrase = "XH:VAR_UNO != EH:ORIGEN XH:VAR_TRES XH:VAR_DOS XH:ESLOGAN@"
+                    + "%^X_OPERACION_SINTAX.”XH:VAR_UNO != EH:ORIGEN # XH:VAR_TRES"
+                    + " = XH:ESLOGAN # XH:VAR_DOS = XH:ESLOGAN”";
         }
-        
+        //XH:VAR_UNO EH:ORIGEN XH:VAR_TRES XH:VAR_DOS XH:ESLOGAN
         Deliver.deliver(where, phrase);
     }
     
     public static void basicProcessingFormat(Object[] Fieldsin) {
         //  %^_TRATAR_.” | %^I_TRATAR_INSERT.”
+        //Field(0) = Nombre de instruccion
         //Field(s%3=0) = VariableComp1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         //Field(s%3=1) = operation = ',' ',,'
         //Field(s%3=2) = VariableComp2 = [X:|S:|C:|E:][N:|H:]NAME_op2
@@ -123,26 +124,33 @@ public class Operaciones {
         
         try {
             where = Deliver.SYNTAX_AREA;
-            phrase = "%^_TRATAR_.\"";
-            String[] splitfields = Fields.split(" "); 
-            for (int i = 0; i < splitfields.length - 3; i += 3) {
+            String[] splitfields = Fields.split(" ");
+            String inicial = splitfields[0].substring(0, 1);
+            
+            if (inicial.equalsIgnoreCase("Q")) {inicial = "X";}
+            
+            phrase = "%^" + inicial.toUpperCase() + "_TRATAR_"
+                    + splitfields[0].toUpperCase() + ".\"";
+            
+            for (int i = 1; i < splitfields.length - 3; i += 3) {
                 phrase += splitfields[i] + " " + splitfields[i+1] + " " 
-                        + splitfields[i+2] + " # ";
+                        + splitfields[i+2] + " # "; 
             }
             phrase += splitfields[splitfields.length - 3] + " " 
-                    + splitfields[splitfields.length - 2] + " " 
+                    + splitfields[splitfields.length - 2] + " "
                     + splitfields[splitfields.length - 1];
             phrase += "\"";
         } catch (Exception e) {
             where = Deliver.ERROR;
-            phrase = "var1 var2 var3 var4 var5 var6@"
-                    + "%^_TRATAR_.\"var1 var2 var3 # var4 var5 var6\"";
+            phrase = "insert XH:VAR_VACIA , EH:ORIGEN XH:CONDI , FALSE@"
+                    + "%^I_TRATAR_INSERT.”XH:VAR_VACIA , EH:ORIGEN # XH:CONDI , FALSE”";
         }
         
         Deliver.deliver(where, phrase);
     }
     
     public static void newProcessingFormat(Object[] Fieldsin) {
+        //Filed(0)     = Nombre de campo
         //Field(s%4=0) = VariableComp1 = [X:|S:|C:|E:][N:|H:]NAME_op1
         //Field(s%4=1) = operation = '==' '!=' '<' '>' '>=' '<='
         //Field(s%4=2) = VariableComp2 = [X:|S:|C:|E:][N:|H:]NAME_op2
@@ -155,22 +163,34 @@ public class Operaciones {
         
         try {
             where = Deliver.SYNTAX_AREA;
-            phrase = "%^_TRATAR_.\"";
-            String[] splitfields = Fields.split(" "); 
-            for (int i = 0; i < splitfields.length - 5; i += 4) {
-                phrase += splitfields[i] + " " + splitfields[i+1] + " " 
-                        + splitfields[i+2] + " = " + splitfields[i+3] + " ; ";
+            String[] splitfields = Fields.split(" ; ");
+            String[] splitfields1 = splitfields[0].split(" ");
+            
+            String inicial = splitfields1[0].substring(0, 1);
+            
+            if (inicial.equalsIgnoreCase("Q")) {inicial = "X";}
+            
+            phrase = "%^" + inicial.toUpperCase() + "_TRATAR_"
+                    + splitfields1[0].toUpperCase() + ".\"";
+
+            for (int i = 1; i < splitfields1.length - 4; i += 4) {
+                phrase += splitfields1[i] + " " + splitfields1[i+1] + " " 
+                        + splitfields1[i+2] + " = " + splitfields1[i+3] + " ; ";
             }
-            phrase += splitfields[splitfields.length - 5] + " " 
-                    + splitfields[splitfields.length - 4] + " " 
-                    + splitfields[splitfields.length - 3] + " = " 
-                    + splitfields[splitfields.length - 2] + " # " 
-                    + splitfields[splitfields.length - 1];
+            
+            phrase += splitfields1[splitfields1.length-4] 
+                    + " " + splitfields1[splitfields1.length-3] 
+                    + " " + splitfields1[splitfields1.length-2]
+                    + " = " + splitfields1[splitfields1.length-1];
+            
+            phrase += " # " + splitfields[1];
             phrase += "\"";
         } catch (Exception e) {
             where = Deliver.ERROR;
-            phrase = "var1 var2 var3 var4 var5@"
-                    + "%^_TRATAR_.\"var1 var2 var3 = var4 # var5\"";
+            phrase = "insert (EH:ORIGEN == ‘MI_CENTRAL’ A)<sup>N</sup> !(C | B) & A@"
+                    + "%^I_TRATAR_INSERT.”EH:ORIGEN == ‘MI_CENTRAL’ = A ;"
+                    + " XN:NUMERO >= EN:SECUENCIA = B ; XN:NUM > 100 = C #"
+                    + " !(C | B) & A”";
         }
         
         Deliver.deliver(where, phrase);
@@ -201,8 +221,8 @@ public class Operaciones {
             phrase += "\"";
         } catch (Exception e) {
             where = Deliver.ERROR;
-            phrase = "var1 var2 ; var3 var4@"
-                    + "%^X_ASOCIAR_SINTAX.\"var1, var2 # var3, var4\"";
+            phrase = "REGIS_A ; CAUSA_A@"
+                    + "%^X_ASOCIAR_SINTAX.\"REGIS_A # CAUSA_A\"";
         }
         
         Deliver.deliver(where, phrase);
@@ -210,7 +230,7 @@ public class Operaciones {
     
     public static void specialEventFormat(Object[] templatein) {
         String template = (String) templatein[0];
-        String phrase = "_SPECIAL_.\"" + template +"??\"";
+        String phrase = "_SPECIAL_.\"" + template +"\"";
         Deliver.deliver(Deliver.SYNTAX_AREA, phrase);
     }
 }
