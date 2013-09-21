@@ -5,6 +5,7 @@
 package GUI;
 
 import controller.Controller;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -23,6 +24,8 @@ public class NewBBDD extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         conectionEnabledSelectData.setEditable(false);
+        conectionEnabledSelectData.setBackground(Color.LIGHT_GRAY);
+        conectionEnabledSelectData.setText("");
     }
 
     /**
@@ -200,7 +203,7 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 171, Short.MAX_VALUE)
                         .addComponent(deleteRowSelectResult)
                         .addGap(18, 18, 18)
                         .addComponent(addSelectResult))
@@ -223,7 +226,7 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addComponent(deleteRowSelectResult)
                     .addComponent(addSelectResult))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -273,7 +276,7 @@ public class NewBBDD extends javax.swing.JDialog {
                                 .addComponent(deleteRowSelectTable)
                                 .addGap(18, 18, 18)
                                 .addComponent(addSelectTable)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 34, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -289,7 +292,7 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addComponent(deleteRowSelectTable)
                     .addComponent(addSelectTable))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -308,7 +311,7 @@ public class NewBBDD extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(conditionSelectCondicion)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -320,7 +323,7 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGap(41, 41, 41)
                 .addComponent(conditionSelectCondicion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -416,7 +419,7 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(aceptSelect)
                             .addComponent(cancelSelect)))
-                    .addComponent(tabsSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(tabsSelect))
                 .addContainerGap())
         );
 
@@ -434,7 +437,7 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addComponent(tableTextDelete)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(tablaLAbelDelete)
-                        .addGap(0, 321, Short.MAX_VALUE)))
+                        .addGap(0, 339, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -465,7 +468,7 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -474,7 +477,7 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGap(41, 41, 41)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -503,7 +506,7 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(acceptButtonDelete)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                         .addComponent(cancelButtonDelete))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(conectionLabelEnabledDelete)
@@ -598,7 +601,7 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addGap(108, 108, 108)
                         .addComponent(deleteRowUpdateTable)
                         .addGap(18, 18, 18)
-                        .addComponent(addUpdateTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(addUpdateTable, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -662,7 +665,7 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addComponent(deleteRowUpdateFields)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)
-                        .addGap(0, 1, Short.MAX_VALUE)))
+                        .addGap(0, 63, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -677,7 +680,7 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addComponent(deleteRowUpdateFields)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -696,7 +699,7 @@ public class NewBBDD extends javax.swing.JDialog {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -742,7 +745,7 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(acceptButtonUpdate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                         .addComponent(cancelButtonUpdate))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -789,7 +792,7 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(acceptButtonUpdate)
                             .addComponent(cancelButtonUpdate)))
-                    .addComponent(tabsUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(tabsUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 323, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -808,7 +811,7 @@ public class NewBBDD extends javax.swing.JDialog {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -820,7 +823,7 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -849,7 +852,7 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addComponent(acceptQuery)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                         .addComponent(cancelQuery))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addComponent(jLabel13)
@@ -935,7 +938,7 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addComponent(deleteRowInsertFields)
                         .addGap(18, 18, 18)
                         .addComponent(addInsertFields)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 53, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel15Layout.setVerticalGroup(
@@ -950,7 +953,7 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addComponent(deleteRowInsertFields)
                     .addComponent(addInsertFields))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -973,7 +976,7 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addComponent(jLabel20)
-                        .addGap(0, 311, Short.MAX_VALUE))
+                        .addGap(0, 329, Short.MAX_VALUE))
                     .addComponent(tableDataInsert))
                 .addContainerGap())
         );
@@ -1019,7 +1022,7 @@ public class NewBBDD extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel17Layout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1045,7 +1048,7 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addComponent(deleteRowInsertColumns)
                     .addComponent(addInsertColumns))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1074,7 +1077,7 @@ public class NewBBDD extends javax.swing.JDialog {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addComponent(acceptButtonInsert)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                         .addComponent(cancelButtonInsert))
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addComponent(jLabel18)
@@ -1301,11 +1304,14 @@ public class NewBBDD extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void conectionBooleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectionBooleanActionPerformed
-        if (conectionBoolean.isEnabled()) 
-            conectionEnabledSelectData.setEditable(true);
-        else if (!conectionBoolean.isEnabled())           
+        if (conectionEnabledSelectData.isEditable()) {
             conectionEnabledSelectData.setEditable(false);
-
+            conectionEnabledSelectData.setBackground(Color.LIGHT_GRAY);
+            conectionEnabledSelectData.setText("");
+        } else {
+            conectionEnabledSelectData.setEditable(true);
+            conectionEnabledSelectData.setBackground(Color.WHITE);
+        }
     }//GEN-LAST:event_conectionBooleanActionPerformed
 
     private void conectionBooleanStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_conectionBooleanStateChanged
