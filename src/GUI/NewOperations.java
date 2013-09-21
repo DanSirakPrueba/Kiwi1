@@ -71,6 +71,7 @@ public class NewOperations extends javax.swing.JDialog {
         concatOperationSintax = new javax.swing.JTextField();
         concatOperationSintaxInsert = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         compAsigOperationSintax = new javax.swing.JTextField();
         compAsigOperationSintaxInsert = new javax.swing.JButton();
@@ -90,9 +91,8 @@ public class NewOperations extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
 
-        jSplitPane1.setDividerLocation(330);
+        jSplitPane1.setDividerLocation(295);
         jSplitPane1.setEnabled(false);
-        jSplitPane1.setLastDividerLocation(335);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(270, 45));
 
@@ -104,11 +104,11 @@ public class NewOperations extends javax.swing.JDialog {
             }
         });
         orderFormat.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                orderFormatFocusGained(evt);
-            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 orderFormatFocusLost(evt);
+            }
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                orderFormatFocusGained(evt);
             }
         });
 
@@ -208,7 +208,19 @@ public class NewOperations extends javax.swing.JDialog {
             }
         });
 
-        jToggleButton1.setText("Info");
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/information.png"))); // NOI18N
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/information.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -233,7 +245,9 @@ public class NewOperations extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(commandFormatExe, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(commandFormatExeInsert))
+                                .addComponent(commandFormatExeInsert)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(concatOperationSintax, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -243,8 +257,8 @@ public class NewOperations extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(orderFormatInsert)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jToggleButton1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 2, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -254,13 +268,15 @@ public class NewOperations extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(orderFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(orderFormatInsert)
-                    .addComponent(jToggleButton1))
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(commandFormatExe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(commandFormatExeInsert))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(commandFormatExe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(commandFormatExeInsert))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(commandFormatSintax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -438,7 +454,7 @@ public class NewOperations extends javax.swing.JDialog {
                                 .addComponent(newProcessingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(newProcessingFormatInsert)))
-                        .addGap(0, 54, Short.MAX_VALUE)))
+                        .addGap(0, 19, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -481,7 +497,7 @@ public class NewOperations extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -521,20 +537,6 @@ public class NewOperations extends javax.swing.JDialog {
         newProcessingFormat.setText(NEW_PROCESS);
         associationFormat.setText(SINTAX_ASSOC);
         specialEventFormat.setText(SPECIAL);
-        
-        String InfoOrderFormat = "<html>Se compone de una solo tupla: <br>" +
-"Indica el orden de evaluar los formateos <br>" +
-"- X_ORDEN_SINTAX su contenido se forma de las iniciales de los formateos a <br>" +
-"realizar (C = COMANDO, S = SELECT, I = INSERT, D = DELETE, U = UPDATE, <br>" +
-"Q = QUERY), y su posición indica el orden en el análisis de los formateos. Los <br>" +
-"formateos que no estén especificados seguirán el orden por defecto. <br>" +
-" %^X_ORDEN_SINTAX.”[C],[S],[I],[D],[U],[Q]” <br>" +
-" Ejemplo de orden: <br>" +
-" %^X_ORDEN_SINTAX.”S,C” <br>" +
-"* Se realiza primero los select, posteriormente los comando (luego los insert, delete, <br>" +
-"update y query si los hubiera).</html>";
-        
-        orderFormat.setToolTipText(InfoOrderFormat);
         
         orderFormatInsert.requestFocus();
     }
@@ -955,6 +957,57 @@ public class NewOperations extends javax.swing.JDialog {
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         this.dispose();
     }//GEN-LAST:event_closeButtonActionPerformed
+
+    //<editor-fold defaultstate="collapsed" desc=" InfoButtons ">
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        JOptionPane op = new JOptionPane();
+        String Text = "<html>Se compone de una solo tupla: <br>" +
+            "Indica el orden de evaluar los formateos <br>" +
+            "- X_ORDEN_SINTAX su contenido se forma de las iniciales de los formateos a <br>" +
+            "realizar (C = COMANDO, S = SELECT, I = INSERT, D = DELETE, U = UPDATE, <br>" +
+            "Q = QUERY), y su posición indica el orden en el análisis de los formateos. Los <br>" +
+            "formateos que no estén especificados seguirán el orden por defecto. <br>" +
+            " %^X_ORDEN_SINTAX.”[C],[S],[I],[D],[U],[Q]” <br>" +
+            " Ejemplo de orden: <br>" +
+            " %^X_ORDEN_SINTAX.”S,C” <br>" +
+            "* Se realiza primero los select, posteriormente los comando (luego los insert, delete, <br>" +
+            "update y query si los hubiera).</html>";
+        op.showMessageDialog(this, Text, "[Info] Format Info", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane op = new JOptionPane();
+        String Text = "Cada comando está formado por dos tuplas: \n" +
+            "- C_EJECUTA_COMANDO determina el comando a ejecutar con los parámetros \n" +
+            "necesarios indicados en la librería de servicios de la UFEXT. Para que se realice la \n" +
+            "ejecución del comando deben estar configurados adecuadamente todos los \n" +
+            "componentes que intervienen en la ejecución. El parámetro de la central y del sistema \n" +
+            "no es necesario indicarlo, puesto que se asigna implícitamente el que llega del evento. \n" +
+            "Es posible utilizar variables extraídas del Gestor de Eventos para poner valores a los \n" +
+            "parámetros (no hace falta indicar H ni N puesto todo se trata como texto). Los \n" +
+            "parámetros necesarios son: \n" +
+            "-c CENTRAL indica la central en la que realiza el comando. Por defecto el comando \n" +
+            "se realiza (sino se indica este parámetro) en la central que envió el evento. \n" +
+            "-u USUARIO_EOC indica el usuario bajo el que se realiza el comando. Es un \n" +
+            "parámetro obligatorio. \n" +
+            "-x SERVICIO indica el servicio a ejecutar en la central del evento. \n" +
+            "-e COMANDO indica el comando a ejecutar en la central del evento. Es un parámetro \n" +
+            "obligatorio. \n" +
+            "-t TEMPORIZACION indica el tiempo máximo de espera a la recepción de respuesta \n" +
+            "al comando (en segundos). Por defecto es 600. \n" +
+            "-s TAMAÑO indica el tamaño de respuesta deseado (caracteres) para dar terminada la \n" +
+            "ejecución. Valor por defecto 0, se entenderá que no importa el tamaño de respuesta. \n" +
+            "-p PATRONES indica el patrón de finalización. Es una lista (separados por comas) de \n" +
+            "literales. Ejemplo: “END”,”FAULT CODE” \n" +
+            "-m MAQUINA indica el sistema donde se ejecuta primero el comando sistema \n" +
+            "principal o respaldo CI|RC. \n" +
+            "-r RESPALDO indica si se debe hacer respaldo o no SI|NO. \n" +
+            "%^C_EJECUTA_COMANDO.”[-c CENTRAL] -u USUARIO_EOC [–x SERVICIO] \n" +
+            "–e COMANDO [-t TEMPORIZACION] [-s TAMANO] [-p PATRONES] [-m \n" +
+            "MAQUINA] [-r RESPALDO]”";
+        op.showMessageDialog(this, Text, "[Info] Format Info", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton1ActionPerformed
+    //</editor-fold>
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField associationFormat;
@@ -972,6 +1025,7 @@ public class NewOperations extends javax.swing.JDialog {
     private javax.swing.JButton concatOperationSintaxInsert;
     private javax.swing.JTextField failureManagerFormat;
     private javax.swing.JButton failureManagerFormatInsert;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
