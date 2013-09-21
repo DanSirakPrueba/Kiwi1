@@ -180,7 +180,6 @@ public class NewBBDD extends javax.swing.JDialog {
         jPanel17 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         columnDataInsert = new javax.swing.JTextField();
-        clearTableInsertColumns = new javax.swing.JButton();
         deleteRowInsertColumns = new javax.swing.JButton();
         addInsertColumns = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -915,6 +914,11 @@ public class NewBBDD extends javax.swing.JDialog {
         });
 
         acceptQuery.setText("Accept");
+        acceptQuery.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptQueryActionPerformed(evt);
+            }
+        });
 
         cancelQuery.setText("Cancel");
 
@@ -983,8 +987,18 @@ public class NewBBDD extends javax.swing.JDialog {
         jLabel19.setText("Fields:");
 
         deleteRowInsertFields.setText("Delete Row");
+        deleteRowInsertFields.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteRowInsertFieldsActionPerformed(evt);
+            }
+        });
 
         addInsertFields.setText("Add to Table");
+        addInsertFields.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addInsertFieldsActionPerformed(evt);
+            }
+        });
 
         fieldsInsertTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1070,8 +1084,6 @@ public class NewBBDD extends javax.swing.JDialog {
 
         jLabel21.setText("Column:");
 
-        clearTableInsertColumns.setText("Clear Table");
-
         deleteRowInsertColumns.setText("Delete Row");
         deleteRowInsertColumns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1080,6 +1092,11 @@ public class NewBBDD extends javax.swing.JDialog {
         });
 
         addInsertColumns.setText("Add to Table");
+        addInsertColumns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addInsertColumnsActionPerformed(evt);
+            }
+        });
 
         tableColumnsInsert.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1104,12 +1121,10 @@ public class NewBBDD extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(columnDataInsert))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel17Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(clearTableInsertColumns)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(deleteRowInsertColumns)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addInsertColumns)))
+                        .addComponent(addInsertColumns)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel17Layout.setVerticalGroup(
@@ -1121,7 +1136,6 @@ public class NewBBDD extends javax.swing.JDialog {
                     .addComponent(columnDataInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clearTableInsertColumns)
                     .addComponent(deleteRowInsertColumns)
                     .addComponent(addInsertColumns))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1153,6 +1167,11 @@ public class NewBBDD extends javax.swing.JDialog {
         });
 
         acceptButtonInsert.setText("Accept");
+        acceptButtonInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptButtonInsertActionPerformed(evt);
+            }
+        });
 
         cancelButtonInsert.setText("Cancel");
 
@@ -1245,7 +1264,9 @@ public class NewBBDD extends javax.swing.JDialog {
     }//GEN-LAST:event_tableDataInsertActionPerformed
 
     private void deleteRowInsertColumnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteRowInsertColumnsActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tableColumnsInsert.getModel();
+        if (tableColumnsInsert.getSelectedRow() != -1)
+            model.removeRow(tableColumnsInsert.getSelectedRow());
     }//GEN-LAST:event_deleteRowInsertColumnsActionPerformed
 
     private void addSelectResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSelectResultActionPerformed
@@ -1510,6 +1531,92 @@ public class NewBBDD extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_acceptButtonDeleteActionPerformed
 
+    private void acceptQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptQueryActionPerformed
+       boolean error = false;
+        String errorString = "";
+        Object[] what = new Object[5];
+        what[0] = enableConectionquery.isSelected();
+        what[1] = userDataQuery.getText();
+        what[2] = passDataQuery.getText();
+        what[3] = conectionDataQuery.getText();
+        what[4] = queryTextArea.getText();
+        if (queryTextArea.getText().equalsIgnoreCase("")) {
+            error = true;
+            errorString += "Query sentence field is not filled.\n";
+        }
+        if (!error) {
+        Controller.controller(Controller.QUERYBD, what);
+        this.dispose();
+        } else {
+            JOptionPane op = new JOptionPane();
+            int messagetype = JOptionPane.ERROR_MESSAGE; //JOptionPane.INFORMATION_MESSAGE
+            op.showMessageDialog(this, errorString, "[ERROR] Some fields are not filled", messagetype);
+        }
+    }//GEN-LAST:event_acceptQueryActionPerformed
+
+    private void acceptButtonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonInsertActionPerformed
+        boolean error = false;
+        String errorString = "";
+        Object[] what = new Object[7];
+        what[0] = enabledConnectionInsert.isSelected();
+        what[1] = userDataInsert.getText();
+        what[2] = passDataInsert.getText();
+        what[3] = connectionDataInsert.getText();
+        ArrayList fieldInsert = new ArrayList();
+        ArrayList columnsInsert = new ArrayList();
+        int filas = fieldsInsertTable.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            fieldInsert.add((String)fieldsInsertTable.getValueAt(i, 0));
+        }
+        if (filas == 0) {
+            error = true;
+            errorString += "Fields field is not filled.\n";
+        }
+        what[4] = fieldInsert;
+        filas = tableColumnsInsert.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            columnsInsert.add((String)tableColumnsInsert.getValueAt(i, 0));
+        }
+        if (filas == 0) {
+            error = true;
+            errorString += "Columns field is not filled.\n";
+        }
+        what[6] = columnsInsert;
+        what[5] = tableDataInsert.getText();
+        if (tableDataInsert.getText().equalsIgnoreCase("")) {
+            error = true;
+            errorString += "Table field is not filled.\n";
+        }
+        if (!error) {
+        Controller.controller(Controller.INSERTBD, what);
+        this.dispose();
+        } else {
+            JOptionPane op = new JOptionPane();
+            int messagetype = JOptionPane.ERROR_MESSAGE; //JOptionPane.INFORMATION_MESSAGE
+            op.showMessageDialog(this, errorString, "[ERROR] Some fields are not filled", messagetype);
+        }
+    }//GEN-LAST:event_acceptButtonInsertActionPerformed
+
+    private void addInsertFieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addInsertFieldsActionPerformed
+        DefaultTableModel model = (DefaultTableModel) fieldsInsertTable.getModel();
+        String table = fieldsDataInsert.getText();
+        fieldsDataInsert.setText("");
+        model.addRow(new Object[]{table});
+    }//GEN-LAST:event_addInsertFieldsActionPerformed
+
+    private void addInsertColumnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addInsertColumnsActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tableColumnsInsert.getModel();
+        String table = columnDataInsert.getText();
+        columnDataInsert.setText("");
+        model.addRow(new Object[]{table});
+    }//GEN-LAST:event_addInsertColumnsActionPerformed
+
+    private void deleteRowInsertFieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteRowInsertFieldsActionPerformed
+        DefaultTableModel model = (DefaultTableModel) fieldsInsertTable.getModel();
+        if (fieldsInsertTable.getSelectedRow() != -1)
+            model.removeRow(fieldsInsertTable.getSelectedRow());
+    }//GEN-LAST:event_deleteRowInsertFieldsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1530,7 +1637,6 @@ public class NewBBDD extends javax.swing.JDialog {
     private javax.swing.JButton cancelButtonUpdate;
     private javax.swing.JButton cancelQuery;
     private javax.swing.JButton cancelSelect;
-    private javax.swing.JButton clearTableInsertColumns;
     private javax.swing.JTextField columnDataInsert;
     private javax.swing.JTextArea conditionDelete;
     private javax.swing.JLabel conditionSelectCondicion;
