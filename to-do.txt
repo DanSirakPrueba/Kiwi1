@@ -13,7 +13,8 @@ Terminar ventanas:
 		- Variables (Corregido el Object, funcional)
 		- Tablas (hecho)
 	+ Crear las que faltan.
-		- BBDD
+		- BBDD (terminada, resta añadir funcionalidad)
+			Select y update ya están hechas, el resto hay que hacerla siguiendo el ejemplo de ´estas para implementar los errores y demás.
 
 Modificar el Deliver 
 Completar el controller (hecho)
