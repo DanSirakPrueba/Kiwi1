@@ -9,6 +9,7 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import GUI.NewVariable;
 import business.Operaciones;
+import controller.Controller;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,25 +19,31 @@ import javax.swing.table.DefaultTableModel;
 public class FailureManager extends javax.swing.JDialog {
 
     private Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/bug.png"));
-    public ArrayList<String> Vars = new ArrayList<String>();
+    public ArrayList<String> vars;
     
     /**
      * Creates new form FailureManager
      */
-    public FailureManager(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public FailureManager(ArrayList<String> vars) {
         initComponents();
-        MyinitComponents();
+        MyinitComponents(vars);
     }
     
-    private void MyinitComponents() {
+    private void MyinitComponents(ArrayList<String> vars) {
         this.setTitle("Failure Manager");
         setIconImage(icon);
+        this.vars = vars;
         initTable();
     }
     
     private void initTable() {
-        // inicializar TABLA con valores de Variables
+        DefaultTableModel modelo=(DefaultTableModel) varsList.getModel();
+        
+        for (int i = 0; i < vars.size(); i++) {
+            modelo.addRow(new Object[i]);
+            this.varsList.setValueAt(vars.get(i), i, 0);
+            this.varsList.setValueAt(false, i, 1);
+        }
     }
 
     /**
@@ -51,19 +58,19 @@ public class FailureManager extends javax.swing.JDialog {
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        varsList = new javax.swing.JTable();
+        Cancel1 = new javax.swing.JButton();
+        Accept1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        varArea = new javax.swing.JTextArea();
+        Cancel2 = new javax.swing.JButton();
+        Accept2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        varsList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -86,16 +93,26 @@ public class FailureManager extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setColumnSelectionAllowed(true);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jTable1.getColumnModel().getColumn(0).setResizable(false);
-        jTable1.getColumnModel().getColumn(1).setResizable(false);
+        varsList.setColumnSelectionAllowed(true);
+        varsList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(varsList);
+        varsList.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        varsList.getColumnModel().getColumn(0).setResizable(false);
+        varsList.getColumnModel().getColumn(1).setResizable(false);
 
-        jButton4.setText("Cancel");
+        Cancel1.setText("Cancel");
+        Cancel1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cancel1ActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Accept");
+        Accept1.setText("Accept");
+        Accept1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Accept1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,9 +123,9 @@ public class FailureManager extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton5)
+                        .addComponent(Accept1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4)))
+                        .addComponent(Cancel1)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -118,8 +135,8 @@ public class FailureManager extends javax.swing.JDialog {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(Cancel1)
+                    .addComponent(Accept1))
                 .addContainerGap())
         );
 
@@ -128,13 +145,23 @@ public class FailureManager extends javax.swing.JDialog {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Variables:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        varArea.setColumns(20);
+        varArea.setRows(5);
+        jScrollPane1.setViewportView(varArea);
 
-        jButton2.setText("Cancel");
+        Cancel2.setText("Cancel");
+        Cancel2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cancel2ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Accept");
+        Accept2.setText("Accept");
+        Accept2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Accept2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -148,9 +175,9 @@ public class FailureManager extends javax.swing.JDialog {
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(Accept2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(Cancel2)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -162,8 +189,8 @@ public class FailureManager extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(Cancel2)
+                    .addComponent(Accept2))
                 .addContainerGap())
         );
 
@@ -183,19 +210,51 @@ public class FailureManager extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Accept1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept1ActionPerformed
+        int Index = Controller.failureManagerFormat;
+        Object[] what = new Object[1];
+        String str = "";
+        for (int i = 0; i < vars.size() - 1; i++) {
+            if ((boolean) this.varsList.getValueAt(i, 1)){
+                str += this.varsList.getValueAt(i, 0) + " ";
+            }
+        }
+        if ((boolean) this.varsList.getValueAt(vars.size() - 1, 1)){
+                str += this.varsList.getValueAt(vars.size() - 1, 0);
+        }
+        what[0] = str;
+        Controller.controller(Index, what);
+    }//GEN-LAST:event_Accept1ActionPerformed
+
+    private void Cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_Cancel1ActionPerformed
+
+    private void Accept2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept2ActionPerformed
+        int Index = Controller.failureManagerFormat;
+        Object[] what = new Object[1];
+        what[0] = varArea.getText();
+        varArea.setText("");
+        Controller.controller(Index, what);      
+    }//GEN-LAST:event_Accept2ActionPerformed
+
+    private void Cancel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_Cancel2ActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton Accept1;
+    private javax.swing.JButton Accept2;
+    private javax.swing.JButton Cancel1;
+    private javax.swing.JButton Cancel2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea varArea;
+    private javax.swing.JTable varsList;
     // End of variables declaration//GEN-END:variables
 }

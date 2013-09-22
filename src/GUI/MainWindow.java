@@ -62,8 +62,10 @@ public class MainWindow extends javax.swing.JFrame {
     public static final Color Black = new Color(0, 0, 0);
     public static final Color Gray = new Color(109, 109, 109);
 
-    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/icon-kiwi.png"));
+    private Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/icon-kiwi.png"));
 
+    public ArrayList<String> vars;
+    
     //<editor-fold defaultstate="collapsed" desc=" Undo & Redo part1 ">
     private Document editorPaneDocument;
     protected UndoHandler undoHandler = new UndoHandler();
@@ -79,6 +81,7 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setIconImage(icon);
+        vars = new ArrayList<String>();
         editorPaneDocument = syntaxArea.getDocument();
         editorPaneDocument.addUndoableEditListener(undoHandler);
 
@@ -465,7 +468,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void NVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NVariableActionPerformed
         // TODO add your handling code here:
-        JDialog jd = new NewVariable();
+        JDialog jd = new NewVariable(this);
         jd.setLocationByPlatform(true);
         jd.setModal(true);
         jd.setLocationRelativeTo(this);
@@ -587,7 +590,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_NDataBaseActionPerformed
 
     private void FailureManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FailureManagerActionPerformed
-        JDialog jd = new FailureManager(this, true);
+        JDialog jd = new FailureManager(this.vars);
         jd.setLocationByPlatform(true);
         jd.setLocationRelativeTo(this);
         jd.setVisible(true);
@@ -647,6 +650,10 @@ public class MainWindow extends javax.swing.JFrame {
     }
     //</editor-fold>
 
+    public void addVars(String vars) {
+        this.vars.add(vars);
+    }
+    
     /**
      * @param args the command line arguments
      */

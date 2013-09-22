@@ -1,6 +1,5 @@
 package business;
 import deliver.Deliver;
-import java.util.ArrayList;
 /*
  * This class parses the given input and output an operation type-based syntax
  * form.
@@ -12,12 +11,6 @@ import java.util.ArrayList;
  */
 public class Operaciones {
     
-    public ArrayList<String> vars = new ArrayList<String>();
-    
-    public void addVars(String vars) {
-        this.vars.add(vars);
-    }
-
     public static void orderFormat(Object[] ordersin) {
     	String phrase = "%^X_ORDEN_SINTAX.\"";
         
@@ -53,7 +46,7 @@ public class Operaciones {
         
         String[] splitvars = variables.split(" ");   
         for (int i = 0; i < splitvars.length - 1; i++) {
-            phrase += splitvars[i] + ",";
+            phrase += splitvars[i] + ", ";
         }
         phrase += splitvars[splitvars.length- 1];
         
