@@ -356,6 +356,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         FailureManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/bug_edit.png"))); // NOI18N
         FailureManager.setToolTipText("Failure manager");
+        FailureManager.setEnabled(false);
         FailureManager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FailureManagerActionPerformed(evt);

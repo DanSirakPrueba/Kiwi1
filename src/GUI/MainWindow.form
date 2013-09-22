@@ -304,6 +304,7 @@
           <Image iconType="3" name="/icons2/bug_edit.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Failure manager"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FailureManagerActionPerformed"/>
