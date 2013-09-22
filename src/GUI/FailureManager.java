@@ -67,6 +67,7 @@ public class FailureManager extends javax.swing.JDialog {
         varArea = new javax.swing.JTextArea();
         Cancel2 = new javax.swing.JButton();
         Accept2 = new javax.swing.JButton();
+        Info2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -132,7 +133,7 @@ public class FailureManager extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cancel1)
@@ -163,6 +164,8 @@ public class FailureManager extends javax.swing.JDialog {
             }
         });
 
+        Info2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/information.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -173,7 +176,8 @@ public class FailureManager extends javax.swing.JDialog {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Info2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(Accept2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -184,9 +188,11 @@ public class FailureManager extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(Info2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cancel2)
@@ -211,19 +217,21 @@ public class FailureManager extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Accept1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept1ActionPerformed
-        int Index = Controller.failureManagerFormat;
-        Object[] what = new Object[1];
-        String str = "";
-        for (int i = 0; i < vars.size() - 1; i++) {
-            if ((boolean) this.varsList.getValueAt(i, 1)){
-                str += this.varsList.getValueAt(i, 0) + " ";
+        if (vars.size() >= 1) {
+            int Index = Controller.failureManagerFormat;
+            Object[] what = new Object[1];
+            String str = "";
+            for (int i = 0; i < vars.size() - 1; i++) {
+                if ((boolean) this.varsList.getValueAt(i, 1)){
+                    str += this.varsList.getValueAt(i, 0) + " ";
+                }
             }
+            if ((boolean) this.varsList.getValueAt(vars.size() - 1, 1)){
+                    str += this.varsList.getValueAt(vars.size() - 1, 0);
+            }
+            what[0] = str;
+            Controller.controller(Index, what);
         }
-        if ((boolean) this.varsList.getValueAt(vars.size() - 1, 1)){
-                str += this.varsList.getValueAt(vars.size() - 1, 0);
-        }
-        what[0] = str;
-        Controller.controller(Index, what);
     }//GEN-LAST:event_Accept1ActionPerformed
 
     private void Cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel1ActionPerformed
@@ -231,11 +239,13 @@ public class FailureManager extends javax.swing.JDialog {
     }//GEN-LAST:event_Cancel1ActionPerformed
 
     private void Accept2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept2ActionPerformed
-        int Index = Controller.failureManagerFormat;
-        Object[] what = new Object[1];
-        what[0] = varArea.getText();
-        varArea.setText("");
-        Controller.controller(Index, what);      
+        if (!varArea.getText().equalsIgnoreCase("")) {
+            int Index = Controller.failureManagerFormat;
+            Object[] what = new Object[1];
+            what[0] = varArea.getText();
+            varArea.setText("");
+            Controller.controller(Index, what);
+        }
     }//GEN-LAST:event_Accept2ActionPerformed
 
     private void Cancel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel2ActionPerformed
@@ -248,6 +258,7 @@ public class FailureManager extends javax.swing.JDialog {
     private javax.swing.JButton Accept2;
     private javax.swing.JButton Cancel1;
     private javax.swing.JButton Cancel2;
+    private javax.swing.JButton Info2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
