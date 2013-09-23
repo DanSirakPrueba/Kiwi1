@@ -403,14 +403,14 @@ public class NewVariable extends javax.swing.JDialog {
                     mw.addVars(name2.getText());
                     if (Integer.parseInt(init.getText()) <= Integer.parseInt(end.getText())) {
                         Controller.controller(Controller.createVariableFromText, what);
+                        name2.setText(""); otherField.setText("...");
+                        otherField.setForeground(Color.GRAY);
                     } else {showError("Addressing error:\nInit <= End");}
                 } else {showError("Variable name empty");}
             } catch (NumberFormatException e) {
                 showError("Addressing error:\n Init/End are numbers");
             }
-            name2.setText(""); otherField.setText("...");
-            init.setText(""); end.setText("");
-            otherField.setForeground(Color.GRAY);
+            init.setText(""); end.setText("");   
         }
         add.setSelected(false);
     }
