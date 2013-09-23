@@ -40,7 +40,7 @@ public class Variables {
         //int column_start, int column_end, String name, String type, boolean absolute
         // TODO: La variable type --> w, s, d... (posible modificacion)
         
-		int column_start = (int) what[0];
+	int column_start = (int) what[0];
         int column_end = (int) what[1];
         String name = (String) what[2];
         String type = (String) what[3];

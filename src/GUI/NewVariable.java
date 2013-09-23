@@ -8,6 +8,7 @@ import controller.Controller;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -17,6 +18,7 @@ import javax.swing.JTextField;
 public class NewVariable extends javax.swing.JDialog {
 
     private Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/tag_blue.png"));
+    JOptionPane Error = new JOptionPane();
     private MainWindow mw;
     
     /**
@@ -365,10 +367,14 @@ public class NewVariable extends javax.swing.JDialog {
         if (jTabbedPane1.getSelectedIndex() == 0) {
             //Empaquetamos los datos:
             what = new Object[2]; 
-            what[0] = name1.getText();
-            mw.addVars(name1.getText());
             what[1] = value.getText();
-            Controller.controller(Controller.createNewVariable, what);
+            if (!name1.getText().equalsIgnoreCase("")) {
+                what[0] = name1.getText();
+                mw.addVars(name1.getText());
+                Controller.controller(Controller.createNewVariable, what);
+            } else {
+                showError("Variable name empty");
+            }
             name1.setText(""); value.setText("");
         }
         //Cuando la pestaña de Nueva Variable desde texto está seleccionada:
@@ -389,19 +395,28 @@ public class NewVariable extends javax.swing.JDialog {
                 if (init.getText().equalsIgnoreCase("")) init.setText("0");
                 if (end.getText().equalsIgnoreCase("")) end.setText("255");
                 what[0] = Integer.parseInt(init.getText()); 
-                what[1] = Integer.parseInt(end.getText());
+                what[1] = Integer.parseInt(end.getText());                
+                what[2] = name2.getText();
+                what[3] = type;
+                what[4] = (absolute.isSelected())?true:false;
+                if (!name2.getText().equalsIgnoreCase("")) {
+                    mw.addVars(name2.getText());
+                    if (Integer.parseInt(init.getText()) <= Integer.parseInt(end.getText())) {
+                        Controller.controller(Controller.createVariableFromText, what);
+                    } else {showError("Addressing error:\nInit <= End");}
+                } else {showError("Variable name empty");}
             } catch (NumberFormatException e) {
-                System.err.println("Cadenas no numéricas");
+                showError("Addressing error:\n Init/End are numbers");
             }
-            what[2] = name2.getText();
-            mw.addVars(name2.getText());
-            what[3] = type;
-            what[4] = (absolute.isSelected())?true:false;
+            name2.setText("");
             init.setText("");
-            end.setText("");
-            Controller.controller(Controller.createVariableFromText, what);
+            end.setText("");     
         }
         add.setSelected(false);
+    }
+    
+    private void showError(String msg) {
+         Error.showMessageDialog(this, msg, "Error", JOptionPane.ERROR_MESSAGE);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
