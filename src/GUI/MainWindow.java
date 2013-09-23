@@ -365,6 +365,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/Alcatel-LucentMini.png"))); // NOI18N
+        jLabel2.setIconTextGap(0);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
