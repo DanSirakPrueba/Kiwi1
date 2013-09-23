@@ -42,7 +42,6 @@ public class NewOperations extends javax.swing.JDialog {
      * Creates new form NewOperations
      */
     public NewOperations(JFrame frame) {
-        setIconImage(icon);
         initComponents();
         MyinitComponents(frame);
     }
@@ -522,6 +521,7 @@ public class NewOperations extends javax.swing.JDialog {
 
     //<editor-fold defaultstate="collapsed" desc=" MyinitComponents ">
     private void MyinitComponents(JFrame frame) {
+        setIconImage(icon);
         this.setTitle("New Operations");
         this.setModal(true);
         this.setLocationRelativeTo(frame);

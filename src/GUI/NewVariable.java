@@ -69,7 +69,7 @@ public class NewVariable extends javax.swing.JDialog {
         cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(421, 205));
+        setPreferredSize(new java.awt.Dimension(421, 210));
         setResizable(false);
 
         jTabbedPane1.setName("Hola"); // NOI18N
@@ -80,6 +80,12 @@ public class NewVariable extends javax.swing.JDialog {
 
         jLabel2.setText("Value");
         jLabel2.setToolTipText("Value of the new variable");
+
+        value.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valueActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -333,6 +339,27 @@ public class NewVariable extends javax.swing.JDialog {
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
+        InsertVar();
+    }//GEN-LAST:event_addActionPerformed
+
+    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_cancelActionPerformed
+
+    private void valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueActionPerformed
+        // TODO add your handling code here:
+        InsertVar();
+    }//GEN-LAST:event_valueActionPerformed
+    
+    private void opFocus(JTextField jtf, String preText, Color c, String postText) {
+        if (jtf.getText().equalsIgnoreCase(preText)) {
+            jtf.setForeground(c);
+            jtf.setText(postText);
+        }
+    }
+    
+    private void InsertVar() {
         //Cuando la pestaña de nueva Variable está seleccionada.
         Object[] what;
         if (jTabbedPane1.getSelectedIndex() == 0) {
@@ -375,17 +402,6 @@ public class NewVariable extends javax.swing.JDialog {
             Controller.controller(Controller.createVariableFromText, what);
         }
         add.setSelected(false);
-    }//GEN-LAST:event_addActionPerformed
-
-    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_cancelActionPerformed
-    private void opFocus(JTextField jtf, String preText, Color c, String postText) {
-        if (jtf.getText().equalsIgnoreCase(preText)) {
-            jtf.setForeground(c);
-            jtf.setText(postText);
-        }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
