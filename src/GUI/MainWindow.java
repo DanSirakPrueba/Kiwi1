@@ -246,6 +246,8 @@ public class MainWindow extends javax.swing.JFrame {
         setTitle("KiwiSyntaxManager");
         setFocusCycleRoot(false);
         setLocationByPlatform(true);
+        setMinimumSize(new java.awt.Dimension(922, 494));
+        setPreferredSize(new java.awt.Dimension(922, 494));
 
         jSplitPane1.setResizeWeight(0.5);
 

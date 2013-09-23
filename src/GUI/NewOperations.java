@@ -93,6 +93,10 @@ public class NewOperations extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
+        setMaximumSize(new java.awt.Dimension(606, 271));
+        setMinimumSize(new java.awt.Dimension(606, 268));
+        setPreferredSize(new java.awt.Dimension(606, 268));
+        setResizable(false);
 
         jSplitPane1.setDividerLocation(295);
         jSplitPane1.setEnabled(false);

@@ -198,6 +198,8 @@ public class NewBBDD extends javax.swing.JDialog {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(672, 400));
+        setResizable(false);
 
         resultLabel.setText("Result:");
 
