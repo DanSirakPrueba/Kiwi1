@@ -24,7 +24,8 @@ public class FailureManager extends javax.swing.JDialog {
     /**
      * Creates new form FailureManager
      */
-    public FailureManager(ArrayList<String> vars) {
+    public FailureManager(java.awt.Frame parent, boolean modal, ArrayList<String> vars) {
+        super(parent, modal);
         initComponents();
         MyinitComponents(vars);
     }
@@ -70,6 +71,8 @@ public class FailureManager extends javax.swing.JDialog {
         Info2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(403, 348));
+        setResizable(false);
 
         varsList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

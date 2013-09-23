@@ -88,8 +88,6 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="editar" min="-2" pref="24" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="FailureManager" min="-2" pref="24" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Component id="deshacer" min="-2" pref="24" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="rehacer" min="-2" pref="24" max="-2" attributes="0"/>
@@ -114,7 +112,6 @@
                   <Component id="deshacer" alignment="1" max="32767" attributes="0"/>
                   <Component id="rehacer" alignment="1" max="32767" attributes="0"/>
                   <Component id="LoadSyntax" alignment="1" max="32767" attributes="0"/>
-                  <Component id="FailureManager" alignment="1" max="32767" attributes="0"/>
                   <Component id="jLabel2" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
@@ -306,18 +303,6 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Component class="javax.swing.JButton" name="FailureManager">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icons2/bug_edit.png"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Failure manager"/>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FailureManagerActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">

@@ -54,6 +54,9 @@ public class NewTable extends javax.swing.JDialog {
         addToTableButton = new javax.swing.JButton();
         deleteRowButton = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(362, 359));
+        setResizable(false);
+
         tableName.setToolTipText("Name of the table");
 
         jLabel1.setText("Table name:");

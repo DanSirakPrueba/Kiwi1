@@ -218,7 +218,6 @@ public class MainWindow extends javax.swing.JFrame {
         editar = new javax.swing.JToggleButton();
         rehacer = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        FailureManager = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         jFrame1.setBounds(new java.awt.Rectangle(0, 0, 225, 206));
@@ -357,15 +356,6 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        FailureManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/bug_edit.png"))); // NOI18N
-        FailureManager.setToolTipText("Failure manager");
-        FailureManager.setEnabled(false);
-        FailureManager.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FailureManagerActionPerformed(evt);
-            }
-        });
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/Alcatel-LucentMini.png"))); // NOI18N
         jLabel2.setIconTextGap(0);
 
@@ -390,8 +380,6 @@ public class MainWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FailureManager, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(deshacer, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rehacer, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -414,7 +402,6 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(deshacer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(rehacer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LoadSyntax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(FailureManager, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(1, 1, 1)
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
@@ -597,13 +584,6 @@ public class MainWindow extends javax.swing.JFrame {
         jd.setLocationRelativeTo(this);
         jd.setVisible(true);
     }//GEN-LAST:event_NDataBaseActionPerformed
-
-    private void FailureManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FailureManagerActionPerformed
-        JDialog jd = new FailureManager(this.vars);
-        jd.setLocationByPlatform(true);
-        jd.setLocationRelativeTo(this);
-        jd.setVisible(true);
-    }//GEN-LAST:event_FailureManagerActionPerformed
     
     private JTextField oldColName;
     private JTextField newColName;
@@ -658,6 +638,14 @@ public class MainWindow extends javax.swing.JFrame {
                 + postMakeRoom(Area), Area.getCaretPosition());
     }
     //</editor-fold>
+    
+    /*
+     * CONTENIDO DEL BOTON DE FAILUREMANAGER
+     * JDialog jd = new FailureManager(this, true, this.vars);
+     * jd.setLocationByPlatform(true);
+     * jd.setLocationRelativeTo(this);
+     * jd.setVisible(true);
+    */
 
     public void addVars(String vars) {
         this.vars.add(vars);
@@ -698,7 +686,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton FailureManager;
     private javax.swing.JButton LoadEvent;
     private javax.swing.JButton LoadSyntax;
     private javax.swing.JButton NDataBase;

@@ -68,7 +68,9 @@ public class NewVariable extends javax.swing.JDialog {
         delete = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
 
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(421, 205));
+        setResizable(false);
 
         jTabbedPane1.setName("Hola"); // NOI18N
 
@@ -105,7 +107,7 @@ public class NewVariable extends javax.swing.JDialog {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("New variable", jPanel2);
@@ -267,7 +269,7 @@ public class NewVariable extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(80, Short.MAX_VALUE)
+                        .addContainerGap(50, Short.MAX_VALUE)
                         .addComponent(add)
                         .addGap(18, 18, 18)
                         .addComponent(delete)
