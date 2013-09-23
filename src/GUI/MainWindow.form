@@ -88,6 +88,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="rehacer" min="-2" pref="24" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
           </Group>
           <Component id="jSplitPane1" alignment="1" pref="906" max="32767" attributes="0"/>
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
@@ -96,18 +97,19 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="LoadEvent" min="-2" max="-2" attributes="0"/>
-                  <Component id="SaveSyntax" min="-2" max="-2" attributes="0"/>
-                  <Component id="NVariable" min="-2" max="-2" attributes="0"/>
-                  <Component id="NOperation" min="-2" max="-2" attributes="0"/>
-                  <Component id="NDataBase" min="-2" max="-2" attributes="0"/>
-                  <Component id="NTable" min="-2" max="-2" attributes="0"/>
-                  <Component id="editar" min="-2" max="-2" attributes="0"/>
-                  <Component id="deshacer" min="-2" max="-2" attributes="0"/>
-                  <Component id="rehacer" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="LoadSyntax" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="FailureManager" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="LoadEvent" alignment="1" max="32767" attributes="0"/>
+                  <Component id="SaveSyntax" alignment="1" max="32767" attributes="0"/>
+                  <Component id="NVariable" alignment="1" max="32767" attributes="0"/>
+                  <Component id="NOperation" alignment="1" max="32767" attributes="0"/>
+                  <Component id="NDataBase" alignment="1" max="32767" attributes="0"/>
+                  <Component id="NTable" alignment="1" max="32767" attributes="0"/>
+                  <Component id="editar" alignment="1" max="32767" attributes="0"/>
+                  <Component id="deshacer" alignment="1" max="32767" attributes="0"/>
+                  <Component id="rehacer" alignment="1" max="32767" attributes="0"/>
+                  <Component id="LoadSyntax" alignment="1" max="32767" attributes="0"/>
+                  <Component id="FailureManager" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jLabel2" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Component id="jSplitPane1" pref="401" max="32767" attributes="0"/>
@@ -309,6 +311,13 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FailureManagerActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icons2/Alcatel-LucentMini.png"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
