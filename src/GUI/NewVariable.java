@@ -306,7 +306,7 @@ public class NewVariable extends javax.swing.JDialog {
     
     private void otherFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherFieldFocusGained
         String preText = "...";
-        Color c = Color.GRAY;
+        Color c = Color.BLACK;
         String postText = "";
         opFocus(otherField, preText, c, postText);
     }//GEN-LAST:event_otherFieldFocusGained
@@ -334,7 +334,7 @@ public class NewVariable extends javax.swing.JDialog {
     private void otherFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherFieldFocusLost
         // TODO add your handling code here:
         String preText = "";
-        Color c = Color.BLACK;
+        Color c = Color.GRAY;
         String postText = "...";
         opFocus(otherField, preText, c, postText);
     }//GEN-LAST:event_otherFieldFocusLost
@@ -388,13 +388,13 @@ public class NewVariable extends javax.swing.JDialog {
                 type = "d";
             } else if (sToggle.isSelected()) {
                 type = "s";
-            } else if (otherText.isSelected()) {
-                type = "\"" + otherText + "\"";
+            } else if (otherText.isSelected() && !otherField.getText().equalsIgnoreCase("...")) {
+                type = "\"" + otherField.getText() + "\"";
             }
             try {
-                if (init.getText().equalsIgnoreCase("")) init.setText("0");
-                if (end.getText().equalsIgnoreCase("")) end.setText("255");
-                what[0] = Integer.parseInt(init.getText()); 
+                if (init.getText().equalsIgnoreCase("")) {init.setText("0");}
+                if (end.getText().equalsIgnoreCase("")) {end.setText("255");}
+                what[0] = Integer.parseInt(init.getText());
                 what[1] = Integer.parseInt(end.getText());                
                 what[2] = name2.getText();
                 what[3] = type;
@@ -408,9 +408,9 @@ public class NewVariable extends javax.swing.JDialog {
             } catch (NumberFormatException e) {
                 showError("Addressing error:\n Init/End are numbers");
             }
-            name2.setText("");
-            init.setText("");
-            end.setText("");     
+            name2.setText(""); otherField.setText("...");
+            init.setText(""); end.setText("");
+            otherField.setForeground(Color.GRAY);
         }
         add.setSelected(false);
     }
