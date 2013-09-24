@@ -39,7 +39,7 @@ public class FailureManager {
                     
                     String newVar = varArry[i].substring(cont, pointLocation); // Get the name.
                     
-                    if(!list.contains(newVar)) // Add if it's a new one.
+                    if(isVar(newVar) && !list.contains(newVar)) // Add if it's a new one.
                         list.add(newVar);
                         
                 }
@@ -53,6 +53,10 @@ public class FailureManager {
     }
     
     public boolean isLetter(char letter){ // Chech if it is a letter.
+        return true;
+    }
+    
+    public boolean isVar(String word){ // Chech if it is a variable(try to check it is not a reserved word).
         return true;
     }
     
