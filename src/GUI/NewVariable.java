@@ -375,7 +375,7 @@ public class NewVariable extends javax.swing.JDialog {
                 mw.addVars(name1.getText());
                 Controller.controller(Controller.createNewVariable, what);
             } else {
-                showError("Variable name empty");
+                showError("<html><b>Variable name empty</b></html>");
             }
             name1.setText(""); value.setText("");
         }
@@ -407,10 +407,10 @@ public class NewVariable extends javax.swing.JDialog {
                         Controller.controller(Controller.createVariableFromText, what);
                         name2.setText(""); otherField.setText("...");
                         otherField.setForeground(Color.GRAY);
-                    } else {showError("Addressing error:\nInit <= End");}
-                } else {showError("Variable name empty");}
+                    } else {showError("<html><b>Addressing error:</b><br>Init &lt= End</html>");}
+                } else {showError("<html><b>Variable name empty</b></html>");}
             } catch (NumberFormatException e) {
-                showError("Addressing error:\n Init/End are numbers");
+                showError("<html><b>Addressing error:</b><br> Init/End are numbers</html>");
             }
             init.setText(""); end.setText("");   
         }
@@ -418,7 +418,7 @@ public class NewVariable extends javax.swing.JDialog {
     }
     
     private void showError(String msg) {
-         Error.showMessageDialog(this, msg, "Error", JOptionPane.ERROR_MESSAGE);
+         Error.showMessageDialog(this, msg, "ERROR", JOptionPane.ERROR_MESSAGE);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
