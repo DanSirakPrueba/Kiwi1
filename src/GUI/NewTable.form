@@ -160,9 +160,6 @@
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="w"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wTypeActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="dType">
           <Properties>

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import GUI.NewVariable;
 import business.Operaciones;
 import controller.Controller;
+import deliver.Deliver;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,13 +28,14 @@ public class FailureManager extends javax.swing.JDialog {
     public FailureManager(java.awt.Frame parent, boolean modal, ArrayList<String> vars) {
         super(parent, modal);
         initComponents();
-        MyinitComponents(vars);
+        MyinitComponents(parent, vars);
     }
     
-    private void MyinitComponents(ArrayList<String> vars) {
+    private void MyinitComponents(java.awt.Frame Frame, ArrayList<String> vars) {
         this.setTitle("Failure Manager");
         setIconImage(icon);
         this.vars = vars;
+        Deliver.setDestination(Frame);
         initTable();
     }
     

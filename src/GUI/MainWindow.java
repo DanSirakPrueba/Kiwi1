@@ -4,46 +4,27 @@
  */
 package GUI;
 
-import business.Output;
+
 import java.awt.Color;
-import java.awt.Event;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileReader;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.text.Document;
 import javax.swing.undo.*;
-import java.lang.Object;
 import controller.Controller;
-import deliver.Deliver;
-import java.awt.BorderLayout;
 import java.awt.Image;
-import java.awt.event.ActionListener;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.ActionMap;
-import javax.swing.ImageIcon;
-import javax.swing.InputMap;
-import javax.swing.JComponent;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
@@ -77,6 +58,7 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
+    @SuppressWarnings("LeakingThisInConstructor")
     public MainWindow() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -102,9 +84,6 @@ public class MainWindow extends javax.swing.JFrame {
         JMenuItem redoMenuItem = new JMenuItem(redoAction);
         editMenu.add(undoMenuItem);
         editMenu.add(redoMenuItem);
-        Deliver.setDestination(this);
-
-
     }
 
     public void setSyntaxText(String text) {
@@ -172,7 +151,7 @@ public class MainWindow extends javax.swing.JFrame {
                 undoManager.redo();
             } catch (CannotRedoException ex) {
                 // TODO deal with this
-                ex.printStackTrace();
+                //ex.printStackTrace();
             }
             update();
             undoAction.update();
@@ -200,8 +179,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jFileChooser1 = new javax.swing.JFileChooser();
-        jFrame1 = new javax.swing.JFrame();
-        jLabel1 = new javax.swing.JLabel();
         jSplitPane1 = new javax.swing.JSplitPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         syntaxArea = new javax.swing.JTextArea();
@@ -219,27 +196,6 @@ public class MainWindow extends javax.swing.JFrame {
         rehacer = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-
-        jFrame1.setBounds(new java.awt.Rectangle(0, 0, 225, 206));
-        jFrame1.setLocationByPlatform(true);
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html><img src=\"http://farm4.staticflickr.com/3227/3115937621_650616f2b0.jpg\" width=210 height=180></html>");
-
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrame1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
-        );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrame1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("KiwiSyntaxManager");
@@ -385,7 +341,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(rehacer, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2))
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 906, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 922, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -404,7 +360,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(LoadSyntax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(1, 1, 1)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -422,7 +378,7 @@ public class MainWindow extends javax.swing.JFrame {
         fileChooser.setFileFilter(filter);
         int seleccion = fileChooser.showOpenDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
-            String storeAllString = "";
+            //String storeAllString = "";
             File fichero = fileChooser.getSelectedFile();
             // Aquí debemos abrir y leer el fichero.
             Object[] what;
@@ -569,13 +525,11 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveSyntaxActionPerformed
 
     private void NTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NTableActionPerformed
-        JDialog jd = new NewTable();
+        JDialog jd = new NewTable(this);
         jd.setLocationByPlatform(true);
         jd.setLocationRelativeTo(this);
         jd.setModal(true);
         jd.setVisible(true);
-        
-        
     }//GEN-LAST:event_NTableActionPerformed
 
     private void NDataBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NDataBaseActionPerformed
@@ -697,8 +651,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JToggleButton editar;
     private javax.swing.JTextArea eventArea;
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JFrame jFrame1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

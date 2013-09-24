@@ -5,6 +5,7 @@
 package GUI;
 
 import controller.Controller;
+import deliver.Deliver;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -21,10 +22,11 @@ public class NewTable extends javax.swing.JDialog {
     /**
      * Creates new form NewTable
      */
-    public NewTable() {
+    public NewTable(javax.swing.JFrame Frame) {
         initComponents();
         this.setTitle("New Table");
         setIconImage(icon);
+        Deliver.setDestination(Frame);
     }
 
     /**
@@ -70,11 +72,6 @@ public class NewTable extends javax.swing.JDialog {
         buttonGroup1.add(wType);
         wType.setSelected(true);
         wType.setText("w");
-        wType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wTypeActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(dType);
         dType.setText("d");
@@ -205,13 +202,9 @@ public class NewTable extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void wTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_wTypeActionPerformed
-
     private void addToTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToTableButtonActionPerformed
         DefaultTableModel model = (DefaultTableModel) addedTable.getModel();
-        String type = "";
+        String type;
         if (dType.isSelected()) {
             type = "d";
         } else type = "w";

@@ -5,11 +5,11 @@
 package GUI;
 
 import controller.Controller;
+import deliver.Deliver;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,6 +29,7 @@ public class NewBBDD extends javax.swing.JDialog {
         initComponents();
         this.setTitle("New BBDD");
         setIconImage(icon);
+        Deliver.setDestination(parent);
         //Select
         conectionEnabledSelectData.setEditable(false);
         conectionEnabledSelectData.setBackground(Color.LIGHT_GRAY);
@@ -38,20 +39,17 @@ public class NewBBDD extends javax.swing.JDialog {
         conectionFieldDelete.setEditable(false);
         conectionFieldDelete.setBackground(Color.LIGHT_GRAY);
         conectionFieldDelete.setText("");
-
         
         //Update
         conectionUpdateData.setEditable(false);
         conectionUpdateData.setBackground(Color.LIGHT_GRAY);
         conectionUpdateData.setText("");
-
         
         //Query
         conectionDataQuery.setEditable(false);
         conectionDataQuery.setBackground(Color.LIGHT_GRAY);
         conectionDataQuery.setText("");
 
-        
         //Insert
         connectionDataInsert.setEditable(false);
         connectionDataInsert.setBackground(Color.LIGHT_GRAY);
@@ -68,7 +66,6 @@ public class NewBBDD extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         tabsSelect = new javax.swing.JTabbedPane();
@@ -194,8 +191,6 @@ public class NewBBDD extends javax.swing.JDialog {
         connectionDataInsert = new javax.swing.JTextField();
         acceptButtonInsert = new javax.swing.JButton();
         cancelButtonInsert = new javax.swing.JButton();
-
-        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(672, 400));
@@ -361,31 +356,14 @@ public class NewBBDD extends javax.swing.JDialog {
 
         userSelect.setText("User:");
 
-        userSelectData.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                userSelectDataKeyPressed(evt);
-            }
-        });
-
         passSelect.setText("Pass:");
 
         conectionCheckSelect.setText("Connection:");
 
         conectionBoolean.setText("Enabled");
-        conectionBoolean.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                conectionBooleanStateChanged(evt);
-            }
-        });
         conectionBoolean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 conectionBooleanActionPerformed(evt);
-            }
-        });
-
-        conectionEnabledSelectData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conectionEnabledSelectDataActionPerformed(evt);
             }
         });
 
@@ -535,12 +513,6 @@ public class NewBBDD extends javax.swing.JDialog {
         enabledConnectionDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enabledConnectionDeleteActionPerformed(evt);
-            }
-        });
-
-        conectionFieldDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conectionFieldDeleteActionPerformed(evt);
             }
         });
 
@@ -909,12 +881,6 @@ public class NewBBDD extends javax.swing.JDialog {
             }
         });
 
-        conectionDataQuery.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conectionDataQueryActionPerformed(evt);
-            }
-        });
-
         acceptQuery.setText("Accept");
         acceptQuery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1053,12 +1019,6 @@ public class NewBBDD extends javax.swing.JDialog {
 
         jLabel20.setText("Table:");
 
-        tableDataInsert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tableDataInsertActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
@@ -1162,12 +1122,6 @@ public class NewBBDD extends javax.swing.JDialog {
             }
         });
 
-        connectionDataInsert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                connectionDataInsertActionPerformed(evt);
-            }
-        });
-
         acceptButtonInsert.setText("Accept");
         acceptButtonInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1261,10 +1215,6 @@ public class NewBBDD extends javax.swing.JDialog {
             model.removeRow(tablaSelectTable.getSelectedRow());
     }//GEN-LAST:event_deleteRowSelectTableActionPerformed
 
-    private void tableDataInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableDataInsertActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tableDataInsertActionPerformed
-
     private void deleteRowInsertColumnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteRowInsertColumnsActionPerformed
         DefaultTableModel model = (DefaultTableModel) tableColumnsInsert.getModel();
         if (tableColumnsInsert.getSelectedRow() != -1)
@@ -1272,7 +1222,6 @@ public class NewBBDD extends javax.swing.JDialog {
     }//GEN-LAST:event_deleteRowInsertColumnsActionPerformed
 
     private void addSelectResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSelectResultActionPerformed
-        
         DefaultTableModel model = (DefaultTableModel) tablaSelectResult.getModel();
         String type = "";
         String result = resultSelectField.getText();
@@ -1281,7 +1230,6 @@ public class NewBBDD extends javax.swing.JDialog {
     }//GEN-LAST:event_addSelectResultActionPerformed
 
     private void addSelectTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSelectTableActionPerformed
-       
         DefaultTableModel model = (DefaultTableModel) tablaSelectTable.getModel();
         String type = "";
         String table = tableFieldSelect.getText();
@@ -1290,7 +1238,6 @@ public class NewBBDD extends javax.swing.JDialog {
     }//GEN-LAST:event_addSelectTableActionPerformed
 
     private void aceptSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptSelectActionPerformed
-
         boolean error = false;
         String errorString = "";
         Object[] what = new Object[7];
@@ -1419,17 +1366,11 @@ public class NewBBDD extends javax.swing.JDialog {
             conectionEnabledSelectData.setEditable(false);
             conectionEnabledSelectData.setBackground(Color.LIGHT_GRAY);
             conectionEnabledSelectData.setText("");
-
         } else {
             conectionEnabledSelectData.setEditable(true);
             conectionEnabledSelectData.setBackground(Color.WHITE);
-
         }
     }//GEN-LAST:event_conectionBooleanActionPerformed
-
-    private void conectionBooleanStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_conectionBooleanStateChanged
-      
-    }//GEN-LAST:event_conectionBooleanStateChanged
 
     private void cancelButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonUpdateActionPerformed
         this.dispose();
@@ -1440,40 +1381,20 @@ public class NewBBDD extends javax.swing.JDialog {
             conectionUpdateData.setEditable(false);
             conectionUpdateData.setBackground(Color.LIGHT_GRAY);
             conectionUpdateData.setText("");
-
         } else {
             conectionUpdateData.setEditable(true);
             conectionUpdateData.setBackground(Color.WHITE);
-
         }
     }//GEN-LAST:event_enabledConectionUpdateActionPerformed
-
-    private void conectionFieldDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectionFieldDeleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_conectionFieldDeleteActionPerformed
-
-    private void conectionDataQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectionDataQueryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_conectionDataQueryActionPerformed
-
-    private void connectionDataInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectionDataInsertActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_connectionDataInsertActionPerformed
-
-    private void conectionEnabledSelectDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectionEnabledSelectDataActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_conectionEnabledSelectDataActionPerformed
 
     private void enabledConnectionDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enabledConnectionDeleteActionPerformed
         if (conectionFieldDelete.isEditable()) {
             conectionFieldDelete.setEditable(false);
             conectionFieldDelete.setBackground(Color.LIGHT_GRAY);
             conectionFieldDelete.setText("");
-
         } else {
             conectionFieldDelete.setEditable(true);
             conectionFieldDelete.setBackground(Color.WHITE);
-
         }
     }//GEN-LAST:event_enabledConnectionDeleteActionPerformed
 
@@ -1482,11 +1403,9 @@ public class NewBBDD extends javax.swing.JDialog {
             conectionDataQuery.setEditable(false);
             conectionDataQuery.setBackground(Color.LIGHT_GRAY);
             conectionDataQuery.setText("");
-
         } else {
             conectionDataQuery.setEditable(true);
             conectionDataQuery.setBackground(Color.WHITE);
-
         }
     }//GEN-LAST:event_enableConectionqueryActionPerformed
 
@@ -1500,10 +1419,6 @@ public class NewBBDD extends javax.swing.JDialog {
             connectionDataInsert.setBackground(Color.WHITE);
         }
     }//GEN-LAST:event_enabledConnectionInsertActionPerformed
-
-    private void userSelectDataKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userSelectDataKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userSelectDataKeyPressed
 
     private void acceptButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonDeleteActionPerformed
         boolean error = false;
@@ -1668,7 +1583,6 @@ public class NewBBDD extends javax.swing.JDialog {
     private javax.swing.JTextField fieldsDataUpdate;
     private javax.swing.JTable fieldsInsertTable;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

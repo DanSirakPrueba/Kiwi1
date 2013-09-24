@@ -5,6 +5,7 @@
 package GUI;
 
 import controller.Controller;
+import deliver.Deliver;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -28,6 +29,7 @@ public class NewVariable extends javax.swing.JDialog {
         initComponents();
         this.setTitle("New Variable");
         setIconImage(icon);
+        Deliver.setDestination(frame);
         this.mw = frame;
     }
 

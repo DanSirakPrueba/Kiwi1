@@ -12,7 +12,6 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -41,7 +40,7 @@ public class NewOperations extends javax.swing.JDialog {
     /**
      * Creates new form NewOperations
      */
-    public NewOperations(JFrame frame) {
+    public NewOperations(javax.swing.JFrame frame) {
         initComponents();
         MyinitComponents(frame);
     }
@@ -519,7 +518,7 @@ public class NewOperations extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     //<editor-fold defaultstate="collapsed" desc=" MyinitComponents ">
-    private void MyinitComponents(JFrame frame) {
+    private void MyinitComponents(javax.swing.JFrame frame) {
         setIconImage(icon);
         this.setTitle("New Operations");
         this.setModal(true);
