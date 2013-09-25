@@ -61,7 +61,7 @@ public class MainWindow extends javax.swing.JFrame {
     @SuppressWarnings("LeakingThisInConstructor")
     public MainWindow() {
         initComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
         setIconImage(icon);
         vars = new ArrayList<String>();
         editorPaneDocument = syntaxArea.getDocument();
