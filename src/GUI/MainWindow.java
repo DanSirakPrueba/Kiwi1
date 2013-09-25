@@ -393,33 +393,15 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_LoadEventActionPerformed
 	
 	private void LoadSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadSyntaxActionPerformed
-        // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt and .stx format", "txt", "stx");
-        fileChooser.setAcceptAllFileFilterUsed(false);
-        fileChooser.setFileFilter(filter);
-        int seleccion = fileChooser.showOpenDialog(this);
-        fileChooser.setMultiSelectionEnabled(false);
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-            String storeAllString = "";
-            File fichero = fileChooser.getSelectedFile();
-            // Aquí debemos abrir y leer el fichero.
-            try {
-                FileReader readTextFile = new FileReader(fichero.toString());
-                Scanner fileReaderScan = new Scanner(readTextFile);
-                while (fileReaderScan.hasNextLine()) {
-                    String temp = fileReaderScan.nextLine() + "\n";
-                    storeAllString = storeAllString + temp;
-                }
-            } catch (Exception e) {
-            }
-            syntaxArea.setText(storeAllString);
-            syntaxArea.setCaretPosition(0);
+        if (!syntaxArea.getText().equalsIgnoreCase("")) {
+            int res = JOptionPane.showConfirmDialog(this, "Save sintax file?", 
+                    "", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {saveFile();}
         }
+        loadFile();
     }//GEN-LAST:event_LoadSyntaxActionPerformed
 
     private void NVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NVariableActionPerformed
-        // TODO add your handling code here:
         JDialog jd = new NewVariable(this);
         jd.setLocationByPlatform(true);
         jd.setModal(true);
@@ -431,10 +413,8 @@ public class MainWindow extends javax.swing.JFrame {
         try {
             undoManager.undo();
         } catch (CannotUndoException cre) {
-            
-            JOptionPane op = new JOptionPane();
-            op.showMessageDialog(this, "Can't undo more", "ERROR MESSAGE", JOptionPane.ERROR_MESSAGE);
-            
+            JOptionPane.showMessageDialog(this, "Can't undo more", 
+                    "ERROR MESSAGE", JOptionPane.ERROR_MESSAGE);           
         }
 
     }//GEN-LAST:event_undoActionPerformed
@@ -454,10 +434,8 @@ public class MainWindow extends javax.swing.JFrame {
         try {
             undoManager.redo();
         } catch (CannotRedoException cre) {
-            
-            JOptionPane op = new JOptionPane();
-            op.showMessageDialog(this, "Can't redo more", "ERROR MESSAGE", JOptionPane.ERROR_MESSAGE);
-            
+            JOptionPane.showMessageDialog(this, "Can't redo more", 
+                    "ERROR MESSAGE", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_redoActionPerformed
   
@@ -467,61 +445,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_NOperationActionPerformed
     
     private void SaveSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveSyntaxActionPerformed
-        
-        JFileChooser jfc = new JFileChooser();
-        jfc.setMultiSelectionEnabled(false);
-        jfc.setVisible(true);
-        
-        if(JFileChooser.APPROVE_OPTION == jfc.showSaveDialog(this)){
-           Object[] what = new Object[2];
-           what[0] = syntaxArea.getText();
-           what[1] = jfc.getSelectedFile();
-           Controller.controller(Controller.writeOutput, what);
-        }
-        
-        /*
-        f = new JFrame("Write a file name");
-        f.setLayout(new BorderLayout());
-        
-        f.setVisible(true);
-        
-        this.tf = new JTextField("syntax");
-        JButton confirmButton = new JButton("Ok");
-        JButton defaultButton = new JButton("Default: syntax");
-        JButton cancelButton = new JButton("Cancel");
-        
-        f.add(tf, BorderLayout.NORTH);
-        f.add(confirmButton, BorderLayout.WEST);
-        f.add(defaultButton, BorderLayout.CENTER);
-        f.add(cancelButton, BorderLayout.SOUTH);
-        
-        f.pack();
-        f.setLocation(this.getLocation().x + this.getWidth()/2 - f.getWidth()/2, this.getLocation().y + this.getHeight()/2 - f.getHeight()/2);
-        
-        
-        confirmButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                business.Output.publishOutput(syntaxArea.getText(), tf.getText());
-                f.dispose();
-            }
-        });
-        
-        defaultButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                business.Output.publishOutput(syntaxArea.getText(), "");
-                f.dispose();
-            }
-        });
-        
-        cancelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                f.dispose();
-            }
-        });
-        */
+        saveFile();
     }//GEN-LAST:event_SaveSyntaxActionPerformed
 
     private void NTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NTableActionPerformed
@@ -603,6 +527,43 @@ public class MainWindow extends javax.swing.JFrame {
 
     public void addVars(String vars) {
         this.vars.add(vars);
+    }
+    
+    private void saveFile() {
+        JFileChooser jfc = new JFileChooser();
+        jfc.setMultiSelectionEnabled(false);
+        jfc.setVisible(true);
+        if(JFileChooser.APPROVE_OPTION == jfc.showSaveDialog(this)){
+           Object[] what = new Object[2];
+           what[0] = syntaxArea.getText();
+           what[1] = jfc.getSelectedFile();
+           Controller.controller(Controller.writeOutput, what);
+        }
+    }
+    
+    private void loadFile() {
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt or .stx format", "txt", "stx");
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        fileChooser.setFileFilter(filter);
+        int seleccion = fileChooser.showOpenDialog(this);
+        fileChooser.setMultiSelectionEnabled(false);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            String storeAllString = "";
+            File fichero = fileChooser.getSelectedFile();
+            // Aquí debemos abrir y leer el fichero.
+            try {
+                FileReader readTextFile = new FileReader(fichero.toString());
+                Scanner fileReaderScan = new Scanner(readTextFile);
+                while (fileReaderScan.hasNextLine()) {
+                    String temp = fileReaderScan.nextLine() + "\n";
+                    storeAllString = storeAllString + temp;
+                }
+            } catch (Exception e) {
+            }
+            syntaxArea.setText(storeAllString);
+            //syntaxArea.setCaretPosition(0);
+        }
     }
     
     /**

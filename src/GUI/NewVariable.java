@@ -124,9 +124,21 @@ public class NewVariable extends javax.swing.JDialog {
 
         jLabel3.setText("Name");
 
+        name2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name2ActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("Init");
 
         jLabel5.setText("End");
+
+        end.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                endActionPerformed(evt);
+            }
+        });
 
         grupoBotones1.add(relative);
         relative.setSelected(true);
@@ -152,6 +164,11 @@ public class NewVariable extends javax.swing.JDialog {
 
         otherField.setForeground(Color.GRAY);
         otherField.setText("...");
+        otherField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherFieldActionPerformed(evt);
+            }
+        });
         otherField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 otherFieldFocusGained(evt);
@@ -342,7 +359,6 @@ public class NewVariable extends javax.swing.JDialog {
     }//GEN-LAST:event_otherFieldFocusLost
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        // TODO add your handling code here:
         InsertVar();
     }//GEN-LAST:event_addActionPerformed
 
@@ -352,9 +368,20 @@ public class NewVariable extends javax.swing.JDialog {
     }//GEN-LAST:event_cancelActionPerformed
 
     private void valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueActionPerformed
-        // TODO add your handling code here:
         InsertVar();
     }//GEN-LAST:event_valueActionPerformed
+
+    private void name2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name2ActionPerformed
+        InsertVar();
+    }//GEN-LAST:event_name2ActionPerformed
+
+    private void endActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endActionPerformed
+        InsertVar();
+    }//GEN-LAST:event_endActionPerformed
+
+    private void otherFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherFieldActionPerformed
+        InsertVar();
+    }//GEN-LAST:event_otherFieldActionPerformed
     
     private void opFocus(JTextField jtf, String preText, Color c, String postText) {
         if (jtf.getText().equalsIgnoreCase(preText)) {
