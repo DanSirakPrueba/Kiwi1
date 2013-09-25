@@ -28,6 +28,7 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.BadLocationException;
 import javax.swing.undo.CannotUndoException;
@@ -530,30 +531,39 @@ public class MainWindow extends javax.swing.JFrame {
         this.vars.add(vars);
     }
     
-    private void saveFile() {
+    private void saveFile() { // CUIDADO EN SOBRE SOBRE ESCRITURA
         JFileChooser jfc = new JFileChooser();
-        FileNameExtensionFilter stxFilter = new FileNameExtensionFilter("sintax file (*.stx)", "stx");
-        jfc.addChoosableFileFilter(stxFilter);
-        jfc.setFileFilter(stxFilter);
-        jfc.setAcceptAllFileFilterUsed(false);
+        jfc = setFilters(jfc, true, "sintax file (*.stx)", "stx");
         jfc.setMultiSelectionEnabled(false);
         jfc.setVisible(true);
         if(JFileChooser.APPROVE_OPTION == jfc.showSaveDialog(this)){
-           Object[] what = new Object[2];
+           Object[] what = new Object[3];
            what[0] = syntaxArea.getText();
-           what[1] = jfc.getSelectedFile();
+           what[1] = jfc.getSelectedFile().toString();
+           //what[2] = getExtension(jfc.getFileFilter());
            Controller.controller(Controller.writeOutput, what);
         }
     }
     
+    private String getExtension(FileFilter filter) {
+        int ind = filter.toString().indexOf("extensions=[") + 12;
+        return filter.toString().substring(ind, ind+3);
+    }
+    
+    private JFileChooser setFilters(JFileChooser jfc, boolean predefined, String comment, String extension) {
+        if (predefined || !jfc.getFileFilter().getDescription().equalsIgnoreCase("Todos los Archivos")) {
+            jfc.setAcceptAllFileFilterUsed(false);
+        }
+        FileNameExtensionFilter newFilter = new FileNameExtensionFilter(comment, extension);
+        jfc.addChoosableFileFilter(newFilter);
+        if (predefined) {jfc.setFileFilter(newFilter);}
+        return jfc;
+    }
+    
     private void loadFile() {
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("text without format (*.txt)", "txt"); 
-        FileNameExtensionFilter stxFilter = new FileNameExtensionFilter("sintax file (*.stx)", "stx");
-        fileChooser.addChoosableFileFilter(txtFilter);
-        fileChooser.addChoosableFileFilter(stxFilter);
-        fileChooser.setFileFilter(txtFilter);
-        fileChooser.setAcceptAllFileFilterUsed(false);
+        fileChooser = setFilters(fileChooser, true, "text without format (*.txt)", "txt");
+        fileChooser = setFilters(fileChooser, false, "sintax file (*.stx)", "stx");
         int seleccion = fileChooser.showOpenDialog(this);
         fileChooser.setMultiSelectionEnabled(false);
         if (seleccion == JFileChooser.APPROVE_OPTION) {

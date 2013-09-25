@@ -20,10 +20,10 @@ public class Output {
 	public static void publishOutput(Object[] what) {
         //String text, String title.
             String text = (String)what[0];
-            File f = (File)what[1];
+            String file = (String)what[1];// + "." + (String)what[2];
             FileWriter w = null;
             try {
-              w = new FileWriter(f);
+              w = new FileWriter(file);
             } catch (IOException ex) {
                 Logger.getLogger(Output.class.getName()).log(Level.SEVERE, null, ex);
             }
