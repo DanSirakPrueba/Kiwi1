@@ -531,6 +531,10 @@ public class MainWindow extends javax.swing.JFrame {
     
     private void saveFile() {
         JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter stxFilter = new FileNameExtensionFilter("sintax file (*.stx)", "stx");
+        jfc.addChoosableFileFilter(stxFilter);
+        jfc.setFileFilter(stxFilter);
+        jfc.setAcceptAllFileFilterUsed(false);
         jfc.setMultiSelectionEnabled(false);
         jfc.setVisible(true);
         if(JFileChooser.APPROVE_OPTION == jfc.showSaveDialog(this)){
@@ -543,9 +547,12 @@ public class MainWindow extends javax.swing.JFrame {
     
     private void loadFile() {
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt or .stx format", "txt", "stx");
+        FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("text without format (*.txt)", "txt"); 
+        FileNameExtensionFilter stxFilter = new FileNameExtensionFilter("sintax file (*.stx)", "stx");
+        fileChooser.addChoosableFileFilter(txtFilter);
+        fileChooser.addChoosableFileFilter(stxFilter);
+        fileChooser.setFileFilter(txtFilter);
         fileChooser.setAcceptAllFileFilterUsed(false);
-        fileChooser.setFileFilter(filter);
         int seleccion = fileChooser.showOpenDialog(this);
         fileChooser.setMultiSelectionEnabled(false);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
