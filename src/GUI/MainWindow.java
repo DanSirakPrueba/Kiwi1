@@ -199,7 +199,8 @@ public class MainWindow extends javax.swing.JFrame {
         editar = new javax.swing.JToggleButton();
         rehacer = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        DireccionSintax = new javax.swing.JLabel();
+        DireccionEvent = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("KiwiSyntaxManager");
@@ -304,19 +305,30 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(470, 20));
+
+        DireccionSintax.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DireccionSintax.setPreferredSize(new java.awt.Dimension(34, 20));
+
+        DireccionEvent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DireccionEvent.setToolTipText("");
+        DireccionEvent.setPreferredSize(new java.awt.Dimension(34, 20));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 922, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(DireccionEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(DireccionSintax, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(DireccionSintax, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(DireccionEvent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/Alcatel-LucentMini.png"))); // NOI18N
-        jLabel2.setIconTextGap(0);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -342,10 +354,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(deshacer, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rehacer, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2))
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 922, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 922, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,8 +371,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(editar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(deshacer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(rehacer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LoadSyntax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(LoadSyntax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(1, 1, 1)
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -381,6 +391,7 @@ public class MainWindow extends javax.swing.JFrame {
             Object[] what= new Object[1];
             what[0] = fileChooser.getSelectedFile().toString();
             Controller.controller(Controller.readInputEvent, what);
+            DireccionEvent.setText((String) what[0]);
             eventArea.setCaretPosition(0);
         }
     }//GEN-LAST:event_LoadEventActionPerformed
@@ -400,6 +411,7 @@ public class MainWindow extends javax.swing.JFrame {
             Object[] what= new Object[1];
             what[0] = fileChooser.getSelectedFile().toString();
             Controller.controller(Controller.readInputSintax, what);
+            DireccionSintax.setText((String) what[0]);
             //syntaxArea.setCaretPosition(0);
         }
     }//GEN-LAST:event_LoadSyntaxActionPerformed
@@ -642,6 +654,8 @@ public class MainWindow extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel DireccionEvent;
+    private javax.swing.JLabel DireccionSintax;
     private javax.swing.JButton LoadEvent;
     private javax.swing.JButton LoadSyntax;
     private javax.swing.JButton NDataBase;
@@ -653,7 +667,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JToggleButton editar;
     private javax.swing.JTextArea eventArea;
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
