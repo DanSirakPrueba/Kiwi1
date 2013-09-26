@@ -206,7 +206,6 @@ public class MainWindow extends javax.swing.JFrame {
         setFocusCycleRoot(false);
         setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(922, 494));
-        setPreferredSize(new java.awt.Dimension(922, 494));
 
         jSplitPane1.setResizeWeight(0.5);
 
@@ -309,7 +308,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 922, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,8 +400,6 @@ public class MainWindow extends javax.swing.JFrame {
             Object[] what= new Object[1];
             what[0] = fileChooser.getSelectedFile().toString();
             Controller.controller(Controller.readInputSintax, what);
-            SavenLoad = getValidName((String)what[0], 
-                    getExtension(fileChooser.getFileFilter()));
             //syntaxArea.setCaretPosition(0);
         }
     }//GEN-LAST:event_LoadSyntaxActionPerformed
@@ -550,7 +547,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void logicSaveFile() {
         JFileChooser jfc = new JFileChooser();
         jfc = setFilters(jfc, true, "sintax file (*.stx)", "stx");
-        jfc.setSelectedFile(new File(SavenLoad));
         jfc.setMultiSelectionEnabled(false);
         jfc.setVisible(true);
         boolean repeat = true;
