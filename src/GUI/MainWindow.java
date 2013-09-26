@@ -397,7 +397,7 @@ public class MainWindow extends javax.swing.JFrame {
         if (!syntaxArea.getText().equalsIgnoreCase("")) {
             int res = JOptionPane.showConfirmDialog(this, "Save sintax file?", 
                     "WARNING", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-            if (res == 0) {saveFile();}
+            if (res == JOptionPane.YES_OPTION) {logicSaveFile();}
         }
         loadFile();
     }//GEN-LAST:event_LoadSyntaxActionPerformed
@@ -446,7 +446,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_NOperationActionPerformed
     
     private void SaveSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveSyntaxActionPerformed
-        saveFile();
+        logicSaveFile();
     }//GEN-LAST:event_SaveSyntaxActionPerformed
 
     private void NTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NTableActionPerformed
@@ -531,63 +531,6 @@ public class MainWindow extends javax.swing.JFrame {
         this.vars.add(vars);
     }
     
-    private void saveFile() { //quitar extension de nombre de archivo
-        JFileChooser jfc = new JFileChooser();
-        jfc = setFilters(jfc, true, "sintax file (*.stx)", "stx");
-        jfc.setMultiSelectionEnabled(false);
-        jfc.setVisible(true);
-        boolean repeat = true;
-        int Guardar;
-        do {
-            Guardar = jfc.showSaveDialog(this);
-            if(Guardar == JFileChooser.APPROVE_OPTION){
-                if (jfc.getSelectedFile().exists()) {
-                    int res = JOptionPane.showConfirmDialog(this, "file overwrite?",
-                           "WARNING", JOptionPane.YES_NO_OPTION, 
-                           JOptionPane.WARNING_MESSAGE);
-                    if (res == JOptionPane.YES_OPTION) {
-                        repeat = false;
-                        saveCoreFile(jfc, "");
-                    } else {repeat = true;}
-                } else {
-                    repeat = false;
-                    getValidName(jfc.getSelectedFile().toString(), getExtension(jfc.getFileFilter()));
-                    saveCoreFile(jfc, getExtension(jfc.getFileFilter()));
-                }
-            }
-        } while (repeat && !(Guardar == JFileChooser.CANCEL_OPTION));
-    }
-    
-    private String getValidName(String name, String extension) {
-        System.out.println(name.indexOf(extension));
-        return "";
-    }
-    
-    private void saveCoreFile(JFileChooser jfc, String extension) {
-        Object[] what = new Object[2];
-        what[0] = syntaxArea.getText();
-        what[1] = jfc.getSelectedFile().toString() + extension;
-        Controller.controller(Controller.writeOutput, what);           
-        syntaxArea.setText("");        
-    }
-    
-    private String getExtension(FileFilter filter) {
-        int ind = filter.toString().indexOf("extensions=[") + 12;
-        int fin = filter.toString().length()-2;
-        return filter.toString().substring(ind, fin);
-    }
-    
-    private JFileChooser setFilters(JFileChooser jfc, boolean predefined, String comment, String extension) {
-        if (predefined || 
-                !jfc.getFileFilter().getDescription().equalsIgnoreCase("Todos los Archivos")) {
-            jfc.setAcceptAllFileFilterUsed(false);
-        }
-        FileNameExtensionFilter newFilter = new FileNameExtensionFilter(comment, extension);
-        jfc.addChoosableFileFilter(newFilter);
-        if (predefined) {jfc.setFileFilter(newFilter);}
-        return jfc;
-    }
-    
     private void loadFile() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser = setFilters(fileChooser, true, "text without format (*.txt)", "txt");
@@ -611,6 +554,79 @@ public class MainWindow extends javax.swing.JFrame {
             //syntaxArea.setCaretPosition(0);
         }
     }
+    
+    private void saveFile(JFileChooser jfc, String extension) {
+        Object[] what = new Object[2];
+        what[0] = syntaxArea.getText();
+        what[1] = jfc.getSelectedFile().toString() + extension;
+        Controller.controller(Controller.writeOutput, what);           
+        syntaxArea.setText("");        
+    }
+    
+    // <editor-fold defaultstate="collapsed" desc=" Logica de guardado ">
+    private void logicSaveFile() {
+        JFileChooser jfc = new JFileChooser();
+        jfc = setFilters(jfc, true, "sintax file (*.stx)", "stx");
+        jfc.setMultiSelectionEnabled(false);
+        jfc.setVisible(true);
+        boolean repeat = true;
+        int Guardar;
+        do {
+            Guardar = jfc.showSaveDialog(this);
+            if(Guardar == JFileChooser.APPROVE_OPTION){
+                if (jfc.getSelectedFile().exists()) {
+                    int res = JOptionPane.showConfirmDialog(this, "Are you sure to overwrite the file?",
+                           "WARNING", JOptionPane.YES_NO_OPTION, 
+                           JOptionPane.WARNING_MESSAGE);
+                    if (res == JOptionPane.YES_OPTION) {
+                        repeat = false;
+                        saveFile(jfc, "");
+                    } else {repeat = true;}
+                } else {
+                    repeat = false;
+                    jfc.setSelectedFile(new File(getValidName(jfc.getSelectedFile().toString(),
+                            getExtension(jfc.getFileFilter()))));
+                    saveFile(jfc, "." + getExtension(jfc.getFileFilter()));
+                }
+            }
+        } while (repeat && !(Guardar == JFileChooser.CANCEL_OPTION));
+    }
+    // </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc=" metodo de Ayuda de guardado y cargado ">
+    private String getValidName(String name, String extension) {
+        String cleanName = name;
+        String[] splits = name.split("\\.");
+        if (splits.length != 0) {
+            if (splits[splits.length-1].equalsIgnoreCase(extension)) {
+                cleanName = "";
+                for(int i = 0; i < splits.length-2; i++) {
+                    cleanName += splits[i] + ".";
+                }
+                cleanName += splits[splits.length-2];
+            }
+        }
+        System.out.println(cleanName);
+        return cleanName;
+    }
+    
+    private String getExtension(FileFilter filter) {
+        int ind = filter.toString().indexOf("extensions=[") + 12;
+        int fin = filter.toString().length()-2;
+        return filter.toString().substring(ind, fin);
+    }
+    
+    private JFileChooser setFilters(JFileChooser jfc, boolean predefined, String comment, String extension) {
+        if (predefined || 
+                !jfc.getFileFilter().getDescription().equalsIgnoreCase("Todos los Archivos")) {
+            jfc.setAcceptAllFileFilterUsed(false);
+        }
+        FileNameExtensionFilter newFilter = new FileNameExtensionFilter(comment, extension);
+        jfc.addChoosableFileFilter(newFilter);
+        if (predefined) {jfc.setFileFilter(newFilter);}
+        return jfc;
+    }
+    // </editor-fold>
     
     /**
      * @param args the command line arguments
