@@ -560,7 +560,7 @@ public class MainWindow extends javax.swing.JFrame {
         what[0] = syntaxArea.getText();
         what[1] = jfc.getSelectedFile().toString() + extension;
         Controller.controller(Controller.writeOutput, what);           
-        syntaxArea.setText("");        
+        //syntaxArea.setText("");        
     }
     
     // <editor-fold defaultstate="collapsed" desc=" Logica de guardado ">
