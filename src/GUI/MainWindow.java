@@ -563,7 +563,7 @@ public class MainWindow extends javax.swing.JFrame {
         //syntaxArea.setText("");        
     }
     
-    // <editor-fold defaultstate="collapsed" desc=" Logica de guardado ">
+    // <editor-fold defaultstate="collapsed" desc=" Logica e interfaz de guardado ">
     private void logicSaveFile() {
         JFileChooser jfc = new JFileChooser();
         jfc = setFilters(jfc, true, "sintax file (*.stx)", "stx");
