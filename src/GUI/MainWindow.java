@@ -401,7 +401,8 @@ public class MainWindow extends javax.swing.JFrame {
             Object[] what= new Object[1];
             what[0] = fileChooser.getSelectedFile().toString();
             Controller.controller(Controller.readInputSintax, what);
-            SavenLoad = (String)what[0];
+            SavenLoad = getValidName((String)what[0], 
+                    getExtension(fileChooser.getFileFilter()));
             //syntaxArea.setCaretPosition(0);
         }
     }//GEN-LAST:event_LoadSyntaxActionPerformed
