@@ -24,7 +24,8 @@ public class Controller {
     public static final int INSERTBD = 15;
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Final int de Input ">
-    public static final int readInput = 21;
+    public static final int readInputEvent = 21;
+    public static final int readInputSintax = 22;
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Final int de Operaciones ">
     public static final int orderFormat = 31;
@@ -100,8 +101,11 @@ public class Controller {
             case writeOutput:
                 Output.publishOutput(what);
             break;
-            case readInput:
-                Input.readInput(what);
+            case readInputEvent:
+                Input.readInput(Input.Event, what);
+            break;
+            case readInputSintax:
+                Input.readInput(Input.Sintax, what);
             break;
             case createTable:
                 Tablas.createTable(what); break;

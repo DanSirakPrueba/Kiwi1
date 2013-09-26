@@ -64,6 +64,9 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         //setExtendedState(JFrame.MAXIMIZED_BOTH);
         setIconImage(icon);
+        // se utiliza para los botones de cargado y guardado ---
+        deliver.Deliver.setDestination(this);
+        // ---
         vars = new ArrayList<String>();
         editorPaneDocument = syntaxArea.getDocument();
         editorPaneDocument.addUndoableEditListener(undoHandler);
@@ -372,23 +375,13 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoadEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadEventActionPerformed
-        // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt format", "txt");
-        fileChooser.setAcceptAllFileFilterUsed(false);
-        fileChooser.setFileFilter(filter);
-        int seleccion = fileChooser.showOpenDialog(this);
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-            //String storeAllString = "";
-            File fichero = fileChooser.getSelectedFile();
-            // Aquí debemos abrir y leer el fichero.
-            Object[] what;
-            what = new Object[1];
-            what[0] = fichero.toString();
-            try {
-                Controller.controller(Controller.readInput, what);
-            } catch (Exception e) {
-            }
+        fileChooser.setMultiSelectionEnabled(false);
+        fileChooser = setFilters(fileChooser, true, "text without format (*.txt)", "txt");
+        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            Object[] what= new Object[1];
+            what[0] = fileChooser.getSelectedFile().toString();
+            Controller.controller(Controller.readInputEvent, what);
             eventArea.setCaretPosition(0);
         }
     }//GEN-LAST:event_LoadEventActionPerformed
@@ -399,7 +392,17 @@ public class MainWindow extends javax.swing.JFrame {
                     "WARNING", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {logicSaveFile();}
         }
-        loadFile();
+        
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setMultiSelectionEnabled(false);
+        fileChooser = setFilters(fileChooser, true, "text without format (*.txt)", "txt");
+        fileChooser = setFilters(fileChooser, false, "sintax file (*.stx)", "stx");
+        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            Object[] what= new Object[1];
+            what[0] = fileChooser.getSelectedFile().toString();
+            Controller.controller(Controller.readInputSintax, what);
+            //syntaxArea.setCaretPosition(0);
+        }
     }//GEN-LAST:event_LoadSyntaxActionPerformed
 
     private void NVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NVariableActionPerformed
@@ -529,30 +532,6 @@ public class MainWindow extends javax.swing.JFrame {
 
     public void addVars(String vars) {
         this.vars.add(vars);
-    }
-    
-    private void loadFile() {
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser = setFilters(fileChooser, true, "text without format (*.txt)", "txt");
-        fileChooser = setFilters(fileChooser, false, "sintax file (*.stx)", "stx");
-        int seleccion = fileChooser.showOpenDialog(this);
-        fileChooser.setMultiSelectionEnabled(false);
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-            String storeAllString = "";
-            File fichero = fileChooser.getSelectedFile();
-            // Aquí debemos abrir y leer el fichero.
-            try {
-                FileReader readTextFile = new FileReader(fichero.toString());
-                Scanner fileReaderScan = new Scanner(readTextFile);
-                while (fileReaderScan.hasNextLine()) {
-                    String temp = fileReaderScan.nextLine() + "\n";
-                    storeAllString = storeAllString + temp;
-                }
-            } catch (Exception e) {
-            }
-            syntaxArea.setText(storeAllString);
-            //syntaxArea.setCaretPosition(0);
-        }
     }
     
     private void saveFile(JFileChooser jfc, String extension) {
