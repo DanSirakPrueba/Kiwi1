@@ -9,8 +9,6 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.io.File;
-import java.io.FileReader;
-import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.text.Document;
 import javax.swing.undo.*;
@@ -47,6 +45,7 @@ public class MainWindow extends javax.swing.JFrame {
     private Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons2/icon-kiwi.png"));
 
     public ArrayList<String> vars;
+    String SavenLoad;
     
     //<editor-fold defaultstate="collapsed" desc=" Undo & Redo part1 ">
     private Document editorPaneDocument;
@@ -68,6 +67,7 @@ public class MainWindow extends javax.swing.JFrame {
         deliver.Deliver.setDestination(this);
         // ---
         vars = new ArrayList<String>();
+        SavenLoad = "";
         editorPaneDocument = syntaxArea.getDocument();
         editorPaneDocument.addUndoableEditListener(undoHandler);
 
@@ -401,6 +401,7 @@ public class MainWindow extends javax.swing.JFrame {
             Object[] what= new Object[1];
             what[0] = fileChooser.getSelectedFile().toString();
             Controller.controller(Controller.readInputSintax, what);
+            SavenLoad = (String)what[0];
             //syntaxArea.setCaretPosition(0);
         }
     }//GEN-LAST:event_LoadSyntaxActionPerformed
@@ -534,6 +535,8 @@ public class MainWindow extends javax.swing.JFrame {
         this.vars.add(vars);
     }
     
+    //mantener el nombre del cargado para el guardado
+    
     private void saveFile(JFileChooser jfc, String extension) {
         Object[] what = new Object[2];
         what[0] = syntaxArea.getText();
@@ -546,6 +549,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void logicSaveFile() {
         JFileChooser jfc = new JFileChooser();
         jfc = setFilters(jfc, true, "sintax file (*.stx)", "stx");
+        jfc.setSelectedFile(new File(SavenLoad));
         jfc.setMultiSelectionEnabled(false);
         jfc.setVisible(true);
         boolean repeat = true;
@@ -585,7 +589,6 @@ public class MainWindow extends javax.swing.JFrame {
                 cleanName += splits[splits.length-2];
             }
         }
-        System.out.println(cleanName);
         return cleanName;
     }
     
