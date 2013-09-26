@@ -356,6 +356,12 @@ public class NewBBDD extends javax.swing.JDialog {
 
         userSelect.setText("User:");
 
+        userSelectData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userSelectDataActionPerformed(evt);
+            }
+        });
+
         passSelect.setText("Pass:");
 
         conectionCheckSelect.setText("Connection:");
@@ -1241,8 +1247,18 @@ public class NewBBDD extends javax.swing.JDialog {
         String errorString = "";
         Object[] what = new Object[7];
         what[0] = conectionBoolean.isSelected();
-        what[1] = userSelectData.getText();
-        what[2] = passSelectData.getText();
+        if (!userSelectData.getText().equalsIgnoreCase(""))
+            what[1] = userSelectData.getText();
+        else {
+            error = true;
+            errorString += "No user specified";
+        }
+        if (!passSelectData.getText().equalsIgnoreCase(""))
+            what[2] = passSelectData.getText();
+        else {
+            error = true;
+            errorString += "No password specified";
+        }
         what[3] = conectionEnabledSelectData.getText();
         ArrayList resultadoSelect = new ArrayList();
         ArrayList tablaSelect = new ArrayList();
@@ -1294,8 +1310,20 @@ public class NewBBDD extends javax.swing.JDialog {
         String errorString = "";
         Object[] what = new Object[7];
         what[0] = enabledConectionUpdate.isSelected();
-        what[1] = userUpdateData.getText();
-        what[2] = passUpdateData.getText();
+        if (!userUpdateData.getText().equalsIgnoreCase(""))
+            what[1] = userUpdateData.getText();
+        else {
+            error = true;
+            errorString += "No user specified";
+        }
+        
+        if (!passUpdateData.getText().equalsIgnoreCase(""))
+            what[2] = passUpdateData.getText();
+        else {
+            error = true;
+            errorString += "No pass specified";
+        }
+        
         what[3] = conectionUpdateData.getText();
         ArrayList tablaUpdate = new ArrayList();
         ArrayList fieldsUpdate = new ArrayList();
@@ -1424,8 +1452,19 @@ public class NewBBDD extends javax.swing.JDialog {
         String errorString = "";
         Object[] what = new Object[6];
         what[0] = enabledConnectionDelete.isSelected();
-        what[1] = userDeleteData.getText();
-        what[2] = passDeleteData.getText();
+        if (!userDeleteData.getText().equalsIgnoreCase(""))
+            what[1] = userDeleteData.getText();
+        else {
+            error = true;
+            errorString += "No user specified";
+        }
+        if (!passDeleteData.getText().equalsIgnoreCase(""))
+            what[2] = passDeleteData.getText();
+        else {
+            error = true;
+            errorString += "No pass specified";
+        }
+        
         what[3] = conectionFieldDelete.getText();
         what[4] = tableTextDelete.getText();
         if (tableTextDelete.getText().equalsIgnoreCase("")) {
@@ -1452,8 +1491,20 @@ public class NewBBDD extends javax.swing.JDialog {
         String errorString = "";
         Object[] what = new Object[5];
         what[0] = enableConectionquery.isSelected();
-        what[1] = userDataQuery.getText();
-        what[2] = passDataQuery.getText();
+        if (!userDataQuery.getText().equalsIgnoreCase(""))
+            what[1] = userDataQuery.getText();
+        else {
+            error = true;
+            errorString += "No user specified";
+        }
+        
+        if (!passDataQuery.getText().equalsIgnoreCase(""))
+            what[2] = passDataQuery.getText();
+        else {
+            error = true;
+            errorString += "No pass specified";
+        }
+
         what[3] = conectionDataQuery.getText();
         what[4] = queryTextArea.getText();
         if (queryTextArea.getText().equalsIgnoreCase("")) {
@@ -1475,8 +1526,20 @@ public class NewBBDD extends javax.swing.JDialog {
         String errorString = "";
         Object[] what = new Object[7];
         what[0] = enabledConnectionInsert.isSelected();
-        what[1] = userDataInsert.getText();
-        what[2] = passDataInsert.getText();
+        if (!userDataInsert.getText().equalsIgnoreCase(""))
+            what[1] = userDataInsert.getText();
+        else {
+            error = true;
+            errorString += "No user specified";
+        }
+        
+        if (!passDataInsert.getText().equalsIgnoreCase(""))
+            what[2] = passDataInsert.getText();
+        else {
+            error = true;
+            errorString += "No pass specified";
+        }
+
         what[3] = connectionDataInsert.getText();
         ArrayList fieldInsert = new ArrayList();
         ArrayList columnsInsert = new ArrayList();
@@ -1532,6 +1595,10 @@ public class NewBBDD extends javax.swing.JDialog {
         if (fieldsInsertTable.getSelectedRow() != -1)
             model.removeRow(fieldsInsertTable.getSelectedRow());
     }//GEN-LAST:event_deleteRowInsertFieldsActionPerformed
+
+    private void userSelectDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userSelectDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userSelectDataActionPerformed
 
     /**
      * @param args the command line arguments
