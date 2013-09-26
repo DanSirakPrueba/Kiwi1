@@ -1251,13 +1251,13 @@ public class NewBBDD extends javax.swing.JDialog {
             what[1] = userSelectData.getText();
         else {
             error = true;
-            errorString += "No user specified";
+            errorString += "No user specified.\n";
         }
         if (!passSelectData.getText().equalsIgnoreCase(""))
             what[2] = passSelectData.getText();
         else {
             error = true;
-            errorString += "No password specified";
+            errorString += "No password specified.\n";
         }
         what[3] = conectionEnabledSelectData.getText();
         ArrayList resultadoSelect = new ArrayList();
@@ -1268,7 +1268,7 @@ public class NewBBDD extends javax.swing.JDialog {
         }
         if (filas == 0) {
             error = true;
-            errorString += "Result field is not filled.\n";
+            errorString += "Result field is missing.\n";
         }
         what[4] = resultadoSelect;
         filas = tablaSelectTable.getRowCount();
@@ -1277,13 +1277,13 @@ public class NewBBDD extends javax.swing.JDialog {
         }
         if (filas == 0) {
             error = true;
-            errorString += "Table field is not filled.\n";
+            errorString += "Table field is missing.\n";
         }
         what[5] = tablaSelect;
         what[6] = conditionSelectConditionText.getText();
         if (conditionSelectConditionText.getText().equalsIgnoreCase("")) {
             error = true;
-            errorString += "Condition field is not filled.\n";
+            errorString += "Condition field is missing.\n";
         }
         if (!error) {
         Controller.controller(Controller.SELECTBD, what);
@@ -1291,7 +1291,7 @@ public class NewBBDD extends javax.swing.JDialog {
         } else {
             JOptionPane op = new JOptionPane();
             int messagetype = JOptionPane.ERROR_MESSAGE; //JOptionPane.INFORMATION_MESSAGE
-            op.showMessageDialog(this, errorString, "[ERROR] Some fields are not filled", messagetype);
+            op.showMessageDialog(this, errorString, "[ERROR] Some fields are missing", messagetype);
         }
     }//GEN-LAST:event_aceptSelectActionPerformed
 
@@ -1314,14 +1314,14 @@ public class NewBBDD extends javax.swing.JDialog {
             what[1] = userUpdateData.getText();
         else {
             error = true;
-            errorString += "No user specified";
+            errorString += "No user specified.\n";
         }
         
         if (!passUpdateData.getText().equalsIgnoreCase(""))
             what[2] = passUpdateData.getText();
         else {
             error = true;
-            errorString += "No pass specified";
+            errorString += "No pass specified.\n";
         }
         
         what[3] = conectionUpdateData.getText();
@@ -1333,7 +1333,7 @@ public class NewBBDD extends javax.swing.JDialog {
         }
         if (filas == 0) {
             error = true;
-            errorString += "Table field is not filled.\n";
+            errorString += "Table field is missing.\n";
         }
         what[4] = tablaUpdate;
         filas = tableFieldsUpdateFields.getRowCount();
@@ -1342,13 +1342,13 @@ public class NewBBDD extends javax.swing.JDialog {
         }
         if (filas == 0) {
             error = true;
-            errorString += "Field field is not filled.\n";
+            errorString += "Field field is missing.\n";
         }
         what[5] = fieldsUpdate;
         what[6] = conditionTextAreaUpdateCondition.getText();
         if (conditionTextAreaUpdateCondition.getText().equalsIgnoreCase("")) {
             error = true;
-            errorString += "Condition field is not filled.\n";
+            errorString += "Condition field is missing.\n";
         }
         if (!error) {
         Controller.controller(Controller.UPDATEBD, what);
@@ -1356,7 +1356,7 @@ public class NewBBDD extends javax.swing.JDialog {
         } else {
             JOptionPane op = new JOptionPane();
             int messagetype = JOptionPane.ERROR_MESSAGE; //JOptionPane.INFORMATION_MESSAGE
-            op.showMessageDialog(this, errorString, "[ERROR] Some fields are not filled", messagetype);
+            op.showMessageDialog(this, errorString, "[ERROR] Some fields are missing", messagetype);
         }
     }//GEN-LAST:event_acceptButtonUpdateActionPerformed
 
@@ -1456,25 +1456,25 @@ public class NewBBDD extends javax.swing.JDialog {
             what[1] = userDeleteData.getText();
         else {
             error = true;
-            errorString += "No user specified";
+            errorString += "No user specified.\n";
         }
         if (!passDeleteData.getText().equalsIgnoreCase(""))
             what[2] = passDeleteData.getText();
         else {
             error = true;
-            errorString += "No pass specified";
+            errorString += "No pass specified.\n";
         }
         
         what[3] = conectionFieldDelete.getText();
         what[4] = tableTextDelete.getText();
         if (tableTextDelete.getText().equalsIgnoreCase("")) {
             error = true;
-            errorString += "Table field is not filled.\n";
+            errorString += "Table field is missing.\n";
         }
         what[5] = conditionDelete.getText();
         if (conditionDelete.getText().equalsIgnoreCase("")) {
             error = true;
-            errorString += "Condition field is not filled.\n";
+            errorString += "Condition field is missing.\n";
         }
         if (!error) {
         Controller.controller(Controller.DELETEBD, what);
@@ -1482,7 +1482,7 @@ public class NewBBDD extends javax.swing.JDialog {
         } else {
             JOptionPane op = new JOptionPane();
             int messagetype = JOptionPane.ERROR_MESSAGE; //JOptionPane.INFORMATION_MESSAGE
-            op.showMessageDialog(this, errorString, "[ERROR] Some fields are not filled", messagetype);
+            op.showMessageDialog(this, errorString, "[ERROR] Some fields are missing", messagetype);
         }
     }//GEN-LAST:event_acceptButtonDeleteActionPerformed
 
@@ -1495,21 +1495,21 @@ public class NewBBDD extends javax.swing.JDialog {
             what[1] = userDataQuery.getText();
         else {
             error = true;
-            errorString += "No user specified";
+            errorString += "No user specified.\n";
         }
         
         if (!passDataQuery.getText().equalsIgnoreCase(""))
             what[2] = passDataQuery.getText();
         else {
             error = true;
-            errorString += "No pass specified";
+            errorString += "No pass specified.\n";
         }
 
         what[3] = conectionDataQuery.getText();
         what[4] = queryTextArea.getText();
         if (queryTextArea.getText().equalsIgnoreCase("")) {
             error = true;
-            errorString += "Query sentence field is not filled.\n";
+            errorString += "Query sentence field is missing.\n";
         }
         if (!error) {
         Controller.controller(Controller.QUERYBD, what);
@@ -1517,7 +1517,7 @@ public class NewBBDD extends javax.swing.JDialog {
         } else {
             JOptionPane op = new JOptionPane();
             int messagetype = JOptionPane.ERROR_MESSAGE; //JOptionPane.INFORMATION_MESSAGE
-            op.showMessageDialog(this, errorString, "[ERROR] Some fields are not filled", messagetype);
+            op.showMessageDialog(this, errorString, "[ERROR] Some fields are missing", messagetype);
         }
     }//GEN-LAST:event_acceptQueryActionPerformed
 
@@ -1530,14 +1530,14 @@ public class NewBBDD extends javax.swing.JDialog {
             what[1] = userDataInsert.getText();
         else {
             error = true;
-            errorString += "No user specified";
+            errorString += "No user specified.\n";
         }
         
         if (!passDataInsert.getText().equalsIgnoreCase(""))
             what[2] = passDataInsert.getText();
         else {
             error = true;
-            errorString += "No pass specified";
+            errorString += "No pass specified.\n";
         }
 
         what[3] = connectionDataInsert.getText();
@@ -1549,7 +1549,7 @@ public class NewBBDD extends javax.swing.JDialog {
         }
         if (filas == 0) {
             error = true;
-            errorString += "Fields field is not filled.\n";
+            errorString += "Fields field is missing.\n";
         }
         what[4] = fieldInsert;
         filas = tableColumnsInsert.getRowCount();
@@ -1558,13 +1558,13 @@ public class NewBBDD extends javax.swing.JDialog {
         }
         if (filas == 0) {
             error = true;
-            errorString += "Columns field is not filled.\n";
+            errorString += "Columns field is missing.\n";
         }
         what[6] = columnsInsert;
         what[5] = tableDataInsert.getText();
         if (tableDataInsert.getText().equalsIgnoreCase("")) {
             error = true;
-            errorString += "Table field is not filled.\n";
+            errorString += "Table field is missing.\n";
         }
         if (!error) {
         Controller.controller(Controller.INSERTBD, what);
@@ -1572,7 +1572,7 @@ public class NewBBDD extends javax.swing.JDialog {
         } else {
             JOptionPane op = new JOptionPane();
             int messagetype = JOptionPane.ERROR_MESSAGE; //JOptionPane.INFORMATION_MESSAGE
-            op.showMessageDialog(this, errorString, "[ERROR] Some fields are not filled", messagetype);
+            op.showMessageDialog(this, errorString, "[ERROR] Some fields are not missing", messagetype);
         }
     }//GEN-LAST:event_acceptButtonInsertActionPerformed
 
