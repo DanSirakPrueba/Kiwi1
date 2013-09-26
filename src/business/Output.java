@@ -20,7 +20,7 @@ public class Output {
 	public static void publishOutput(Object[] what) {
         //String text, String title.
             String text = (String)what[0];
-            String file = (String)what[1];// + "." + (String)what[2];
+            String file = (String)what[1];
             FileWriter w = null;
             try {
               w = new FileWriter(file);

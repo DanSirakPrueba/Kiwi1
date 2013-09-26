@@ -396,7 +396,7 @@ public class MainWindow extends javax.swing.JFrame {
 	private void LoadSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadSyntaxActionPerformed
         if (!syntaxArea.getText().equalsIgnoreCase("")) {
             int res = JOptionPane.showConfirmDialog(this, "Save sintax file?", 
-                    "", JOptionPane.YES_NO_OPTION);
+                    "WARNING", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (res == 0) {saveFile();}
         }
         loadFile();
@@ -531,27 +531,55 @@ public class MainWindow extends javax.swing.JFrame {
         this.vars.add(vars);
     }
     
-    private void saveFile() { // CUIDADO EN SOBRE SOBRE ESCRITURA
+    private void saveFile() { //quitar extension de nombre de archivo
         JFileChooser jfc = new JFileChooser();
         jfc = setFilters(jfc, true, "sintax file (*.stx)", "stx");
         jfc.setMultiSelectionEnabled(false);
         jfc.setVisible(true);
-        if(JFileChooser.APPROVE_OPTION == jfc.showSaveDialog(this)){
-           Object[] what = new Object[3];
-           what[0] = syntaxArea.getText();
-           what[1] = jfc.getSelectedFile().toString();
-           //what[2] = getExtension(jfc.getFileFilter());
-           Controller.controller(Controller.writeOutput, what);
-        }
+        boolean repeat = true;
+        int Guardar;
+        do {
+            Guardar = jfc.showSaveDialog(this);
+            if(Guardar == JFileChooser.APPROVE_OPTION){
+                if (jfc.getSelectedFile().exists()) {
+                    int res = JOptionPane.showConfirmDialog(this, "file overwrite?",
+                           "WARNING", JOptionPane.YES_NO_OPTION, 
+                           JOptionPane.WARNING_MESSAGE);
+                    if (res == JOptionPane.YES_OPTION) {
+                        repeat = false;
+                        saveCoreFile(jfc, "");
+                    } else {repeat = true;}
+                } else {
+                    repeat = false;
+                    getValidName(jfc.getSelectedFile().toString(), getExtension(jfc.getFileFilter()));
+                    saveCoreFile(jfc, getExtension(jfc.getFileFilter()));
+                }
+            }
+        } while (repeat && !(Guardar == JFileChooser.CANCEL_OPTION));
+    }
+    
+    private String getValidName(String name, String extension) {
+        System.out.println(name.indexOf(extension));
+        return "";
+    }
+    
+    private void saveCoreFile(JFileChooser jfc, String extension) {
+        Object[] what = new Object[2];
+        what[0] = syntaxArea.getText();
+        what[1] = jfc.getSelectedFile().toString() + extension;
+        Controller.controller(Controller.writeOutput, what);           
+        syntaxArea.setText("");        
     }
     
     private String getExtension(FileFilter filter) {
         int ind = filter.toString().indexOf("extensions=[") + 12;
-        return filter.toString().substring(ind, ind+3);
+        int fin = filter.toString().length()-2;
+        return filter.toString().substring(ind, fin);
     }
     
     private JFileChooser setFilters(JFileChooser jfc, boolean predefined, String comment, String extension) {
-        if (predefined || !jfc.getFileFilter().getDescription().equalsIgnoreCase("Todos los Archivos")) {
+        if (predefined || 
+                !jfc.getFileFilter().getDescription().equalsIgnoreCase("Todos los Archivos")) {
             jfc.setAcceptAllFileFilterUsed(false);
         }
         FileNameExtensionFilter newFilter = new FileNameExtensionFilter(comment, extension);
