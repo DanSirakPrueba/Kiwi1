@@ -17,6 +17,7 @@ public class Main {
      */
     public static void main(String[] args) {
         String Style = "Nimbus";
+        //String Style = "Metal";
         //String Style = "Windows";
         //<editor-fold defaultstate="collapsed" desc=" Carga estilo de Interfaz ">
         try {
