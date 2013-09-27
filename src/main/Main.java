@@ -16,10 +16,12 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        String Style = "Nimbus";
+        //String Style = "Windows";
         //<editor-fold defaultstate="collapsed" desc=" Carga estilo de Interfaz ">
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if (Style.equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
