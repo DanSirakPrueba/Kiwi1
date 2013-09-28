@@ -69,7 +69,7 @@ public class NewVariable extends javax.swing.JDialog {
         otherText = new javax.swing.JRadioButton();
         otherField = new javax.swing.JTextField();
         add = new javax.swing.JToggleButton();
-        delete = new javax.swing.JButton();
+        clear = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -79,6 +79,11 @@ public class NewVariable extends javax.swing.JDialog {
         jTabbedPane1.setName("Hola"); // NOI18N
 
         name1.setToolTipText("New Variable Name");
+        name1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Name");
 
@@ -131,6 +136,12 @@ public class NewVariable extends javax.swing.JDialog {
         });
 
         jLabel4.setText("Init");
+
+        init.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                initActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("End");
 
@@ -264,10 +275,10 @@ public class NewVariable extends javax.swing.JDialog {
             }
         });
 
-        delete.setText("Delete");
-        delete.addActionListener(new java.awt.event.ActionListener() {
+        clear.setText("Clear");
+        clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteActionPerformed(evt);
+                clearActionPerformed(evt);
             }
         });
 
@@ -287,7 +298,7 @@ public class NewVariable extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(delete, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                    .addComponent(clear, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                     .addComponent(cancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -299,7 +310,7 @@ public class NewVariable extends javax.swing.JDialog {
                         .addContainerGap(50, Short.MAX_VALUE)
                         .addComponent(add)
                         .addGap(18, 18, 18)
-                        .addComponent(delete)
+                        .addComponent(clear)
                         .addGap(18, 18, 18)
                         .addComponent(cancel))
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -330,7 +341,7 @@ public class NewVariable extends javax.swing.JDialog {
         opFocus(otherField, preText, c, postText);
     }//GEN-LAST:event_otherFieldFocusGained
 
-    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
         // TODO add your handling code here:
         
         //Cuando la pestaña de Nueva Variable desde cero está seleccionada:
@@ -348,7 +359,7 @@ public class NewVariable extends javax.swing.JDialog {
             otherField.setText("...");
         }
         
-    }//GEN-LAST:event_deleteActionPerformed
+    }//GEN-LAST:event_clearActionPerformed
 
     private void otherFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherFieldFocusLost
         // TODO add your handling code here:
@@ -369,6 +380,7 @@ public class NewVariable extends javax.swing.JDialog {
 
     private void valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueActionPerformed
         InsertVar();
+        name1.requestFocus();
     }//GEN-LAST:event_valueActionPerformed
 
     private void name2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name2ActionPerformed
@@ -377,11 +389,22 @@ public class NewVariable extends javax.swing.JDialog {
 
     private void endActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endActionPerformed
         InsertVar();
+        name2.requestFocus();
     }//GEN-LAST:event_endActionPerformed
 
     private void otherFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherFieldActionPerformed
         InsertVar();
+        name2.requestFocus();
     }//GEN-LAST:event_otherFieldActionPerformed
+
+    private void name1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name1ActionPerformed
+        InsertVar();
+    }//GEN-LAST:event_name1ActionPerformed
+
+    private void initActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initActionPerformed
+        InsertVar();
+        name2.requestFocus();
+    }//GEN-LAST:event_initActionPerformed
     
     private void opFocus(JTextField jtf, String preText, Color c, String postText) {
         if (jtf.getText().equalsIgnoreCase(preText)) {
@@ -452,8 +475,8 @@ public class NewVariable extends javax.swing.JDialog {
     private javax.swing.JRadioButton absolute;
     private javax.swing.JToggleButton add;
     private javax.swing.JButton cancel;
+    private javax.swing.JButton clear;
     private javax.swing.JRadioButton dToggle;
-    private javax.swing.JButton delete;
     private javax.swing.JTextField end;
     private javax.swing.ButtonGroup grupoBotones1;
     private javax.swing.ButtonGroup grupoBotones2;

@@ -66,6 +66,8 @@ public class MainWindow extends javax.swing.JFrame {
         // se utiliza para los botones de cargado y guardado ---
         deliver.Deliver.setDestination(this);
         // ---
+        eventArea.setEditable(false);
+        eventArea.setForeground(Gray);
         vars = new ArrayList<String>();
         SavenLoad = "";
         editorPaneDocument = syntaxArea.getDocument();
@@ -191,6 +193,7 @@ public class MainWindow extends javax.swing.JFrame {
         LoadEvent = new javax.swing.JButton();
         LoadSyntax = new javax.swing.JButton();
         SaveSyntax = new javax.swing.JButton();
+        CerrarSintax = new javax.swing.JButton();
         NVariable = new javax.swing.JButton();
         NOperation = new javax.swing.JButton();
         NDataBase = new javax.swing.JButton();
@@ -203,12 +206,17 @@ public class MainWindow extends javax.swing.JFrame {
         DireccionEvent = new javax.swing.JLabel();
         AlcatelLogo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("KiwiSyntaxManager");
         setFocusCycleRoot(false);
         setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(922, 494));
         setPreferredSize(new java.awt.Dimension(922, 494));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jSplitPane1.setResizeWeight(0.5);
         jSplitPane1.setPreferredSize(new java.awt.Dimension(339, 407));
@@ -248,6 +256,14 @@ public class MainWindow extends javax.swing.JFrame {
         SaveSyntax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaveSyntaxActionPerformed(evt);
+            }
+        });
+
+        CerrarSintax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/cross.png"))); // NOI18N
+        CerrarSintax.setToolTipText("Sintax close");
+        CerrarSintax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarSintaxActionPerformed(evt);
             }
         });
 
@@ -311,9 +327,11 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(470, 20));
 
         DireccionSintax.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DireccionSintax.setText("<Empty>");
         DireccionSintax.setPreferredSize(new java.awt.Dimension(34, 20));
 
         DireccionEvent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DireccionEvent.setText("<Empty>");
         DireccionEvent.setToolTipText("");
         DireccionEvent.setPreferredSize(new java.awt.Dimension(34, 20));
 
@@ -322,20 +340,18 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(DireccionEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DireccionSintax, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(DireccionEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(DireccionSintax, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(DireccionSintax, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(DireccionEvent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(DireccionSintax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(DireccionEvent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         AlcatelLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AlcatelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons2/Alcatel-LucentMini.png"))); // NOI18N
-        AlcatelLogo.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -347,6 +363,8 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(LoadSyntax, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SaveSyntax, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CerrarSintax, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -361,7 +379,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(deshacer, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rehacer, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 378, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 348, Short.MAX_VALUE)
                 .addComponent(AlcatelLogo))
             .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 922, Short.MAX_VALUE)
@@ -369,20 +387,21 @@ public class MainWindow extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(LoadEvent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SaveSyntax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NVariable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NOperation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NDataBase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(editar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deshacer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rehacer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LoadSyntax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AlcatelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(LoadEvent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SaveSyntax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(NVariable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(NOperation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(NDataBase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(NTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(deshacer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(rehacer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LoadSyntax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(AlcatelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(CerrarSintax))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -405,23 +424,20 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LoadEventActionPerformed
 	
-	private void LoadSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadSyntaxActionPerformed
-        if (!syntaxArea.getText().equalsIgnoreCase("")) {
-            int res = JOptionPane.showConfirmDialog(this, "Save sintax file?", 
-                    "WARNING", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {logicSaveFile();}
-        }
-        
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setMultiSelectionEnabled(false);
-        fileChooser = setFilters(fileChooser, true, "text without format (*.txt)", "txt");
-        fileChooser = setFilters(fileChooser, false, "sintax file (*.stx)", "stx");
-        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            Object[] what= new Object[1];
-            what[0] = fileChooser.getSelectedFile().toString();
-            Controller.controller(Controller.readInputSintax, what);
-            DireccionSintax.setText((String) what[0]);
-            //syntaxArea.setCaretPosition(0);
+    private void LoadSyntaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadSyntaxActionPerformed
+        if (Cerrar()) {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setMultiSelectionEnabled(false);
+            fileChooser = setFilters(fileChooser, true, "text without format (*.txt)", "txt");
+            fileChooser = setFilters(fileChooser, false, "sintax file (*.stx)", "stx");
+            if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+                syntaxArea.setText("");
+                Object[] what= new Object[1];
+                what[0] = fileChooser.getSelectedFile().toString();
+                Controller.controller(Controller.readInputSintax, what);
+                DireccionSintax.setText((String) what[0]);
+                //syntaxArea.setCaretPosition(0);
+            }
         }
     }//GEN-LAST:event_LoadSyntaxActionPerformed
 
@@ -486,6 +502,31 @@ public class MainWindow extends javax.swing.JFrame {
         jd.setLocationRelativeTo(this);
         jd.setVisible(true);
     }//GEN-LAST:event_NDataBaseActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        if (Cerrar()) {System.exit(0);}
+    }//GEN-LAST:event_formWindowClosing
+
+    private void CerrarSintaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarSintaxActionPerformed
+        if (Cerrar()) {
+            syntaxArea.setText("");
+            DireccionSintax.setText("<Empty>");
+        }
+    }//GEN-LAST:event_CerrarSintaxActionPerformed
+      
+    private boolean Cerrar() { 
+        boolean gc = true;
+        if (!syntaxArea.getText().equalsIgnoreCase("")) {
+            int res = JOptionPane.showConfirmDialog(this, "Save sintax file?", 
+                    "WARNING", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+            if (res == JOptionPane.YES_OPTION) {
+                logicSaveFile();
+            } else if (res == JOptionPane.CANCEL_OPTION) {
+                gc = false;
+            }
+        }
+        return gc;
+    }
     
     private JTextField oldColName;
     private JTextField newColName;
@@ -520,7 +561,7 @@ public class MainWindow extends javax.swing.JFrame {
                 //Area.insert("\n", Area.getCaretPosition());
                 bs = "\n";
             }
-        } catch (BadLocationException ex) {
+        } catch (Exception ex) {
             //Area.insert("\n", Area.getCaretPosition());
             bs = "\n";
         }
@@ -560,7 +601,8 @@ public class MainWindow extends javax.swing.JFrame {
         Object[] what = new Object[2];
         what[0] = syntaxArea.getText();
         what[1] = jfc.getSelectedFile().toString() + extension;
-        Controller.controller(Controller.writeOutput, what);           
+        Controller.controller(Controller.writeOutput, what);   
+        DireccionSintax.setText((String) what[1]);
         //syntaxArea.setText("");        
     }
     
@@ -664,6 +706,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AlcatelLogo;
+    private javax.swing.JButton CerrarSintax;
     private javax.swing.JLabel DireccionEvent;
     private javax.swing.JLabel DireccionSintax;
     private javax.swing.JButton LoadEvent;
