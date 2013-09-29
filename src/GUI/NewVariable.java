@@ -42,8 +42,6 @@ public class NewVariable extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
         grupoBotones1 = new javax.swing.ButtonGroup();
         grupoBotones2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
@@ -76,7 +74,7 @@ public class NewVariable extends javax.swing.JDialog {
         setPreferredSize(new java.awt.Dimension(421, 210));
         setResizable(false);
 
-        jTabbedPane1.setName("Hola"); // NOI18N
+        jTabbedPane1.setName(""); // NOI18N
 
         name1.setToolTipText("New Variable Name");
         name1.addActionListener(new java.awt.event.ActionListener() {
@@ -491,8 +489,6 @@ public class NewVariable extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTextField name1;
     private javax.swing.JTextField name2;
     private javax.swing.JTextField otherField;

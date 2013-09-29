@@ -14,6 +14,7 @@ import javax.swing.text.Document;
 import javax.swing.undo.*;
 import controller.Controller;
 import java.awt.Image;
+import java.awt.Point;
 import java.util.ArrayList;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -24,6 +25,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
 import javax.swing.filechooser.FileFilter;
@@ -436,7 +438,6 @@ public class MainWindow extends javax.swing.JFrame {
                 what[0] = fileChooser.getSelectedFile().toString();
                 Controller.controller(Controller.readInputSintax, what);
                 DireccionSintax.setText((String) what[0]);
-                //syntaxArea.setCaretPosition(0);
             }
         }
     }//GEN-LAST:event_LoadSyntaxActionPerformed
@@ -538,9 +539,8 @@ public class MainWindow extends javax.swing.JFrame {
         String bs = "";
         int act = Area.getCaretPosition();
         try {
-            String sig = Area.getText(act - 1, 1);
-            if (!sig.equalsIgnoreCase("\n")) {
-                //Area.insert("\n", Area.getCaretPosition());
+            String ant = Area.getText(act - 1, 1);
+            if (!ant.equalsIgnoreCase("\n")) {
                 bs = "\n";
             }
         } catch (BadLocationException ex) {}
@@ -550,21 +550,17 @@ public class MainWindow extends javax.swing.JFrame {
     private String postMakeRoom(javax.swing.JTextArea Area) {
         String bs = "";
         int act = Area.getCaretPosition();
-        //Area.setCaretPosition(Area.getDocument().getLength());
-        //int fin = Area.getCaretPosition();
-        Area.setCaretPosition(act);
         try {
             String sig = Area.getText(act, 1);
             if (sig.equalsIgnoreCase("\n")) {
                 Area.setCaretPosition(Area.getCaretPosition() + 1);
             } else {
-                //Area.insert("\n", Area.getCaretPosition());
                 bs = "\n";
             }
         } catch (Exception ex) {
-            //Area.insert("\n", Area.getCaretPosition());
             bs = "\n";
         }
+        Area.setCaretPosition(act);
         return bs;
     }
 
@@ -576,10 +572,8 @@ public class MainWindow extends javax.swing.JFrame {
      * @param str String
      */
     private void insertText(javax.swing.JTextArea Area, String str) {
-        //System.out.println("pre>" + preMakeRoom(Area) + "<");
-        Area.insert(preMakeRoom(Area) + str, Area.getCaretPosition());
-        //System.out.println("pos>" + postMakeRoom(Area) + "<");
-        Area.insert(postMakeRoom(Area), Area.getCaretPosition());
+        Area.insert(preMakeRoom(Area) + str + postMakeRoom(Area), 
+                Area.getCaretPosition());
     }
     //</editor-fold>
     
