@@ -9,6 +9,7 @@ import deliver.Deliver;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -227,10 +228,17 @@ public class NewTable extends javax.swing.JDialog {
     private void acceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonActionPerformed
         // TODO add your handling code here:
         Object[] what;
+        boolean error = false;
+        String msg = "";
         what = new Object[5];
-        what[0] = tableName.getText();
+        if (!tableName.getText().equalsIgnoreCase("")) what[0] = tableName.getText();
+        else{
+            error = true;
+            msg += "There must be a table name\n";
+        }
         int column = 0;
         int filas = addedTable.getRowCount();
+        if (filas != 0) {
         ArrayList matches = new ArrayList();
         ArrayList names = new ArrayList();
         ArrayList types = new ArrayList();
@@ -252,9 +260,22 @@ public class NewTable extends javax.swing.JDialog {
         what[2] = names;
         what[3] = types;
         what[4] = optional;
-        Controller.controller(Controller.createTable, what);
-        tableName.setText("");
-        this.dispose();
+        }
+        else {
+            error = true;
+            msg += "There is no column specified\n";
+        }
+        if (!error) {
+            Controller.controller(Controller.createTable, what);
+            tableName.setText("");
+            this.dispose();
+        }
+        else {
+            JOptionPane op = new JOptionPane();
+            int messagetype = JOptionPane.ERROR_MESSAGE; 
+            op.showMessageDialog(this, msg, "[ERROR] Some fields are missing", messagetype);
+        }
+        
     }//GEN-LAST:event_acceptButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
